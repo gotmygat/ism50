@@ -1,0 +1,200 @@
+[
+  {
+    "slug": "the-first-amm-proposal",
+    "era": "defiSummer",
+    "kind": "primarySource",
+    "cluster": "The primitives",
+    "title": "The Post That Proposed Replacing the Order Book With a Formula",
+    "seoTitle": "The Post That Proposed the AMM",
+    "description": "A short public proposal suggested pricing trades with a formula against a pool instead of matching buyers to sellers, and it worked.",
+    "lede": "The idea that replaced the order book was published as a forum post, not as a paper.",
+    "angle": "Built around the published proposal and the discussion around it, establishing what was actually suggested, what objections were raised at the time and which of them turned out to matter. Argue that the informality of the origin is characteristic of this whole era, where consequential financial infrastructure was designed in public in short documents by people who were not financial engineers. Note the earlier academic and prediction market work that anticipated parts of it, with citations rather than assertions. The piece must not quote the proposal without the archived text in hand, must not claim priority for any individual over any other, and must not state any volume or usage figure.",
+    "pref": [
+      "order-books-without-market-makers",
+      "the-token-standard",
+      "constant-product-is-an-inequality"
+    ]
+  },
+  {
+    "slug": "the-constant-product-mechanism",
+    "era": "defiSummer",
+    "kind": "explainer",
+    "cluster": "The primitives",
+    "title": "How a Pool With No Buyer on the Other Side Quotes a Price",
+    "seoTitle": "How an Automated Market Maker Prices Trades",
+    "description": "A pool holding two assets under an invariant produces a quote for any size trade, with slippage that rises as the trade gets larger.",
+    "lede": "The pool always quotes, and the price it quotes gets worse the more you want.",
+    "angle": "Makes the mechanism comprehensible: two assets in a pool, an invariant that must hold after every trade, and the resulting property that a price exists for any size while large trades move it against the trader. Argue that the genuine innovation is availability rather than efficiency, since the pool will always trade and an order book will not, and that this is what made long tail assets tradable. Explain the arbitrage relationship that keeps the pool aligned with external markets, because without it the mechanism makes no sense. The piece must not include any worked numeric example that implies a real market, must not state fee levels or returns, and must not describe providing liquidity as an activity a reader should consider. Do not restate the point that the invariant is enforced as an inequality on fee adjusted balances, which the published constant product piece already establishes, and link to it rather than repeating it.",
+    "pref": [
+      "the-first-amm-proposal",
+      "order-books-without-market-makers",
+      "constant-product-is-an-inequality"
+    ]
+  },
+  {
+    "slug": "impermanent-loss-explained",
+    "era": "defiSummer",
+    "kind": "explainer",
+    "cluster": "The primitives",
+    "title": "The Badly Named Effect That Determines Whether Pooling Made Sense",
+    "seoTitle": "Impermanent Loss, Explained Without the Name",
+    "description": "Supplying two assets to a pool produces a different outcome than holding them, and the difference depends only on how the prices diverge.",
+    "lede": "The name is wrong in both words, and the effect underneath it is straightforward.",
+    "angle": "Explains the mechanism structurally: the pool rebalances continuously as the relative price moves, so a supplier ends up holding more of whichever asset fell, and the resulting position differs from simply holding. Argue that the term is one of the industry's worst pieces of naming, since the effect is neither impermanent nor a loss in the ordinary sense, and that the naming did real damage to comprehension. Keep the explanation entirely mechanical and comparative. The piece must not quantify the effect with figures, must not compare it to fee income as though evaluating a decision, must not tell a reader when pooling is worthwhile, and must not use the word yield in any recommending sense.",
+    "pref": [
+      "the-constant-product-mechanism"
+    ]
+  },
+  {
+    "slug": "lending-pools-and-overcollateralisation",
+    "era": "defiSummer",
+    "kind": "explainer",
+    "cluster": "The primitives",
+    "title": "Lending Without Knowing Who You Are Lending To",
+    "seoTitle": "How On Chain Lending Pools Actually Work",
+    "description": "Anonymous lending is only possible if the borrower posts more than they take, which limits what the system can be used for.",
+    "lede": "If you cannot assess the borrower, the only thing left to rely on is the collateral.",
+    "angle": "Explains the design constraint that shapes everything: without identity, credit history or legal recourse, a lender can only rely on collateral worth more than the loan, which makes the system useful for leverage and useless for credit. Argue that this is the sharpest limitation of the entire era and that the repeated attempts to escape it, through reputation systems and undercollateralised pools, are where most of the losses happened. Commit to the position that a system without recourse cannot extend credit, only liquidity. The piece must not state rates or ratios, must not describe borrowing or lending as something a reader might do, must not name protocols, and must not present any collateral arrangement as safe.",
+    "pref": [
+      "the-constant-product-mechanism",
+      "escrow-and-reputation-without-law"
+    ]
+  },
+  {
+    "slug": "liquidation-mechanics",
+    "era": "defiSummer",
+    "kind": "explainer",
+    "cluster": "The primitives",
+    "title": "Liquidation Is an Auction Run by Strangers Against a Clock",
+    "seoTitle": "How On Chain Liquidations Actually Work",
+    "description": "When collateral falls below a threshold the position must be closed by third parties incentivised to do it, and the incentive design is everything.",
+    "lede": "Nobody is watching your position except the people paid to close it.",
+    "angle": "Explains the mechanism: a health threshold, a public signal, an incentive paid to whoever executes the liquidation, and the assumption that competition among liquidators produces prompt execution. Argue that the design works well in ordinary conditions and has a known failure mode under congestion, when the same conditions that trigger liquidations also make executing them expensive or impossible. Connect it to the site's thesis directly, since a liquidation cascade is a threshold crossing that is visible in advance and unstoppable once begun. The piece must not state thresholds, penalties or historical cascade sizes, must not describe liquidation as a strategy, and must not offer any reader guidance on managing a position.",
+    "pref": [
+      "lending-pools-and-overcollateralisation"
+    ]
+  },
+  {
+    "slug": "oracles-the-hardest-problem",
+    "era": "defiSummer",
+    "kind": "explainer",
+    "cluster": "The primitives",
+    "title": "The Chain Cannot See Outside Itself, and Everything Depends on What It Is Told",
+    "seoTitle": "Oracles: The Hardest Problem in DeFi",
+    "description": "A deterministic machine has no access to external information, so every price it uses arrives through a mechanism someone designed and someone can attack.",
+    "lede": "The contract knows nothing except what somebody puts on the chain for it to read.",
+    "angle": "Explains the problem and the families of answers: single reporters, committees, on chain market prices, and time weighted averages, and states the specific attack each is vulnerable to. Argue that this is the genuine unsolved problem of the era and that every approach trades manipulation resistance against latency, which is a real and permanent tension rather than an engineering gap. Establish that a large share of the exploits later on this site are oracle problems wearing a different label. The piece must not present any oracle design as secure, must not name providers, must not describe manipulation techniques operationally, and must not state any figure for losses.",
+    "pref": [
+      "the-evm-explained",
+      "liquidation-mechanics",
+      "the-constant-product-mechanism"
+    ]
+  },
+  {
+    "slug": "flash-loans-what-they-actually-are",
+    "era": "defiSummer",
+    "kind": "explainer",
+    "cluster": "The primitives",
+    "title": "Borrowing Without Collateral Works If You Must Repay in the Same Transaction",
+    "seoTitle": "Flash Loans, Explained Properly",
+    "description": "A loan that is void unless repaid before the transaction ends removes credit risk entirely, and creates a very different set of problems.",
+    "lede": "If the whole thing unwinds unless you repay, there is no credit risk and no reason to check who you are.",
+    "angle": "Explains the mechanism cleanly: atomic execution means a transaction either completes entirely or does not happen, so a loan repaid within the same transaction carries no default risk and requires no collateral or identity. Argue that this is a genuine and elegant invention with no analogue in conventional finance, and that its reputation as a hacking tool confuses the loan with the vulnerability it makes cheap to exploit. Commit to the position that flash loans do not create vulnerabilities, they remove the capital requirement for exploiting existing ones. The piece must not describe any exploit operationally, must not name incidents or state amounts, and must not present flash loans as something a reader could or should use.",
+    "pref": [
+      "lending-pools-and-overcollateralisation",
+      "oracles-the-hardest-problem"
+    ]
+  },
+  {
+    "slug": "composability-and-the-lego-claim",
+    "era": "defiSummer",
+    "kind": "postmortem",
+    "cluster": "The primitives",
+    "title": "Composability Is a Feature and a Shared Fate",
+    "seoTitle": "Composability: The Feature and the Shared Fate",
+    "description": "Protocols calling each other permissionlessly produced fast innovation and an interdependence nobody mapped or could shut off.",
+    "lede": "Anything can call anything, which is why it was built so fast and why it broke together.",
+    "angle": "Follows the correlated failures of this era to a shared cause: a contract can use another without permission or integration, producing a dependency graph that nobody maintains and nobody can see in full. Argue that the marketing image of interlocking blocks obscured that the connections are load bearing and untested under stress, and that the correlated failures of the era are the direct evidence. Take a clear position that permissionless integration is a real advance and that the absence of any dependency inventory was a serious and avoidable failure. The piece must not name protocols or incidents, must not state values at risk, and must not describe any integration as safe.",
+    "pref": [
+      "oracles-the-hardest-problem",
+      "flash-loans-what-they-actually-are"
+    ]
+  },
+  {
+    "slug": "liquidity-mining-as-customer-acquisition",
+    "era": "defiSummer",
+    "kind": "timeline",
+    "cluster": "The primitives",
+    "title": "Paying Users to Show Up, Priced in a Token You Print",
+    "seoTitle": "Liquidity Mining as Customer Acquisition",
+    "description": "Distributing a new token to users who supply capital is a marketing spend denominated in an asset the issuer creates, and the incentives are obvious.",
+    "lede": "The customer acquisition budget was denominated in something the company could print.",
+    "angle": "Sequences the arrival and spread of incentive distribution programmes and analyses them as what they were, a marketing cost paid in newly issued tokens rather than a return generated by the business. Argue that this made customer acquisition appear free and made retention impossible to measure, since the population attracted by an incentive leaves when the incentive does. Read it against the threshold, since deposits expanded on incentives and contracted the moment they were withdrawn, which is a measurement of the incentive rather than of the product. The piece must not state incentive rates, deposit figures or returns, must not name programmes, and must not describe participation as available or advisable to a reader.",
+    "pref": [
+      "the-airdrop",
+      "composability-and-the-lego-claim"
+    ]
+  },
+  {
+    "slug": "governance-tokens-as-distribution",
+    "era": "defiSummer",
+    "kind": "postmortem",
+    "cluster": "The primitives",
+    "title": "The Governance Token Solved a Distribution Problem, Not a Governance One",
+    "seoTitle": "What Governance Tokens Were Actually For",
+    "description": "Issuing a token framed as governance created something to distribute while avoiding the language of an investment, and governance came second.",
+    "lede": "The governance framing arrived because something had to be handed out and it could not look like a share.",
+    "angle": "Follows the shortfall between what governance tokens promised and what they delivered to its cause: a token conferring voting rights can be distributed to users without an obvious offering, which solved bootstrapping and positioning before it solved governance. Argue that the governance rights were frequently thin, over parameters that mattered little, and that the actual function was distribution and alignment signalling. Present the counterargument, that some of these systems developed real and consequential governance, and note where it applies. The piece must not name tokens, must not state distributions or holdings, must not comment on the legal characterisation of any token, and must not advise readers.",
+    "pref": [
+      "liquidity-mining-as-customer-acquisition",
+      "the-utility-token-theory"
+    ]
+  },
+  {
+    "slug": "ordering-value-and-front-running",
+    "era": "defiSummer",
+    "kind": "profile",
+    "cluster": "The primitives",
+    "title": "Whoever Orders the Transactions Can Take a Cut of Every One",
+    "seoTitle": "Transaction Ordering and Extractable Value",
+    "description": "The right to decide sequence within a block has measurable value, and the industry took years to admit this was structural rather than an abuse.",
+    "lede": "The sequence of transactions in a block is worth money, and somebody always chooses it.",
+    "angle": "A profile of the block builder and the searcher as roles that did not exist before: block producers choose ordering, ordering affects outcomes for pending transactions, and that discretion is therefore an asset somebody captures. Argue that the reframing from an abuse to be stopped into a structural property to be managed is one of the more intellectually honest turns in this history, and that the resulting infrastructure changed who captures the value rather than whether it exists. Connect back to the earlier point about pool operators building block templates. The piece must not describe extraction techniques operationally, must not state extracted values, must not name searchers or builders, and must not present any mitigation as effective.",
+    "pref": [
+      "what-a-pool-operator-controls",
+      "composability-and-the-lego-claim"
+    ]
+  },
+  {
+    "slug": "the-anonymous-team-norm",
+    "era": "defiSummer",
+    "kind": "profile",
+    "cluster": "The primitives",
+    "title": "Building Under a Pseudonym Became Normal, and the Trade Offs Are Real",
+    "seoTitle": "The Norm of Building Under a Pseudonym",
+    "description": "A significant share of this era's infrastructure was built by people using pseudonyms, which changed accountability in both directions.",
+    "lede": "A lot of what people trusted with real money was written by people whose names nobody knew.",
+    "angle": "A group profile of a practice rather than of individuals: why builders adopted pseudonyms, what it protected them from, and what it removed for users, which is any recourse and any reputational cost for abandonment. Argue that the practice inherits directly from the earliest era of this site and that the difference is scale, since pseudonymous publishing of ideas is not the same as pseudonymous custody of capital. Present the strongest defence of the norm alongside its cost. The piece must not attempt to identify any pseudonymous person, must not repeat any speculation about anyone's identity, must not name any project, and must not characterise pseudonymity as a warning sign.",
+    "pref": [
+      "the-cypherpunks-list",
+      "the-authorship-question",
+      "composability-and-the-lego-claim"
+    ]
+  },
+  {
+    "slug": "why-defi-worked-at-all",
+    "era": "defiSummer",
+    "kind": "timeline",
+    "cluster": "The primitives",
+    "title": "The Pieces Arrived in an Order That Made the Whole Thing Possible",
+    "seoTitle": "Why the DeFi Pieces Fitted Together",
+    "description": "Stable units of account, a token standard, pooled market making and lending arrived in a sequence where each unlocked the next.",
+    "lede": "None of the pieces was useful alone, and the order they arrived in is the reason it worked.",
+    "angle": "Sequences the dependencies rather than the launches: a widely accepted stable unit made pricing possible, the token standard made integration free, pooled market making made anything tradable, and lending made positions financeable. Argue that this ordering explains why earlier attempts at on chain finance went nowhere despite similar ideas, and that the enabling condition was infrastructure rather than insight. Read the threshold honestly, noting that the same composability that made the expansion fast made the contraction correlated. The piece must not state total value figures for any period, must not name protocols, must not present the sequence as inevitable, and must not describe the period as a success or a bubble in valuation terms.",
+    "pref": [
+      "composability-and-the-lego-claim",
+      "the-token-standard",
+      "liquidity-mining-as-customer-acquisition"
+    ]
+  }
+]

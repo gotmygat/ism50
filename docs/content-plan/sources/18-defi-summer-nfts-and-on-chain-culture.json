@@ -1,0 +1,201 @@
+[
+  {
+    "slug": "what-an-nft-actually-records",
+    "era": "defiSummer",
+    "kind": "explainer",
+    "cluster": "NFTs and on-chain culture",
+    "title": "The Token Records an Identifier, and the Identifier Points Somewhere Else",
+    "seoTitle": "What an NFT Actually Records",
+    "description": "The chain holds an owner and a token number, and everything a buyer thinks they are getting usually lives outside the chain entirely.",
+    "lede": "The chain records who holds token number seven, and almost nothing about what token number seven is.",
+    "angle": "Establishes what is actually stored on chain, an owner address and a token identifier, usually with a pointer to metadata held elsewhere, and separates that from what buyers understood themselves to be acquiring. Argue that the gap between these two is the origin of nearly every subsequent problem in the category, including dead images, disputed rights and unenforceable terms. Commit to the position that the technology was described in a way that invited the misunderstanding and that this was not accidental. The piece must not state prices, sales figures or market sizes, must not name collections, must not comment on what rights any purchase conveys legally, and must not advise a reader about anything.",
+    "pref": [
+      "the-token-standard",
+      "coloured-coins-and-the-idea-that-moved"
+    ]
+  },
+  {
+    "slug": "the-non-fungible-standard",
+    "era": "defiSummer",
+    "kind": "primarySource",
+    "cluster": "NFTs and on-chain culture",
+    "title": "The Standard Left the Most Important Part Undefined",
+    "seoTitle": "The NFT Standard and What It Left Out",
+    "description": "The interface specifies ownership and transfer and deliberately says nothing about what a token represents or where its content lives.",
+    "lede": "The specification is about moving tokens, and everything people argued about later is outside its scope.",
+    "angle": "Built around the standard as a document: what it defines, what it explicitly leaves to implementers, and the optional extension that introduced the metadata pointer which turned out to carry all the weight. Argue that the standard is well written for what it set out to do and was pressed into service as though it defined an asset class, which it never claimed to. Note the parallel with the fungible token standard, where the same pattern of a minimal interface producing a maximal market occurred. The piece must not quote the specification without it in hand, must not claim any collection is or is not compliant, and must not state deployment counts.",
+    "pref": [
+      "what-an-nft-actually-records",
+      "the-token-standard"
+    ]
+  },
+  {
+    "slug": "off-chain-storage-and-the-dead-link",
+    "era": "defiSummer",
+    "kind": "postmortem",
+    "cluster": "NFTs and on-chain culture",
+    "title": "A Permanent Token Pointing at an Impermanent File",
+    "seoTitle": "When the Token Outlives the File",
+    "description": "Metadata and images usually sit on ordinary web servers or content addressed networks that require somebody to keep paying to store them.",
+    "lede": "The token lasts forever and the picture lasts as long as somebody pays the hosting bill.",
+    "angle": "Follows a slow failure to its cause, going through the storage options in turn, a plain web address, a content addressed hash that still requires someone to hold the data, and fully on chain encoding, and stating honestly what each costs and guarantees. Argue that the industry sold permanence while overwhelmingly choosing the least permanent option, and that this is checkable rather than a matter of opinion. Note the projects that stored everything on chain and what that decision required of them. The piece must not name collections or hosting providers, must not state how many collections use which method, must not claim any specific work has been lost, and must not advise readers about anything they hold.",
+    "pref": [
+      "what-an-nft-actually-records",
+      "the-non-fungible-standard"
+    ]
+  },
+  {
+    "slug": "royalties-were-never-enforceable",
+    "era": "defiSummer",
+    "kind": "postmortem",
+    "cluster": "NFTs and on-chain culture",
+    "title": "The Royalty Was Always a Marketplace Convention, Never a Rule",
+    "seoTitle": "Why NFT Royalties Were Never Enforceable",
+    "description": "Creator royalties were paid because marketplaces chose to pay them, and when competition made that optional they largely stopped.",
+    "lede": "The royalty existed because the venues honoured it, and venues stopped when a rival did.",
+    "angle": "Follows the collapse of royalty payment to its cause: the standard transfer function carries no payment obligation, so royalties were collected by marketplaces at the point of sale purely as a matter of policy. Argue that the collapse of royalty payment was a predictable outcome of competition among venues rather than a betrayal, and that the technical remedies proposed afterwards all reintroduce a gatekeeper. Take a clear position that this episode is the best available demonstration that on chain does not mean enforced. The piece must not name marketplaces or creators, must not state royalty rates or revenue figures, must not comment on any legal right to a royalty, and must not advise creators on anything.",
+    "pref": [
+      "what-an-nft-actually-records",
+      "smart-contracts-before-blockchains"
+    ]
+  },
+  {
+    "slug": "the-marketplace-was-the-product",
+    "era": "defiSummer",
+    "kind": "profile",
+    "cluster": "NFTs and on-chain culture",
+    "title": "The Businesses That Worked Were the Ones Selling Access to the Market",
+    "seoTitle": "Why the Marketplace Was the Real Business",
+    "description": "As in earlier eras, the durable business was the venue taking a fee on every transaction rather than the assets being transacted.",
+    "lede": "The reliable revenue was the fee on the sale, exactly as it had been for a decade.",
+    "angle": "A profile of the marketplace operator as the era's durable business, making the structural point that recurs across this whole site, that the intermediary between buyers and sellers captures reliable revenue while the assets themselves are volatile. Show that the technical requirement to route trades through a marketplace contract recreated the same gatekeeping power described in earlier eras. Commit to the position that this pattern is the industry's most reliable regularity. The piece must not name marketplaces, must not state fee rates or revenues, must not describe any venue's current position, and must not present any business as a model to follow.",
+    "pref": [
+      "why-exchanges-became-the-industry",
+      "the-listing-relationship",
+      "royalties-were-never-enforceable"
+    ]
+  },
+  {
+    "slug": "provenance-as-the-real-use-case",
+    "era": "defiSummer",
+    "kind": "explainer",
+    "cluster": "NFTs and on-chain culture",
+    "title": "The Genuinely Novel Capability Was an Unbroken Ownership Record",
+    "seoTitle": "Provenance: The Genuinely Novel Capability",
+    "description": "A complete and public chain of custody from issuance onward is something the art and collectibles world has never had, and that part is real.",
+    "lede": "Whatever else was oversold, a public unbroken ownership record is a real thing that did not exist before.",
+    "angle": "Isolates the capability that survives the critique: an issuance event and every subsequent transfer recorded publicly and permanently, which addresses a problem that has cost the physical art market enormously. Argue that this was the strongest available claim and was consistently drowned out by claims about scarcity and value that were much weaker. Be precise about the limit, since provenance from issuance says nothing about the relationship between the issuer and whatever the token depicts. The piece must not name collections, must not state prices or sales, must not claim the technology prevents forgery of anything physical, and must not advise readers.",
+    "pref": [
+      "what-an-nft-actually-records",
+      "the-first-transaction-on-chain"
+    ]
+  },
+  {
+    "slug": "generative-art-on-chain",
+    "era": "defiSummer",
+    "kind": "profile",
+    "cluster": "NFTs and on-chain culture",
+    "title": "The Artists Who Treated the Chain as the Medium",
+    "seoTitle": "The Artists Who Made the Chain the Medium",
+    "description": "A body of work uses the deterministic execution environment itself as the material, which is a genuine artistic development rather than a market one.",
+    "lede": "Some of the work of this period only exists because the chain runs the same program the same way for everyone.",
+    "angle": "A group profile of a practice: artists producing algorithmic work where the output is generated deterministically at mint time and stored or reproduced from chain state, and what that constraint offers as a medium. Argue that this is the part of the period most likely to be taken seriously in twenty years and the part least discussed at the time, because it was drowned out by the market. Ground the argument in the properties of the medium rather than in any valuation. The piece must not name artists or works in a way that reads as endorsement, must not state prices or sales, must not evaluate any work's artistic merit as though authoritative, and must not treat market attention as a measure of quality.",
+    "pref": [
+      "provenance-as-the-real-use-case",
+      "the-evm-explained"
+    ]
+  },
+  {
+    "slug": "the-wash-trading-problem",
+    "era": "defiSummer",
+    "kind": "postmortem",
+    "cluster": "NFTs and on-chain culture",
+    "title": "When Trading With Yourself Is Free, Reported Volume Means Nothing",
+    "seoTitle": "Why Reported NFT Volume Meant Little",
+    "description": "Self trading is cheap, visible and hard to distinguish from genuine activity, which makes volume figures for this market close to unusable.",
+    "lede": "You can sell something to yourself all day, and the chart cannot tell.",
+    "angle": "Follows the failure of this market's reported figures to its causes: transferable assets, no identity, low fees, and in some periods incentive programmes that paid per transaction, which together make self trading rational and undetectable at scale. Argue that this invalidates most of the market size reporting from the period and that the analytics firms producing those figures knew it. Connect back to the earlier era's point about proxies being reported as measurements. The piece must not name collections, marketplaces or analytics firms, must not state volume figures even as examples, must not accuse any party of wash trading, and must not describe how it is done.",
+    "pref": [
+      "why-early-adoption-figures-are-unknowable",
+      "the-marketplace-was-the-product"
+    ]
+  },
+  {
+    "slug": "the-collection-as-a-social-club",
+    "era": "defiSummer",
+    "kind": "profile",
+    "cluster": "NFTs and on-chain culture",
+    "title": "What People Were Actually Buying Was Membership",
+    "seoTitle": "When the Collection Was Really a Membership",
+    "description": "The successful collections functioned as membership tokens for a group, and understanding them as clubs explains more than any account of the artwork.",
+    "lede": "The picture was a membership card, and the club was the product.",
+    "angle": "A profile of the collection community as a social institution: a token conferring access to a group, an identity marker displayed publicly, and a shared interest among holders in the group's standing, which is a club rather than an art market. Argue that this framing explains the observed behaviour, including coordinated promotion and the emotional intensity of the community, far better than any account based on collecting. Note honestly that clubs whose membership is tradable have a structural instability that ordinary clubs do not. The piece must not name any collection or holder, must not state prices, must not mention any celebrity participation, and must not characterise participants.",
+    "pref": [
+      "the-marketplace-was-the-product",
+      "narrative-as-the-product"
+    ]
+  },
+  {
+    "slug": "the-intellectual-property-confusion",
+    "era": "defiSummer",
+    "kind": "postmortem",
+    "cluster": "NFTs and on-chain culture",
+    "title": "Almost Nobody Knew What Rights They Had Bought",
+    "seoTitle": "The Rights Confusion Around NFT Purchases",
+    "description": "Ownership of a token and ownership of rights in an underlying work are different things, and the licences involved varied enormously.",
+    "lede": "Holding the token and holding rights in the image are two separate questions with two separate answers.",
+    "angle": "Follows a widespread failure of understanding to its cause: the chain records token ownership, any rights in an underlying work arise from a licence granted by whoever holds them, and those licences ranged from broad to nonexistent and were often published as web pages that could change. Argue that this confusion was widespread, foreseeable and largely uncorrected by anyone with an interest in the market continuing. Note the attempts at standardised licences and their partial adoption. The piece must not give any legal advice or opinion on rights, must not name projects or licences, must not state what any purchaser acquired, and must not comment on any dispute.",
+    "pref": [
+      "what-an-nft-actually-records",
+      "royalties-were-never-enforceable",
+      "smart-contracts-before-blockchains"
+    ]
+  },
+  {
+    "slug": "the-liquidity-collapse",
+    "era": "defiSummer",
+    "kind": "timeline",
+    "cluster": "NFTs and on-chain culture",
+    "title": "The Market Did Not Fall So Much as Stop",
+    "seoTitle": "How the NFT Market Actually Stopped",
+    "description": "Activity in a market of unique items ends by bids disappearing rather than by prices declining, and the two look very different in the data.",
+    "lede": "For unique items there is often no price at all, because there is nobody bidding.",
+    "angle": "Sequences the contraction and explains why a market in non fungible items behaves differently from one in fungible assets: with no continuous two sided market, a decline in interest produces an absence of bids rather than a lower price, so the last recorded sale stays on the screen. Argue that this makes reported floor levels and portfolio values in this market especially misleading, and that the contraction was therefore under reported as it happened. Read it directly against the site's threshold. The piece must not state prices, floors or volumes, must not name collections, must not describe the market as recovering or not, and must not offer any valuation framing.",
+    "pref": [
+      "the-wash-trading-problem",
+      "order-books-without-market-makers",
+      "the-collection-as-a-social-club"
+    ]
+  },
+  {
+    "slug": "what-survived-the-collapse",
+    "era": "defiSummer",
+    "kind": "timeline",
+    "cluster": "NFTs and on-chain culture",
+    "title": "Some Uses Outlived the Market Entirely",
+    "seoTitle": "What Survived the NFT Market Collapse",
+    "description": "Ticketing, credentials, in game items and artist direct sales continued quietly after the speculative market ended, which is the more interesting story.",
+    "lede": "The uses that had nothing to do with resale carried on after the resale market stopped.",
+    "angle": "Sequences what continued after the speculative period: uses where the token functions as a credential, an entitlement or a record rather than as a tradable asset. Argue that this cohort is the honest answer to whether the technology was useful, and that it is small, unglamorous and real. Take the position that the industry's inability to talk about modest working uses without inflating them is a recurring self inflicted wound. The piece must not name projects or companies, must not state adoption figures, must not present any use as a growth opportunity, and must not predict anything about the category.",
+    "pref": [
+      "the-liquidity-collapse",
+      "provenance-as-the-real-use-case"
+    ]
+  },
+  {
+    "slug": "the-artist-side-of-it",
+    "era": "defiSummer",
+    "kind": "profile",
+    "cluster": "NFTs and on-chain culture",
+    "title": "For Some Artists It Was the First Time Selling Directly Worked",
+    "seoTitle": "The Artists for Whom Direct Sales Worked",
+    "description": "Independent creators reached buyers without galleries or platforms for a period, and what happened to that access afterwards matters.",
+    "lede": "A number of artists sold directly to buyers for the first time, and then the intermediaries came back.",
+    "angle": "A group profile of independent creators during and after the period, describing what changed about distribution and what did not, including the reappearance of curation, gatekeeping and platform fees as the market matured. Argue that the direct access was real while it lasted and that its erosion followed the ordinary logic of platform consolidation rather than anything specific to crypto. Handle the subject without romanticism, since the period was also punishing for many participants. The piece must not name artists, must not state earnings or sales, must not characterise anyone's financial outcome, and must not present the period as an opportunity for any reader.",
+    "pref": [
+      "what-survived-the-collapse",
+      "royalties-were-never-enforceable",
+      "the-marketplace-was-the-product"
+    ]
+  }
+]

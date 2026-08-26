@@ -1,0 +1,184 @@
+[
+  {
+    "slug": "what-an-exchange-actually-is",
+    "era": "earlyExchange",
+    "kind": "explainer",
+    "cluster": "Exchanges before exchange was a business",
+    "title": "A Crypto Exchange Is Four Regulated Businesses in a Trench Coat",
+    "seoTitle": "What a Crypto Exchange Actually Is",
+    "description": "Matching, custody, settlement and banking are separate licensed functions in every other market, and crypto bundled all four into one company.",
+    "lede": "In every other market these four jobs are done by four firms who watch each other, and here one firm does all of them.",
+    "angle": "Separates the functions a crypto exchange performs and shows what each one corresponds to in a conventional market, where they are held apart by law, capital rules and mutual supervision. Argue that almost every failure in the next fifteen years of this site is a consequence of the bundling rather than of fraud specifically, because the bundle removes every party who would otherwise notice. Commit to the position that this is the structural fact of the industry and that reading later collapses without it produces a story about bad people instead of a story about design. The piece must not name any current venue as safe or unsafe, must not describe any jurisdiction's present licensing requirements, and must not advise a reader on where to hold anything.",
+    "pref": [
+      "why-early-adoption-figures-are-unknowable"
+    ]
+  },
+  {
+    "slug": "the-first-exchanges",
+    "era": "earlyExchange",
+    "kind": "timeline",
+    "cluster": "Exchanges before exchange was a business",
+    "title": "The First Exchanges Were Side Projects That Accidentally Held Everyone's Money",
+    "seoTitle": "The First Crypto Exchanges, Sequenced",
+    "description": "A sequenced account of how trading venues appeared, mostly as personal projects, and how quickly they became systemically important.",
+    "lede": "The first venues were built by individuals with no intention of becoming financial infrastructure, and became it within months.",
+    "angle": "Sequences the appearance of the earliest venues and the speed at which each acquired a customer base large enough that its failure would matter to everyone. Argue that the gap between a hobby project's engineering standards and the responsibilities of a custodian was never closed by anything except the eventual failures, and that nobody had a mechanism to close it. Read it through the threshold: trading capacity expanded far faster than operational competence, and the two were reported as one number called volume. The piece must not state trading volumes, user counts or market share for any venue, must not describe founders' intentions beyond published statements, and must not rank early venues by trustworthiness.",
+    "pref": [
+      "what-an-exchange-actually-is",
+      "how-a-thing-with-no-price-gets-one"
+    ]
+  },
+  {
+    "slug": "the-omnibus-account-problem",
+    "era": "earlyExchange",
+    "kind": "explainer",
+    "cluster": "Exchanges before exchange was a business",
+    "title": "Your Balance on an Exchange Is a Database Row, Not a Coin",
+    "seoTitle": "Why an Exchange Balance Is Just a Database Row",
+    "description": "Pooled custody means the number on the screen is an entry in the venue's ledger, and the difference only becomes visible when something breaks.",
+    "lede": "The screen shows what the company says you have, which is a claim on the company and not a holding.",
+    "angle": "Explains pooled or omnibus custody precisely: why venues commingle, what internal accounting they run instead, and the exact sense in which a user holds an unsecured claim rather than an asset. Argue that this single mechanism explains why every later collapse produced the same surprised question from users, and that the industry's marketing language did real work in hiding it. Set up the whole postFtx era of this site by establishing the mechanism now, in the era where it was invented and nobody complained. The piece must not state how any current venue holds assets, must not describe any user's legal position in an insolvency, since that depends on jurisdiction and facts, and must not recommend any custody arrangement.",
+    "pref": [
+      "what-an-exchange-actually-is",
+      "the-first-exchanges"
+    ]
+  },
+  {
+    "slug": "hot-wallets-and-the-operational-reality",
+    "era": "earlyExchange",
+    "kind": "postmortem",
+    "cluster": "Exchanges before exchange was a business",
+    "title": "Hot Wallets Exist Because Customers Want Withdrawals to Be Instant",
+    "seoTitle": "Hot Wallets and the Withdrawal Tradeoff",
+    "description": "Every venue chooses between keys that sign automatically and keys that cannot, and the choice is a customer experience decision with security costs.",
+    "lede": "The reason so much was stolen from online wallets is that the alternative made withdrawals slow.",
+    "angle": "Follows the largest recurring loss mechanism of the era to its cause, which is a deliberate configuration: automated signing enables instant withdrawal and exposes key material to the server, and manual signing removes that exposure and makes withdrawal a business process. Argue that the industry chose speed almost universally and then described the resulting losses as hacking, when they were the predictable output of a deliberate configuration. Show that the later multi party signing and hardware isolation practices are attempts to buy back the tradeoff rather than eliminate it. The piece must not describe the current key management of any named venue, must not state loss amounts for any incident without a source, and must not offer any reader a custody recommendation.",
+    "pref": [
+      "the-omnibus-account-problem",
+      "what-an-exchange-actually-is"
+    ]
+  },
+  {
+    "slug": "the-banking-relationship-problem",
+    "era": "earlyExchange",
+    "kind": "postmortem",
+    "cluster": "Exchanges before exchange was a business",
+    "title": "The Hardest Part of Running an Exchange Was Keeping a Bank Account",
+    "seoTitle": "Why Exchanges Kept Losing Their Bank Accounts",
+    "description": "A venue can run its own ledger but cannot run its own banking, and the fiat leg has been the fragile one from the beginning.",
+    "lede": "The crypto side of an exchange rarely failed first, the bank account did.",
+    "angle": "Follows a recurring cause of failure that is usually invisible: correspondent banking, payment processors, the risk appetite of a compliance department that can end a business with a letter, and the workarounds venues used when access was withdrawn. Argue that this is the most consistently underweighted cause of failure in crypto history, because the crypto side is legible to observers and the banking side is invisible until it stops. The threshold reading is direct, since access to conventional payment rails expanded and contracted repeatedly and almost nobody outside the affected firms could read it in real time. The piece must not name any current banking relationship, must not characterise any bank's decision as improper, and must not describe workarounds in a way that reads as instruction.",
+    "pref": [
+      "what-an-exchange-actually-is",
+      "the-first-exchanges"
+    ]
+  },
+  {
+    "slug": "order-books-without-market-makers",
+    "era": "earlyExchange",
+    "kind": "explainer",
+    "cluster": "Exchanges before exchange was a business",
+    "title": "A Thin Order Book Makes Every Number Downstream of It Unreliable",
+    "seoTitle": "Thin Order Books and Unreliable Prices",
+    "description": "When a venue has few resting orders, small trades move the quoted price, and that quoted price then feeds indexes, valuations and headlines.",
+    "lede": "The quoted price of a thinly traded asset is a statement about the last person who was impatient.",
+    "angle": "Explains market microstructure at the simplest useful level: what a resting order is, what depth means, why a market without dedicated liquidity providers gaps, and how a single trade on a thin venue propagates into every derived figure. Argue that this mechanism is why early price history should be read as a series of anecdotes, and why later reporting that quotes a headline price without naming the venue is doing something meaningless. Take the position that depth, not price, is the honest measure of whether a market exists. The piece must not quote any price or depth figure, must not name a venue as liquid or illiquid, and must not describe any trading strategy or imply one is available.",
+    "pref": [
+      "how-a-thing-with-no-price-gets-one",
+      "the-first-exchanges"
+    ]
+  },
+  {
+    "slug": "the-reference-price-problem",
+    "era": "earlyExchange",
+    "kind": "postmortem",
+    "cluster": "Exchanges before exchange was a business",
+    "title": "Everyone Quoted One Venue's Price, Including People Who Should Not Have",
+    "seoTitle": "The Reference Price Problem in Early Crypto",
+    "description": "For years a single venue's last trade served as the price of an asset for the whole world, including for contracts settled against it.",
+    "lede": "A number produced by one company's matching engine became the number everybody else built on.",
+    "angle": "Follows a systemic dependency to its cause by explaining how a reference rate is supposed to be constructed, with multiple sources, volume weighting and manipulation controls, and contrasting that with a single venue's tape treated as truth. Argue that this concentration is a hidden systemic dependency that made one company's outage into a market wide event, and that the industry only built proper index methodology after being forced to by derivatives listings. Connect forward to the institutional era where index construction becomes a regulatory question rather than a convenience. The piece must not state any historical price or index level, must not accuse any venue of manipulation, and must not describe any current index methodology without reading it.",
+    "pref": [
+      "order-books-without-market-makers",
+      "the-first-exchanges"
+    ]
+  },
+  {
+    "slug": "bitcoinica-postmortem",
+    "era": "earlyExchange",
+    "kind": "postmortem",
+    "cluster": "Exchanges before exchange was a business",
+    "title": "A Leveraged Trading Site Run by One Person, and How It Ended",
+    "seoTitle": "The Bitcoinica Failure, Taken Apart",
+    "description": "An early margin trading venue failed through a combination of server compromise, unclear ownership and no segregation of customer assets.",
+    "lede": "It offered leverage before it had an accounting system, which is an ordering error with only one outcome.",
+    "angle": "Follows one failure to its causes, separating the security incident from the deeper problems, which were that customer assets were not segregated, ownership and responsibility were unclear, and the venue offered leveraged products without the risk systems those require. Argue that the security breach is the part everyone remembers and the least important, because a venue with proper segregation survives a breach and this one could not have survived anything. Use it to establish the pattern the rest of this era repeats. The piece must not state loss amounts or customer numbers without a documented source, must not characterise the intent of anyone involved, and must not describe the outcome of any private dispute or settlement that is not public.",
+    "pref": [
+      "hot-wallets-and-the-operational-reality",
+      "the-omnibus-account-problem",
+      "what-an-exchange-actually-is"
+    ]
+  },
+  {
+    "slug": "proof-of-solvency-before-it-had-a-name",
+    "era": "earlyExchange",
+    "kind": "primarySource",
+    "cluster": "Exchanges before exchange was a business",
+    "title": "Someone Proposed a Way to Prove an Exchange Was Solvent, Years Early",
+    "seoTitle": "The Early Proposal to Prove Exchange Solvency",
+    "description": "A cryptographic scheme for proving customer liabilities and reserves was described long before the collapses that made everyone want one.",
+    "lede": "The technique existed for years before the industry had any interest in adopting it.",
+    "angle": "Built around the published proposal itself: committing to a set of customer balances in a way each customer can check, then demonstrating control of assets at least equal to the total, and what that proves and leaves open. Argue that the interesting history is not the cryptography but the adoption failure, since venues had every technical means to demonstrate solvency and almost none did until after the industry had lost the argument. Take the position that voluntary transparency schemes get adopted after the disaster that would have made them useful, every time. The piece must not present any implementation as sufficient, must not name a venue as having verified reserves, and must not describe the technique in a way that suggests it addresses liabilities the venue chooses to omit.",
+    "pref": [
+      "the-omnibus-account-problem",
+      "what-an-exchange-actually-is"
+    ]
+  },
+  {
+    "slug": "the-withdrawal-queue-as-a-signal",
+    "era": "earlyExchange",
+    "kind": "explainer",
+    "cluster": "Exchanges before exchange was a business",
+    "title": "Withdrawal Delays Are the Only Early Warning Most Users Ever Get",
+    "seoTitle": "Withdrawal Delays as an Early Warning",
+    "description": "Slow withdrawals precede almost every venue failure in this history, and the explanations offered are almost always technical and almost always wrong.",
+    "lede": "The pattern is consistent enough to be boring: withdrawals slow, an explanation is offered, and then withdrawals stop.",
+    "angle": "Describes the mechanism connecting a liquidity shortfall to a user visible symptom, and catalogues the categories of explanation venues have offered, upgrades, maintenance, banking partners, network congestion, without asserting that any specific instance was dishonest. Argue that the signal is reliable in aggregate and useless individually, because legitimate delays are common and indistinguishable from the other kind at the time. Commit to the position that this asymmetry is the whole problem: the information arrives, and it is not actionable until it is too late. The piece must not identify any current venue as showing this pattern, must not advise a reader to withdraw from anywhere, and must not present the signal as a way to predict a failure.",
+    "pref": [
+      "proof-of-solvency-before-it-had-a-name",
+      "the-omnibus-account-problem"
+    ]
+  },
+  {
+    "slug": "the-early-exchange-failure-pattern",
+    "era": "earlyExchange",
+    "kind": "timeline",
+    "cluster": "Exchanges before exchange was a business",
+    "title": "Dozens of Venues Failed in a Few Years, in Four Recognisable Ways",
+    "seoTitle": "How Early Crypto Exchanges Actually Failed",
+    "description": "A sequenced and classified account of venue failures in this era, sorted by mechanism rather than by size or notoriety.",
+    "lede": "The failures look varied until you sort them, and then there are only about four of them.",
+    "angle": "Sequences the failures of the period and classifies them by mechanism: key compromise, insider misappropriation, insolvency from trading losses, and loss of banking or legal access. Argue that classification is more useful than a list because it shows which mechanisms were addressed by later practice and which were not, and the answer is uncomfortable. Read it through the threshold by noting that the count of operating venues contracted sharply while aggregate activity kept expanding, which is consolidation rather than recovery. The piece must not attribute a failure mechanism to a venue where the cause remains disputed, must not state amounts lost, and must not name individuals in connection with any unproven allegation.",
+    "pref": [
+      "bitcoinica-postmortem",
+      "the-withdrawal-queue-as-a-signal",
+      "the-banking-relationship-problem"
+    ]
+  },
+  {
+    "slug": "why-exchanges-became-the-industry",
+    "era": "earlyExchange",
+    "kind": "explainer",
+    "cluster": "Exchanges before exchange was a business",
+    "title": "The Protocol Removed the Middleman and the Market Immediately Built a New One",
+    "seoTitle": "Why Exchanges Became the Whole Industry",
+    "description": "A design that eliminated the trusted intermediary produced an industry whose largest firms are trusted intermediaries, and the reason is not hypocrisy.",
+    "lede": "The most centralised businesses in finance were rebuilt on top of the most decentralised ledger, quickly and by popular demand.",
+    "angle": "Explains why the intermediary reappeared, covering the genuine difficulties of self custody, the demand for conversion into local currency, the need for a counterparty for leverage, and the ordinary human preference for a password reset. Argue that this is not a betrayal of the design but a demonstration of what the design does and does not address, since it removed the need to trust a settlement operator and did nothing about the need to trust a service provider. Take a clear position that treating exchange centralisation as a moral failure has prevented the industry from engineering around it properly. The piece must not advise any reader on custody, must not name venues, and must not present self custody as safe or unsafe in general terms.",
+    "pref": [
+      "what-an-exchange-actually-is",
+      "the-early-exchange-failure-pattern",
+      "running-a-node-when-nobody-did"
+    ]
+  }
+]

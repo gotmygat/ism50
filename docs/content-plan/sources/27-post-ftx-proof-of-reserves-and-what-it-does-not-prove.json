@@ -1,0 +1,158 @@
+[
+  {
+    "slug": "the-merkle-tree-approach",
+    "era": "postFtx",
+    "kind": "primarySource",
+    "cluster": "Proof of reserves and what it does not prove",
+    "title": "How a Customer Can Check They Were Counted",
+    "seoTitle": "How a Customer Can Check They Were Counted",
+    "description": "Committing to a set of balances in a structure each customer can verify is the working half of proving solvency, and it works well.",
+    "lede": "The part that works lets you confirm your own balance was in the total without seeing anyone else's.",
+    "angle": "Built around the published scheme and a worked description of it: balances are committed into a tree, a root is published, and each customer receives a path proving their balance is included in the committed total without revealing others. Argue that this component is genuinely sound and solves a real problem, which makes it worth understanding before the cluster explains why the overall scheme still falls short. Note that participation is partial by construction, since only customers who check are protected. The piece must not name any venue or implementation, must not present any published proof as verified, must not state figures, and must not tell a reader that any venue is solvent.",
+    "pref": [
+      "proof-of-solvency-before-it-had-a-name",
+      "what-changed-because-of-it"
+    ]
+  },
+  {
+    "slug": "liabilities-are-the-hard-half",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "Proof of reserves and what it does not prove",
+    "title": "Proving You Have Assets Is Easy, Proving You Listed Every Debt Is Not",
+    "seoTitle": "Why Liabilities Are the Hard Half",
+    "description": "Showing control of assets is straightforward on a public chain, and demonstrating that the liability side is complete is not possible from the chain at all.",
+    "lede": "You can prove what you hold and you cannot prove what you owe.",
+    "angle": "Explains the asymmetry at the centre of the whole subject: control of assets is demonstrable with signatures, while completeness of liabilities depends on the venue's own records and cannot be checked externally. Argue that this makes every reserve exercise fundamentally an assertion about liabilities dressed in cryptography, and that the cryptography is on the easy side of the problem. Commit to that as the cluster's central finding. The piece must not name venues or attestations, must not describe any published proof as adequate, must not state figures, and must not offer any reader a way to assess a venue.",
+    "pref": [
+      "the-merkle-tree-approach",
+      "what-an-audit-would-have-caught"
+    ]
+  },
+  {
+    "slug": "borrowed-assets-and-snapshot-gaming",
+    "era": "postFtx",
+    "kind": "postmortem",
+    "cluster": "Proof of reserves and what it does not prove",
+    "title": "A Snapshot Can Be Arranged in Advance",
+    "seoTitle": "Why a Reserve Snapshot Can Be Arranged",
+    "description": "A demonstration of control at a moment can be satisfied with assets borrowed for that moment, which is a known and old problem.",
+    "lede": "Showing you hold something on Tuesday says nothing about who you borrowed it from on Monday.",
+    "angle": "Follows a known weakness in these exercises to its cause: a point in time demonstration can be satisfied by temporarily obtained assets, a practice with a long history in conventional finance under other names. Argue that continuous or randomised verification addresses this partially and that no venue has adopted an arrangement that removes it, because doing so would constrain ordinary operations. Note that this weakness is well known and rarely mentioned alongside the publications. The piece must not allege that any venue has done this, must not name venues or events, must not state figures, and must not present any verification schedule as sufficient.",
+    "pref": [
+      "liabilities-are-the-hard-half",
+      "the-merkle-tree-approach"
+    ]
+  },
+  {
+    "slug": "the-off-chain-liability-problem",
+    "era": "postFtx",
+    "kind": "postmortem",
+    "cluster": "Proof of reserves and what it does not prove",
+    "title": "Debts to People Who Are Not Customers Do Not Appear Anywhere",
+    "seoTitle": "The Liabilities That Never Appear",
+    "description": "Loans, guarantees and obligations to parties outside the customer base sit entirely outside any reserve exercise and can exceed everything in it.",
+    "lede": "The obligations that sink a venue are usually owed to somebody who is not a customer.",
+    "angle": "Follows the failure of reserve exercises to its cause, which is scope: they address customer balances, while borrowings, guarantees, related party obligations and contingent liabilities sit entirely outside them. Argue that this is the gap through which every major failure in this history has passed, and that it is a scope problem rather than an execution problem, which means better cryptography cannot close it. Take the position that only a full financial statement audit addresses it and that the sector has largely not obtained one. The piece must not name venues or their obligations, must not state figures, must not give accounting or audit guidance, and must not describe any venue as solvent or insolvent.",
+    "pref": [
+      "liabilities-are-the-hard-half",
+      "rehypothecation-explained",
+      "the-auditor-question"
+    ]
+  },
+  {
+    "slug": "zero-knowledge-proofs-of-solvency",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "Proof of reserves and what it does not prove",
+    "title": "Better Cryptography Improves the Half That Was Already Working",
+    "seoTitle": "What Cryptographic Solvency Proofs Improve",
+    "description": "Newer schemes let a venue prove properties of its balance set without revealing individual balances, which is real progress on a real problem.",
+    "lede": "The new techniques are genuinely good and they improve the part that was never the problem.",
+    "angle": "Explains what these schemes accomplish, principally proving statements about a committed set of balances without disclosing them, which addresses the privacy objection that limited earlier approaches. Argue that the improvement is real and is concentrated on the asset and privacy side, leaving the completeness of liabilities exactly where it was. Commit to the position that the industry's enthusiasm for cryptographic answers to institutional problems is the recurring pattern of this whole site. The piece must not name any scheme or implementation as adequate, must not describe any venue as verified, must not state figures, and must not present any proof as evidence of solvency.",
+    "pref": [
+      "the-off-chain-liability-problem",
+      "liabilities-are-the-hard-half"
+    ]
+  },
+  {
+    "slug": "the-auditor-refusal",
+    "era": "postFtx",
+    "kind": "profile",
+    "cluster": "Proof of reserves and what it does not prove",
+    "title": "Firms Willing to Sign These Engagements Have Been Scarce",
+    "seoTitle": "Why Few Firms Will Sign These Engagements",
+    "description": "Professional firms have been cautious about engagements in this sector, and the reasons are about liability, competence and scope rather than about crypto.",
+    "lede": "The scarcity of firms willing to sign is itself a piece of information.",
+    "angle": "A profile of the professional accounting firm as a reluctant participant, tracing entries into and withdrawals from this work and the reasons behind them: unfamiliar subject matter, difficulty verifying control of keys, exposure if a client fails, and uncertainty about what standard applies. Argue that this scarcity is a structural constraint on the entire transparency project rather than a temporary condition. Note the emergence of specialist firms and what their smaller balance sheets mean for the value of an opinion. The piece must not name firms or clients, must not describe any specific engagement or withdrawal, must not allege professional failure, and must not evaluate any provider.",
+    "pref": [
+      "the-auditor-question",
+      "attestation-versus-audit",
+      "the-off-chain-liability-problem"
+    ]
+  },
+  {
+    "slug": "why-firms-stopped-publishing",
+    "era": "postFtx",
+    "kind": "timeline",
+    "cluster": "Proof of reserves and what it does not prove",
+    "title": "A Wave of Publications, Then Quiet",
+    "seoTitle": "Why the Reserve Publications Stopped",
+    "description": "Reserve publication surged after the largest failure and then thinned, which is the same voluntary transparency pattern documented across this site.",
+    "lede": "Everybody published for a while, and then most of them stopped.",
+    "angle": "Sequences the pattern at a structural level: a burst of publication in response to a crisis, then declining frequency as attention moved, which is precisely what happened after earlier failures a decade before. Argue that this is the expected behaviour of voluntary disclosure and the strongest available argument that the practice needs to be required rather than encouraged. Read it against the threshold, since disclosure expanded sharply and contracted quietly. The piece must not name venues or their publication history, must not state how many venues published, must not characterise any firm's decision, and must not advise readers.",
+    "pref": [
+      "the-reserve-disclosure-history",
+      "the-auditor-refusal",
+      "proof-of-solvency-before-it-had-a-name"
+    ]
+  },
+  {
+    "slug": "proof-of-reserves-as-marketing",
+    "era": "postFtx",
+    "kind": "postmortem",
+    "cluster": "Proof of reserves and what it does not prove",
+    "title": "The Phrase Did More Work Than the Practice",
+    "seoTitle": "When Proof of Reserves Became Marketing",
+    "description": "A partial technical exercise was presented as a comprehensive guarantee, and the naming of it did most of the persuasive work.",
+    "lede": "The words proof and reserves both promise more than the exercise delivers.",
+    "angle": "Follows the failure of a trust signal to its cause, starting with the term itself: proof implies completeness, reserves implies the whole balance sheet, and the exercise delivers neither. Argue that this is the clearest example on the site of terminology doing persuasive work, and that the industry has form for this with terms like trustless, audited and insured. Take the position that a history site should name the vocabulary problem explicitly because it recurs. The piece must not name any venue or provider, must not describe any publication as misleading, must not state figures, and must not tell a reader how to evaluate any venue.",
+    "pref": [
+      "why-firms-stopped-publishing",
+      "insurance-for-digital-assets",
+      "the-audit-industry-that-followed"
+    ]
+  },
+  {
+    "slug": "what-would-actually-work",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "Proof of reserves and what it does not prove",
+    "title": "The Arrangement That Would Actually Settle This Is Not Technical",
+    "seoTitle": "What Would Actually Prove Solvency",
+    "description": "Independent custody, full financial statement audit and supervised reporting would settle the question, and each is an institutional arrangement.",
+    "lede": "The answer that works is the boring one that other markets adopted a century ago.",
+    "angle": "Sets out what would actually resolve the question: assets held by an independent custodian, liabilities covered by a full audit under a recognised framework, and periodic reporting to a supervisor with inspection powers. Argue that each element already exists elsewhere, that none requires new technology, and that the industry's preference for cryptographic answers reflects what it can do unilaterally rather than what would work. Commit to that as the cluster's conclusion. The piece must not name any venue as meeting these conditions, must not describe any jurisdiction's requirements as current, must not give compliance, audit or accounting guidance, and must not advise a reader on where to hold anything.",
+    "pref": [
+      "proof-of-reserves-as-marketing",
+      "custody-as-a-separate-business",
+      "the-cost-of-getting-custody-wrong"
+    ]
+  },
+  {
+    "slug": "the-verification-habit",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "Proof of reserves and what it does not prove",
+    "title": "Ask What Is Being Proved, to Whom, and by Whom",
+    "seoTitle": "Three Questions to Ask of Any Proof",
+    "description": "A short reading method for any transparency claim in this industry, applicable to reserves, audits, insurance and security reviews alike.",
+    "lede": "Three questions dispose of most transparency claims in this industry in under a minute.",
+    "angle": "Generalises the cluster into a reusable method: identify the precise proposition being asserted, identify who is asserting it and what they are exposed to if it is wrong, and identify who could check it independently. Argue that this method disposes of most of the trust signals catalogued across this site, and that its simplicity is the point. Close the cluster by connecting it to the site's broader argument about measurement and vocabulary. The piece must not evaluate any specific claim, venue or provider, must not be framed as advice about where to hold assets, must not state figures, and must not present the method as a way to determine safety.",
+    "pref": [
+      "what-would-actually-work",
+      "how-to-read-a-regulatory-document",
+      "proof-of-reserves-as-marketing"
+    ]
+  }
+]

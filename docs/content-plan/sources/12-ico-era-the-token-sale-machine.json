@@ -1,0 +1,198 @@
+[
+  {
+    "slug": "the-token-standard",
+    "era": "icoEra",
+    "kind": "primarySource",
+    "cluster": "The token sale machine",
+    "title": "A Short Interface Specification Created an Entire Asset Class",
+    "seoTitle": "The Token Standard That Created an Asset Class",
+    "description": "A handful of function signatures agreed as a convention meant every wallet and exchange could support every new token without custom work.",
+    "lede": "The document that made the token boom possible is a list of about six function names.",
+    "angle": "Built around the standard as an artefact: what it actually specifies, what it deliberately leaves undefined, and how a voluntary interface convention became the load bearing piece of infrastructure for the next several years. Argue that standardisation, not the virtual machine, is what made the era possible, because it collapsed the integration cost of a new asset to almost zero. Note the specific known weaknesses in the original interface and how later standards addressed them. The piece must not reproduce the specification without it in hand, must not state how many tokens were deployed, and must not describe any token as compliant or non compliant.",
+    "pref": [
+      "the-evm-explained",
+      "coloured-coins-and-the-idea-that-moved"
+    ]
+  },
+  {
+    "slug": "why-a-standard-changed-everything",
+    "era": "icoEra",
+    "kind": "explainer",
+    "cluster": "The token sale machine",
+    "title": "Zero Integration Cost Is the Whole Explanation",
+    "seoTitle": "Why Zero Integration Cost Changed Everything",
+    "description": "When listing a new asset requires no engineering, the constraint on how many assets exist stops being technical and becomes purely social.",
+    "lede": "Remove the integration cost and the only remaining limit on new assets is how many stories people will believe.",
+    "angle": "Explains the economics of standardisation directly: the marginal cost of supporting one more asset fell to near zero for wallets and venues, which removed the gatekeeping that had previously limited how many assets could exist. Argue that this single change explains the shape of the era better than any account of enthusiasm or greed, and that it is the same mechanism that later produced the equivalent explosion in trading pairs and in collectibles. Read it against the threshold: the count of tradable assets expanded past any level of genuine demand, and the correction was severe. The piece must not state counts of tokens or listings, must not name venues, and must not describe any project as legitimate or otherwise.",
+    "pref": [
+      "the-token-standard",
+      "the-parameter-change-fork"
+    ]
+  },
+  {
+    "slug": "the-whitepaper-as-a-genre",
+    "era": "icoEra",
+    "kind": "postmortem",
+    "cluster": "The token sale machine",
+    "title": "The Whitepaper Stopped Being a Technical Document and Became a Prospectus",
+    "seoTitle": "How the Whitepaper Became a Prospectus",
+    "description": "A format borrowed from engineering was repurposed as a fundraising document without acquiring any of the obligations that go with one.",
+    "lede": "The genre kept the authority of an engineering paper and dropped every duty that a fundraising document carries.",
+    "angle": "Follows the corruption of a document format to its causes: the borrowed structure, the appearance of team sections and roadmaps and allocation charts, and the near total absence of the risk disclosure an actual offering document requires. Argue that the form did real persuasive work precisely because it looked like a technical document, and that this is a case study in how presentation substitutes for substance. Take the position that the genre's collapse in credibility was earned and complete. The piece must not name specific projects or quote their documents, must not state amounts raised, must not comment on the legal status of any offering, and must not advise any reader on evaluating such documents.",
+    "pref": [
+      "narrative-as-the-product",
+      "why-a-standard-changed-everything"
+    ]
+  },
+  {
+    "slug": "the-token-sale-mechanics",
+    "era": "icoEra",
+    "kind": "explainer",
+    "cluster": "The token sale machine",
+    "title": "How the Sales Were Actually Structured, Step by Step",
+    "seoTitle": "How Token Sales Were Actually Structured",
+    "description": "Caps, tiers, bonus periods, whitelists and gas auctions shaped who got allocation, and each device had a predictable effect.",
+    "lede": "The structure of a sale decided who got in, and almost every structure favoured the same people.",
+    "angle": "Explains the standard mechanisms and what each one actually did: hard and soft caps, early contributor bonuses, whitelisting, and the congestion auctions that decided allocation when demand exceeded capacity. Argue that the recurring outcome, allocation flowing to participants with technical sophistication or private access, was structural rather than accidental, and that the retail participation narrative was largely inverted. Commit to the position that sale design was the least examined and most consequential part of the era. The piece must not describe any sale in a way that reads as instruction, must not state allocation figures or returns, must not name projects, and must not present any structure as fair.",
+    "pref": [
+      "the-ether-presale",
+      "the-whitepaper-as-a-genre"
+    ]
+  },
+  {
+    "slug": "the-advisor-economy",
+    "era": "icoEra",
+    "kind": "profile",
+    "cluster": "The token sale machine",
+    "title": "Credibility Was Rented by the Logo",
+    "seoTitle": "The Advisor Economy in Token Sales",
+    "description": "Named advisors, partnership announcements and logo walls functioned as borrowed reputation, often with no substantive relationship behind them.",
+    "lede": "A row of familiar logos did more fundraising work than any technical claim.",
+    "angle": "A profile of the paid advisor as a role in this era: advisory listings compensated in tokens, partnership announcements describing exploratory conversations, and the general absence of any verification path for a reader. Argue that this is a specific and repeatable failure of the information environment rather than a moral failing of individuals, since there was no cost to overstating and no mechanism for correcting. Note the later norms, disclosure of compensation and clearer partnership language, and be honest about how partially they were adopted. The piece must not name any advisor or company, must not state compensation figures, must not describe any relationship as fraudulent, and must not comment on any promotional activity by any named person.",
+    "pref": [
+      "the-whitepaper-as-a-genre",
+      "narrative-as-the-product"
+    ]
+  },
+  {
+    "slug": "vesting-and-unlock-schedules",
+    "era": "icoEra",
+    "kind": "explainer",
+    "cluster": "The token sale machine",
+    "title": "The Unlock Schedule Is the Part That Determines What Happens Later",
+    "seoTitle": "Why Unlock Schedules Determine What Happens",
+    "description": "Who can sell, and when, is written into the allocation at launch, and this single fact governs most of a token's subsequent behaviour.",
+    "lede": "The schedule of who is allowed to sell is decided before launch and explains most of what happens after it.",
+    "angle": "Explains the mechanics of lockups, cliffs and linear release, and the structural consequence that a token with a large locked allocation has a supply overhang known to insiders and opaque to everyone else. Argue that the information asymmetry here is the sharpest in the entire industry, because the schedule is often published and almost never read, and that this makes it a good example of transparency without comprehension. Keep it entirely structural. The piece must not analyse or reference any specific token's schedule, must not describe price effects with figures, must not tell a reader what to look for as a signal to act on, and must not be phrased as evaluation guidance.",
+    "pref": [
+      "the-token-sale-mechanics",
+      "the-premine-question"
+    ]
+  },
+  {
+    "slug": "the-listing-relationship",
+    "era": "icoEra",
+    "kind": "profile",
+    "cluster": "The token sale machine",
+    "title": "Exchanges Became the Real Gatekeepers, and Charged Accordingly",
+    "seoTitle": "How Exchange Listings Became the Gate",
+    "description": "A token without a venue is not tradable, which made listing decisions the most valuable and least transparent decisions in the market.",
+    "lede": "The venue decides whether an asset exists in practice, which is an enormous amount of power to hold quietly.",
+    "angle": "A profile of the exchange as gatekeeper: a listing converts an issued token into a tradable asset, the criteria were rarely published, and the position created an obvious commercial opportunity. Argue that this recreated, without any of the accompanying rules, the gatekeeping function that listing venues perform in regulated markets, and that the absence of published standards is the difference that matters. Connect back to the earlier era's point that exchanges became the industry. The piece must not allege that any venue charged for listings or acted improperly, must not name venues, must not state fees, and must not describe any current listing process.",
+    "pref": [
+      "why-exchanges-became-the-industry",
+      "why-a-standard-changed-everything"
+    ]
+  },
+  {
+    "slug": "the-airdrop",
+    "era": "icoEra",
+    "kind": "profile",
+    "cluster": "The token sale machine",
+    "title": "Giving Tokens Away Solves Distribution and Creates Everything Else",
+    "seoTitle": "The Airdrop: What It Solves and Creates",
+    "description": "Free distribution answers the cold start problem and immediately produces recipients with no attachment and an incentive to sell.",
+    "lede": "Handing tokens to strangers produces holders instantly and produces sellers just as fast.",
+    "angle": "A profile of the airdrop recipient as a population, and of the trade offs in creating one: distribution without a sale sidesteps some fundraising problems, creates a user base by construction, and produces holders whose acquisition cost is zero. Argue that the technique's later refinements, eligibility criteria based on prior usage, are attempts to buy alignment that mostly produced sophisticated gaming instead. Connect it back to the early faucets to show the same idea arriving with a much larger budget and much worse incentives. The piece must not name any airdrop, must not state values received, must not describe eligibility strategies, and must not be written in a way any reader could act on.",
+    "pref": [
+      "faucets-and-the-distribution-problem",
+      "the-token-sale-mechanics"
+    ]
+  },
+  {
+    "slug": "the-utility-token-theory",
+    "era": "icoEra",
+    "kind": "postmortem",
+    "cluster": "The token sale machine",
+    "title": "The Argument That These Were Not Investments, Examined",
+    "seoTitle": "The Utility Token Argument, Examined",
+    "description": "Projects argued their tokens were access rights rather than investments, and the structure of that argument is worth understanding on its own.",
+    "lede": "The claim was that you were buying a ticket rather than a stake, and the ticket usually had nothing to admit you to yet.",
+    "angle": "Follows the failure of a legal theory to its causes, setting out the argument as its proponents made it, that a token bought for future access is a prepayment rather than an investment, and then the objections it could not answer. Argue that the practical weakness was empirical rather than theoretical: most tokens were purchased before any service existed, by people who never used the service, and traded on venues that priced them as investments. Present the contest and name who is on each side. The piece must not state whether any token is a security in any jurisdiction, must not give legal guidance, must not name projects, and must not predict any regulatory outcome.",
+    "pref": [
+      "the-regulatory-report-that-followed",
+      "the-whitepaper-as-a-genre"
+    ]
+  },
+  {
+    "slug": "what-happened-to-the-money",
+    "era": "icoEra",
+    "kind": "postmortem",
+    "cluster": "The token sale machine",
+    "title": "Projects Raised in a Volatile Asset and Spent in Local Currency",
+    "seoTitle": "Why Project Treasuries Were So Fragile",
+    "description": "Treasuries held in the same asset the market was pricing them against created a correlation that turned a downturn into an operating crisis.",
+    "lede": "Raising in a volatile asset and paying salaries in local currency is a treasury problem nobody was staffed for.",
+    "angle": "Follows the quiet failure of many projects to its cause: funds raised in a volatile asset, operating costs denominated in ordinary currency, and no hedging capability or mandate, so a market decline is simultaneously a revenue and a runway event. Argue that this correlation, and not fraud, ended a substantial number of projects that were otherwise doing what they said, and that this part of the story is consistently omitted. Note that the projects that converted early were criticised for it at the time. The piece must not name projects, must not state treasury sizes or losses, must not describe any treasury strategy as correct, and must not offer any reader guidance on holding or converting anything.",
+    "pref": [
+      "the-token-sale-mechanics",
+      "the-banking-relationship-problem"
+    ]
+  },
+  {
+    "slug": "the-projects-that-shipped",
+    "era": "icoEra",
+    "kind": "timeline",
+    "cluster": "The token sale machine",
+    "title": "Some of Them Actually Built the Thing",
+    "seoTitle": "The Token Sale Projects That Actually Shipped",
+    "description": "A sequenced and honest account of the minority of projects from this period that delivered working systems still in use.",
+    "lede": "The era is remembered as uniformly worthless, and that is not what the record shows.",
+    "angle": "Sequences the period from the other direction, identifying categories of project that produced systems still operating, and being precise about what shipped versus what was promised. Argue that a history that treats the entire era as fraud is as unreliable as the promotional material it is reacting against, and that the interesting question is what distinguished the builders, which was usually a working prototype before the sale. Commit to that finding and state its limits, since survivorship makes this hard to establish rigorously. The piece must not name specific projects as successes in a way that reads as endorsement, must not state any current status, valuation or usage figures, and must not recommend anything.",
+    "pref": [
+      "what-happened-to-the-money",
+      "the-whitepaper-as-a-genre"
+    ]
+  },
+  {
+    "slug": "the-exit-pattern",
+    "era": "icoEra",
+    "kind": "postmortem",
+    "cluster": "The token sale machine",
+    "title": "The Failure Pattern Was Consistent Enough to Describe Generically",
+    "seoTitle": "The Consistent Token Sale Failure Pattern",
+    "description": "Sales that ended badly did so in a recognisable sequence, and describing it generically is more useful than any individual case study.",
+    "lede": "The bad outcomes followed a script so consistent it can be written down without naming anyone.",
+    "angle": "Follows the generic failure to its causes: a sale completed against a promise, no obligation attached to the proceeds, no reporting requirement, a roadmap that slips, communication that thins, and eventually silence. Argue that the absence of any continuing obligation is the entire mechanism, and that this distinguishes the era from ordinary fundraising far more than any question about intent. Take the position that a structure with no reporting duty will produce this outcome at scale regardless of who participates. The piece must not name any project or individual, must not describe any specific case, must not state amounts, and must not characterise anyone's intent as criminal.",
+    "pref": [
+      "exit-scams-as-market-structure",
+      "what-happened-to-the-money"
+    ]
+  },
+  {
+    "slug": "the-bust",
+    "era": "icoEra",
+    "kind": "timeline",
+    "cluster": "The token sale machine",
+    "title": "The Funding Stopped Faster Than It Started",
+    "seoTitle": "How the Token Sale Boom Actually Ended",
+    "description": "Sales slowed, listings dried up, treasuries shrank and projects wound down, in an order that is more informative than the aggregate.",
+    "lede": "The end came in a specific order, and the order tells you what was actually holding the thing up.",
+    "angle": "Sequences the contraction in the order it happened: sale participation falling, secondary market depth thinning, listings slowing, project communication thinning, and wind downs. Argue that the sequence identifies the binding constraint, which was continuous inflow of new participants rather than anything about the technology, and that this is the clearest threshold crossing in the era. Be careful to describe the contraction structurally rather than by market level. The piece must not state prices, index levels, or amounts raised by period, must not name projects, and must not present the contraction as a buying or selling opportunity in any framing.",
+    "pref": [
+      "the-exit-pattern",
+      "the-projects-that-shipped",
+      "why-a-standard-changed-everything"
+    ]
+  }
+]

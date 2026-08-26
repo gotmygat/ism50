@@ -1,0 +1,185 @@
+[
+  {
+    "slug": "the-banking-crisis-backdrop",
+    "era": "origins",
+    "kind": "timeline",
+    "cluster": "The whitepaper and the genesis block",
+    "title": "What Was Actually Happening in Finance the Autumn the Whitepaper Appeared",
+    "seoTitle": "The 2008 Backdrop to the Bitcoin Whitepaper",
+    "description": "A sequenced account of the banking events of late 2008 and a careful statement of what can and cannot be inferred about their connection to the whitepaper.",
+    "lede": "The whitepaper appeared in a season when the phrase bank failure was on the front page most weeks.",
+    "angle": "Sequences the public record of the autumn of 2008 alongside the publication of the whitepaper, and then does the harder job of separating coincidence, context and causation. Argue that the causal story everyone tells, that Bitcoin was built as a response to the financial crisis, is supported by exactly one line of on chain text and a great deal of retrofitting, and that the honest position is to present the evidence and stop. This is the clearest case on the site of a threshold crossing in both directions at once: trust in intermediated finance contracting sharply while appetite for an alternative expanded, with almost nobody connecting the two in real time. The piece must not assert a motive for the whitepaper's author, must not state that Bitcoin was created because of any specific institutional failure, and must not use any market index level or loss figure.",
+    "pref": [
+      "why-the-earlier-attempts-failed"
+    ]
+  },
+  {
+    "slug": "reading-the-bitcoin-whitepaper",
+    "era": "origins",
+    "kind": "primarySource",
+    "cluster": "The whitepaper and the genesis block",
+    "title": "Reading the Bitcoin Whitepaper Section by Section",
+    "seoTitle": "Reading the Bitcoin Whitepaper, Section by Section",
+    "description": "A close read of the nine numbered sections, what each one claims, and which claims the document supports rather than assumes.",
+    "lede": "The whitepaper is short, and almost everyone who cites it is citing something they read about it.",
+    "angle": "Walks the document in its own order, section by section, stating in plain language what each section is actually doing and flagging where a section states a result versus where it assumes a condition. Argue that the paper is a good deal more modest than its reputation, particularly on incentives and on the majority assumption, and that reading it as a manifesto rather than an engineering note is the source of a lot of downstream confusion. The threshold reading is that the document describes a system whose security expands with participation and contracts with concentration, which is a claim the industry spent fifteen years testing. The piece must not quote the paper from memory, must not paraphrase a sentence and present it as the paper's wording, and must not attribute any political intent to the text beyond what the text says. Do not restate what the paper omits: the published piece on what the whitepaper does not say already owns that ground, so link to it instead of covering it again.",
+    "pref": [
+      "the-double-spend-problem",
+      "the-timestamping-papers",
+      "hashcash-the-actual-mechanism",
+      "the-bitcoin-whitepaper-is-not-the-document-you-think"
+    ]
+  },
+  {
+    "slug": "how-the-network-agrees-what-time-it-is",
+    "era": "origins",
+    "kind": "explainer",
+    "cluster": "The whitepaper and the genesis block",
+    "title": "How a Network With No Clock Agrees What Time It Is",
+    "seoTitle": "How the Network Agrees What Time It Is",
+    "description": "Every block carries a timestamp asserted by whoever produced it, and the rules that keep those assertions roughly honest are a quiet piece of the design.",
+    "lede": "The time in a block is a claim made by the miner, and nothing outside the network can check it.",
+    "angle": "Makes one small mechanism comprehensible: a block states a time, that statement is unverifiable from outside, and consensus therefore constrains it with bounds drawn from the timestamps of surrounding blocks rather than from any external clock. Argue that this is a good miniature of the whole design, since the system does not obtain truth from anywhere, it narrows the range of lies that other participants will accept. Show why this matters practically, because difficulty retargeting reads these timestamps and a system that trusted them absolutely would be manipulable. The piece must not state the specific tolerance rules of any implementation without reading the source, must not claim timestamps are accurate, and must not describe any manipulation technique in operational detail.",
+    "pref": [
+      "the-difficulty-adjustment",
+      "reading-the-bitcoin-whitepaper"
+    ]
+  },
+  {
+    "slug": "the-genesis-block-message",
+    "era": "origins",
+    "kind": "primarySource",
+    "cluster": "The whitepaper and the genesis block",
+    "title": "The Genesis Block Carries a Headline, and That Is Almost All We Know",
+    "seoTitle": "The Genesis Block Message, Read Carefully",
+    "description": "What is actually encoded in the first block, what it proves about timing, and how much interpretive weight it can honestly carry.",
+    "lede": "The first block contains a newspaper headline, which proves a date floor and very little else.",
+    "angle": "Built entirely around the artefact: what bytes are in the coinbase field of the first block, what the standard reading of them is, and what that reading establishes with certainty, which is chiefly that the block was not created before the headline existed. Then argue against the overreach, because the same bytes are routinely used to establish an ideology, a motive and a political programme, and they do not support that load. Note the genuinely odd technical detail that the first block's reward is not spendable in the usual way, and explain why without dressing it as a secret message. The piece must not claim to know why the headline was chosen, must not reproduce the exact text unless verified against a block explorer at the time of writing, and must not describe the choice as proof of any position on monetary policy.",
+    "pref": [
+      "reading-the-bitcoin-whitepaper",
+      "the-banking-crisis-backdrop"
+    ]
+  },
+  {
+    "slug": "the-first-release-announcement",
+    "era": "origins",
+    "kind": "primarySource",
+    "cluster": "The whitepaper and the genesis block",
+    "title": "The Release Announcement Read as a Product Launch",
+    "seoTitle": "The First Bitcoin Release Announcement",
+    "description": "The original software announcement described features, requirements and limits, and reads far more like a beta release note than a manifesto.",
+    "lede": "Read as a launch post rather than as history, the first announcement is strikingly ordinary.",
+    "angle": "Reads the announcement of the first software release as the document it is, a note to a technical audience listing what the program does, what it needs and what it does not yet handle. Argue that the ordinariness is the finding: the tone contains none of the significance later attached to it, and comparing it to how the same event is described now is a direct measure of narrative drift. Frame the launch through the site's lens by asking what was expanding at that moment, which was almost nothing, and who could have told, which was almost nobody. The piece must not quote the announcement without the archived text in hand, must not describe reactions to it that cannot be sourced to the archive, and must not assert how many people downloaded or ran the software.",
+    "pref": [
+      "reading-the-bitcoin-whitepaper",
+      "the-genesis-block-message"
+    ]
+  },
+  {
+    "slug": "what-the-first-client-actually-did",
+    "era": "origins",
+    "kind": "primarySource",
+    "cluster": "The whitepaper and the genesis block",
+    "title": "The First Client Shipped Features the Whitepaper Never Mentioned",
+    "seoTitle": "What the First Bitcoin Client Actually Did",
+    "description": "The initial source release included a marketplace, a messaging idea and a scripting system, none of which appear in the paper.",
+    "lede": "The paper and the code that shipped alongside it are two different documents with two different scopes.",
+    "angle": "Compares the described system in the whitepaper with the released implementation, drawing out the features that exist only in the code, and explains why a scripting system in particular changes what the thing is. Argue that historians of this period consistently read the paper and skip the source, which is how a system with programmable spending conditions from day one came to be described as a simple ledger. Use the threshold framing on ambition: the design space in the code was wider than the design space in the paper, and the difference narrowed rather than widened over the following years. The piece must not describe code that cannot be located in an archived release, must not state which features were later removed without checking the change history, and must not attribute a purpose to any feature the source does not document.",
+    "pref": [
+      "reading-the-bitcoin-whitepaper",
+      "the-first-release-announcement",
+      "smart-contracts-before-blockchains"
+    ]
+  },
+  {
+    "slug": "the-first-transaction-on-chain",
+    "era": "origins",
+    "kind": "timeline",
+    "cluster": "The whitepaper and the genesis block",
+    "title": "The First Transaction Between Two People, and Why It Is Verifiable",
+    "seoTitle": "The First Bitcoin Transaction Between Two People",
+    "description": "One of the very few events in early crypto history that can be checked directly rather than trusted, and what that difference is worth.",
+    "lede": "Most of this history rests on archives and memory, and a small part of it rests on a chain that anyone can read.",
+    "angle": "Sequences the earliest network activity and then makes a methodological point that the site depends on: the chain itself is a primary source with properties no archive has, since it cannot be quietly edited and it does not go offline when a company does. Show what the chain does and does not tell you, because it records values and addresses and not identities, intentions or agreements. Argue that the discipline of separating chain evidence from testimony is the single most useful habit a reader of this period can develop. The piece must not attach a monetary value to any early transaction, must not identify the parties to any transaction beyond what has been publicly and voluntarily confirmed, and must not treat address clustering as identification.",
+    "pref": [
+      "the-genesis-block-message",
+      "the-first-release-announcement"
+    ]
+  },
+  {
+    "slug": "the-supply-schedule",
+    "era": "origins",
+    "kind": "primarySource",
+    "cluster": "The whitepaper and the genesis block",
+    "title": "The Supply Schedule Is a Rule in Code, Not a Promise in a Document",
+    "seoTitle": "How the Bitcoin Supply Schedule Works",
+    "description": "Where the issuance rule actually lives, what enforces it, and why calling it a hard cap is a statement about social consensus.",
+    "lede": "The cap is enforced by every node choosing to run software that enforces it, which is a different kind of guarantee than most people hear.",
+    "angle": "Built around the issuance rule as it appears in the source code rather than as it is described in summaries: how issuance decays, where the rule is implemented, and what would have to happen for it to change, which is a coordination problem rather than a mathematical impossibility. Argue that the strong version of the claim, that the supply cannot change, is a social fact dressed as a technical one, and that saying so plainly makes the design more impressive rather than less. Connect it to the site's line by pointing out that the credibility of the rule expands with the number of independent parties who would refuse a change. The piece must not forecast future issuance dates, must not state a current circulating supply or a market value, and must not describe the cap as an investment property of any kind. Do not restate the absence of any supply cap discussion from the paper itself, which the published whitepaper piece already establishes, and link to it rather than repeating it.",
+    "pref": [
+      "reading-the-bitcoin-whitepaper",
+      "the-bitcoin-whitepaper-is-not-the-document-you-think"
+    ]
+  },
+  {
+    "slug": "the-difficulty-adjustment",
+    "era": "origins",
+    "kind": "explainer",
+    "cluster": "The whitepaper and the genesis block",
+    "title": "Difficulty Adjustment: The Feedback Loop That Keeps the Clock Steady",
+    "seoTitle": "How Difficulty Adjustment Actually Works",
+    "description": "The rule that retargets mining difficulty is a control system, and understanding it explains most of what mining economics does under stress.",
+    "lede": "The network has no clock, so it built one out of a moving target.",
+    "angle": "Makes one mechanism comprehensible: why a fixed target would break as hardware improved, how retargeting turns an unpredictable amount of work into a predictable rhythm, and what happens in the interval after a large share of capacity leaves. Argue that this loop, not the supply cap, is the most underappreciated piece of the original design, because it is what makes the system self correcting rather than merely scarce. Use the threshold directly: hash rate crossing sharply in either direction is the clearest expansion and contraction signal the system produces about itself. The piece must not state historical hash rate figures, difficulty values or block times without a cited source, must not forecast anything, and must not present hash rate as a valuation input.",
+    "pref": [
+      "the-supply-schedule",
+      "hashcash-the-actual-mechanism"
+    ]
+  },
+  {
+    "slug": "the-halving-as-institutional-design",
+    "era": "origins",
+    "kind": "explainer",
+    "cluster": "The whitepaper and the genesis block",
+    "title": "The Halving Is a Scheduled Revenue Cut for an Entire Industry",
+    "seoTitle": "The Halving as an Industrial Revenue Cut",
+    "description": "Read as monetary policy the halving is simple, but read as a business event it is a scheduled shock to every miner's income statement.",
+    "lede": "A scheduled, announced, unavoidable halving of revenue is a governance event that no ordinary industry would tolerate.",
+    "angle": "Reframes a familiar mechanism as an operating problem, explaining why the issuance step down is trivial arithmetic for the protocol and a capital planning problem for the businesses that depend on it. Argue that the interesting history of the halving is a history of consolidation, since each one moves the marginal operator below its cost line and the fleet contracts before it expands again. That is the site's thesis in its most literal form, and it can be described structurally without any price. The piece must not name a price, a break even level, a hash price or an expected outcome for any future halving, must not frame the event as a market catalyst, and must not repeat the claim that halvings cause anything without saying who claims it and on what basis.",
+    "pref": [
+      "the-supply-schedule",
+      "the-difficulty-adjustment"
+    ]
+  },
+  {
+    "slug": "the-honest-majority-assumption",
+    "era": "origins",
+    "kind": "primarySource",
+    "cluster": "The whitepaper and the genesis block",
+    "title": "The Honest Majority Assumption Is an Assumption, and It Says So",
+    "seoTitle": "The Honest Majority Assumption, Examined",
+    "description": "Security rests on a stated condition about how much of the network is cooperating, and the document is explicit that it is a condition.",
+    "lede": "The guarantee is conditional, the condition is named in the paper, and almost every popular summary drops it.",
+    "angle": "Built around the specific passages of the whitepaper that state the security condition, reading what they do and do not cover, including the important detail that the guarantee bounds reordering rather than theft. Argue that dropping the condition when summarising is how the word trustless entered general use as a synonym for safe, and that the imprecision has real costs later on this site when smaller networks are attacked. Connect back to the general fault tolerance literature so the reader can see what is standard and what is specific here. The piece must not claim any particular network is currently above or below the threshold, must not cite mining pool concentration figures without a dated source, and must not present any attack as impossible.",
+    "pref": [
+      "byzantine-fault-tolerance-plainly",
+      "reading-the-bitcoin-whitepaper"
+    ]
+  },
+  {
+    "slug": "the-authorship-question",
+    "era": "origins",
+    "kind": "explainer",
+    "cluster": "The whitepaper and the genesis block",
+    "title": "The Authorship Question, and How to Write About It Without Guessing",
+    "seoTitle": "The Bitcoin Authorship Question, Handled Honestly",
+    "description": "A pseudonymous author, a long list of claimed identifications, no accepted proof, and a method for writing about unresolved questions.",
+    "lede": "The honest summary is that nobody has demonstrated who wrote it, and that summary is unsatisfying by design.",
+    "angle": "Uses the most speculated about question in the subject as a worked example of how this site handles an open question: state what is documented, state what would count as proof, state that it has not been produced, and stop. Argue that the identification attempts are historically interesting as a study of evidence standards, since each one rests on stylometry, circumstantial timing or an unverified claim, and none rests on a signature from a known early key. Take the position plainly that the answer would change very little about the history and that the appetite for it is mostly narrative. The piece must not name any individual as a likely author, must not rank the candidates by plausibility, must not repeat any specific person's denial or claim as evidence, and must not treat coincidence of writing style as identification.",
+    "pref": [
+      "the-cypherpunks-list",
+      "the-bitcoin-whitepaper-is-not-the-document-you-think",
+      "bit-gold-the-proposal"
+    ]
+  }
+]

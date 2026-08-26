@@ -1,0 +1,200 @@
+[
+  {
+    "slug": "what-ethereum-proposed",
+    "era": "icoEra",
+    "kind": "explainer",
+    "cluster": "Ethereum: the idea and the launch",
+    "title": "The Proposal Was Not a Better Currency, It Was a Different Question",
+    "seoTitle": "What Ethereum Actually Proposed",
+    "description": "Instead of adding features to a payment ledger, the proposal was a general computer whose state everyone agrees on.",
+    "lede": "The change was to stop asking what else the ledger could record and start asking what it could run.",
+    "angle": "States the conceptual shift precisely: from a ledger with special purpose scripts to a general execution environment where the application logic is supplied by whoever deploys it. Argue that the earlier attempts at tokens and coloured coins are the direct evidence of demand for this, which makes the proposal a response to a documented ceiling rather than a leap. Establish the cost of the shift honestly, because a general computer has a much larger surface for both bugs and disagreement. The piece must not present the design as superior to any other, must not state performance characteristics, and must not describe any current version of the network as though it were the launched one.",
+    "pref": [
+      "coloured-coins-and-the-idea-that-moved",
+      "tokens-on-top-of-bitcoin",
+      "smart-contracts-before-blockchains"
+    ]
+  },
+  {
+    "slug": "reading-the-ethereum-whitepaper",
+    "era": "icoEra",
+    "kind": "primarySource",
+    "cluster": "Ethereum: the idea and the launch",
+    "title": "Reading the Ethereum Whitepaper as a Design Document",
+    "seoTitle": "Reading the Ethereum Whitepaper Closely",
+    "description": "The document argues from the limitations of existing systems to a specific design, and it names problems it had not solved.",
+    "lede": "The paper spends more time on what was wrong with the alternatives than on what it was proposing.",
+    "angle": "Works through the document's structure: the critique of scripting limitations, the account and state model it proposes, the fee mechanism, and the section that lists open problems. Argue that the open problems section is the most valuable part for a historian, because it dates precisely what was known to be unsolved and lets a reader check which items were later addressed and which were quietly dropped. Note that the document has been revised over time and that citing it requires naming a version. The piece must not quote the paper without the specific version in hand, must not present later design decisions as though they appeared in the paper, and must not describe the roadmap it sketches as delivered.",
+    "pref": [
+      "what-ethereum-proposed",
+      "reading-the-bitcoin-whitepaper"
+    ]
+  },
+  {
+    "slug": "the-yellow-paper",
+    "era": "icoEra",
+    "kind": "primarySource",
+    "cluster": "Ethereum: the idea and the launch",
+    "title": "A Formal Specification Is a Different Kind of Promise",
+    "seoTitle": "The Yellow Paper and Formal Specification",
+    "description": "Publishing a mathematical specification separate from any implementation was unusual and changed what client diversity could mean.",
+    "lede": "A formal specification means a second implementation can be checked against something other than the first implementation.",
+    "angle": "Explains what a formal specification does that prose and code do not: it gives independent implementers a shared reference and makes divergence a detectable error rather than an interpretation. Argue that this decision is the reason multiple independent clients became feasible here in a way they had not elsewhere, and that it is one of the more genuinely important and least discussed choices of the period. Be honest that the specification has lagged the implementation at various points. The piece must not reproduce any formal notation without the document in hand, must not claim the specification is currently complete or current, and must not present formal specification as preventing bugs.",
+    "pref": [
+      "reading-the-ethereum-whitepaper",
+      "the-first-alternative-clients"
+    ]
+  },
+  {
+    "slug": "the-evm-explained",
+    "era": "icoEra",
+    "kind": "explainer",
+    "cluster": "Ethereum: the idea and the launch",
+    "title": "The Virtual Machine, Explained Without Any Code",
+    "seoTitle": "The Ethereum Virtual Machine, Explained Plainly",
+    "description": "A deterministic machine that every participant runs identically, with no clock, no network access and no randomness, and each absence is a design choice.",
+    "lede": "Everything the machine cannot do is more informative than everything it can.",
+    "angle": "Makes one mechanism comprehensible by explaining the constraints first: determinism, no external input, no time source, no randomness, and why each is required for every participant to reach the same result. Argue that most of the difficulty in this era's applications comes directly from those constraints, since anything that needs outside information needs an oracle and anything that needs randomness needs a scheme. Set up the DeFi era by establishing that the interesting engineering happens at those boundaries. The piece must not state gas costs or opcode specifics without a source, must not describe the machine as unchanged since launch, and must not present any particular execution environment as better.",
+    "pref": [
+      "what-ethereum-proposed",
+      "the-yellow-paper"
+    ]
+  },
+  {
+    "slug": "gas-as-a-metering-mechanism",
+    "era": "icoEra",
+    "kind": "primarySource",
+    "cluster": "Ethereum: the idea and the launch",
+    "title": "Charging for Computation Solves the Halting Problem Commercially",
+    "seoTitle": "Gas: Charging for Computation, Explained",
+    "description": "You cannot know in advance whether a program terminates, so the design charges by the step and stops when the payment runs out.",
+    "lede": "The answer to an unsolvable computer science problem turned out to be a meter.",
+    "angle": "Built around the specification's fee schedule as the artefact: an open network cannot allow unbounded computation, cannot determine in advance which programs terminate, and therefore prices each operation and halts when funds are exhausted. Argue that this is an elegant sidestep rather than a solution, and that it converts a computability problem into an economics problem with all the volatility that implies. Note the practical consequences that follow, including failed transactions that still cost the sender. The piece must not state any specific fee levels or gas prices, must not describe the current fee market mechanism as though it were the original one, and must not offer any reader guidance on transaction costs.",
+    "pref": [
+      "the-evm-explained",
+      "the-difficulty-adjustment"
+    ]
+  },
+  {
+    "slug": "the-state-model-choice",
+    "era": "icoEra",
+    "kind": "explainer",
+    "cluster": "Ethereum: the idea and the launch",
+    "title": "Accounts or Coins: A Data Model Choice With Long Consequences",
+    "seoTitle": "Accounts Versus Coins: The Data Model Choice",
+    "description": "Tracking balances per account and tracking individual unspent outputs lead to genuinely different capabilities and different problems.",
+    "lede": "Two ways of writing down who owns what produce two very different systems downstream.",
+    "angle": "Compares the two models plainly: what an unspent output model makes easy, what an account model makes easy, and the specific consequences for privacy, parallel execution, and contract programming. Argue that this is the most consequential technical fork in the industry's design space and that it is usually presented as an implementation detail. Take a position that neither is better in the abstract and that the debate is only meaningful once you name the workload. The piece must not claim either model is more scalable without qualification, must not state throughput figures, and must not describe any chain's current model without checking.",
+    "pref": [
+      "the-evm-explained",
+      "the-first-transaction-on-chain"
+    ]
+  },
+  {
+    "slug": "the-ether-presale",
+    "era": "icoEra",
+    "kind": "primarySource",
+    "cluster": "Ethereum: the idea and the launch",
+    "title": "The Presale Documents Are the Template Everything Copied",
+    "seoTitle": "The Ether Presale as a Fundraising Template",
+    "description": "The published terms of the initial sale established the format, the disclosures and the legal posture that hundreds of later sales imitated.",
+    "lede": "The terms document for this one sale is the most copied legal artefact in crypto.",
+    "angle": "Built around the published sale terms and accompanying materials: what was actually offered, what disclaimers were made, how proceeds were described and what jurisdictional posture was taken. Argue that reading it now is uncomfortable and instructive, because the caution in the original documents was progressively discarded by imitators who kept the format and dropped the warnings. Treat it as a primary source rather than as an origin myth. The piece must not state amounts raised or purchaser numbers without a verified source, must not characterise the legal validity of any term, must not give any reader legal or financial guidance, and must not quote the documents without them in hand.",
+    "pref": [
+      "reading-the-ethereum-whitepaper",
+      "tokens-on-top-of-bitcoin"
+    ]
+  },
+  {
+    "slug": "the-foundation-question",
+    "era": "icoEra",
+    "kind": "profile",
+    "cluster": "Ethereum: the idea and the launch",
+    "title": "A Foundation Sitting Beside a Protocol Is an Unresolved Arrangement",
+    "seoTitle": "The Foundation Problem in Protocol Governance",
+    "description": "A non profit entity that funds development but does not control consensus occupies a position with no clean precedent and recurring criticism.",
+    "lede": "The entity has money and legitimacy and no formal authority, which is a genuinely strange thing to be.",
+    "angle": "A profile of the protocol foundation as an institutional form: it can fund, publish, convene and signal, and it cannot compel anyone to run anything. Argue that this ambiguity is permanent rather than transitional, that it recurs across nearly every large protocol in this history, and that both the criticism of foundation influence and the defence of it are describing the same facts. Present the recurring conflict honestly without adjudicating. The piece must not describe any foundation's current funding, holdings, personnel or governance without a published source, must not attribute decisions to individuals, and must not characterise any foundation as controlling or not controlling a network.",
+    "pref": [
+      "who-pays-the-developers",
+      "the-ether-presale",
+      "maintainers-not-owners"
+    ]
+  },
+  {
+    "slug": "shipping-something-unfinished",
+    "era": "icoEra",
+    "kind": "timeline",
+    "cluster": "Ethereum: the idea and the launch",
+    "title": "The Network Launched Explicitly Labelled as Not Ready",
+    "seoTitle": "Launching a Network Labelled Not Ready",
+    "description": "The first release was published with warnings about its own maturity, and people used it for real value immediately anyway.",
+    "lede": "The launch materials said this is experimental, and within weeks real money was on it.",
+    "angle": "Sequences the launch phases and the accompanying communications, focusing on the gap between the stated maturity of the software and the actual use it received. Argue that this gap is the defining condition of the entire era and that it recurs at every layer of the stack, since a public network cannot stop people from using it as soon as it works at all. Take the position that warnings are not a control and that treating them as one has caused real harm across this history. The piece must not describe the phases inaccurately or state dates without a source, must not quantify usage at launch, and must not present any warning as having discharged anyone's responsibility.",
+    "pref": [
+      "the-ether-presale",
+      "the-yellow-paper"
+    ]
+  },
+  {
+    "slug": "the-scheduled-upgrade-model",
+    "era": "icoEra",
+    "kind": "timeline",
+    "cluster": "Ethereum: the idea and the launch",
+    "title": "Planned Breaking Changes as a Normal Way to Run a Network",
+    "seoTitle": "Scheduled Hard Forks as Normal Practice",
+    "description": "One network normalised coordinated breaking upgrades on a schedule, while another treated them as a last resort, and both positions are coherent.",
+    "lede": "One community treats a coordinated breaking change as routine maintenance and another treats it as a constitutional crisis.",
+    "angle": "Sequences how two upgrade cultures diverged and hardened: routine coordinated changes buy the ability to fix and improve, and the reluctance to make them buys credibility that the rules will not move. Argue that the difference is not technical competence but a genuine disagreement about what property is being sold to users, and that both communities are internally consistent. Set up the scaling wars by establishing the disagreement clearly before it becomes a fight. The piece must not present either culture as correct, must not list upgrade names or dates without a source, and must not claim any upgrade delivered what it promised without evidence.",
+    "pref": [
+      "what-a-hard-fork-actually-is",
+      "shipping-something-unfinished"
+    ]
+  },
+  {
+    "slug": "the-difficulty-bomb",
+    "era": "icoEra",
+    "kind": "primarySource",
+    "cluster": "Ethereum: the idea and the launch",
+    "title": "A Deadline Written Into the Protocol Itself",
+    "seoTitle": "The Difficulty Bomb: A Deadline in Code",
+    "description": "A mechanism designed to make the network progressively unusable was included deliberately, to force a future upgrade nobody could postpone forever.",
+    "lede": "The protocol contained a slowly tightening screw whose only purpose was to make delay expensive.",
+    "angle": "Built around the proposal that introduced the mechanism and the reasoning published with it: a scheduled degradation forces a coordination decision that would otherwise be deferred indefinitely by people with different interests. Argue that this is one of the very few genuine governance inventions in this history, an attempt to bind a future community to act, and that its repeated postponement is equally informative about how well such commitments hold. Take the position that the mechanism half worked, which is more than most governance devices manage. The piece must not state the mechanism's parameters or any postponement dates without a source, must not claim it was decisive in any transition, and must not describe its current status without checking.",
+    "pref": [
+      "the-scheduled-upgrade-model",
+      "the-first-proof-of-stake-attempts"
+    ]
+  },
+  {
+    "slug": "the-language-choice",
+    "era": "icoEra",
+    "kind": "postmortem",
+    "cluster": "Ethereum: the idea and the launch",
+    "title": "The Contract Language Made Some Mistakes Very Easy to Make",
+    "seoTitle": "How the Contract Language Shaped the Bugs",
+    "description": "A language designed to feel familiar to web developers inherited defaults that turned out to be dangerous in an adversarial setting.",
+    "lede": "The language was made easy to pick up, and that is exactly how it went wrong.",
+    "angle": "Follows a class of expensive bugs back to design decisions in the language, familiar syntax, implicit behaviours and defaults favouring convenience, in an environment where every deployed program is permanently exposed to a motivated adversary with the source. Argue that the resulting bug classes were not developer carelessness but a predictable consequence of importing ordinary programming ergonomics into a setting with no patching and no undo. Note the later languages and tooling that responded to this and be careful not to claim they solved it. The piece must not present any language or tool as safe, must not include exploitable code, and must not blame named developers for any incident.",
+    "pref": [
+      "the-evm-explained",
+      "smart-contracts-before-blockchains"
+    ]
+  },
+  {
+    "slug": "what-ethereum-borrowed",
+    "era": "icoEra",
+    "kind": "timeline",
+    "cluster": "Ethereum: the idea and the launch",
+    "title": "Almost Every Component Came From Somewhere, and the Sources Are Documented",
+    "seoTitle": "Where Ethereum's Ideas Actually Came From",
+    "description": "Tracing the design back to earlier proposals, academic work and prior chains shows a synthesis rather than an invention, which is not a criticism.",
+    "lede": "Tracing where each part came from makes the achievement clearer, not smaller.",
+    "angle": "Sequences the provenance of the main design components using citations and published discussion, distinguishing what was adapted from earlier chains, what came from academic literature, and what was genuinely new here. Argue that the industry's habit of describing every project as an invention obscures the actual skill involved, which is selection and integration under constraint. Commit to the position that a documented lineage is a mark of quality rather than a debunking. The piece must not assert influence without a citation, must not adjudicate any priority dispute between individuals, and must not present the synthesis as diminishing anyone's contribution.",
+    "pref": [
+      "reading-the-ethereum-whitepaper",
+      "the-first-proof-of-stake-attempts",
+      "coloured-coins-and-the-idea-that-moved"
+    ]
+  }
+]

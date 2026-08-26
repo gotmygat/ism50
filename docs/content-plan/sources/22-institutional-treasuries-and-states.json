@@ -1,0 +1,168 @@
+[
+  {
+    "slug": "the-corporate-treasury-decision",
+    "era": "institutional",
+    "kind": "profile",
+    "cluster": "Treasuries and states",
+    "title": "A Company Holding a Volatile Asset Has Changed What It Is",
+    "seoTitle": "When a Company Holds a Volatile Asset",
+    "description": "A treasury allocation into a volatile asset changes a company's reported results and how its shares are analysed, regardless of the operating business.",
+    "lede": "Once the balance sheet moves with an asset price, the company is partly a fund whether it says so or not.",
+    "angle": "A profile of the corporate treasurer facing this decision and of what it does to the company: a material holding introduces a driver of reported results and share behaviour unrelated to the operating business, and analysts respond by valuing the two parts separately. Argue that this reframing, from an operating company to a hybrid, is the substantive change and it is rarely how these announcements were discussed. Keep everything at the level of what changes structurally. The piece must not name any company, must not state holdings, prices or results, must not give any accounting, reporting or tax treatment guidance, and must not offer any view on any company or its shares.",
+    "pref": [
+      "what-institutions-actually-asked-for",
+      "what-happened-to-the-money"
+    ]
+  },
+  {
+    "slug": "adoption-that-was-mostly-announcement",
+    "era": "institutional",
+    "kind": "postmortem",
+    "cluster": "Treasuries and states",
+    "title": "The Gap Between Announcing Support and Actually Supporting It",
+    "seoTitle": "Announced Adoption Versus Actual Adoption",
+    "description": "Corporate announcements about accepting or holding crypto frequently described pilots, intentions or intermediated arrangements rather than direct activity.",
+    "lede": "The press release and the implementation were often two very different things.",
+    "angle": "Follows a measurement failure to its cause by describing what corporate adoption announcements actually contained: acceptance intermediated by a processor with instant conversion, pilots limited in scope, or holdings held through a third party. Argue that this is the same measurement failure as the early merchant era, arriving with a much larger audience, and that the industry had every reason not to correct it. Read it against the threshold, since announced adoption expanded while implemented adoption is not measurable at all. The piece must not name companies, must not state adoption figures, must not characterise any company's announcement as dishonest, and must not offer any view on any business.",
+    "pref": [
+      "the-first-merchants",
+      "why-early-adoption-figures-are-unknowable"
+    ]
+  },
+  {
+    "slug": "the-consultant-report-genre",
+    "era": "institutional",
+    "kind": "profile",
+    "cluster": "Treasuries and states",
+    "title": "The Institutional Research That Appeared Was Mostly Commissioned",
+    "seoTitle": "Who Paid for the Institutional Research",
+    "description": "Reports making the case for institutional adoption were often produced or funded by parties with an interest in the conclusion, and rarely said so.",
+    "lede": "A lot of the serious looking research had somebody with an interest paying for it.",
+    "angle": "A profile of the institutional research provider in this sector, working through the genre it produced: survey based reports on institutional intentions, allocation studies and market sizing, and the funding and methodology disclosures that accompanied them. Argue that the recurring weaknesses are self selecting samples, questions about intention rather than behaviour, and sponsorship that appears in small print, and that these reports were then cited as independent evidence. Establish a reading habit for the site rather than attacking anyone. The piece must not name any report, firm or author, must not repeat any survey figure, must not accuse anyone of misconduct, and must not present any research as reliable or unreliable individually.",
+    "pref": [
+      "adoption-that-was-mostly-announcement",
+      "why-early-adoption-figures-are-unknowable"
+    ]
+  },
+  {
+    "slug": "a-country-makes-it-legal-tender",
+    "era": "institutional",
+    "kind": "timeline",
+    "cluster": "Treasuries and states",
+    "title": "One Government Made It Legal Tender, and the Details Matter",
+    "seoTitle": "When a Country Made It Legal Tender",
+    "description": "A national law requiring acceptance was a genuine first, and what the law actually required differs from how it was widely reported.",
+    "lede": "The law said specific things, and almost nobody reporting on it read them.",
+    "angle": "Sequences the legislative and implementation steps using the published law and official communications, being precise about what obligations were created, for whom, and with what exceptions and state provided mechanisms. Argue that the reporting on both sides was unusually poor and that the primary documents settle several disputed points. Establish what a legal tender designation does and does not mean as a matter of law generally. The piece must not characterise the government or its motives, must not state adoption or usage figures, must not comment on the country's finances or borrowing, must not give any view on the policy's wisdom, and must not predict any outcome.",
+    "pref": [
+      "how-to-read-a-regulatory-document",
+      "stablecoins-as-payment-rails"
+    ]
+  },
+  {
+    "slug": "the-legal-tender-experiment-examined",
+    "era": "institutional",
+    "kind": "postmortem",
+    "cluster": "Treasuries and states",
+    "title": "What Can Actually Be Established About How It Went",
+    "seoTitle": "What Can Be Established About the Experiment",
+    "description": "Claims about usage, downloads and merchant acceptance come from interested parties, and the verifiable record is thinner than either side suggests.",
+    "lede": "Both the enthusiastic account and the dismissive one rest on numbers nobody can check.",
+    "angle": "Follows the evidence rather than the outcome: identifies which claims about usage have a verifiable basis, which come from surveys with methodological limits, and which come from parties with an interest. Argue that the honest position is that the experiment is under measured, and that both the celebratory and the dismissive accounts are built on the same weak data. Name the contest and refuse to resolve it. The piece must not repeat any usage or download figure as fact, must not characterise the government or any official, must not comment on the country's public finances, and must not present the experiment as a success or a failure.",
+    "pref": [
+      "a-country-makes-it-legal-tender",
+      "the-consultant-report-genre"
+    ]
+  },
+  {
+    "slug": "states-that-hold-seized-assets",
+    "era": "institutional",
+    "kind": "explainer",
+    "cluster": "Treasuries and states",
+    "title": "Governments Became Significant Holders Without Deciding To",
+    "seoTitle": "How Governments Became Large Holders",
+    "description": "Forfeiture and seizure made several states substantial holders, which raises questions about custody, disposal and market effect that nobody planned for.",
+    "lede": "The largest state holdings were acquired by enforcement, not by policy.",
+    "angle": "Explains the mechanism and the resulting institutional problem: assets acquired through legal process must be custodied, accounted for and eventually disposed of by agencies with no experience of any of it. Argue that the disposal question, whether to sell promptly or hold, is a genuine policy question that has largely been answered by procedure rather than by deliberation. Connect back to the earliest forfeiture auctions to show how the scale changed. The piece must not state holdings or values for any government, must not name specific seizures or cases, must not predict any disposal, and must not describe any government holding as a market factor.",
+    "pref": [
+      "when-a-government-becomes-a-seller",
+      "the-seizure-and-what-it-proved"
+    ]
+  },
+  {
+    "slug": "mining-as-industrial-policy",
+    "era": "institutional",
+    "kind": "explainer",
+    "cluster": "Treasuries and states",
+    "title": "Some Governments Treated Mining as an Export Industry",
+    "seoTitle": "When Mining Became Industrial Policy",
+    "description": "Jurisdictions with surplus power have courted mining as a way to monetise energy that cannot easily be exported any other way.",
+    "lede": "For a country with stranded power, an industry that can be built next to the generator is an interesting proposition.",
+    "angle": "Explains the policy logic without endorsing it: energy that cannot be transmitted or stored has little value, and an interruptible, location indifferent load can monetise it, which is a genuine argument that deserves to be stated properly. Present the counterarguments, including grid effects, employment intensity and the concentration of benefit, at the same level of seriousness. Argue that the debate has been conducted almost entirely in slogans on both sides. The piece must not name jurisdictions or companies, must not state energy or employment figures, must not take a position on any energy policy, and must not describe mining as beneficial or harmful.",
+    "pref": [
+      "mining-as-an-energy-business",
+      "the-geographic-migration"
+    ]
+  },
+  {
+    "slug": "remittances-as-the-claimed-use",
+    "era": "institutional",
+    "kind": "postmortem",
+    "cluster": "Treasuries and states",
+    "title": "The Remittance Argument Was Made Constantly and Tested Rarely",
+    "seoTitle": "The Remittance Argument, Examined",
+    "description": "Cross border transfers were the most cited use case for a decade, and the last mile problem is where the argument usually stops being examined.",
+    "lede": "The transfer is the easy part and the cash at the other end is the hard part.",
+    "angle": "Follows the failure of the most cited use case to its cause by separating the claim into moving value across a border, converting into local currency, and delivering it to someone without a bank account, of which the technology addresses only the first. Argue that this is why the use case kept being cited and kept not arriving at scale, and that the stablecoin corridors that did work are a partial answer that changes the shape of the claim. Take the position that the industry oversold this specific case more than any other. The piece must not state remittance costs, volumes or corridor figures, must not name providers or corridors, must not describe any service as available or advisable, and must not comment on any country's currency controls.",
+    "pref": [
+      "stablecoins-as-payment-rails",
+      "adoption-that-was-mostly-announcement"
+    ]
+  },
+  {
+    "slug": "the-multilateral-response",
+    "era": "institutional",
+    "kind": "profile",
+    "cluster": "Treasuries and states",
+    "title": "International Bodies Framed This as Financial Stability, Not Innovation",
+    "seoTitle": "How International Bodies Framed the Question",
+    "description": "Multilateral institutions approached crypto through financial stability, capital flows and monetary sovereignty, which is a different conversation entirely.",
+    "lede": "The institutions with a global view were asking about capital flows, not about technology.",
+    "angle": "A profile of the multilateral institution as a participant in this history, explaining the analytical frame it uses and why that produces different conclusions from a technology or consumer protection frame, particularly around dollarisation, capital flow management and monetary policy transmission. Argue that the industry has mostly not engaged with this literature and has therefore been surprised by positions that were entirely predictable from it. Present the concerns as arguments to be understood rather than as opposition. The piece must not name institutions or reports without the document in hand, must not summarise any position without a source, must not offer macroeconomic views, and must not characterise any body's motives.",
+    "pref": [
+      "why-dollars-won-on-chain",
+      "the-issuer-regulatory-question"
+    ]
+  },
+  {
+    "slug": "the-pension-and-endowment-question",
+    "era": "institutional",
+    "kind": "profile",
+    "cluster": "Treasuries and states",
+    "title": "Fiduciaries Face a Different Question From Everyone Else",
+    "seoTitle": "The Fiduciary Question, Explained",
+    "description": "A fiduciary must justify a decision by process rather than by outcome, which changes what evidence is required before anything can be considered.",
+    "lede": "The fiduciary question is not whether it goes up, it is whether the process was defensible.",
+    "angle": "A profile of the fiduciary allocator as a decision maker: the standard is prudence of process, documented analysis and suitability to the mandate, which means the absence of established analysis is itself a barrier. Argue that this explains the very slow movement of long horizon institutional capital far better than any narrative about conviction. Keep it entirely about the decision framework. The piece must not name institutions, must not state allocations, must not describe any allocation as prudent or imprudent, must not give investment, fiduciary or legal advice, and must not forecast anything.",
+    "pref": [
+      "what-institutions-actually-asked-for",
+      "the-qualified-custodian-question"
+    ]
+  },
+  {
+    "slug": "what-institutional-adoption-measured",
+    "era": "institutional",
+    "kind": "postmortem",
+    "cluster": "Treasuries and states",
+    "title": "The Phrase Institutional Adoption Was Never Defined",
+    "seoTitle": "What Institutional Adoption Actually Measured",
+    "description": "The term covered a bank building a desk, a fund buying a product and a company issuing a press release, which are not the same event.",
+    "lede": "The phrase was used for everything, which is a good sign that it measured nothing.",
+    "angle": "Follows a term's failure as a measurement to its cause by taking it apart into the distinct events it described, which carry entirely different weight: infrastructure being built, capital being allocated, and statements being made. Argue that the conflation was commercially useful to almost everyone involved and that a history site should refuse the term and name the specific event instead. Commit to that as the cluster's conclusion and as a rule for the whole site. The piece must not state any adoption figure, must not name institutions or products, must not describe adoption as growing or shrinking in market terms, and must not offer any investment framing.",
+    "pref": [
+      "adoption-that-was-mostly-announcement",
+      "the-consultant-report-genre",
+      "what-the-wrapper-does-not-change"
+    ]
+  }
+]

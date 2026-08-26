@@ -1,0 +1,202 @@
+[
+  {
+    "slug": "the-block-size-constraint",
+    "era": "icoEra",
+    "kind": "explainer",
+    "cluster": "The scaling wars",
+    "title": "A Limit on Block Size Is a Limit on Who Can Verify",
+    "seoTitle": "What the Block Size Limit Actually Constrains",
+    "description": "The size of a block determines transaction capacity and also determines the cost of running a node, and those two pull in opposite directions.",
+    "lede": "Every proposal to carry more transactions is also a proposal about how expensive it should be to check them.",
+    "angle": "Explains the actual trade off: larger blocks carry more transactions and impose higher bandwidth, storage and validation costs on everyone who verifies independently, which affects how many people can. Argue that both sides of the later argument understood this correctly and disagreed about which side of it mattered, and that describing either camp as ignorant is the standard and lazy account. Establish the terms carefully now so the fight itself can be described without re-litigating the technical basics. The piece must not state any specific limit, throughput figure or resource requirement without a source, must not present either position as technically correct, and must not describe current capacity.",
+    "pref": [
+      "running-a-node-when-nobody-did",
+      "the-decentralisation-metric-problem"
+    ]
+  },
+  {
+    "slug": "why-the-limit-existed",
+    "era": "icoEra",
+    "kind": "primarySource",
+    "cluster": "The scaling wars",
+    "title": "The Limit Was Added Quietly, and the Reason Is Documented",
+    "seoTitle": "Why the Block Size Limit Was Added",
+    "description": "The constraint was introduced as an anti spam measure rather than as a monetary policy, and the archived discussion says so.",
+    "lede": "The most fought over number in the industry was introduced without much discussion at all.",
+    "angle": "Built around the archived commit and discussion introducing the constraint, establishing what was actually said about its purpose at the time, which was protection against cheap flooding rather than any long term design intent. Argue that both camps later read intent into this change that the record does not support, one treating it as a temporary measure and the other as a foundational property. Take the position that the record supports neither strong reading and that the argument was always about the future rather than the past. The piece must not paraphrase the archived discussion as a quotation, must not assert the author's intent beyond the archived words, and must not claim the change was or was not controversial at the time without evidence.",
+    "pref": [
+      "the-block-size-constraint",
+      "the-departure"
+    ]
+  },
+  {
+    "slug": "the-two-scaling-philosophies",
+    "era": "icoEra",
+    "kind": "explainer",
+    "cluster": "The scaling wars",
+    "title": "Two Coherent Answers to the Same Question",
+    "seoTitle": "The Two Scaling Philosophies, Stated Fairly",
+    "description": "Carry more transactions on the base layer, or keep the base layer cheap to verify and build settlement layers above it, and both have costs.",
+    "lede": "The disagreement was never about whether to scale, it was about what to spend to do it.",
+    "angle": "States both positions as their proponents would state them, with the strongest version of each and the cost each accepts. Argue that the debate is genuinely a values disagreement about who the system is for, occasional users transacting cheaply or independent verifiers keeping it checkable, and that framing it as a technical dispute made it unresolvable. Commit to the position that the failure to name it as a values disagreement is why it became personal. The piece must not declare either approach correct, must not state fee levels or throughput figures, must not characterise either camp's participants, and must not describe the current state of either approach as vindication.",
+    "pref": [
+      "the-block-size-constraint",
+      "why-the-limit-existed"
+    ]
+  },
+  {
+    "slug": "what-segwit-actually-did",
+    "era": "icoEra",
+    "kind": "primarySource",
+    "cluster": "The scaling wars",
+    "title": "The Upgrade Was Mostly About Signatures, and Capacity Was a Side Effect",
+    "seoTitle": "What the Witness Upgrade Actually Did",
+    "description": "Moving signature data out of the transaction body fixed a longstanding malleability problem and raised effective capacity as a consequence.",
+    "lede": "The headline was capacity and the actual achievement was making transaction identifiers stable.",
+    "angle": "Built around the proposal documents rather than the argument around them: separating signature data from the part of the transaction that determines its identifier, why that eliminates the malleability class, and how the accounting change produces additional effective capacity. Argue that the malleability fix is the more important result and was largely lost in the capacity argument, and that it is what made layered payment channels practical. Connect back to the earlier malleability piece so the reader can see a problem being closed years after it caused damage. The piece must not state capacity multipliers or fee effects, must not describe adoption levels without a source, and must not present the upgrade as having resolved the underlying dispute.",
+    "pref": [
+      "transaction-malleability-the-actual-bug",
+      "what-a-soft-fork-actually-is",
+      "the-two-scaling-philosophies"
+    ]
+  },
+  {
+    "slug": "hashrate-voting-and-why-it-failed",
+    "era": "icoEra",
+    "kind": "postmortem",
+    "cluster": "The scaling wars",
+    "title": "Miner Signalling Was Treated as a Vote, and It Is Not One",
+    "seoTitle": "Why Miner Signalling Is Not a Vote",
+    "description": "Signalling in blocks was designed as a coordination readiness indicator and was widely reinterpreted as a governance mechanism.",
+    "lede": "A readiness flag became a ballot because people needed something that looked like a ballot.",
+    "angle": "Follows the failure of a governance mechanism to its cause: signalling was designed to indicate when enough capacity was prepared to enforce a new rule safely, and treating it as consent confused preparation with approval. Argue that the reinterpretation was convenient for everyone involved because there was no legitimate decision procedure and this looked like one, and that the eventual rejection of it was a genuine governance development. Set up the activation fight by making this distinction sharp. The piece must not state signalling percentages or thresholds without a source, must not claim any party signalled in bad faith, and must not present any alternative as a legitimate voting mechanism.",
+    "pref": [
+      "what-a-pool-operator-controls",
+      "the-carbon-vote",
+      "what-segwit-actually-did"
+    ]
+  },
+  {
+    "slug": "the-agreement-between-companies",
+    "era": "icoEra",
+    "kind": "primarySource",
+    "cluster": "The scaling wars",
+    "title": "A Group of Companies Signed an Agreement About a Protocol They Did Not Own",
+    "seoTitle": "When Companies Signed a Protocol Agreement",
+    "description": "A private agreement among businesses proposed a two part upgrade path, and the reaction to it defined the governance question sharply.",
+    "lede": "A document signed in a room by companies proposed to settle a public protocol's future.",
+    "angle": "Built around the agreement as an artefact: what it actually committed its signatories to, who signed, and the specific objection raised against it, which was that the parties had no standing to decide. Argue that this document is the clearest available statement of the industry capture question, and that the reaction to it, rather than its content, is what settled the matter. Present both readings, that it was a pragmatic attempt to end a deadlock and that it was a cartel decision, without adjudicating. The piece must not quote the agreement without the archived text, must not characterise signatories' motives, must not state the outcome as a moral verdict, and must not name individuals.",
+    "pref": [
+      "hashrate-voting-and-why-it-failed",
+      "the-two-scaling-philosophies"
+    ]
+  },
+  {
+    "slug": "the-user-activated-approach",
+    "era": "icoEra",
+    "kind": "primarySource",
+    "cluster": "The scaling wars",
+    "title": "The Counter Move Was to Say That Users Enforce the Rules",
+    "seoTitle": "The User Activated Approach, Explained",
+    "description": "A strategy in which economically important nodes commit to enforcing a rule regardless of miner support, and what makes it work or not.",
+    "lede": "The counter argument was that miners produce blocks and users decide which blocks count.",
+    "angle": "Built around the proposal document that set out the approach and the commitments published around it: enough economically significant participants must credibly commit in advance, and the credibility of that commitment is what does the work, not the code. Argue that this was a genuinely novel governance manoeuvre and also an extremely dangerous one, since a failed commitment produces a split, and that its success does not establish that it would work again. Note that the counterfactual is unknowable, which is precisely why both sides claim vindication. The piece must not present this as a general purpose tool for readers or communities, must not state participation figures, must not claim it caused any specific outcome, and must not describe it as settled practice.",
+    "pref": [
+      "hashrate-voting-and-why-it-failed",
+      "the-agreement-between-companies"
+    ]
+  },
+  {
+    "slug": "the-fork-that-happened",
+    "era": "icoEra",
+    "kind": "timeline",
+    "cluster": "The scaling wars",
+    "title": "The Split That Followed, Sequenced Without the Partisanship",
+    "seoTitle": "The Scaling Split, Sequenced Neutrally",
+    "description": "A chain split occurred, both chains persisted, and the sequence of events is documented well enough to describe without taking a side.",
+    "lede": "The disagreement ended the way these disagreements end, with two chains and two communities.",
+    "angle": "Sequences the split at a procedural level: the divergence in rules, the handling of the split by venues and wallets, the replay protection situation, and the establishment of two distinct networks. Argue that the outcome demonstrates the same lesson as the earlier fork, which is that splitting is now a normal available option rather than a catastrophe, and that this changes the negotiating position of every minority in every future dispute. Keep the account strictly procedural. The piece must not describe either chain as legitimate, must not state hash rate, price or adoption for either, must not characterise either community, and must not use partisan naming conventions.",
+    "pref": [
+      "the-user-activated-approach",
+      "the-minority-chain",
+      "replay-and-split-mechanics"
+    ]
+  },
+  {
+    "slug": "the-second-split",
+    "era": "icoEra",
+    "kind": "timeline",
+    "cluster": "The scaling wars",
+    "title": "The Chain That Split Then Split Again",
+    "seoTitle": "When the Split Chain Split Again",
+    "description": "A subsequent disagreement produced a further division, which is informative about whether splitting resolves anything.",
+    "lede": "The chain created by a split had a split of its own, which is the part worth thinking about.",
+    "angle": "Sequences the second division and uses it to test a claim made during the first, that splitting lets each group pursue its vision without further conflict. Argue that the evidence suggests splitting resolves a specific disagreement and does nothing about the underlying absence of a decision procedure, so the next disagreement takes the same course. Note the practical consequences for users and venues, including the hash rate contest that accompanied it. The piece must not describe any chain as the real one, must not state market or capacity figures, must not characterise participants, and must not describe any current status.",
+    "pref": [
+      "the-fork-that-happened",
+      "what-a-hard-fork-actually-is"
+    ]
+  },
+  {
+    "slug": "the-social-layer-fight",
+    "era": "icoEra",
+    "kind": "postmortem",
+    "cluster": "The scaling wars",
+    "title": "The Argument Was Conducted in Forums Nobody Neutral Was Running",
+    "seoTitle": "The Scaling Fight and Its Moderated Forums",
+    "description": "Moderation policy on the venues where the debate happened became part of the debate, with consequences for what the record now shows.",
+    "lede": "Where the argument happened shaped the argument, and both sides were right about that.",
+    "angle": "Follows the breakdown of the debate to its cause: privately operated forums with their own policies became the main channel, moderation decisions were read as suppression, and participants migrated to venues that agreed with them. Argue that this produced two separated information environments that could not correct each other, which is a mechanism worth naming because it recurs everywhere since. Connect back to the earlier piece on how governance venues shape governance. The piece must not describe any specific moderation decision or name moderators, must not claim either side was suppressed, must not quote posts without archives, and must not characterise either community.",
+    "pref": [
+      "the-governance-venue-moved",
+      "the-two-scaling-philosophies"
+    ]
+  },
+  {
+    "slug": "the-layered-answer",
+    "era": "icoEra",
+    "kind": "explainer",
+    "cluster": "The scaling wars",
+    "title": "The Layered Approach Took Years and Changed What the Question Was",
+    "seoTitle": "The Layered Scaling Answer, Explained",
+    "description": "Payment channels move most activity off the base layer and settle occasionally, which trades one set of properties for another.",
+    "lede": "The answer that won the argument took years to build and does not do what the base layer does.",
+    "angle": "Explains the mechanism: two parties open a channel, transact between themselves without publishing, and settle a final state, with routing letting payments traverse channels they did not open. Argue honestly about what is given up, including liquidity management, online requirements and a different failure model, and about what is gained. Take the position that describing this as scaling understates how different it is, since it is a different product with different guarantees. The piece must not state capacity, fee or adoption figures, must not present the approach as complete or as having resolved the dispute, and must not advise any reader to use anything.",
+    "pref": [
+      "what-segwit-actually-did",
+      "the-two-scaling-philosophies"
+    ]
+  },
+  {
+    "slug": "what-the-scaling-wars-settled",
+    "era": "icoEra",
+    "kind": "postmortem",
+    "cluster": "The scaling wars",
+    "title": "What Was Actually Settled, and What Was Only Exhausted",
+    "seoTitle": "What the Scaling Wars Actually Settled",
+    "description": "The dispute ended without a decision procedure being agreed, which means it was concluded rather than resolved.",
+    "lede": "The fight stopped, which is not the same thing as being decided.",
+    "angle": "Follows the dispute to its actual conclusion, separating what was determined, which rules the largest network runs and which approach received development attention, from what was left untouched, which is any agreed method for making such decisions. Argue that the outcome was produced by attrition, capital allocation and the availability of exit, and that a system with those as its governance mechanism will produce the same experience every time a genuine disagreement arises. Commit to that as the finding of the whole cluster. The piece must not declare a winner, must not state any current network metrics, must not characterise participants, and must not predict any future dispute.",
+    "pref": [
+      "the-fork-that-happened",
+      "the-layered-answer",
+      "the-social-layer-fight"
+    ]
+  },
+  {
+    "slug": "the-cost-of-the-argument",
+    "era": "icoEra",
+    "kind": "postmortem",
+    "cluster": "The scaling wars",
+    "title": "The Years the Argument Consumed Are the Part Nobody Counts",
+    "seoTitle": "The Real Cost of the Scaling Argument",
+    "description": "Development attention, contributor retention and institutional credibility were spent on the dispute, and none of it appears in any metric.",
+    "lede": "The bill for the argument was paid in attention and people, which nobody puts in a chart.",
+    "angle": "Follows the dispute to a cost nobody counted: senior contributors left, adjacent work was deferred, and a period of institutional attention was spent on a public fight. Be careful and fair, since the dispute was about something real and the cost was not obviously avoidable, and the counterfactual is unknowable. Take the position that a community with no decision procedure pays this cost every time, which makes procedure worth more than any individual outcome. The piece must not name individuals who left or attribute reasons to them, must not quantify any cost, must not claim the dispute was unnecessary, and must not blame either camp.",
+    "pref": [
+      "what-the-scaling-wars-settled",
+      "the-social-layer-fight",
+      "rough-consensus-and-running-code"
+    ]
+  }
+]

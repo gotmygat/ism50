@@ -1,0 +1,170 @@
+[
+  {
+    "slug": "what-custody-actually-means",
+    "era": "institutional",
+    "kind": "explainer",
+    "cluster": "The custody problem",
+    "title": "Custody of a Bearer Asset Is a Different Job",
+    "seoTitle": "What Custody of a Bearer Asset Means",
+    "description": "Conventional custody rests on registries and reversibility, and holding a key that moves value irreversibly is a genuinely different problem.",
+    "lede": "Custody elsewhere means being on a register, and here it means physically controlling a secret.",
+    "angle": "Sets out the difference precisely: a conventional custodian holds a position on a register that can be corrected, while a crypto custodian holds key material whose use is final and whose loss is permanent. Argue that this is why the industry could not simply hire existing custodians, and why the institutional entry took years longer than anyone expected. Establish that the hard part is process and controls rather than cryptography, which is the theme of the whole cluster. The piece must not name any custodian, must not describe any specific key management arrangement, must not advise a reader on holding anything, and must not present any approach as secure.",
+    "pref": [
+      "the-omnibus-account-problem",
+      "hot-wallets-and-the-operational-reality"
+    ]
+  },
+  {
+    "slug": "the-qualified-custodian-question",
+    "era": "institutional",
+    "kind": "explainer",
+    "cluster": "The custody problem",
+    "title": "Many Institutions Cannot Hold It Themselves, By Rule",
+    "seoTitle": "Why Institutions Cannot Self Custody",
+    "description": "Fiduciary rules require certain holders to use an approved custodian, which made custody a licensing question before it was a technical one.",
+    "lede": "Many of the buyers everyone was waiting for were not permitted to hold the keys at all.",
+    "angle": "Explains why the identity of the custodian, rather than the quality of the custody, was the binding constraint for many potential holders, because rules for fiduciaries specify approved categories of custodian. Argue that this reframes the entire institutional adoption story, since the delay was a regulatory approval queue rather than a hesitation about the asset. Note that this is why banks entering the space was a bigger event than any price move. The piece must not state any jurisdiction's current requirements, must not name custodians or institutions, must not give any compliance or investment guidance, and must not describe any entity as approved.",
+    "pref": [
+      "what-custody-actually-means",
+      "money-transmission-versus-securities"
+    ]
+  },
+  {
+    "slug": "key-splitting-and-thresholds",
+    "era": "institutional",
+    "kind": "explainer",
+    "cluster": "The custody problem",
+    "title": "Removing the Single Person Who Could Take Everything",
+    "seoTitle": "Key Splitting and Threshold Signing",
+    "description": "Requiring several parties to cooperate before a transaction can be signed is the core control that makes institutional custody possible.",
+    "lede": "The whole discipline comes down to making sure no one person can move the money.",
+    "angle": "Explains the two main approaches, on chain multiple signature schemes and off chain threshold computation, and states what each gives up, principally transparency in one case and protocol independence in the other. Argue that the underlying principle is the oldest control in finance, separation of duties, arriving in a new form, and that framing it that way is what eventually made the practice legible to auditors and regulators. Keep the explanation conceptual. The piece must not describe any specific configuration in use, must not name vendors, must not present any scheme as unbreakable, and must not give any reader operational guidance.",
+    "pref": [
+      "what-custody-actually-means",
+      "the-multisig-behind-the-curtain"
+    ]
+  },
+  {
+    "slug": "the-operational-controls-nobody-had",
+    "era": "institutional",
+    "kind": "postmortem",
+    "cluster": "The custody problem",
+    "title": "The Hard Part Was Never the Cryptography",
+    "seoTitle": "Why Custody Is an Operations Problem",
+    "description": "Access reviews, dual control, tested recovery, physical security and staff vetting are what separate a custodian from a company with a hardware wallet.",
+    "lede": "The cryptography was solved decades ago and the operating procedures were not.",
+    "angle": "Follows the operational failures across this site to their common cause: the differentiator between a custodian and an amateur is a control environment covering personnel, physical access, tested recovery, change management and independent review. Argue that the crypto industry spent a decade discussing key schemes and almost none discussing these, which is why so many failures were operational. Take the position that this discipline is unglamorous, well documented in other industries, and was simply not read. The piece must not describe any organisation's controls, must not present any control set as sufficient, must not give operational or audit guidance to a reader, and must not name firms.",
+    "pref": [
+      "key-splitting-and-thresholds",
+      "what-an-audit-would-have-caught"
+    ]
+  },
+  {
+    "slug": "insurance-for-digital-assets",
+    "era": "institutional",
+    "kind": "postmortem",
+    "cluster": "The custody problem",
+    "title": "Insuring Something That Can Be Taken Instantly and Never Returned",
+    "seoTitle": "Insuring Digital Assets, Explained",
+    "description": "Cover for custodied holdings exists but is narrower than usually understood, and the exclusions are where the substance sits.",
+    "lede": "The word insured does a lot of work in this industry and the policy usually does less.",
+    "angle": "Follows the failure of a trust signal to its cause by reading what such policies typically address, generally crime and physical loss of key material, against what they generally do not, including protocol failure and losses at parties other than the custodian. Argue that the marketing use of the word insured, without naming the insured party, the perils or the limits, is one of the industry's most persistent misleading practices. Note the capacity constraint honestly, since the market for this cover is small relative to the assets. The piece must not name insurers, brokers or custodians, must not state coverage limits or premiums, must not describe any holdings as insured, and must not advise a reader on cover.",
+    "pref": [
+      "the-operational-controls-nobody-had",
+      "the-cover-that-did-not-cover"
+    ]
+  },
+  {
+    "slug": "custody-as-a-separate-business",
+    "era": "institutional",
+    "kind": "timeline",
+    "cluster": "The custody problem",
+    "title": "The Unbundling That Should Have Happened Ten Years Earlier",
+    "seoTitle": "When Custody Became Its Own Business",
+    "description": "Separating who holds the assets from who runs the market is standard everywhere else, and it arrived in crypto slowly and incompletely.",
+    "lede": "Splitting the custodian from the exchange is the oldest control in market structure and it took a decade.",
+    "angle": "Sequences the emergence of standalone custody providers and the entry of established financial institutions into the role, and assesses how far the separation actually went. Argue that this is the single most important structural change of the era and that its incompleteness, with major venues still holding customer assets, is what left the industry exposed to what came next. Read it against the threshold directly, since the separation expanded for institutional flows while retail activity stayed bundled. The piece must not name providers or institutions, must not state assets under custody, must not describe any current arrangement, and must not present separation as guaranteeing safety.",
+    "pref": [
+      "what-an-exchange-actually-is",
+      "the-qualified-custodian-question",
+      "what-mt-gox-changed"
+    ]
+  },
+  {
+    "slug": "self-custody-as-a-product",
+    "era": "institutional",
+    "kind": "postmortem",
+    "cluster": "The custody problem",
+    "title": "Making Key Management Usable Is a Twenty Year Failure",
+    "seoTitle": "Why Self Custody Stayed Hard to Use",
+    "description": "Seed phrases, recovery, device loss and inheritance remain unsolved as consumer experiences, and every proposed fix reintroduces a third party.",
+    "lede": "The design problem is that the safe option is unforgiving and every friendly option adds someone to trust.",
+    "angle": "Follows a twenty year design failure to its cause: absolute control means no recovery, and every mechanism that restores recoverability, social recovery, backup services or account abstraction, introduces a party who could be compromised or compelled. Argue that this is a genuine hard trade off and not a matter of designers being careless, and that the industry's habit of blaming users for losses has obscured it. Take the position that key management usability, not throughput, is the actual adoption constraint. The piece must not recommend any wallet, method or product, must not describe any recovery scheme as safe, must not give any reader operational guidance, and must not state loss statistics.",
+    "pref": [
+      "lost-keys-and-unverifiable-losses",
+      "running-a-node-when-nobody-did"
+    ]
+  },
+  {
+    "slug": "the-inheritance-problem",
+    "era": "institutional",
+    "kind": "explainer",
+    "cluster": "The custody problem",
+    "title": "A Bearer Asset With No Registry Is a Problem for Every Estate",
+    "seoTitle": "The Inheritance Problem for Bearer Assets",
+    "description": "Assets with no register and no issuer cannot be located or recovered by anyone who does not already know they exist and how to reach them.",
+    "lede": "If nobody knows it exists and nobody has the key, it is simply gone.",
+    "angle": "Explains the structural problem for estates and successors generally: no institution holds a record to be discovered, no issuer can reissue, and the security properties that protect a holder also defeat any legitimate successor. Argue that the industry's proposed solutions all involve disclosing key material to someone in advance, which is the same trade off as recovery. Keep it entirely at the level of the property's characteristics. The piece must not give legal, estate, probate or tax advice of any kind, must not describe any planning arrangement, must not name any service, and must not tell a reader what to do about their own holdings.",
+    "pref": [
+      "self-custody-as-a-product",
+      "lost-keys-and-unverifiable-losses"
+    ]
+  },
+  {
+    "slug": "the-address-verification-problem",
+    "era": "institutional",
+    "kind": "explainer",
+    "cluster": "The custody problem",
+    "title": "Sending to the Wrong Address Is Final and Common",
+    "seoTitle": "Why Sending to the Wrong Address Is Final",
+    "description": "Irreversibility means an ordinary clerical error becomes a permanent loss, and the industry's answers to this are conventions rather than protections.",
+    "lede": "There is no beneficiary bank to call and no reversal window.",
+    "angle": "Explains the class of loss and the partial mitigations that emerged, checksummed formats, name services, allow listed destinations and small test transfers, and states clearly that these are conventions rather than guarantees. Argue that irreversibility, presented as a headline feature, is experienced by ordinary users primarily as the absence of an error correction process that every other payment system has. Note that institutions solved this with process controls rather than technology. The piece must not give operational instructions to a reader, must not name tools or services, must not state error rates or losses, and must not describe any mitigation as reliable.",
+    "pref": [
+      "self-custody-as-a-product",
+      "what-custody-actually-means"
+    ]
+  },
+  {
+    "slug": "what-institutions-actually-asked-for",
+    "era": "institutional",
+    "kind": "profile",
+    "cluster": "The custody problem",
+    "title": "The Institutional Buyer Wanted Boring Things, and Waited for Them",
+    "seoTitle": "What Institutional Buyers Actually Asked For",
+    "description": "The requirements that delayed entry were unglamorous: an approved custodian, a reference price, reporting formats and a compliance sign off.",
+    "lede": "The list of blockers was administrative, and the industry kept answering with technology.",
+    "angle": "A group profile of the institutional allocator as a category, describing the actual approval path a new asset must clear and why each step took as long as it did. Argue that the industry consistently misread this delay as scepticism about the technology when it was a queue through operational due diligence, custody approval and committee process. Take the position that the people who understood this were building infrastructure while everyone else was arguing on social platforms. The piece must not name any institution or individual, must not state allocation sizes, must not describe any allocation decision as sound, and must not offer investment framing of any kind.",
+    "pref": [
+      "custody-as-a-separate-business",
+      "the-qualified-custodian-question",
+      "the-reference-price-problem"
+    ]
+  },
+  {
+    "slug": "the-cost-of-getting-custody-wrong",
+    "era": "institutional",
+    "kind": "postmortem",
+    "cluster": "The custody problem",
+    "title": "Every Large Failure in This History Is a Custody Failure",
+    "seoTitle": "Every Large Failure Was a Custody Failure",
+    "description": "Sort the collapses by mechanism and the same answer appears: somebody held assets for other people and the arrangement did not hold.",
+    "lede": "Different eras, different vocabulary, and underneath it the same failure every time.",
+    "angle": "Follows the major failures across the whole site back to a single common element, which is a third party holding assets for others without adequate segregation, controls or verification. Argue that this makes custody the central subject of crypto history rather than a technical footnote, and that the industry's attention has been persistently misallocated. Commit to that as the site's strongest structural claim, and be explicit that it is a claim rather than a settled finding. The piece must not name any failure or firm, must not state amounts, must not describe any current arrangement as safe, and must not advise a reader on where or how to hold anything.",
+    "pref": [
+      "custody-as-a-separate-business",
+      "the-early-exchange-failure-pattern",
+      "the-omnibus-account-problem"
+    ]
+  }
+]

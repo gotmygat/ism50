@@ -1,0 +1,190 @@
+[
+  {
+    "slug": "the-enforcement-wave",
+    "era": "postFtx",
+    "kind": "timeline",
+    "cluster": "Enforcement and the courts",
+    "title": "The Cases Arrived Together Because the Conduct Did",
+    "seoTitle": "Why the Enforcement Cases Arrived Together",
+    "description": "A concentration of actions followed a concentration of failures, with the usual multi year lag between conduct and consequence.",
+    "lede": "The cases clustered because the conduct clustered, several years earlier.",
+    "angle": "Sequences the general pattern of enforcement activity in this period at a categorical level, distinguishing matters arising from failures from matters arising from classification questions. Argue that the apparent intensity reflects a lag catching up rather than a change of policy, and that this is the same dynamic documented after the earlier token sale period. Read it against the threshold, with regulatory tolerance contracting well after market activity had already contracted. The piece must not name any matter, defendant, settlement or penalty, must not describe the merits of anything, must not state amounts, and must not predict any outcome.",
+    "pref": [
+      "the-first-enforcement-wave",
+      "why-enforcement-was-slow"
+    ]
+  },
+  {
+    "slug": "the-registration-theory",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "Enforcement and the courts",
+    "title": "The Core Argument Was About Registration, Not About Crypto",
+    "seoTitle": "The Registration Argument, Explained",
+    "description": "The central contested question was whether certain activities required registration under existing rules, a narrower dispute than coverage suggested.",
+    "lede": "The argument was procedural and the coverage made it existential.",
+    "angle": "Explains what a registration requirement actually entails, disclosure, conduct rules and supervision, and why the question of whether an activity falls inside an existing category is a legal one rather than a technological one. Argue that framing the dispute as being about whether crypto should exist made it impossible to follow, and that reading the filings makes it considerably more tractable. Present both sides' positions as they were argued. The piece must not state whether any activity or asset requires registration, must not give legal advice, must not name any matter or party, and must not predict any outcome.",
+    "pref": [
+      "the-investment-contract-test",
+      "the-enforcement-wave",
+      "how-to-read-a-regulatory-document"
+    ]
+  },
+  {
+    "slug": "settlement-without-admission",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "Enforcement and the courts",
+    "title": "A Settlement Is a Negotiated End, Not a Finding of Fact",
+    "seoTitle": "Why a Settlement Is Not a Finding",
+    "description": "Most matters end by agreement without admitted findings, which means they establish far less than headlines about them imply.",
+    "lede": "A negotiated resolution decides that the matter is over, not what happened.",
+    "angle": "Explains the mechanics and incentives: a firm may settle to remove uncertainty regardless of the merits, an agency may settle to conserve resources, and the resulting document typically contains no admission. Argue that treating settlements as established facts, which the industry and its critics both do, produces a badly distorted history. Establish this as one of the site's most important reading rules and connect it to the instrument taxonomy piece. The piece must not describe any specific settlement, must not name parties, must not state penalty amounts, must not characterise any party's conduct, and must not give legal advice.",
+    "pref": [
+      "how-to-read-a-regulatory-document",
+      "the-registration-theory"
+    ]
+  },
+  {
+    "slug": "criminal-versus-civil",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "Enforcement and the courts",
+    "title": "Two Different Systems, Two Different Standards, One Word in the Headline",
+    "seoTitle": "Criminal and Civil Matters Are Not the Same",
+    "description": "Different burdens of proof, different consequences and different parties, routinely reported with identical language.",
+    "lede": "The two proceedings answer different questions to different standards and the coverage calls both a case.",
+    "angle": "Explains the distinction in general terms: who brings each type of proceeding, what standard applies, what remedies are available, and why the same conduct can produce one, both or neither. Argue that the conflation is the single most common error in crypto reporting on legal matters and that it makes it impossible for a reader to weight anything correctly. Keep it entirely general and jurisdiction neutral. The piece must not describe any specific matter, must not name any party or individual, must not state outcomes, must not give legal advice, and must not comment on any pending proceeding.",
+    "pref": [
+      "settlement-without-admission",
+      "how-to-read-a-regulatory-document"
+    ]
+  },
+  {
+    "slug": "the-cross-border-problem",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "Enforcement and the courts",
+    "title": "A Business With No Location Still Has to Be Somewhere",
+    "seoTitle": "The Cross Border Enforcement Problem",
+    "description": "Distributed teams, offshore entities and global customers create genuine jurisdictional complexity that slows every stage of any proceeding.",
+    "lede": "The company is nowhere and the servers, the staff and the customers are all somewhere.",
+    "angle": "Explains the practical difficulties: establishing jurisdiction, obtaining evidence across borders, coordinating between agencies in different countries and enforcing any outcome. Argue that these frictions explain much of the delay that the industry read as tolerance, and that international coordination improved substantially over the period in ways that are rarely reported. Keep it structural and general. The piece must not describe any specific matter or extradition, must not name jurisdictions in connection with any case, must not name individuals, must not give legal advice, and must not predict outcomes.",
+    "pref": [
+      "jurisdiction-shopping",
+      "criminal-versus-civil",
+      "the-enforcement-wave"
+    ]
+  },
+  {
+    "slug": "the-venue-as-defendant",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "Enforcement and the courts",
+    "title": "When the Exchange Itself Is the Subject, Everything Else Waits",
+    "seoTitle": "When the Exchange Itself Is the Subject",
+    "description": "Proceedings against a venue affect its customers, its listings and its banking, which makes the collateral effects larger than the matter itself.",
+    "lede": "A proceeding against a venue reaches everyone who ever used it.",
+    "angle": "Explains the structural consequences when a market operator rather than an issuer is the subject of proceedings: customers face uncertainty about access, listed assets face delisting decisions, and banking partners reassess. Argue that this makes venue level matters a form of market intervention regardless of their outcome, which is an argument for speed that cuts against the usual arguments for care. Present the tension without resolving it. The piece must not describe any specific matter, must not name venues or parties, must not state figures, must not give legal advice, and must not advise readers about any venue.",
+    "pref": [
+      "the-listing-decision-as-regulation",
+      "criminal-versus-civil",
+      "the-registration-theory"
+    ]
+  },
+  {
+    "slug": "the-staking-question",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "Enforcement and the courts",
+    "title": "A Service That Pays a Return Looks Like Something Regulators Recognise",
+    "seoTitle": "Why Staking Services Attracted Attention",
+    "description": "Offering a managed return on deposited assets is a familiar arrangement, and the distinction between running a validator and selling a product matters.",
+    "lede": "Running a validator yourself and buying a product that pays you a return are not the same thing.",
+    "angle": "Explains the underlying mechanism, that networks using stake based consensus pay validators, and then distinguishes participating directly from purchasing a service in which somebody else operates and promises a return. Argue that the second has a shape that existing frameworks recognise and the first largely does not, and that most public argument ignored the distinction entirely. Present the industry's counterargument fairly. The piece must not state whether any arrangement requires registration anywhere, must not name providers or matters, must not state any return, must not give legal, investment or tax guidance, and must not advise a reader on participating.",
+    "pref": [
+      "the-first-proof-of-stake-attempts",
+      "the-registration-theory",
+      "the-yield-that-funded-it"
+    ]
+  },
+  {
+    "slug": "the-comprehensive-framework-approach",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "Enforcement and the courts",
+    "title": "Writing a Whole New Rulebook Instead of Applying the Old One",
+    "seoTitle": "The Comprehensive Rulebook Approach",
+    "description": "Some jurisdictions responded by drafting bespoke regimes covering issuance, venues and stable units, which is a different bet from enforcement.",
+    "lede": "One approach applies the existing rules through cases, the other writes a new rulebook and waits.",
+    "angle": "Contrasts the two regulatory strategies structurally: applying existing categories through enforcement produces fact specific development and poor notice, while drafting a bespoke regime produces clarity and the risk of being written for a market that changes. Argue that both bets are defensible and that the comparison between jurisdictions over the coming years is the most interesting natural experiment in the subject. Present it as an open question. The piece must not describe any framework's current provisions or status, must not name legislation or jurisdictions, must not give compliance guidance, and must not predict which approach will work.",
+    "pref": [
+      "the-accommodating-jurisdictions",
+      "the-clarity-that-never-came",
+      "the-licensing-regimes"
+    ]
+  },
+  {
+    "slug": "the-travel-of-precedent",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "Enforcement and the courts",
+    "title": "A Decision in One Jurisdiction Changes Behaviour in Twenty",
+    "seoTitle": "How One Decision Changes Twenty Markets",
+    "description": "Global businesses adopt the most restrictive applicable position across their footprint, so one jurisdiction's decision propagates far beyond it.",
+    "lede": "A firm operating everywhere ends up following whichever rule is strictest.",
+    "angle": "Explains the propagation mechanism: a multinational business generally cannot maintain different product designs per jurisdiction economically, so it converges on the most restrictive requirement, which exports that jurisdiction's position. Argue that this gives certain regulators influence far beyond their borders without any formal mechanism, and that the industry's jurisdiction shopping was always partly futile for this reason. Keep it structural. The piece must not name jurisdictions, decisions or firms, must not describe any current rule, must not give compliance guidance, and must not predict any regulatory development.",
+    "pref": [
+      "the-cross-border-problem",
+      "the-comprehensive-framework-approach",
+      "jurisdiction-shopping"
+    ]
+  },
+  {
+    "slug": "the-industry-response",
+    "era": "postFtx",
+    "kind": "profile",
+    "cluster": "Enforcement and the courts",
+    "title": "The Sector Built a Lobbying Apparatus, Which Is What Industries Do",
+    "seoTitle": "How the Sector Built Its Lobbying Apparatus",
+    "description": "Trade associations, policy campaigns and political spending appeared, which is unremarkable for a large industry and was reported as remarkable.",
+    "lede": "An industry with money and a regulatory problem hires people to argue about rules, which is entirely ordinary.",
+    "angle": "A profile of the sector's policy apparatus as an institution: trade bodies, research funding, policy staff and organised advocacy, which is the normal trajectory of any industry facing regulation. Argue that the interesting question is not whether the sector lobbies but how its arguments changed as its membership shifted from startups to large regulated firms, since the two want different rules. Take that as the finding. The piece must not name any organisation, campaign, individual, candidate or political party, must not state spending figures, must not describe any political matter, and must not take any political position.",
+    "pref": [
+      "the-compliance-cost-of-being-first",
+      "the-comprehensive-framework-approach"
+    ]
+  },
+  {
+    "slug": "reading-a-court-record",
+    "era": "postFtx",
+    "kind": "primarySource",
+    "cluster": "Enforcement and the courts",
+    "title": "How to Find and Read the Documents Everybody Is Paraphrasing",
+    "seoTitle": "How to Read the Documents Directly",
+    "description": "Court and regulatory dockets are public, findable and readable, and going to them directly removes most of the errors in circulation.",
+    "lede": "The documents are public and almost nobody writing about them has opened one.",
+    "angle": "A practical method piece: what a docket is, what the common document types are, how to tell an allegation from an order, and how to check whether a document being quoted has been superseded. Argue that this single habit does more to improve the quality of crypto history than any amount of expertise, because the errors in circulation are overwhelmingly errors of transmission. Close the cluster by making the method explicit and reusable. The piece must not reference any specific case, party or individual as an example, must not give legal advice, must not interpret any document's meaning for a reader, and must not suggest anyone act on what they find.",
+    "pref": [
+      "how-to-read-a-regulatory-document",
+      "settlement-without-admission",
+      "the-controls-declaration"
+    ]
+  },
+  {
+    "slug": "what-enforcement-changed",
+    "era": "postFtx",
+    "kind": "timeline",
+    "cluster": "Enforcement and the courts",
+    "title": "The Effects Showed Up in Product Design Before They Showed Up in Law",
+    "seoTitle": "How Enforcement Changed Product Design First",
+    "description": "Firms altered products, geofenced services and rewrote terms long before any question was settled, which is where the real effect appeared.",
+    "lede": "Nothing was decided and everything changed, because firms move before the law does.",
+    "angle": "Sequences the effects of enforcement activity in the order they actually appeared, which was in commercial behaviour first, through withdrawn products, restricted access by location and rewritten terms, and only much later in any settled legal principle. Show that this makes the industry's demand for clarity partly beside the point, since firms respond to risk rather than to rules. Take the position that this dynamic gives enforcement more power than legislation over short horizons, which is worth naming plainly. The piece must not name firms, products or matters, must not describe any jurisdiction's rules, must not give compliance guidance, and must not predict anything.",
+    "pref": [
+      "the-industry-response",
+      "the-travel-of-precedent",
+      "the-venue-as-defendant"
+    ]
+  }
+]
