@@ -1,0 +1,184 @@
+[
+  {
+    "slug": "the-departure",
+    "era": "origins",
+    "kind": "timeline",
+    "cluster": "Who decided, and how",
+    "title": "The Founder Left, and the Project Had to Invent a Way to Continue",
+    "seoTitle": "When Bitcoin's Founder Stopped Posting",
+    "description": "A pseudonymous author stopped participating, handed over repository access, and left a project with no succession plan to build one.",
+    "lede": "The most consequential governance event in this history is somebody quietly not posting any more.",
+    "angle": "Sequences the documented handover of repository and communication access and the months on either side of it, using only archived posts and commit history. Argue that the absence of a founder is the single largest structural difference between this project and every other software project of comparable importance, and that it forced the invention of a decision process rather than the inheritance of one. The threshold reading is unusual and worth stating: authority contracted to nothing while the number of people who could act expanded, and the resulting system is neither a hierarchy nor a democracy. The piece must not speculate about why the author left, must not treat any later message signed or unsigned as authentic without cryptographic verification, and must not describe the handover as a designation of a successor beyond what the archived words say.",
+    "pref": [
+      "the-forum-as-the-only-record",
+      "the-authorship-question"
+    ]
+  },
+  {
+    "slug": "maintainers-not-owners",
+    "era": "origins",
+    "kind": "profile",
+    "cluster": "Who decided, and how",
+    "title": "What a Maintainer Can and Cannot Do to a Public Protocol",
+    "seoTitle": "What a Protocol Maintainer Can Actually Do",
+    "description": "Commit access looks like control and is not, because a maintainer can merge anything and cannot make anyone run it.",
+    "lede": "The people with commit access have less power than their critics claim and more responsibility than they wanted.",
+    "angle": "A group profile of the maintainer role rather than of individuals, describing what merging a change actually accomplishes, the separate step of releasing it, and the entirely separate step of users choosing to run the release. Argue that most accusations of developer capture and most defences against them are arguing about the wrong step, and that the real leverage sits with whoever chooses which binary to run. Commit to the position that this arrangement is unusually resistant to capture and unusually bad at making decisions quickly, and that both are the same property. The piece must not name individuals in a way that assigns blame or credit for outcomes, must not characterise anybody's motives, and must not state who currently holds any access.",
+    "pref": [
+      "the-departure",
+      "the-first-alternative-clients"
+    ]
+  },
+  {
+    "slug": "the-bip-process",
+    "era": "origins",
+    "kind": "primarySource",
+    "cluster": "Who decided, and how",
+    "title": "The Improvement Proposal Process, and What It Is Actually For",
+    "seoTitle": "How the Improvement Proposal Process Works",
+    "description": "A numbered proposal document is a coordination artefact, not an approval mechanism, and confusing the two explains a decade of arguments.",
+    "lede": "A proposal number is a filing reference, not a decision, and treating it as a decision has caused a lot of shouting.",
+    "angle": "Built around the proposal documents that define the process itself: what a proposal contains, what statuses it can carry, who assigns them, and what happens after one is marked final, which is often nothing. Argue that the process was borrowed from older internet standards culture and inherited its assumption of a rough consensus that a value bearing network does not reliably produce. Show the practical consequence that a proposal can be final and unused, or widely deployed and never finalised, and that both happen. The piece must not describe the status of any specific proposal without checking the current repository, must not present the process as binding on anyone, and must not summarise a proposal's content from memory.",
+    "pref": [
+      "maintainers-not-owners",
+      "the-departure"
+    ]
+  },
+  {
+    "slug": "rough-consensus-and-running-code",
+    "era": "origins",
+    "kind": "explainer",
+    "cluster": "Who decided, and how",
+    "title": "Rough Consensus Was Borrowed From a Culture With Nothing at Stake",
+    "seoTitle": "Rough Consensus Applied to Money",
+    "description": "The decision norm crypto inherited from internet standards bodies was designed for protocols where disagreement did not move anyone's balance.",
+    "lede": "The norm works well when the losing side keeps nothing, and badly when the losing side holds the asset.",
+    "angle": "Explains the inherited standards culture norm precisely, then argues that it breaks in a specific and predictable way when the participants hold a position in the outcome, because a technical objection and a financial interest become impossible for observers to tell apart. Use it to preload the scaling wars later on this site, where exactly this failure mode played out at scale and in public. Take the position plainly that no better norm has replaced it and that the alternatives on offer have their own worse failures. The piece must not claim any participant in any dispute acted from financial motive, must not characterise a technical position as bad faith, and must not present token weighted voting as a solution, since later eras on this site show it is not.",
+    "pref": [
+      "the-bip-process",
+      "maintainers-not-owners"
+    ]
+  },
+  {
+    "slug": "what-a-soft-fork-actually-is",
+    "era": "origins",
+    "kind": "explainer",
+    "cluster": "Who decided, and how",
+    "title": "A Soft Fork Tightens the Rules, and Old Nodes Never Notice",
+    "seoTitle": "What a Soft Fork Actually Is",
+    "description": "The distinction that governs every upgrade fight: a rule change that old software still accepts, and why that backwards compatibility is political.",
+    "lede": "The defining property is that software nobody updated still considers the new blocks valid.",
+    "angle": "Makes the mechanism comprehensible without metaphor: a restriction of the valid set, why old nodes accept the result, and the precise sense in which non upgraded users are then following rules they never agreed to. Argue that the compatibility is what makes this method deployable and also what makes it contentious, because it lets a change ship without the whole network consenting to it. Set up later chapters by noting that both sides of the scaling dispute understood this correctly and disagreed about whether it was legitimate. The piece must not describe any specific historical activation without checking its actual mechanism, must not present either fork type as safer in general, and must not give any reader guidance about upgrading software they run.",
+    "pref": [
+      "the-bip-process",
+      "the-first-alternative-clients"
+    ]
+  },
+  {
+    "slug": "what-a-hard-fork-actually-is",
+    "era": "origins",
+    "kind": "explainer",
+    "cluster": "Who decided, and how",
+    "title": "A Hard Fork Loosens the Rules, and Everyone Has to Move at Once",
+    "seoTitle": "What a Hard Fork Actually Is",
+    "description": "A rule change old software rejects forces a coordinated upgrade, and a failed coordination produces two chains and two assets.",
+    "lede": "The mechanism is simple, the coordination is not, and the coordination is where all the history happens.",
+    "angle": "Explains the second mechanism as the mirror of the first, why old nodes reject the new blocks, and what actually determines whether the outcome is an upgrade or a permanent split, which is neither code nor votes but which exchanges, miners and users follow which chain. Argue that a hard fork is best understood as a proposal to the whole ecosystem rather than a change to software, and that everything difficult about it happens outside the repository. Commit to the position that the technical debate about fork types is mostly a proxy for a political question about who has to consent. The piece must not present any historical split as having a legitimate and an illegitimate side, must not claim which chain is the real one in any case, and must not describe replay protection as universally implemented, because it has not been.",
+    "pref": [
+      "what-a-soft-fork-actually-is",
+      "the-value-overflow-incident"
+    ]
+  },
+  {
+    "slug": "the-alert-key",
+    "era": "origins",
+    "kind": "primarySource",
+    "cluster": "Who decided, and how",
+    "title": "There Was a Key That Could Broadcast a Message to Every Node",
+    "seoTitle": "The Alert Key and Why It Was Retired",
+    "description": "The original software included a signed alert system controlled by a small number of holders, and removing it was a deliberate decision.",
+    "lede": "For years the network shipped with a mechanism for a few people to display a message on everyone's screen.",
+    "angle": "Built around the alert system as an artefact: what it could actually do, what it could not do, who held the key material, and the reasoning published when the feature was deprecated and the key later disclosed. Argue that its long quiet existence is a useful corrective to origin stories that describe the system as trustless from the first day, and that its removal is a better example of decentralisation as a process than most of the things given that label. Note that the disclosure itself is a primary source worth reading rather than summarising. The piece must not state who held the key without a published source, must not claim the mechanism was ever used maliciously, and must not reproduce any key material or alert text unverified.",
+    "pref": [
+      "what-the-first-client-actually-did",
+      "maintainers-not-owners",
+      "the-departure"
+    ]
+  },
+  {
+    "slug": "checkpoints-and-what-they-admitted",
+    "era": "origins",
+    "kind": "primarySource",
+    "cluster": "Who decided, and how",
+    "title": "Hardcoded Checkpoints Were an Admission, and a Reasonable One",
+    "seoTitle": "Hardcoded Checkpoints and What They Admitted",
+    "description": "Baking known good block hashes into the software traded a little purity for a lot of practical safety, and the tradeoff was argued openly.",
+    "lede": "A checkpoint is the developers telling your node not to bother reconsidering the distant past.",
+    "angle": "Built around the commits and archived discussion that introduced checkpoints: what a checkpoint does mechanically, why it was added, what class of attack it made cheap to defend against, and the objection that it inserts a developer decision into a node's view of history. Argue that this is the cleanest small example of the recurring tradeoff on this site between a system's stated properties and its operational needs, and that the honest version of decentralisation is a series of these compromises rather than an absolute. Show how the objection was eventually addressed rather than dismissed. The piece must not state which checkpoints exist in any current release without checking the source, must not claim checkpoints prevented a specific attack, and must not treat their presence or removal as evidence of good or bad faith.",
+    "pref": [
+      "the-alert-key",
+      "the-honest-majority-assumption"
+    ]
+  },
+  {
+    "slug": "disclosure-without-a-company",
+    "era": "origins",
+    "kind": "explainer",
+    "cluster": "Who decided, and how",
+    "title": "How Do You Responsibly Disclose a Bug When There Is No Vendor",
+    "seoTitle": "Disclosing a Protocol Bug With No Vendor",
+    "description": "Security disclosure assumes a company that can patch and push, and a public protocol with voluntary upgrades has neither.",
+    "lede": "Standard disclosure practice assumes somebody can ship a fix to everyone, which is exactly what does not exist here.",
+    "angle": "Explains the disclosure problem specific to protocols with no vendor: no forced updates, no support contract, an adversary who reads the same public repository, and a fix that is only effective once enough independent operators voluntarily deploy it. Argue that the informal norms that emerged, private coordination followed by delayed public write ups, are genuinely good practice invented under pressure and are among the most underrated institutional achievements in this history. Note the cost honestly, since private coordination among a small group is exactly what the design was meant to avoid. The piece must not describe any unpatched vulnerability, must not name individuals involved in any specific disclosure without a published account, and must not present any timeline as standard practice across projects, because there is no standard.",
+    "pref": [
+      "the-value-overflow-incident",
+      "maintainers-not-owners"
+    ]
+  },
+  {
+    "slug": "the-license-choice",
+    "era": "origins",
+    "kind": "primarySource",
+    "cluster": "Who decided, and how",
+    "title": "The Licence Was Chosen Early and Shaped Everything That Could Be Built",
+    "seoTitle": "The Licence Choice and What It Permitted",
+    "description": "A permissive licence made forking the code legal and trivial, which is why the next era is full of near identical projects.",
+    "lede": "The most consequential legal document in early crypto is a short permissive software licence.",
+    "angle": "Reads the licensing decision as a primary source and traces its direct consequences: anybody could copy the codebase, change parameters and launch, with no obligation to contribute back and no permission required. Argue that the clone economy of the following years is a licence artefact as much as a market phenomenon, and that a copyleft choice would have produced a visibly different history. Take the position that the choice was correct and that its costs, including thousands of abandoned near copies, were the price of the benefit. The piece must not give legal advice or interpret licence obligations for any reader, must not state the licence terms without reading them, and must not claim any specific project violated any licence.",
+    "pref": [
+      "the-first-alternative-clients",
+      "the-departure"
+    ]
+  },
+  {
+    "slug": "who-pays-the-developers",
+    "era": "origins",
+    "kind": "profile",
+    "cluster": "Who decided, and how",
+    "title": "Nobody Owns the Protocol, So Somebody Has to Pay for the Work Anyway",
+    "seoTitle": "Who Pays Protocol Developers, and Why It Matters",
+    "description": "Protocol work has no revenue model built into it, and every arrangement invented to fund it carries a different conflict of interest.",
+    "lede": "The protocol generates no revenue for the people maintaining it, which is a structural problem with only awkward answers.",
+    "angle": "A profile of the funded protocol developer as a role, working through the funding models actually used, employment by companies with a commercial interest, grants from foundations, sponsorships and independent funds, and the specific incentive problem attached to each. Argue that there is no clean answer and that pretending otherwise is how funding disputes turn into accusations, since every funder has a position and every developer knows it. Commit to a view: disclosed funding with an obvious conflict is much safer than undisclosed funding with a subtle one. The piece must not name any current funder or employment relationship without a published source, must not accuse anyone of acting for a funder, and must not state amounts of any grant or salary.",
+    "pref": [
+      "maintainers-not-owners",
+      "rough-consensus-and-running-code"
+    ]
+  },
+  {
+    "slug": "the-governance-venue-moved",
+    "era": "origins",
+    "kind": "timeline",
+    "cluster": "Who decided, and how",
+    "title": "Every Time the Conversation Moved Venues, the Decision Rules Changed",
+    "seoTitle": "How Crypto Governance Kept Changing Venue",
+    "description": "From a mailing list to a forum to chat to a repository to social platforms, and each move quietly changed who could participate and who could not.",
+    "lede": "Where an argument happens determines who is in the room, and this argument kept moving rooms.",
+    "angle": "Sequences the migration of protocol discussion across venues and shows how each move altered participation, archival quality and the practical definition of consensus, without anyone deciding it should. Argue that venue is an underrated governance variable, since a searchable archive produces a different history than an ephemeral chat, and a platform with an engagement algorithm produces a different debate than a moderated list. Connect it to the site's method by noting that the archival quality of each venue determines how much of this history can be written at all. The piece must not claim a specific decision was made in a specific venue without a citation, must not characterise any platform's moderation, and must not treat the loudest venue as the representative one.",
+    "pref": [
+      "the-forum-as-the-only-record",
+      "rough-consensus-and-running-code",
+      "the-bip-process"
+    ]
+  }
+]

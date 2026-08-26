@@ -1,0 +1,173 @@
+[
+  {
+    "slug": "why-insolvency-produces-the-best-records",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "Bankruptcy as a discovery process",
+    "title": "The Best Sources in This History Are Bankruptcy Filings",
+    "seoTitle": "Why Insolvency Produces the Best Records",
+    "description": "Insolvency compels disclosure that no journalist could obtain, under oath, on a schedule, and into a public docket anyone can read.",
+    "lede": "A failed company discloses more in six months than a working one does in ten years.",
+    "angle": "Sets up the cluster by explaining why insolvency proceedings are the richest documentary source available on this industry: statutory disclosure duties, sworn statements, professionals with investigative mandates and a public filing system. Argue that this makes the failures better documented than the successes, which systematically distorts any history written from available sources, including this one. Name that distortion openly as a limitation of the site's own method. The piece must not describe any specific proceeding or party, must not state amounts, must not give legal advice, and must not treat any filing's contents as adjudicated fact.",
+    "pref": [
+      "mt-gox-in-the-bankruptcy-record",
+      "reading-a-court-record",
+      "the-controls-declaration"
+    ]
+  },
+  {
+    "slug": "the-first-day-filings",
+    "era": "postFtx",
+    "kind": "primarySource",
+    "cluster": "Bankruptcy as a discovery process",
+    "title": "The Opening Filings Set the Narrative for Everything After",
+    "seoTitle": "How Opening Filings Set the Narrative",
+    "description": "Initial declarations explain the business, the causes of failure and the immediate plan, and they are written by one party for a purpose.",
+    "lede": "The opening filing is the first draft of history and it has an author with an objective.",
+    "angle": "Explains what these documents are for, which is to obtain immediate relief and orient the court, and why that purpose shapes what they emphasise. Argue that they are simultaneously the most useful and most over relied upon documents in this history, because they arrive first, read authoritatively and are written by a party with an interest. Establish the reading habit of noting who filed a document and what they were seeking. The piece must not quote any filing without the document in hand, must not name any case or party, must not treat any assertion as a finding, and must not give legal advice.",
+    "pref": [
+      "why-insolvency-produces-the-best-records",
+      "the-controls-declaration"
+    ]
+  },
+  {
+    "slug": "the-examiner",
+    "era": "postFtx",
+    "kind": "profile",
+    "cluster": "Bankruptcy as a discovery process",
+    "title": "Sometimes a Court Appoints Somebody Whose Only Job Is to Find Out",
+    "seoTitle": "The Examiner and What They Produce",
+    "description": "An independent investigator with access to records and testimony produces the closest thing this industry gets to a neutral account.",
+    "lede": "An investigator with subpoena power and no client is a rare thing in this subject.",
+    "angle": "A profile of the court appointed examiner as a role: appointment, scope, powers, and the resulting report, and why such a report differs in kind from a party's filing or from journalism. Argue that these reports are the most valuable documents produced about any crypto failure and are read by almost nobody because they are long and undramatic. Note the limits honestly, since scope is defined by the court and cost constrains depth. The piece must not describe any specific examination or report, must not name cases or individuals, must not treat any report's conclusions as legally binding, and must not give legal advice.",
+    "pref": [
+      "the-first-day-filings",
+      "why-insolvency-produces-the-best-records"
+    ]
+  },
+  {
+    "slug": "customer-property-versus-estate-property",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "Bankruptcy as a discovery process",
+    "title": "Whether It Was Ever Yours Is the Question That Decides Everything",
+    "seoTitle": "Customer Property Versus Estate Property",
+    "description": "Whether deposited assets belong to the customer or to the failed company determines recovery, and the answer depends on documents and on conduct.",
+    "lede": "The whole outcome turns on whether the assets were held for you or owed to you.",
+    "angle": "Explains the distinction generically: property held in trust for a customer may be returnable, while a claim against a company shares in whatever the estate has, and which applies depends on the terms, the actual handling and the applicable law. Argue that this is where the earlier cluster on segregation becomes concrete, because segregation is what makes the first characterisation available. Emphasise that the answer is fact and jurisdiction specific and cannot be generalised. The piece must not state the outcome in any case, must not give legal advice, must not tell any reader what their position would be, and must not name proceedings or parties.",
+    "pref": [
+      "customer-funds-and-segregation",
+      "the-omnibus-account-problem",
+      "dollarised-claims-and-a-moving-asset"
+    ]
+  },
+  {
+    "slug": "clawbacks-and-preferences",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "Bankruptcy as a discovery process",
+    "title": "Getting Your Money Out First Does Not Always Mean Keeping It",
+    "seoTitle": "Clawbacks: Getting Out First Is Not Enough",
+    "description": "Insolvency regimes can reverse payments made before a failure so that similar creditors are treated alike, which surprises people every time.",
+    "lede": "Withdrawing before the doors shut can be undone months later.",
+    "angle": "Explains the general principle behind avoidance and preference rules, which is equal treatment of similar creditors, and why regimes look back at transfers made before a filing. Argue that this is one of the most consequential and least understood aspects of these failures for ordinary participants, and that the industry's advice culture ignored it entirely. Stress that the rules, periods and defences vary enormously by jurisdiction and by facts. The piece must not state any jurisdiction's rules or periods, must not give legal advice, must not tell any reader what their exposure is, and must not name any proceeding or party.",
+    "pref": [
+      "customer-property-versus-estate-property",
+      "why-insolvency-produces-the-best-records"
+    ]
+  },
+  {
+    "slug": "the-claims-market",
+    "era": "postFtx",
+    "kind": "profile",
+    "cluster": "Bankruptcy as a discovery process",
+    "title": "Claims Against a Failed Company Become Something You Can Sell",
+    "seoTitle": "The Market in Bankruptcy Claims",
+    "description": "Buyers purchase creditor claims at a discount, providing early liquidity to creditors and concentrating the eventual recovery in specialist hands.",
+    "lede": "Somebody will buy your claim today for less than it might be worth in five years.",
+    "angle": "A profile of the distressed claims buyer and the creditor on the other side: one needs certainty now and can sell, the other has legal expertise and patience and takes the outcome risk. Argue that this market performs a genuine function and also concentrates the eventual recovery among parties who are best placed to assess it, which is a familiar pattern rather than a scandal. Note the information asymmetry between the parties honestly. The piece must not state any claim prices or recovery rates, must not name any proceeding, buyer or seller, must not describe claim sale as advisable or otherwise, and must not give legal, financial or investment advice.",
+    "pref": [
+      "clawbacks-and-preferences",
+      "the-decade-long-creditor-process"
+    ]
+  },
+  {
+    "slug": "crypto-denominated-claims-again",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "Bankruptcy as a discovery process",
+    "title": "The Same Valuation Problem, Ten Years Later, Still Unresolved",
+    "seoTitle": "The Same Claim Valuation Problem Returns",
+    "description": "Fixing claims in currency at a filing date produces contested outcomes when the estate holds the same asset the claim was denominated in.",
+    "lede": "The problem from the first great exchange failure came back unchanged.",
+    "angle": "Returns to the valuation problem introduced a decade earlier on this site and shows that it recurred in essentially identical form, with the same arguments and no settled answer. Argue that the persistence of an unresolved legal question across a decade of repeated failures is itself the finding, and that it reflects how rarely these matters reach a decision that binds anyone. Present the competing positions and mark the question open. The piece must not state the rule in any jurisdiction as settled, must not use prices to illustrate the effect, must not give legal advice, must not name any proceeding, and must not predict any outcome.",
+    "pref": [
+      "dollarised-claims-and-a-moving-asset",
+      "customer-property-versus-estate-property"
+    ]
+  },
+  {
+    "slug": "the-cost-of-the-process",
+    "era": "postFtx",
+    "kind": "profile",
+    "cluster": "Bankruptcy as a discovery process",
+    "title": "Somebody Has to Pay for the Investigation, and It Is the Creditors",
+    "seoTitle": "Who Pays for the Bankruptcy Process",
+    "description": "Professional fees in a complex insolvency come out of the estate, which means the quality of the record is paid for by the people owed money.",
+    "lede": "The excellent public record these cases produce is funded by the creditors' recovery.",
+    "angle": "A profile of the insolvency professional and the tension the role creates: thorough investigation produces better outcomes and better history, and it reduces the pool available for distribution. Argue that this is a real trade off rather than a scandal, and that the crypto cases are unusually expensive because of asset tracing, cross border complexity and reconstructing records that were never properly kept. Note the uncomfortable implication for the site's own reliance on these records. The piece must not state fee amounts or percentages, must not name professionals or firms, must not characterise any fee as excessive, and must not give legal advice.",
+    "pref": [
+      "the-examiner",
+      "the-claims-market",
+      "why-insolvency-produces-the-best-records"
+    ]
+  },
+  {
+    "slug": "cross-border-insolvency",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "Bankruptcy as a discovery process",
+    "title": "Several Courts, Several Estates, One Set of Assets",
+    "seoTitle": "When Several Courts Claim the Same Estate",
+    "description": "Group structures spanning jurisdictions produce parallel proceedings that must be coordinated, which adds years and cost to every question.",
+    "lede": "When the group spans five jurisdictions, so does the insolvency.",
+    "angle": "Explains the general machinery for coordinating parallel proceedings, recognition of a main proceeding and cooperation between courts, and why crypto groups are unusually prone to needing it. Argue that the structures adopted for regulatory reasons during the growth years directly produced this complexity during the failures, which is a cost of jurisdiction shopping that was never counted. Draw that connection explicitly. The piece must not describe any specific proceeding or jurisdiction, must not give legal advice, must not name parties, and must not predict outcomes.",
+    "pref": [
+      "jurisdiction-shopping",
+      "the-cross-border-problem",
+      "the-cost-of-the-process"
+    ]
+  },
+  {
+    "slug": "what-creditors-actually-recover",
+    "era": "postFtx",
+    "kind": "profile",
+    "cluster": "Bankruptcy as a discovery process",
+    "title": "Recovery Is a Long Process With a Distribution at the End",
+    "seoTitle": "How Creditor Recovery Actually Works",
+    "description": "Recovery depends on what the estate collects, the priority of each claim and how long the process runs, and none of it is knowable at the start.",
+    "lede": "The answer to how much you get back is unknown for years and then arrives as a percentage.",
+    "angle": "A profile of the creditor waiting through an insolvency, following the structure of recovery generically: asset collection and litigation, claim classification and priority, reserves for disputed claims, and distributions over time. Argue that the industry's habit of reporting expected recoveries early is close to meaningless, since the estimate depends on unresolved litigation, and that the honest position is that nobody knows until the distribution. Keep it entirely general. The piece must not state any recovery percentage or amount, must not name any proceeding, must not describe any distribution as likely, must not give legal or financial advice, and must not predict outcomes.",
+    "pref": [
+      "the-claims-market",
+      "the-decade-long-creditor-process",
+      "cross-border-insolvency"
+    ]
+  },
+  {
+    "slug": "the-record-that-outlives-the-company",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "Bankruptcy as a discovery process",
+    "title": "The Docket Will Still Be There When Everything Else Is Gone",
+    "seoTitle": "The Record That Outlives the Company",
+    "description": "Court filings survive when websites, forums and company records disappear, which makes them the durable foundation of this history.",
+    "lede": "The website goes, the forum goes, the filings stay.",
+    "angle": "Closes the cluster on the site's methodological argument: crypto history is built on sources that vanish, and the insolvency record is one of the few categories with institutional permanence. Argue that this creates a real and structural bias in what can be documented, favouring failures over successes and litigation over ordinary operation, and that a responsible history should say so rather than pretend to balance. Commit to that as a statement of the site's own limitations. The piece must not name any proceeding or party, must not give legal advice, must not treat any filing as adjudicated fact, and must not claim any particular record is complete.",
+    "pref": [
+      "why-insolvency-produces-the-best-records",
+      "the-forum-as-the-only-record",
+      "the-leaked-document-problem"
+    ]
+  }
+]

@@ -1,0 +1,199 @@
+[
+  {
+    "slug": "the-investment-contract-test",
+    "era": "icoEra",
+    "kind": "primarySource",
+    "cluster": "Regulators arrive",
+    "title": "The Test Everyone Argues About, Described as a Test",
+    "seoTitle": "The Investment Contract Test, Described",
+    "description": "A decades old analysis for identifying an investment contract became the central question of an industry that had never heard of it.",
+    "lede": "A test written long before any of this was applied to all of it, and the industry learned it the hard way.",
+    "angle": "Built around the decision that established the framework, read as a document rather than as a slogan: what elements it examines, why it is fact specific, and why that fact dependence is the source of the industry's frustration with it. Argue that the recurring complaint about a lack of clarity is partly a request for a bright line rule that this kind of test structurally cannot provide. Present the industry's counterargument fairly, that fact specific analysis applied through enforcement is a poor way to give notice. The piece must not apply the test to any named asset, must not state that anything is or is not a security, must not give legal advice of any kind, and must not describe the current position of any regulator or court as settled.",
+    "pref": [
+      "the-regulatory-report-that-followed",
+      "the-utility-token-theory"
+    ]
+  },
+  {
+    "slug": "reading-the-investigative-report",
+    "era": "icoEra",
+    "kind": "primarySource",
+    "cluster": "Regulators arrive",
+    "title": "Reading the Report Instead of the Headlines About It",
+    "seoTitle": "Reading the Regulator's Report Directly",
+    "description": "The document is short, specific and narrower than its reputation, and reading it directly corrects several widely repeated claims.",
+    "lede": "The report is a manageable read and almost nobody who cites it has read it.",
+    "angle": "Works through the document itself: what it investigated, the analysis it set out, the explicit statements about its own scope, and the fact that it announced no enforcement action. Argue that the gap between the document and its reputation is a good measure of how this industry consumes regulatory information, which is through summaries of summaries. Establish the practice this site will follow of citing the filing rather than the coverage. The piece must not summarise the report's holdings without the document in hand, must not extend its analysis to any other asset, must not offer legal guidance, and must not characterise the regulator's intent.",
+    "pref": [
+      "the-investment-contract-test",
+      "the-regulatory-report-that-followed"
+    ]
+  },
+  {
+    "slug": "money-transmission-versus-securities",
+    "era": "icoEra",
+    "kind": "explainer",
+    "cluster": "Regulators arrive",
+    "title": "Two Different Regulators Were Asking Two Different Questions",
+    "seoTitle": "Money Transmission Versus Securities Rules",
+    "description": "Payment regulation and securities regulation address different risks, and a business can be squarely inside one and outside the other.",
+    "lede": "The two regimes ask different questions and an industry that conflated them spent years confused about its own obligations.",
+    "angle": "Separates the two frameworks conceptually: one concerned with the movement and safekeeping of value and the risk of illicit finance, the other with the sale of instruments and the disclosure owed to purchasers. Argue that most public argument in the era mixed them, which produced confident claims about legality that were answering the wrong question. Note that the multiplicity of regimes and jurisdictions is itself a structural fact of the industry rather than a temporary state. The piece must not state any jurisdiction's current requirements, must not describe any business as licensed or unlicensed, must not give compliance guidance, and must not name any enforcement action.",
+    "pref": [
+      "the-shift-to-the-cash-out-layer",
+      "the-investment-contract-test"
+    ]
+  },
+  {
+    "slug": "jurisdiction-shopping",
+    "era": "icoEra",
+    "kind": "postmortem",
+    "cluster": "Regulators arrive",
+    "title": "Incorporating Somewhere Friendly Was the Standard Move, and It Half Worked",
+    "seoTitle": "Jurisdiction Shopping in the Token Sale Era",
+    "description": "Projects incorporated in accommodating jurisdictions while selling to a global audience, which addresses some exposures and not others.",
+    "lede": "Where the foundation is registered matters less than where the purchasers are, which took the industry a while to absorb.",
+    "angle": "Follows the failure of a near universal structuring choice to its cause: an entity in a favourable jurisdiction does not determine which other jurisdictions may assert an interest based on where purchasers are located. Argue that this is not a loophole being closed but a straightforward feature of how most financial regulation has always worked, and that the industry's surprise reflected inexperience rather than a change in the rules. Present the legitimate reasons for the same structure alongside the opportunistic ones. The piece must not name jurisdictions as safe or unsafe, must not describe any current legal regime, must not give any structuring guidance, and must not name any entity.",
+    "pref": [
+      "money-transmission-versus-securities",
+      "the-utility-token-theory"
+    ]
+  },
+  {
+    "slug": "the-restricted-sale-structures",
+    "era": "icoEra",
+    "kind": "primarySource",
+    "cluster": "Regulators arrive",
+    "title": "The Template That Tried to Split the Sale in Two",
+    "seoTitle": "The Template That Split Token Sales in Two",
+    "description": "A widely circulated instrument tried to separate a private funding round from a later public token delivery, and the reasoning is documented.",
+    "lede": "The idea was to sell a promise to sophisticated purchasers now and deliver a token to everyone later.",
+    "angle": "Built around the published template and the accompanying explanatory paper: what the instrument actually provided for, what analysis it rested on, and the public critiques it attracted almost immediately. Argue that its historical value is as a documented, good faith attempt to reconcile the two regimes, which makes the critiques of it more instructive than the many arrangements that made no attempt at all. Be precise that its approach was contested from the outset and that its use varied widely. The piece must not describe the instrument as effective or ineffective legally, must not give any reader structuring or legal guidance, must not name users of it, and must not quote it without the document in hand.",
+    "pref": [
+      "jurisdiction-shopping",
+      "the-investment-contract-test"
+    ]
+  },
+  {
+    "slug": "disclosure-was-the-actual-issue",
+    "era": "icoEra",
+    "kind": "postmortem",
+    "cluster": "Regulators arrive",
+    "title": "Strip Out the Labels and the Complaint Was Always About Disclosure",
+    "seoTitle": "Why the Real Issue Was Always Disclosure",
+    "description": "Beneath the argument over classification sits a simpler question about what purchasers were told, and that question has an uncomfortable answer.",
+    "lede": "Whatever the correct label, the purchasers were told very little, and that is checkable.",
+    "angle": "Follows the era's harm to the failure that actually produced it, arguing that the classification debate absorbed the attention while the substantive issue, what a purchaser was told about allocation, control, risk and use of proceeds, was rarely argued because the answer was not in dispute. Show that securities regulation is largely a disclosure regime rather than a permission regime, which reframes the industry's complaint. Commit to a clear position that voluntary disclosure standards were available throughout and were adopted by very few. The piece must not state what disclosure any jurisdiction requires, must not evaluate any project's disclosures, must not give legal guidance, and must not name projects or individuals.",
+    "pref": [
+      "the-whitepaper-as-a-genre",
+      "the-investment-contract-test",
+      "vesting-and-unlock-schedules"
+    ]
+  },
+  {
+    "slug": "the-first-enforcement-wave",
+    "era": "icoEra",
+    "kind": "timeline",
+    "cluster": "Regulators arrive",
+    "title": "Enforcement Arrived Late, Selectively, and in a Recognisable Order",
+    "seoTitle": "How the First Enforcement Wave Unfolded",
+    "description": "Actions arrived years after the conduct, focused on identifiable categories first, and the sequencing tells you what was practical to pursue.",
+    "lede": "The order in which cases were brought says more about capacity than about severity.",
+    "angle": "Sequences enforcement activity at a categorical level: the earliest matters involved outright misrepresentation, the later ones involved classification, and the gap reflects evidentiary difficulty rather than a change of view. Argue that the lag between conduct and consequence, measured in years, is a permanent feature of financial enforcement and one the industry consistently misreads as approval. Read the threshold plainly, since regulatory tolerance contracted long after market activity had already collapsed. The piece must not name any case, defendant, settlement or penalty, must not describe the merits of any matter, must not state amounts, and must not predict any outcome.",
+    "pref": [
+      "disclosure-was-the-actual-issue",
+      "the-bust"
+    ]
+  },
+  {
+    "slug": "why-enforcement-was-slow",
+    "era": "icoEra",
+    "kind": "explainer",
+    "cluster": "Regulators arrive",
+    "title": "The Delay Was Structural, Not Permission",
+    "seoTitle": "Why Regulatory Enforcement Took So Long",
+    "description": "Investigations take years, jurisdictions overlap, evidence is technical and international, and none of that delay implies approval.",
+    "lede": "Silence from a regulator is a resourcing fact, and the industry read it as a verdict.",
+    "angle": "Explains the operational reality of enforcement: opening an investigation, gathering evidence across borders, technical analysis, internal approval, and the option to settle, all of which take years by design. Argue that the industry's habit of treating an absence of action as tacit approval is one of the most costly recurring errors on this site, because it encouraged conduct that was later addressed. Take a clear position that the delay was predictable to anyone with experience of any regulated industry. The piece must not describe any agency's internal process without a published source, must not name matters, must not state timelines as rules, and must not offer any reader guidance about their own exposure.",
+    "pref": [
+      "the-first-enforcement-wave",
+      "money-transmission-versus-securities"
+    ]
+  },
+  {
+    "slug": "the-accommodating-jurisdictions",
+    "era": "icoEra",
+    "kind": "postmortem",
+    "cluster": "Regulators arrive",
+    "title": "Some Regulators Published Frameworks Instead of Waiting",
+    "seoTitle": "The Regulators Who Published Frameworks Early",
+    "description": "A handful of jurisdictions responded with published classification guidance, which produced clarity, competition and a set of new problems.",
+    "lede": "A few regulators wrote down how they would analyse these things, which turned out to be its own experiment.",
+    "angle": "Follows the partial failure of early published guidance to its cause, describing what such guidance can and cannot deliver and the competitive dynamic it created between financial centres. Argue that published frameworks solved the notice problem and created a substitution problem, since projects tailored their documents to the framework without changing what they were doing. Present the outcome honestly as mixed rather than as a model. The piece must not describe any jurisdiction's current rules, must not name jurisdictions as recommended, must not give any structuring or legal guidance, and must not claim any framework prevented harm.",
+    "pref": [
+      "jurisdiction-shopping",
+      "disclosure-was-the-actual-issue"
+    ]
+  },
+  {
+    "slug": "the-listing-decision-as-regulation",
+    "era": "icoEra",
+    "kind": "explainer",
+    "cluster": "Regulators arrive",
+    "title": "Venues Ended Up Making Regulatory Decisions Without Any Mandate",
+    "seoTitle": "How Exchanges Became Accidental Regulators",
+    "description": "When venues decide what to list and what to remove, they perform a gatekeeping function that belongs to regulators elsewhere.",
+    "lede": "The most consequential regulatory decisions of the era were made by commercial venues protecting themselves.",
+    "angle": "Explains how listing and delisting decisions came to function as de facto regulation, driven by venues' own legal exposure rather than by any public standard, and what that produces: inconsistency across venues, no appeal, and criteria that are commercial rather than protective. Argue that this arrangement gives the industry the worst of both worlds, gatekeeping without accountability, and that it has persisted because no participant has an interest in changing it. Connect back to the listing relationship as a commercial matter. The piece must not name venues or delisting events, must not allege improper conduct, must not describe present day listing standards, and must not advise readers.",
+    "pref": [
+      "the-listing-relationship",
+      "why-enforcement-was-slow"
+    ]
+  },
+  {
+    "slug": "the-clarity-that-never-came",
+    "era": "icoEra",
+    "kind": "timeline",
+    "cluster": "Regulators arrive",
+    "title": "Every Year Someone Announced That Clarity Was Coming",
+    "seoTitle": "The Regulatory Clarity That Kept Not Arriving",
+    "description": "Proposed frameworks, safe harbour concepts and draft rules were announced repeatedly across this period without producing a settled position.",
+    "lede": "The phrase regulatory clarity has been six months away for most of this industry's existence.",
+    "angle": "Sequences the recurring announcements of forthcoming frameworks and safe harbour proposals at a structural level, without asserting the status of any specific one, and asks why the pattern repeats. Argue that the demand and the supply are mismatched, because the industry wants a categorical rule and the institutions involved produce fact specific analysis and negotiated positions. Take the position that planning around imminent clarity has been a reliably bad assumption for over a decade. The piece must not state the current status of any proposal or rule, must not name legislation, must not predict any outcome, and must not tell a reader what any rule will require.",
+    "pref": [
+      "why-enforcement-was-slow",
+      "the-accommodating-jurisdictions"
+    ]
+  },
+  {
+    "slug": "the-compliance-cost-of-being-first",
+    "era": "icoEra",
+    "kind": "postmortem",
+    "cluster": "Regulators arrive",
+    "title": "The Firms That Tried to Comply Early Paid for the Privilege",
+    "seoTitle": "The Cost of Trying to Comply Early",
+    "description": "Businesses that sought licences and built controls competed against businesses that did neither, which is a structural disadvantage.",
+    "lede": "Doing it properly was slower and more expensive, and the market did not reward it until much later.",
+    "angle": "Follows a competitive failure to its cause: compliance imposes real cost and slows product, non compliance imposes a contingent future cost, and in a fast moving market the discount rate on that future cost is effectively infinite. Argue that this is the strongest argument for regulation arriving early rather than late, and that it is an argument regulators themselves rarely make. Note the eventual reversal, when the contingent costs came due and compliant firms inherited the market. The piece must not name firms, must not describe any licence or approval as held or refused, must not state costs, and must not present compliance as guaranteeing anything.",
+    "pref": [
+      "the-clarity-that-never-came",
+      "the-listing-decision-as-regulation",
+      "the-banking-relationship-problem"
+    ]
+  },
+  {
+    "slug": "how-to-read-a-regulatory-document",
+    "era": "icoEra",
+    "kind": "explainer",
+    "cluster": "Regulators arrive",
+    "title": "How to Read a Regulatory Document Without Being Misled by Coverage",
+    "seoTitle": "How to Read a Regulatory Document Properly",
+    "description": "Guidance, no action letters, reports, complaints, settlements and rules are different instruments with different force, and coverage flattens them.",
+    "lede": "A complaint is an allegation, a settlement is not a finding, and guidance is not a rule, and headlines treat all three identically.",
+    "angle": "Makes one thing comprehensible: the taxonomy of regulatory instruments and what force each carries, so a reader can tell the difference between an allegation, a negotiated resolution, a statement of staff views and a binding rule. Argue that the industry's information environment collapses these distinctions constantly and that this single reading habit prevents most of the resulting errors. Establish this as method for the whole site rather than as commentary on any matter. The piece must not describe any specific document, must not give legal advice, must not state what any instrument requires of a reader, and must not characterise any agency.",
+    "pref": [
+      "reading-the-investigative-report",
+      "the-clarity-that-never-came"
+    ]
+  }
+]

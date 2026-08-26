@@ -1,0 +1,183 @@
+[
+  {
+    "slug": "what-a-darknet-market-was",
+    "era": "earlyExchange",
+    "kind": "explainer",
+    "cluster": "Darknet markets and the arrival of law",
+    "title": "What Those Markets Actually Were, as Pieces of Software",
+    "seoTitle": "Darknet Markets, as Pieces of Software",
+    "description": "Stripped of the reporting, these were commerce platforms with escrow, ratings and dispute resolution, running over an anonymity network.",
+    "lede": "Described as software rather than as crime, they were ordinary marketplace platforms with an unusual transport layer.",
+    "angle": "Describes the technical composition without narrating any offence: an anonymity network for transport, a marketplace application, an escrow arrangement, a reputation system and a payment method with no reversal. Argue that understanding the software is necessary to understand why this was the first sustained real world use of the payment network, and that the reporting of the period consistently confused the transport layer with the payments layer. Keep the analysis at the level of market design throughout. The piece must not describe how to access any such site, must not narrate any specific transaction or offence, must not name any individual, and must not discuss any charge, trial or sentence.",
+    "pref": [
+      "the-network-asked-to-take-a-side",
+      "why-exchanges-became-the-industry"
+    ]
+  },
+  {
+    "slug": "escrow-and-reputation-without-law",
+    "era": "earlyExchange",
+    "kind": "explainer",
+    "cluster": "Darknet markets and the arrival of law",
+    "title": "How Strangers Trade When No Court Will Hear the Dispute",
+    "seoTitle": "Escrow and Reputation Without a Legal System",
+    "description": "Markets outside legal recourse had to build enforcement from escrow, ratings and repeat play, and the mechanisms are genuinely instructive.",
+    "lede": "Remove the courts and the parties have to manufacture enforcement out of nothing but repeated interaction.",
+    "angle": "Explains the substitutes for legal enforcement: multi party escrow, reputation accumulated over repeated trades, and the operator as arbitrator of last resort, and shows exactly where each one fails. Argue that these markets are a natural experiment in institutional economics that is rarely read as one, and that their solutions were reinvented almost line for line by later peer to peer trading and by decentralised marketplaces. Commit to the position that the operator as arbitrator is the weak point, and that this is why exit scams are structural rather than incidental. The piece must not describe any illegal activity or facilitate it, must not name markets or individuals, and must not present any of these mechanisms as advice for any reader's own arrangements.",
+    "pref": [
+      "what-a-darknet-market-was",
+      "smart-contracts-before-blockchains"
+    ]
+  },
+  {
+    "slug": "the-pseudonymity-misunderstanding",
+    "era": "earlyExchange",
+    "kind": "explainer",
+    "cluster": "Darknet markets and the arrival of law",
+    "title": "It Was Never Anonymous, and Almost Everyone Thought It Was",
+    "seoTitle": "The Pseudonymity Misunderstanding, Explained",
+    "description": "A permanent public ledger of every transaction is close to the worst possible tool for hiding, and the early belief otherwise was universal.",
+    "lede": "A public, permanent, complete record of every payment is a strange thing to mistake for privacy.",
+    "angle": "Explains the difference between pseudonymity and anonymity precisely: addresses are identifiers, identifiers can be linked to each other by transaction structure, and linking any one of them to a person deanonymises the cluster retroactively and permanently. Argue that this misunderstanding, held sincerely by both users and journalists for years, is the single most consequential factual error in crypto's popular history. Take the position that the ledger's permanence makes it a surveillance instrument by default and that later privacy work is an attempt to claw back a property it never had. The piece must not describe deanonymisation techniques in operational detail, must not reference any specific investigation, and must not present any privacy tool as effective.",
+    "pref": [
+      "what-a-darknet-market-was",
+      "the-first-transaction-on-chain"
+    ]
+  },
+  {
+    "slug": "chain-analysis-becomes-a-business",
+    "era": "earlyExchange",
+    "kind": "profile",
+    "cluster": "Darknet markets and the arrival of law",
+    "title": "An Entire Industry Was Built on Reading the Public Ledger",
+    "seoTitle": "How Chain Analysis Became an Industry",
+    "description": "Firms selling transaction attribution to law enforcement and exchanges emerged in this period and became infrastructure with little scrutiny.",
+    "lede": "The ledger's transparency created a private industry whose product is telling you who is on the other end.",
+    "angle": "A profile of the transaction analysis firm as an institution: what its methods actually rely on, which is heuristics and off chain data rather than cryptography, and how quickly it became embedded in compliance and enforcement. Argue that the error rate and methodology of these tools are treated as trade secrets while their outputs are treated as evidence, and that this is a genuine and underexamined problem. Read it through the threshold: the assumption of privacy contracted to nothing while the assumption of accuracy expanded without being tested. The piece must not name vendors, must not describe any specific case, must not assert an error rate, and must not characterise the reliability of any tool beyond what published evaluations show.",
+    "pref": [
+      "the-pseudonymity-misunderstanding",
+      "what-a-darknet-market-was"
+    ]
+  },
+  {
+    "slug": "the-seizure-and-what-it-proved",
+    "era": "earlyExchange",
+    "kind": "timeline",
+    "cluster": "Darknet markets and the arrival of law",
+    "title": "The First Large Seizure Settled an Argument About Whether This Was Reachable",
+    "seoTitle": "The First Large Crypto Seizure and Its Meaning",
+    "description": "Enforcement action against a major platform demonstrated that operators, servers and holdings were all reachable, ending a widely held assumption.",
+    "lede": "The claim that this was beyond the reach of any government was tested publicly and did not survive.",
+    "angle": "Sequences the public enforcement milestones of the period at an institutional level, focusing on what each demonstrated about reachability rather than on any individual case. Argue that the practical lesson absorbed by the industry was not that crypto was illegal but that operators are identifiable and infrastructure is seizable, which pushed later designs toward removing the operator. Note that the industry drew this lesson selectively and applied it inconsistently. The piece must not name any defendant, must not describe any charge, plea, trial, verdict or sentence, must not state seizure amounts, and must not characterise the conduct of any individual.",
+    "pref": [
+      "chain-analysis-becomes-a-business",
+      "e-gold-and-the-compliance-wall"
+    ]
+  },
+  {
+    "slug": "when-a-government-becomes-a-seller",
+    "era": "earlyExchange",
+    "kind": "primarySource",
+    "cluster": "Darknet markets and the arrival of law",
+    "title": "A Government Ran Public Auctions of Seized Digital Assets",
+    "seoTitle": "When a Government Auctioned Seized Crypto",
+    "description": "Public auction notices for forfeited holdings are unusually clean primary sources, and they document an early institutional interaction few noticed.",
+    "lede": "The auction notices are dry, public, and among the most reliable documents in this entire period.",
+    "angle": "Built around the published auction notices as artefacts: what a forfeiture auction is procedurally, what the notices actually state, and why they represent an early and largely unremarked instance of a government transacting in the asset. Argue that these documents are more valuable than most contemporaneous journalism because they are procedural, dated and unambiguous, which is rare in this subject. Note who the buyers were only to the extent it is a matter of public record and voluntary disclosure. The piece must not state quantities, prices or proceeds without the notice in hand, must not identify bidders who have not identified themselves, and must not connect the auctions to any individual's case.",
+    "pref": [
+      "the-seizure-and-what-it-proved"
+    ]
+  },
+  {
+    "slug": "mixers-and-the-privacy-argument",
+    "era": "earlyExchange",
+    "kind": "explainer",
+    "cluster": "Darknet markets and the arrival of law",
+    "title": "The Argument About Mixing Services Has Not Changed in Ten Years",
+    "seoTitle": "The Long Argument About Mixing Services",
+    "description": "Tools that break the link between transactions are defended as privacy infrastructure and treated as laundering infrastructure, and both descriptions fit.",
+    "lede": "The same tool is privacy infrastructure and laundering infrastructure depending only on who is using it.",
+    "angle": "Explains the mechanism at a conceptual level, breaking the deterministic link between an input and an output by pooling, and then presents the two long standing positions on it without adjudicating. Argue that the debate is genuinely unresolved because both descriptions are accurate simultaneously, and that pretending otherwise is what makes most writing on the subject useless. Name the contest clearly: one side treats financial privacy as a default entitlement, the other treats traceability as a condition of participation in the financial system. The piece must not describe how to use any such service, must not name specific services or any enforcement action against them, must not take a side, and must not offer any reader guidance.",
+    "pref": [
+      "the-pseudonymity-misunderstanding",
+      "chain-analysis-becomes-a-business"
+    ]
+  },
+  {
+    "slug": "exit-scams-as-market-structure",
+    "era": "earlyExchange",
+    "kind": "postmortem",
+    "cluster": "Darknet markets and the arrival of law",
+    "title": "When the Operator Holds the Escrow, Leaving Is Always the Best Final Move",
+    "seoTitle": "Why Escrow Operators Always Have an Exit",
+    "description": "Any market where one party holds everyone's funds in escrow has a built in terminal incentive, and the pattern recurs far outside this context.",
+    "lede": "If one party holds all the escrow, the last move in the game is always available to them.",
+    "angle": "Follows this failure class to its incentive structure: escrow accumulates, the operator's expected future revenue is finite, and at some point the pool exceeds it. Argue that this is a design property rather than a moral observation, and that the identical structure appears later in this history in yield platforms, bridges and centralised venues. Commit to the position that any arrangement with this shape should be assumed to have the same terminal incentive regardless of who is running it. The piece must not name any market, service or individual, must not describe amounts, and must not be phrased in a way that reads as guidance about any current platform.",
+    "pref": [
+      "escrow-and-reputation-without-law",
+      "the-omnibus-account-problem"
+    ]
+  },
+  {
+    "slug": "the-successor-markets",
+    "era": "earlyExchange",
+    "kind": "timeline",
+    "cluster": "Darknet markets and the arrival of law",
+    "title": "Each Takedown Was Followed by Replacements Within Weeks",
+    "seoTitle": "Why Each Takedown Was Followed by Replacements",
+    "description": "Enforcement removed operators and platforms repeatedly without removing the demand, and the replacement cycle is the actual finding.",
+    "lede": "The platforms were removable and the demand was not, which is a distinction enforcement policy took years to absorb.",
+    "angle": "Sequences the cycle at a structural level, showing that each removal was followed by fragmentation into successors and that the aggregate activity was not obviously reduced by any single action. Argue that this is the strongest available evidence for the proposition that these markets were demand driven rather than platform driven, and that it explains the later shift in enforcement toward the payment and cash out layer. Present the counterargument fairly, that removal imposes real costs and friction even when it does not eliminate activity. The piece must not name any market or individual, must not narrate any offence, must not state activity volumes, and must not evaluate any enforcement policy as effective or ineffective.",
+    "pref": [
+      "the-seizure-and-what-it-proved",
+      "exit-scams-as-market-structure"
+    ]
+  },
+  {
+    "slug": "the-shift-to-the-cash-out-layer",
+    "era": "earlyExchange",
+    "kind": "explainer",
+    "cluster": "Darknet markets and the arrival of law",
+    "title": "Enforcement Moved to Where Crypto Touches Banks",
+    "seoTitle": "Why Enforcement Moved to the Cash Out Layer",
+    "description": "The durable pressure point turned out not to be the chain or the platform but the moment holdings convert into ordinary money.",
+    "lede": "The chain is hard to police and the bank account at the end of it is not.",
+    "angle": "Explains the strategic shift: rather than pursuing platforms, obligations were placed on the venues where crypto becomes local currency, which converted exchanges into reporting institutions. Argue that this is the most consequential regulatory decision of the entire period and that it happened quietly, through supervisory expectations rather than through headline legislation. Read it through the threshold: the industry's regulatory perimeter expanded to cover conversion points while the chain itself stayed outside it. The piece must not describe the specific obligations in any jurisdiction as current, must not name any enforcement action, and must not give compliance guidance of any kind to any reader.",
+    "pref": [
+      "the-banking-relationship-problem",
+      "chain-analysis-becomes-a-business",
+      "the-successor-markets"
+    ]
+  },
+  {
+    "slug": "what-enforcement-learned",
+    "era": "earlyExchange",
+    "kind": "profile",
+    "cluster": "Darknet markets and the arrival of law",
+    "title": "What Investigators Learned, and What the Industry Learned Back",
+    "seoTitle": "What Investigators Learned From the Ledger",
+    "description": "A permanent transaction record turned out to be an investigative asset, and the industry's response reshaped protocol design priorities.",
+    "lede": "The permanence that makes the ledger trustworthy is the same property that makes it evidence.",
+    "angle": "A profile of the financial investigator and the protocol designer as two groups learning from each other: investigators discovered that a complete historical record supports retrospective analysis in a way conventional payments do not, and designers responded by prioritising privacy properties that had previously been an afterthought. Argue that this exchange, rather than any regulation, is what put confidential transactions and zero knowledge work on the roadmap. Present the unresolved tension honestly, because the same properties serve both sides. The piece must not describe investigative techniques operationally, must not reference any specific case or individual, and must not claim any privacy technology defeats analysis.",
+    "pref": [
+      "chain-analysis-becomes-a-business",
+      "mixers-and-the-privacy-argument"
+    ]
+  },
+  {
+    "slug": "the-reputational-inheritance",
+    "era": "earlyExchange",
+    "kind": "postmortem",
+    "cluster": "Darknet markets and the arrival of law",
+    "title": "The Industry Spent a Decade Answering for Its First Real Use Case",
+    "seoTitle": "Crypto's First Use Case and Its Long Shadow",
+    "description": "The first sustained real world use of the payment network shaped institutional and public perception for years afterwards, in measurable ways.",
+    "lede": "The first thing a technology is used for tends to define it for everyone who was not paying attention afterwards.",
+    "angle": "Follows a durable cost to its cause, tracing how the early association shaped later institutional caution through bank risk appetite, regulatory framing and the industry's own defensive communication habits. Argue that the association was accurate as history and increasingly inaccurate as a description of usage, and that the industry handled the gap badly by denying the history rather than contextualising it. Take the position that a history site should state the association plainly, because the alternative reads as evasion and is easily falsified. The piece must not quantify illicit usage as a share of activity, since the available estimates are vendor produced and contested, must not name any institution's policy, and must not defend or condemn the industry.",
+    "pref": [
+      "what-a-darknet-market-was",
+      "the-shift-to-the-cash-out-layer",
+      "the-banking-relationship-problem"
+    ]
+  }
+]

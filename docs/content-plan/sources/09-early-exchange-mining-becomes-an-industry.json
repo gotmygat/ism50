@@ -1,0 +1,183 @@
+[
+  {
+    "slug": "the-hardware-generations",
+    "era": "earlyExchange",
+    "kind": "timeline",
+    "cluster": "Mining becomes an industry",
+    "title": "Four Hardware Generations in About Four Years",
+    "seoTitle": "The Four Generations of Mining Hardware",
+    "description": "Processors to graphics cards to programmable chips to purpose built silicon, and what each transition permanently removed from the network.",
+    "lede": "Each hardware generation made the previous one worthless within months, which is an unusual thing for an industry to survive.",
+    "angle": "Sequences the hardware transitions and states precisely what each one changed: the capital required, the depreciation schedule, and the class of participant who could still take part. Argue that the compression of these transitions into a few years is why mining professionalised so abruptly, since no hobbyist can absorb a depreciation cycle measured in months. Read it through the threshold: total capacity expanded continuously while the participant base contracted at every step, and the industry reported only the first number. The piece must not state hardware specifications, prices, efficiency figures or dates without a cited source, and must not suggest any hardware is or was worth acquiring.",
+    "pref": [
+      "cpu-mining-as-a-hobby",
+      "the-difficulty-adjustment"
+    ]
+  },
+  {
+    "slug": "mining-pools-and-what-they-centralise",
+    "era": "earlyExchange",
+    "kind": "explainer",
+    "cluster": "Mining becomes an industry",
+    "title": "Pools Solved Variance and Created a Different Problem",
+    "seoTitle": "What Mining Pools Actually Centralise",
+    "description": "Pooling smooths income for individual miners, and in doing so it concentrates block construction into a small number of hands.",
+    "lede": "A pool exists because random income is unbearable, and the price of fixing that is handing someone else the decisions.",
+    "angle": "Explains the mechanism honestly: why solo mining produces intolerable variance, how a pool converts lottery income into wages, and exactly which decisions move to the pool operator when a miner joins. Argue that the standard concentration statistics measure the wrong thing, because they count hash rate by pool while the underlying hardware is widely distributed and can move between pools quickly. Commit to a position that pool concentration is a real risk and a poor metric, and that the distinction matters for every governance argument that cites it. The piece must not state pool market shares without a dated source, must not claim any pool has acted improperly, and must not present any pool arrangement as recommended.",
+    "pref": [
+      "the-hardware-generations",
+      "the-honest-majority-assumption"
+    ]
+  },
+  {
+    "slug": "what-a-pool-operator-controls",
+    "era": "earlyExchange",
+    "kind": "profile",
+    "cluster": "Mining becomes an industry",
+    "title": "The Pool Operator Chooses What Goes in the Block",
+    "seoTitle": "What a Pool Operator Actually Decides",
+    "description": "Transaction selection, ordering and signalling are decided by whoever builds the block template, not by the miners supplying the work.",
+    "lede": "The miners supply the electricity and the operator decides what the block says.",
+    "angle": "A profile of the mining pool operator and the discretion the role actually carries: the block template, who constructs it, what that permits over transaction inclusion and ordering, and how upgrade signalling flows through the same channel. Argue that this is the most concrete form of centralisation in proof of work and the least discussed, because it is invisible in every chart of distributed hash rate. Connect forward to the later fights over transaction censorship and ordering, which are the same mechanism with higher stakes. The piece must not claim any pool has censored transactions without a documented instance, must not describe present day template construction practice, and must not present later template separation proposals as adopted.",
+    "pref": [
+      "mining-pools-and-what-they-centralise"
+    ]
+  },
+  {
+    "slug": "the-stratum-layer",
+    "era": "earlyExchange",
+    "kind": "primarySource",
+    "cluster": "Mining becomes an industry",
+    "title": "The Protocol Between Miners and Pools Is a Load Bearing Afterthought",
+    "seoTitle": "The Mining Protocol Nobody Talks About",
+    "description": "A communication protocol written for convenience became the interface through which most of the network's work is coordinated.",
+    "lede": "An informal protocol written to make pooled mining practical ended up carrying most of the industry.",
+    "angle": "Built around the published specification: what the protocol actually transmits between a miner and a pool, what it does not authenticate, and what that implies about the trust a miner extends to a pool. Argue that infrastructure written for convenience and adopted universally is a recurring pattern in this history, and that the security properties get examined only after the dependency is total. Note the later effort to redesign the interface and be careful about its adoption status. The piece must not describe attack techniques against the protocol operationally, must not state adoption figures for any version, and must not summarise the specification without reading it.",
+    "pref": [
+      "what-a-pool-operator-controls",
+      "mining-pools-and-what-they-centralise"
+    ]
+  },
+  {
+    "slug": "the-preorder-failures",
+    "era": "earlyExchange",
+    "kind": "postmortem",
+    "cluster": "Mining becomes an industry",
+    "title": "Selling Hardware That Depreciates While You Build It",
+    "seoTitle": "The Mining Hardware Preorder Failures",
+    "description": "Companies took payment in advance for machines whose earning power fell every week of the delay, and the model failed structurally.",
+    "lede": "A machine bought in advance loses value every day it is not shipped, and the manufacturer holds the money.",
+    "angle": "Follows the failure mode to its cause: preorder financing, manufacturing delays measured in months, and an asset whose expected return falls with network capacity, which means every delay transfers value from customer to manufacturer whether or not anyone intended it. Argue that the resulting disputes were predictable from the structure alone and did not require anyone to behave badly, though some did. Take the position that this is the industry's first large scale example of a business model whose incentives are misaligned by construction. The piece must not name companies or individuals, must not describe any legal proceeding, must not state order values or refund amounts, and must not describe any specific allegation.",
+    "pref": [
+      "the-hardware-generations",
+      "exit-scams-as-market-structure"
+    ]
+  },
+  {
+    "slug": "the-majority-scare",
+    "era": "earlyExchange",
+    "kind": "timeline",
+    "cluster": "Mining becomes an industry",
+    "title": "The Time One Pool Got Close Enough to Frighten Everyone",
+    "seoTitle": "When One Mining Pool Got Too Close",
+    "description": "A single pool approaching a majority of network capacity produced a public crisis and a voluntary retreat, and the episode is instructive.",
+    "lede": "The threshold everyone theorised about was approached in public, and the response was social rather than technical.",
+    "angle": "Sequences a documented episode in which one pool's share approached the level at which the security argument weakens, covering the public reaction, the pool's own response, and the redistribution of hash rate that followed. Argue that the resolution is the interesting part, because it was achieved by reputational pressure and voluntary miner migration rather than by any protocol mechanism, which means the system's defence was social. Read the threshold literally, since this is the site's premise appearing as an actual number people watched in real time. The piece must not state the exact share reached without a dated source, must not accuse the pool of any intent, and must not claim the risk was or was not real.",
+    "pref": [
+      "mining-pools-and-what-they-centralise",
+      "the-honest-majority-assumption"
+    ]
+  },
+  {
+    "slug": "small-chain-attacks",
+    "era": "earlyExchange",
+    "kind": "postmortem",
+    "cluster": "Mining becomes an industry",
+    "title": "Small Chains Get Attacked Because They Are Cheap to Attack",
+    "seoTitle": "Why Small Chains Get Reorganised",
+    "description": "A chain sharing an algorithm with a much larger one can be reorganised by renting capacity, and this happened repeatedly to real networks.",
+    "lede": "If a bigger chain uses your algorithm, your security budget is whatever somebody would pay to rent an afternoon.",
+    "angle": "Follows the failure class to its cause: shared hashing algorithms create a rentable attack capacity, exchange deposit confirmations create a profit path, and small networks have no defence except changing algorithm or waiting. Argue that these incidents falsified a widely held assumption that proof of work security is absolute rather than relative to the value being protected. Explain what venues did in response, which was to raise confirmation requirements and in some cases delist, and note that this makes exchanges de facto security regulators. The piece must not describe any attack operationally, must not state amounts taken, must not name attackers, and must not rank any chain as secure or insecure today.",
+    "pref": [
+      "the-majority-scare",
+      "why-most-clones-died",
+      "the-honest-majority-assumption"
+    ]
+  },
+  {
+    "slug": "mining-as-an-energy-business",
+    "era": "earlyExchange",
+    "kind": "profile",
+    "cluster": "Mining becomes an industry",
+    "title": "At Scale, Mining Is an Energy Trading Business With a Computer Attached",
+    "seoTitle": "Mining as an Energy Business",
+    "description": "Once hardware efficiency converges, the only remaining variable is the price and reliability of power, which changes what the business is.",
+    "lede": "When everybody has the same machines, the business is entirely about the electricity contract.",
+    "angle": "A profile of the large scale miner as an energy trading business: hardware efficiency converges across operators, so competitive advantage collapses onto power procurement, curtailment agreements and location. Argue that this makes large mining an energy business with an unusual load profile, interruptible and location indifferent, which is why it ended up in the specific places it did. Handle the environmental argument by describing what is actually contested, the counterfactual use of the energy involved, rather than repeating either side's summary. The piece must not state energy consumption figures, carbon estimates or power prices, must not claim mining is or is not environmentally harmful, and must not describe any operator's contracts.",
+    "pref": [
+      "the-hardware-generations",
+      "the-halving-as-institutional-design"
+    ]
+  },
+  {
+    "slug": "the-geographic-migration",
+    "era": "earlyExchange",
+    "kind": "timeline",
+    "cluster": "Mining becomes an industry",
+    "title": "The Map of Where Mining Happens Has Been Redrawn Repeatedly",
+    "seoTitle": "How the Mining Map Kept Being Redrawn",
+    "description": "Capacity has concentrated and dispersed across regions in response to power prices and policy, and each move was faster than expected.",
+    "lede": "The industry moved countries faster than most industries move buildings, because the equipment fits in a shipping container.",
+    "angle": "Sequences the major relocations of mining capacity and explains the drivers in each case, cheap or stranded power, policy changes, and the unusual portability of the equipment. Argue that the mobility is the finding: an industry that can relocate on this timescale is very hard to regulate through jurisdiction and very exposed to power markets everywhere it lands. The threshold reading is direct, with regional capacity crossing the line in both directions repeatedly while global capacity barely paused. The piece must not state regional capacity shares without a dated and sourced figure, must not characterise any government's policy motives, and must not predict where capacity will move next.",
+    "pref": [
+      "mining-as-an-energy-business",
+      "the-hardware-generations"
+    ]
+  },
+  {
+    "slug": "hosting-and-the-capital-structure",
+    "era": "earlyExchange",
+    "kind": "profile",
+    "cluster": "Mining becomes an industry",
+    "title": "The Business Split Into Machine Owners, Site Operators and Financiers",
+    "seoTitle": "How Mining Split Into Three Businesses",
+    "description": "Industrial mining separated into distinct roles with different risks, and most public commentary still treats it as one activity.",
+    "lede": "Owning the machines, running the building and financing either one are three different businesses with three different risks.",
+    "angle": "A profile of the industrial mining operator and the parties around it: hosting providers who sell space, power and management, machine owners who take the revenue risk, and lenders who took collateral in equipment whose value moves with the same variable. Argue that the correlation between the collateral value and the borrower's revenue is the structural weakness, and that it is the same weakness that appears in every crypto lending story later on this site. Keep it descriptive and mechanical. The piece must not name companies, must not state loan terms or amounts, must not describe any bankruptcy, and must not offer any view on mining as a business proposition for a reader.",
+    "pref": [
+      "mining-as-an-energy-business",
+      "the-geographic-migration"
+    ]
+  },
+  {
+    "slug": "selling-hash-rate-as-a-product",
+    "era": "earlyExchange",
+    "kind": "postmortem",
+    "cluster": "Mining becomes an industry",
+    "title": "Selling Future Mining Output Instead of Machines",
+    "seoTitle": "Selling Hash Rate as a Product",
+    "description": "Contracts promising future mining output moved the risk to the buyer and made the seller's obligations very hard for a buyer to verify.",
+    "lede": "A contract for future mining output is a promise about machines the buyer will never see.",
+    "angle": "Follows the failure of this product category to its cause: the buyer holds a claim on future output, and the seller's capacity, allocation and costs are all unobservable. Argue that the arrangement is a derivative sold to an audience with no derivatives experience, and that the disputes it produced were about disclosure rather than about mining. Note that later, better regulated versions of the same exposure exist and are structured very differently. The piece must not name any provider, must not describe any specific dispute or proceeding, must not state returns, and must not describe any such contract as worth entering.",
+    "pref": [
+      "hosting-and-the-capital-structure",
+      "the-preorder-failures"
+    ]
+  },
+  {
+    "slug": "the-decentralisation-metric-problem",
+    "era": "earlyExchange",
+    "kind": "postmortem",
+    "cluster": "Mining becomes an industry",
+    "title": "Nobody Agrees What Would Count as Decentralised",
+    "seoTitle": "Nobody Agrees How to Measure Decentralisation",
+    "description": "The industry's central claim has no accepted measurement, and the proxies in common use each measure something convenient instead.",
+    "lede": "The property the whole industry claims is the one property nobody has agreed how to measure.",
+    "angle": "Follows a measurement failure to its causes, taking the common proxies in turn, node counts, pool shares, client diversity, geographic spread and token concentration, and showing what each captures and misses. Argue that the absence of an agreed measure is not an oversight but a convenience, because every participant can select the proxy that flatters them. Commit to the position that decentralisation is a vector rather than a number, and that any single figure quoted for it should be treated as advocacy. The piece must not propose a definitive metric, must not score any network, and must not cite any published index without describing its method and its funder.",
+    "pref": [
+      "mining-pools-and-what-they-centralise",
+      "the-geographic-migration",
+      "what-a-pool-operator-controls"
+    ]
+  }
+]

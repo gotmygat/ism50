@@ -1,0 +1,200 @@
+[
+  {
+    "slug": "the-forum-as-the-only-record",
+    "era": "origins",
+    "kind": "profile",
+    "cluster": "The first users",
+    "title": "For Two Years, a Web Forum Was the Entire Institutional Memory",
+    "seoTitle": "The Forum That Holds Early Bitcoin History",
+    "description": "Almost everything documented about the first years lives in a handful of forum threads, and that dependency has consequences we still live with.",
+    "lede": "One privately operated forum holds most of what we can say about the first two years, which should worry anyone who has watched a forum disappear.",
+    "angle": "A group profile of the early posting community treated as an institution: who was there, what kinds of questions they were actually asking, and how a forum with no archival mandate became the de facto record. Argue that the fragility is the story, since threads have been edited, accounts deleted and images lost, and a history built on one privately held archive is one hosting decision away from being unwritable. Commit to the position that anyone writing about this period owes the reader a note on which claims are archive dependent. The piece must not quote any forum post that cannot be located in an archive at the time of writing, must not attribute a post to a person whose identity is not publicly and voluntarily established, and must not characterise the community's mood using recollections gathered years later as though contemporaneous.",
+    "pref": [
+      "the-first-release-announcement",
+      "the-cypherpunks-list"
+    ]
+  },
+  {
+    "slug": "running-a-node-when-nobody-did",
+    "era": "origins",
+    "kind": "profile",
+    "cluster": "The first users",
+    "title": "What Running a Node Actually Meant Before Anyone Called It That",
+    "seoTitle": "What Running an Early Node Actually Meant",
+    "description": "A single program did wallet, miner, node and interface, and understanding that bundle explains most early advice that now reads as strange.",
+    "lede": "The first software did four jobs at once, which is why early instructions sound like they were written for a different system.",
+    "angle": "A profile of the early node runner and the software they lived with, a monolithic client where validating, storing keys and mining were one process, tracing how each of those responsibilities was later split into a separate product category. Argue that the unbundling is the single largest structural change in the user experience of crypto, larger than any interface redesign, because it moved key custody and validation into other people's hands one step at a time. Read through the threshold: participation in validation expanded while the share of users doing it contracted, and both were true at once. The piece must not state node counts for any period, must not claim what percentage of users mined, and must not present running a node as a recommendation to any reader.",
+    "pref": [
+      "what-the-first-client-actually-did",
+      "the-first-release-announcement"
+    ]
+  },
+  {
+    "slug": "hal-finney-and-the-first-node",
+    "era": "origins",
+    "kind": "profile",
+    "cluster": "The first users",
+    "title": "Hal Finney Ran the Second Node and Wrote Down What He Thought",
+    "seoTitle": "Hal Finney and the Second Bitcoin Node",
+    "description": "A cryptographer with a long public record who engaged with the system immediately and left a written trail of his reasoning.",
+    "lede": "Finney is unusual in this history because he wrote his reasoning down at the time rather than reconstructing it later.",
+    "angle": "A profile built only on his published work, mailing list posts and forum writing, covering his earlier cryptographic contributions, his immediate engagement with the new system and the specific reservations he recorded. Argue that his value to a historian is the contemporaneity of the record, since almost every other early participant is quoted from memory years afterwards, and memory in this subject is heavily contaminated by outcome. Make the honest observation that his early scepticism about some parts of the design is usually left out of the reverent version of the story. The piece must not repeat the recurring claim that he was the author of the whitepaper, which is not established, must not describe his health, family or finances, and must not quote him without an archived source.",
+    "pref": [
+      "the-first-transaction-on-chain",
+      "the-cypherpunks-list",
+      "the-authorship-question"
+    ]
+  },
+  {
+    "slug": "cpu-mining-as-a-hobby",
+    "era": "origins",
+    "kind": "timeline",
+    "cluster": "The first users",
+    "title": "When Mining Was Something You Left Running Overnight",
+    "seoTitle": "When Bitcoin Mining Was a Laptop Hobby",
+    "description": "The sequence from a checkbox in a desktop client to specialised hardware, and the exact points where each step stopped being viable at home.",
+    "lede": "Mining began as a toggle in a desktop program and ended as a category of industrial real estate.",
+    "angle": "Sequences the transition properly, from general purpose processors to graphics cards to purpose built hardware, and identifies at each step what specifically made the previous approach uneconomic. Argue that the transition was not gradual but stepwise, and that each step permanently removed a class of participant from an activity the original design assumed would be widely distributed. That is the site's threshold in one chart: capacity expanding relentlessly while the number of independent participants contracted. The piece must not give hash rates, hardware prices, electricity costs or profitability figures for any period, must not name a date for any hardware transition without a source, and must not tell a reader anything about whether mining is worth doing.",
+    "pref": [
+      "the-difficulty-adjustment",
+      "running-a-node-when-nobody-did"
+    ]
+  },
+  {
+    "slug": "faucets-and-the-distribution-problem",
+    "era": "origins",
+    "kind": "explainer",
+    "cluster": "The first users",
+    "title": "Giving It Away Was a Deliberate Answer to a Real Problem",
+    "seoTitle": "Faucets and the Early Distribution Problem",
+    "description": "A currency with no holders has no users and no merchants, and the earliest answer to that deadlock was simply to hand it out.",
+    "lede": "A payment network with no holders is a chicken and egg problem, and the first fix was to give the chicken away.",
+    "angle": "Explains the bootstrapping problem in plain terms, why nobody accepts a currency nobody holds, and how free distribution was used as a cold start mechanism rather than as charity or marketing. Argue that this is a genuinely instructive precedent for the token distribution debates that dominate later eras of this site, and that the later versions were far less honest about what they were doing. Note the mechanism's limits, since free distribution creates holders but not demand, and demand had to come from somewhere else. The piece must not state amounts distributed, values, or claims about how many people received anything, and must not present any distribution model as effective or advisable.",
+    "pref": [
+      "the-forum-as-the-only-record",
+      "cpu-mining-as-a-hobby"
+    ]
+  },
+  {
+    "slug": "how-a-thing-with-no-price-gets-one",
+    "era": "origins",
+    "kind": "explainer",
+    "cluster": "The first users",
+    "title": "How Something With No Price Acquires One",
+    "seoTitle": "How a Thing With No Price Gets One",
+    "description": "Price discovery for a new asset is a social process before it is a market process, and the mechanism is worth understanding without any numbers.",
+    "lede": "Before there is a market there are two people arguing about what a fair swap looks like, and everything else grows from that.",
+    "angle": "Describes the mechanism of first price formation structurally: bilateral negotiation, then a posted bid and ask, then a venue that matches them, then a reference rate that other venues quote. Argue that understanding this sequence inoculates a reader against the most common error in crypto history writing, which is quoting an early price as though a liquid market produced it. Take the position that early prices are anecdotes about single trades and should be written that way. The piece must not state any historical price, exchange rate or valuation, must not compare an early value to a later one, and must not be written in a way that implies anything about what any asset is worth now.",
+    "pref": [
+      "faucets-and-the-distribution-problem"
+    ]
+  },
+  {
+    "slug": "the-pizza-transaction-as-folklore",
+    "era": "origins",
+    "kind": "explainer",
+    "cluster": "The first users",
+    "title": "The Pizza Story Is True, and Almost Everything Said About It Is Not",
+    "seoTitle": "The Pizza Transaction, Separated From Folklore",
+    "description": "A real, verifiable early purchase became crypto's founding parable, and the parable version has replaced the documented one.",
+    "lede": "The transaction happened, it is on the chain, and the version everyone repeats is mostly commentary added later.",
+    "angle": "Uses the most retold anecdote in the subject to teach the difference between a verifiable event and its accreted meaning, separating what the chain records, what the forum thread records, and what has been layered on since. Argue that the annual ritual of restating the story in current money is the purest example of hindsight distortion on this site, because it prices a decision using information the person did not have. Commit to the position that the anecdote's real significance is mundane and more interesting: it is evidence that someone would accept the thing for goods. The piece must not convert the amount into any currency at any date, must not describe the buyer's or seller's later circumstances, and must not present the transaction as a mistake or a lesson about holding anything.",
+    "pref": [
+      "how-a-thing-with-no-price-gets-one",
+      "the-first-transaction-on-chain",
+      "the-forum-as-the-only-record"
+    ]
+  },
+  {
+    "slug": "the-value-overflow-incident",
+    "era": "origins",
+    "kind": "postmortem",
+    "cluster": "The first users",
+    "title": "The Bug That Created Coins Out of Nothing, and the Fix That Rewrote History",
+    "seoTitle": "The Value Overflow Bug and the Chain Rewrite",
+    "description": "An arithmetic overflow allowed a transaction that violated the supply rule, and the response was a patched client and a reorganised chain.",
+    "lede": "The supply rule was broken by an integer overflow, and the repair required the network to abandon blocks it had already accepted.",
+    "angle": "Follows one failure to its causes: the specific class of arithmetic error, why the validation logic did not catch it, how it was noticed, and what the coordinated response actually required from the people running the network. Argue that this incident is the strongest available counterexample to the claim that the chain is immutable, since a small number of coordinating humans invalidated accepted history within hours, and that the story is usually omitted from immutability arguments. Set up the DAO fork years later by establishing that the precedent for intervention existed from the very beginning. The piece must not state the number of units created without verifying it against the block record, must not name or characterise whoever broadcast the transaction, and must not describe the response as a governance decision by any formal body, because no such body existed.",
+    "pref": [
+      "the-honest-majority-assumption",
+      "running-a-node-when-nobody-did",
+      "the-supply-schedule"
+    ]
+  },
+  {
+    "slug": "the-first-merchants",
+    "era": "origins",
+    "kind": "timeline",
+    "cluster": "The first users",
+    "title": "The First Businesses That Accepted It, and Why Most Stopped",
+    "seoTitle": "The First Merchants to Accept Bitcoin",
+    "description": "Merchant acceptance arrived early, peaked as a press story, and quietly reversed, and the reasons are operational rather than ideological.",
+    "lede": "Merchant acceptance is the most announced and least examined metric in this history.",
+    "angle": "Sequences the arrival of merchant acceptance and then examines the operating reality behind it, including settlement into local currency, volatility exposure, refund handling and the fact that most acceptance was intermediated by a processor rather than direct. Argue that the announcement of acceptance and the practice of acceptance diverged almost immediately, which makes the whole metric close to useless as a measure of adoption. The threshold reading is a genuine crossing in both directions, expanding through announcements and contracting through quiet removals nobody wrote up. The piece must not state how many merchants accepted at any point, must not name a business as still accepting without checking, and must not present acceptance figures from any vendor as independent data.",
+    "pref": [
+      "how-a-thing-with-no-price-gets-one",
+      "the-pizza-transaction-as-folklore"
+    ]
+  },
+  {
+    "slug": "lost-keys-and-unverifiable-losses",
+    "era": "origins",
+    "kind": "explainer",
+    "cluster": "The first users",
+    "title": "Lost Coins Are A Category Where Almost Every Number Is Made Up",
+    "seoTitle": "Lost Coins and the Numbers Nobody Can Verify",
+    "description": "Estimates of permanently lost holdings circulate as facts, and the methods behind them cannot distinguish lost from dormant.",
+    "lede": "There is no test that separates a key thrown away from a key held patiently, and every estimate quietly assumes one.",
+    "angle": "Explains what on chain analysis can actually determine, which is that an output has not moved, and what it cannot determine, which is why. Argue that the widely repeated loss estimates are model outputs presented as measurements, and that the honest framing is a range with the assumptions named. Use the case to teach a general reading habit for this site: when a figure about crypto is quoted without a method, the method is usually the interesting part and usually the weak part. The piece must not repeat any specific lost coin estimate as fact, must not state a percentage of supply as lost, and must not use anecdotes about discarded hardware without a verifiable source.",
+    "pref": [
+      "the-first-transaction-on-chain",
+      "running-a-node-when-nobody-did"
+    ]
+  },
+  {
+    "slug": "the-network-asked-to-take-a-side",
+    "era": "origins",
+    "kind": "timeline",
+    "cluster": "The first users",
+    "title": "The First Time the Network Was Asked to Be Political",
+    "seoTitle": "The First Time Bitcoin Was Asked to Take a Side",
+    "description": "An early episode in which the community debated whether visible use by a controversial organisation was a benefit or an existential risk.",
+    "lede": "The argument about whether censorship resistance is a feature or a liability is as old as the first time somebody used it.",
+    "angle": "Sequences a documented early episode in which the network's censorship resistance was invoked in public and the community argued openly about whether the attention was survivable. Argue that the substance of that argument, whether a neutral protocol can stay neutral once it is used by someone unpopular, has never been resolved and recurs in every later chapter of this site involving sanctions, mixers and exchange policy. Present both positions from the archived record and refuse to adjudicate. The piece must not take a position on the organisation involved, must not describe any legal matter, charge or proceeding concerning any person, and must not quote any participant without an archived source.",
+    "pref": [
+      "the-forum-as-the-only-record",
+      "the-cypherpunks-list"
+    ]
+  },
+  {
+    "slug": "the-first-alternative-clients",
+    "era": "origins",
+    "kind": "timeline",
+    "cluster": "The first users",
+    "title": "The First Competing Implementations and the Question They Raised",
+    "seoTitle": "The First Alternative Bitcoin Clients",
+    "description": "Once a second implementation existed, the rules of the network stopped being defined by a program and started being defined by agreement.",
+    "lede": "A single implementation is a specification by accident, and the moment a second one appears that accident becomes a problem.",
+    "angle": "Traces the emergence of alternative software and explains the consequence that follows immediately: with one client, the code is the rule, and with two, any behavioural difference is a potential chain split. Argue that this is the origin of the entire consensus compatibility discipline that later eras take for granted, and that it arrived before anyone had a process for handling it. Frame it against the threshold by noting that implementation diversity is simultaneously a resilience gain and a consensus risk, and reasonable people weighted those differently. The piece must not claim any specific split was caused by a client difference without a documented incident, must not describe present day client market share, and must not rank implementations by quality.",
+    "pref": [
+      "running-a-node-when-nobody-did",
+      "what-the-first-client-actually-did"
+    ]
+  },
+  {
+    "slug": "why-early-adoption-figures-are-unknowable",
+    "era": "origins",
+    "kind": "postmortem",
+    "cluster": "The first users",
+    "title": "Nobody Knows How Many Early Users There Were, Including the People Quoting Numbers",
+    "seoTitle": "Why Early Adoption Figures Cannot Be Known",
+    "description": "Addresses are not people, downloads are not users, and forum accounts are not either, so every early user count is a guess wearing a suit.",
+    "lede": "Every unit you could count in the early years measures something other than a person.",
+    "angle": "Follows a measurement failure to its causes, taking each available proxy in turn, addresses, downloads, forum registrations and node observations, and showing exactly what each one overcounts and undercounts. Argue that the industry's habit of reporting these proxies as user numbers began here and never stopped, and that it is the root of a large share of later misreporting about growth. Commit to a position: a history site should say the number is unknown rather than pick the least bad proxy, because picking one launders a guess into a citation. The piece must not supply any early user estimate even with a caveat, must not compare early adoption to any other technology using figures, and must not cite an analytics vendor's number as independent.",
+    "pref": [
+      "lost-keys-and-unverifiable-losses",
+      "the-forum-as-the-only-record",
+      "the-first-merchants"
+    ]
+  }
+]

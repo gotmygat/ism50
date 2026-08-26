@@ -1,0 +1,187 @@
+[
+  {
+    "slug": "mt-gox-before-it-was-an-exchange",
+    "era": "earlyExchange",
+    "kind": "timeline",
+    "cluster": "Mt. Gox, taken apart",
+    "title": "The Largest Exchange in the World Started as Something Else Entirely",
+    "seoTitle": "What Mt. Gox Was Before It Was an Exchange",
+    "description": "The venue that dominated trading for years began as an unrelated hobby project, was sold, and grew far past what its code was built for.",
+    "lede": "The dominant venue of the era was built on a codebase that was never designed to hold anybody's money.",
+    "angle": "Sequences the venue's origins, its change of ownership, and the period in which it went from a small operation to the price source for the entire market, using only publicly documented history. Argue that the mismatch between what the software was designed for and what it became is the underlying condition of everything that followed, and that no amount of later diligence could have fixed an accounting system that was wrong from the start. The threshold reading is that market share expanded to near total while the operational base underneath it did not expand at all. The piece must not state trading volumes or market share percentages without a cited source, must not characterise the intentions of any owner or employee, and must not repeat purchase terms or prices that are not part of the public record.",
+    "pref": [
+      "the-first-exchanges",
+      "the-reference-price-problem"
+    ]
+  },
+  {
+    "slug": "transaction-malleability-the-actual-bug",
+    "era": "earlyExchange",
+    "kind": "explainer",
+    "cluster": "Mt. Gox, taken apart",
+    "title": "Transaction Malleability, Explained Properly and Without the Blame",
+    "seoTitle": "Transaction Malleability, Explained Properly",
+    "description": "A transaction could be rebroadcast with a different identifier while remaining valid, and understanding exactly what that allowed matters here.",
+    "lede": "The identifier could change without the transaction changing, which breaks any system that treats the identifier as final.",
+    "angle": "Makes the mechanism comprehensible on its own before it is used in any argument: what a transaction identifier is derived from, which parts of a signature could be altered without invalidating it, and what an accounting system that keys on the identifier would then get wrong. Argue that the bug is real, was known and discussed before it became famous, and is a protocol level flaw that any exchange should have handled defensively. Keep the mechanism and the accusation strictly separate, because the next piece is about whether it explains what people say it explains. The piece must not assert that malleability caused any specific loss, must not describe the current state of the protocol without checking, and must not present the bug as unfixed. Do not restate the argument that the bug cannot account for the loss, which the published Mt. Gox piece already makes, and link to it instead.",
+    "pref": [
+      "mt-gox-before-it-was-an-exchange",
+      "the-first-transaction-on-chain",
+      "mt-gox-the-coins-were-already-gone"
+    ]
+  },
+  {
+    "slug": "the-malleability-explanation-examined",
+    "era": "earlyExchange",
+    "kind": "postmortem",
+    "cluster": "Mt. Gox, taken apart",
+    "title": "The Explanation Offered at the Time, and Why It Was Immediately Doubted",
+    "seoTitle": "Examining the Mt. Gox Malleability Explanation",
+    "description": "The venue attributed its losses to a protocol bug, developers and researchers publicly disputed that the bug could account for it, and the dispute matters.",
+    "lede": "A company blamed the protocol, the people who maintain the protocol said the numbers did not work, and both statements are part of the record.",
+    "angle": "Follows the dispute itself rather than picking a winner: the public statement made by the venue, the technical objections raised within days, the chain analysis published afterwards, and what each side could actually demonstrate. Argue that this episode is the clearest example on the site of a technically plausible explanation being used to describe a loss it could not fully account for, and that the correct historical position is to present the contest and its evidence rather than resolve it. Be explicit that later findings complicated the picture in both directions. The piece must not state that the venue's explanation was a lie, must not assign responsibility to any individual, must not state loss figures without citing the source that produced them, and must not treat any single analysis as settling the question. Do not restate the timing argument about when the coins actually went missing, which the published Mt. Gox piece already makes from the chain analysis, and link to it rather than repeating it.",
+    "pref": [
+      "transaction-malleability-the-actual-bug",
+      "mt-gox-before-it-was-an-exchange",
+      "mt-gox-the-coins-were-already-gone"
+    ]
+  },
+  {
+    "slug": "mt-gox-the-halt",
+    "era": "earlyExchange",
+    "kind": "timeline",
+    "cluster": "Mt. Gox, taken apart",
+    "title": "The Weeks Between Withdrawals Slowing and the Site Going Blank",
+    "seoTitle": "The Mt. Gox Halt, Week by Week",
+    "description": "A sequenced account of the public events between the first withdrawal problems and the venue's suspension, built from contemporaneous statements.",
+    "lede": "The end took weeks and was visible the whole time, which is the part worth studying.",
+    "angle": "Sequences the public record week by week: the withdrawal suspension, the statements issued, the reaction of other venues, and the day the site stopped serving. Argue that this is the founding example of the pattern established elsewhere on this site, where the warning is public and legible and still not actionable, because the same symptoms are produced by problems that are survivable. Point out that the industry's collective response, a joint statement by other venues, is itself a historically interesting artefact. The piece must not state prices, balances or loss figures, must not reconstruct internal company events from secondary reporting, and must not assert what any executive knew at any point.",
+    "pref": [
+      "the-malleability-explanation-examined",
+      "the-withdrawal-queue-as-a-signal"
+    ]
+  },
+  {
+    "slug": "the-leaked-document-problem",
+    "era": "earlyExchange",
+    "kind": "explainer",
+    "cluster": "Mt. Gox, taken apart",
+    "title": "Half the Sources for This Story Are Documents Nobody Authenticated",
+    "seoTitle": "Leaked Documents and Unverifiable Sources",
+    "description": "Much of what circulates about this collapse comes from leaked material of uncertain provenance, and treating it as evidence has consequences.",
+    "lede": "A document that appeared on the internet and was never authenticated is not a source, however often it is cited.",
+    "angle": "Uses this episode to teach source discipline: the categories of material in circulation, court filings, company statements, leaked internal documents and anonymous analyses, and what standard each deserves. Argue that the industry's writing habits collapsed these categories almost immediately, and that claims from unauthenticated leaks are now repeated in reference works as established fact. Commit to the position that this site will cite the filing or say nothing, and explain why that means some questions stay open. The piece must not reproduce or summarise the contents of any unauthenticated document, must not name individuals appearing in leaked material, and must not use a secondary article as evidence for a primary claim.",
+    "pref": [
+      "mt-gox-the-halt",
+      "the-forum-as-the-only-record"
+    ]
+  },
+  {
+    "slug": "mt-gox-in-the-bankruptcy-record",
+    "era": "earlyExchange",
+    "kind": "primarySource",
+    "cluster": "Mt. Gox, taken apart",
+    "title": "What the Insolvency Filings Actually Establish, and What They Do Not",
+    "seoTitle": "What the Mt. Gox Filings Actually Establish",
+    "description": "Court and trustee documents are the strongest available source on this collapse, and they are narrower than the story usually told from them.",
+    "lede": "The filings settle a small number of questions precisely and leave the interesting ones open.",
+    "angle": "Built around the insolvency record as the primary source, explaining what a trustee's role is, what kinds of facts a filing establishes, and why an assertion in a filing by one party is not the same as a finding. Argue that the record is both the most reliable material available and consistently over read, because people take a schedule of claims as a full accounting of what happened. Show the specific questions that remain open in the record and resist filling them. The piece must not quote any filing without the document in hand, must not summarise a legal proceeding's outcome or characterise any charge, plea or judgment concerning any individual, and must not state recovery amounts.",
+    "pref": [
+      "the-leaked-document-problem",
+      "mt-gox-the-halt"
+    ]
+  },
+  {
+    "slug": "the-decade-long-creditor-process",
+    "era": "earlyExchange",
+    "kind": "timeline",
+    "cluster": "Mt. Gox, taken apart",
+    "title": "Creditors Waited Roughly a Decade, and the Waiting Is the Lesson",
+    "seoTitle": "The Mt. Gox Creditor Process, Sequenced",
+    "description": "An insolvency that ran for years across jurisdictions and procedural forms, and what the duration says about crypto's legal infrastructure.",
+    "lede": "The recovery process outlasted most of the companies that were founded in reaction to the collapse.",
+    "angle": "Sequences the procedural history at a structural level: the form the insolvency took, the change in procedure, the claim filing periods and the extended timeline, without asserting outcomes that are not public. Argue that duration is the single most transferable finding for a reader, because every later collapse on this site inherits the same problem, which is that a bearer asset held by an insolvent intermediary produces a slow legal process and not a fast technical one. The threshold framing is that legal certainty expanded very slowly while the asset and the industry moved on entirely. The piece must not state distribution amounts, recovery percentages or dates for future steps, must not describe any creditor's position, and must not present the process as complete unless verified.",
+    "pref": [
+      "mt-gox-in-the-bankruptcy-record",
+      "the-leaked-document-problem"
+    ]
+  },
+  {
+    "slug": "dollarised-claims-and-a-moving-asset",
+    "era": "earlyExchange",
+    "kind": "explainer",
+    "cluster": "Mt. Gox, taken apart",
+    "title": "Why Insolvency Law Struggles With an Asset That Moves While You Wait",
+    "seoTitle": "Insolvency Claims When the Asset Keeps Moving",
+    "description": "Bankruptcy usually fixes claims in currency at a date, which produces strange results when the missing property is not currency.",
+    "lede": "The law wants to freeze the claim in dollars, and the thing that went missing refuses to stay frozen.",
+    "angle": "Explains the mechanism generically: why insolvency regimes convert claims to a monetary amount at a fixed date, what that accomplishes for ordinary creditors, and why it produces contested outcomes when the estate holds the same asset the claim was denominated in. Argue that this is a genuine unsolved problem at the boundary between two systems rather than a failure by any court, and that it recurs in every later crypto insolvency on this site. Present the competing positions without endorsing one. The piece must not give legal advice, must not state the rule in any named jurisdiction as settled, must not use any price to illustrate the effect, and must not predict how any pending matter will be resolved.",
+    "pref": [
+      "the-decade-long-creditor-process",
+      "mt-gox-in-the-bankruptcy-record"
+    ]
+  },
+  {
+    "slug": "the-trading-bot-allegations",
+    "era": "earlyExchange",
+    "kind": "postmortem",
+    "cluster": "Mt. Gox, taken apart",
+    "title": "The Allegation That Trading on the Venue Was Not All Real",
+    "seoTitle": "The Mt. Gox Trading Bot Allegations",
+    "description": "Independent analyses argued that automated accounts distorted activity on the venue, and the claim remains contested and partly unresolved.",
+    "lede": "Analysts working from leaked trade data argued that a large share of the activity was not what it looked like.",
+    "angle": "Presents a contested claim as contested: what the published analyses argued, what data they relied on, the provenance problems with that data, and which elements were later corroborated by other sources and which were not. Argue that wash trading and self dealing on venues is a real and recurring phenomenon in this industry and that this specific instance is nonetheless not proven to the standard this site uses. Explain why naming the contest is more useful to a reader than a verdict, because the analytical methods involved recur constantly. The piece must not assert the allegations are true, must not name any individual as responsible, must not state volumes or percentages from unauthenticated data, and must not extend the allegation to any other venue.",
+    "pref": [
+      "the-leaked-document-problem",
+      "the-reference-price-problem",
+      "mt-gox-the-halt"
+    ]
+  },
+  {
+    "slug": "what-an-audit-would-have-caught",
+    "era": "earlyExchange",
+    "kind": "postmortem",
+    "cluster": "Mt. Gox, taken apart",
+    "title": "What a Real Audit Would Have Found, and Why Nobody Was Doing One",
+    "seoTitle": "What an Exchange Audit Would Have Caught",
+    "description": "Reconciliation between an internal ledger and on chain holdings is routine practice in finance, and it was almost entirely absent here.",
+    "lede": "The gap between the database and the chain is checkable daily by anyone who wants to check it.",
+    "angle": "Follows the absence of a basic control to its causes, explaining what reconciliation means operationally, comparing internal customer liabilities against verifiable holdings, and why the exercise is unusually easy for a crypto venue and unusually easy to skip. Argue that the absence of this practice was structural rather than sinister: there was no auditor with relevant competence, no regulator asking, and no customer able to tell. Take the position that the industry's later transparency efforts are a weaker substitute for a control that already existed in every other financial business. The piece must not describe the internal controls of any named venue as fact, must not state what any auditor did or did not do, and must not present any current attestation practice as equivalent to an audit.",
+    "pref": [
+      "proof-of-solvency-before-it-had-a-name",
+      "mt-gox-in-the-bankruptcy-record"
+    ]
+  },
+  {
+    "slug": "what-we-still-do-not-know",
+    "era": "earlyExchange",
+    "kind": "explainer",
+    "cluster": "Mt. Gox, taken apart",
+    "title": "The Questions That Are Still Open, Listed Honestly",
+    "seoTitle": "Mt. Gox: The Questions Still Open",
+    "description": "A decade of reporting has left several central questions unresolved, and listing them is more useful than another confident narrative.",
+    "lede": "The confident retellings all agree with each other and none of them agrees with the record.",
+    "angle": "Enumerates what remains genuinely unresolved: when losses began, how they accumulated, what internal records existed, and how much of the circulating account rests on unauthenticated material. Argue that a history site's most valuable output on a heavily covered subject is a clean statement of the boundary between established and assumed, because everything else is already written. Commit to the position that the popular narrative is more confident than any available source supports and that this is normal in crypto history rather than exceptional. The piece must not resolve any listed question, must not rank the competing accounts by plausibility, and must not name individuals in connection with unproven claims.",
+    "pref": [
+      "the-malleability-explanation-examined",
+      "the-trading-bot-allegations",
+      "the-leaked-document-problem"
+    ]
+  },
+  {
+    "slug": "what-mt-gox-changed",
+    "era": "earlyExchange",
+    "kind": "timeline",
+    "cluster": "Mt. Gox, taken apart",
+    "title": "The Practices That Exist Because of This One Failure",
+    "seoTitle": "What Changed Across the Industry After Mt. Gox",
+    "description": "Cold storage policies, proof of reserves discussion, insurance products and licensing regimes can all be traced to the aftermath of one collapse.",
+    "lede": "A surprising amount of standard industry practice is a direct answer to a single company's failure.",
+    "angle": "Sequences the concrete changes that followed, in venue operating practice, in regulatory attention, and in the emergence of custody as a separate business, and assesses honestly which of them addressed the actual failure mechanisms. Argue that the industry adopted the visible fixes, cold storage and public reserve gestures, and left the structural one, the bundling of custody with trading, untouched for another eight years. That is the threshold reading and the setup for the postFtx era of this site. The piece must not claim any specific regulation was enacted in response without a source, must not describe present day practice at any venue, and must not present any of the resulting practices as making a venue safe.",
+    "pref": [
+      "what-an-audit-would-have-caught",
+      "what-we-still-do-not-know",
+      "why-exchanges-became-the-industry"
+    ]
+  }
+]

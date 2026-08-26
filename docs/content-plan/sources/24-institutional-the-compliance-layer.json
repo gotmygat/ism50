@@ -1,0 +1,170 @@
+[
+  {
+    "slug": "identity-checks-for-a-bearer-asset",
+    "era": "institutional",
+    "kind": "explainer",
+    "cluster": "The compliance layer",
+    "title": "Identity Requirements Sit at the Edges, Not on the Network",
+    "seoTitle": "Where Identity Checks Actually Happen",
+    "description": "The chain has no concept of a person, so every identity obligation attaches to the businesses at the boundary, which shapes the whole industry.",
+    "lede": "The protocol cannot know who you are, so the rules attach to whoever you deal with.",
+    "angle": "Explains where obligations actually attach and why: the network is indifferent to identity, so requirements land on regulated intermediaries at the points where value enters or leaves. Argue that this produces a system in which the perimeter is heavily supervised and the interior is not, which is neither an oversight nor a loophole but a direct consequence of the architecture. Set the frame for the cluster. The piece must not describe any jurisdiction's current requirements, must not name firms, must not give any compliance guidance to a reader, and must not describe how to avoid any obligation.",
+    "pref": [
+      "the-shift-to-the-cash-out-layer",
+      "the-pseudonymity-misunderstanding"
+    ]
+  },
+  {
+    "slug": "the-travel-rule-problem",
+    "era": "institutional",
+    "kind": "explainer",
+    "cluster": "The compliance layer",
+    "title": "Sending Customer Information Alongside a Transfer Is Harder Than It Sounds",
+    "seoTitle": "Why the Travel Rule Was Hard to Implement",
+    "description": "Requiring originator and beneficiary details to accompany a transfer assumes both sides are identifiable institutions, which is often not the case here.",
+    "lede": "The rule assumes there is an institution at the other end, and frequently there is not.",
+    "angle": "Explains the requirement's origin in conventional payments, where both ends are regulated institutions with an established messaging network, and the specific difficulties of applying it where the counterparty may be a self hosted address or a business in another regime. Argue that the resulting proliferation of competing messaging solutions is a predictable outcome of an obligation without a standard, and that interoperability remains the unsolved part. Keep it descriptive. The piece must not state any jurisdiction's thresholds or requirements, must not name solutions or providers, must not give compliance guidance, and must not describe any workaround.",
+    "pref": [
+      "identity-checks-for-a-bearer-asset",
+      "the-shift-to-the-cash-out-layer"
+    ]
+  },
+  {
+    "slug": "screening-and-the-tainted-coin-problem",
+    "era": "institutional",
+    "kind": "explainer",
+    "cluster": "The compliance layer",
+    "title": "Fungibility Breaks When Some Units Are Treated as Suspect",
+    "seoTitle": "The Tainted Coin Problem, Explained",
+    "description": "If venues screen incoming transfers against transaction history, identical units stop being interchangeable, which changes the asset's properties.",
+    "lede": "Two units of the same thing stop being the same thing once somebody starts checking where they have been.",
+    "angle": "Explains the mechanism and its consequence: screening against transaction graphs means a unit's acceptability depends on its history, which undermines fungibility, a property money is generally assumed to have. Argue that this is a genuine and underdiscussed consequence of transparency, that it creates a burden on innocent recipients with no process for challenge, and that it recurs in every jurisdiction that adopts screening. Present the countervailing argument that screening serves real objectives. The piece must not name vendors, venues or lists, must not describe how screening is evaded, must not state error rates, and must not give any reader guidance about anything they hold.",
+    "pref": [
+      "chain-analysis-becomes-a-business",
+      "the-issuer-as-a-chokepoint"
+    ]
+  },
+  {
+    "slug": "the-sanctions-question",
+    "era": "institutional",
+    "kind": "explainer",
+    "cluster": "The compliance layer",
+    "title": "Applying Restrictions to Software Rather Than to People",
+    "seoTitle": "When Restrictions Apply to Software",
+    "description": "Measures aimed at code rather than at persons raised questions about scope, developer exposure and enforceability that remain unsettled.",
+    "lede": "The novel question is what it means to restrict a piece of software that anyone can copy.",
+    "angle": "Describes the general legal and practical question at a conceptual level: restrictions are ordinarily directed at persons and entities, and applying them to publicly available software raises questions about scope, about parties who merely interact with it, and about enforceability when the code is replicable. Argue that this is a genuinely novel institutional problem rather than a familiar one, and that reasonable people in both compliance and civil liberties have taken it seriously. Present the positions and refuse to resolve them. The piece must not describe any specific measure, designation, case or individual, must not give legal advice, must not state anyone's exposure, and must not take a position on any government action.",
+    "pref": [
+      "mixers-and-the-privacy-argument",
+      "screening-and-the-tainted-coin-problem"
+    ]
+  },
+  {
+    "slug": "the-licensing-regimes",
+    "era": "institutional",
+    "kind": "timeline",
+    "cluster": "The compliance layer",
+    "title": "Jurisdictions Built Licensing Regimes at Very Different Speeds",
+    "seoTitle": "How Licensing Regimes Actually Developed",
+    "description": "Some regulators built bespoke frameworks early, others applied existing categories, and the divergence shaped where businesses located.",
+    "lede": "The map of where crypto businesses are registered is a map of who wrote rules first.",
+    "angle": "Sequences the general development of licensing approaches at a structural level: bespoke regimes, adaptation of existing money services categories, and comprehensive frameworks arriving later. Argue that the sequence explains business location decisions far better than tax or talent, and that the first movers acquired durable concentrations of activity. Read it against the threshold, since regulatory tolerance expanded in some places and contracted in others at the same moment. The piece must not name jurisdictions as favourable, must not describe any current regime, must not name any licensed business, and must not give any structuring or compliance guidance.",
+    "pref": [
+      "the-accommodating-jurisdictions",
+      "identity-checks-for-a-bearer-asset"
+    ]
+  },
+  {
+    "slug": "the-compliance-vendor-industry",
+    "era": "institutional",
+    "kind": "profile",
+    "cluster": "The compliance layer",
+    "title": "A Supplier Industry Grew Up Between the Rules and the Businesses",
+    "seoTitle": "The Compliance Vendor Industry",
+    "description": "Screening, monitoring and reporting became products sold by specialist firms, which concentrated interpretive judgement in private hands.",
+    "lede": "The interpretation of the rules is increasingly embedded in software somebody sells.",
+    "angle": "A profile of the compliance vendor as an institution, describing how the supplier industry grew and the structural consequence that when compliance is purchased as a product the vendor's methodology becomes the effective standard across many firms at once, without ever being published or examined. Argue that this concentration of interpretive authority in commercial hands is a genuine governance question that neither regulators nor the industry has addressed. Note that the same pattern exists in conventional finance and is better scrutinised there. The piece must not name vendors, must not describe any methodology, must not state accuracy figures, and must not evaluate any product.",
+    "pref": [
+      "chain-analysis-becomes-a-business",
+      "screening-and-the-tainted-coin-problem"
+    ]
+  },
+  {
+    "slug": "the-de-risking-effect",
+    "era": "institutional",
+    "kind": "profile",
+    "cluster": "The compliance layer",
+    "title": "The Cheapest Way to Manage the Risk Is to Refuse the Customer",
+    "seoTitle": "Why Banks Simply Refused the Sector",
+    "description": "When supervisory expectations are uncertain and penalties are large, declining a whole category of customer is the rational institutional response.",
+    "lede": "Faced with an unclear rule and a large penalty, an institution says no to the entire category.",
+    "angle": "A profile of the bank compliance function as the decisive actor: the upside of a customer is bounded and the downside of a supervisory finding is not, so uncertainty produces categorical refusal rather than case by case assessment. Argue that this explains the sector's banking difficulties far better than any account of hostility, and that the same dynamic affects other sectors and other countries. Connect it back to the earliest era, where losing a bank account ended more businesses than any hack. The piece must not name banks or affected firms, must not characterise any institution's decisions as improper, must not describe any current banking policy, and must not give any reader guidance.",
+    "pref": [
+      "the-banking-relationship-problem",
+      "the-licensing-regimes"
+    ]
+  },
+  {
+    "slug": "onboarding-as-a-bottleneck",
+    "era": "institutional",
+    "kind": "explainer",
+    "cluster": "The compliance layer",
+    "title": "The Slowest Step Was Always Opening the Account",
+    "seoTitle": "Why Onboarding Was the Real Bottleneck",
+    "description": "Institutional entry required counterparty due diligence, documentation and approvals that took months, and this was the actual pace of adoption.",
+    "lede": "The delay everyone described as caution was mostly a queue of documents.",
+    "angle": "Describes the practical process an institution goes through to begin dealing with a new counterparty and why each step takes as long as it does, from documentation through credit and operational review to internal approval. Argue that this administrative reality is the real explanation for the pace of institutional participation, and that the industry consistently narrated it as sentiment. Connect back to the piece on what institutions actually asked for. The piece must not name institutions or providers, must not state timelines as rules, must not give compliance or onboarding guidance, and must not describe any process as current.",
+    "pref": [
+      "what-institutions-actually-asked-for",
+      "the-de-risking-effect"
+    ]
+  },
+  {
+    "slug": "self-hosted-wallet-rules",
+    "era": "institutional",
+    "kind": "explainer",
+    "cluster": "The compliance layer",
+    "title": "The Rules Struggle Most at the Boundary With Personal Control",
+    "seoTitle": "Rules at the Self Hosted Wallet Boundary",
+    "description": "Obligations designed for transfers between institutions get difficult when one side is a person holding their own keys, and proposals here are contested.",
+    "lede": "The framework works between institutions and gets hard when one end is a person with a key.",
+    "angle": "Explains the boundary problem: obligations assume an identifiable institution on both ends, and personal key holding is the case that breaks the assumption, producing proposals ranging from ownership attestation to transfer restrictions. Argue that this boundary is where the compliance framework and the technology's core property meet directly, and that it is the most likely site of the next decade's arguments. Present the positions rather than adjudicating. The piece must not describe any jurisdiction's current or proposed rules, must not give any compliance guidance, must not tell a reader anything about their own holdings, and must not take a position.",
+    "pref": [
+      "identity-checks-for-a-bearer-asset",
+      "the-travel-rule-problem",
+      "self-custody-as-a-product"
+    ]
+  },
+  {
+    "slug": "the-privacy-compliance-deadlock",
+    "era": "institutional",
+    "kind": "explainer",
+    "cluster": "The compliance layer",
+    "title": "Both Sides Are Right, Which Is Why It Does Not Resolve",
+    "seoTitle": "The Privacy and Compliance Deadlock",
+    "description": "Financial privacy and financial transparency are both defensible objectives, and no technology has delivered a version of both that satisfies either camp.",
+    "lede": "This argument does not resolve because both positions are coherent and they genuinely conflict.",
+    "angle": "States the deadlock precisely: a public ledger makes ordinary financial privacy unusually weak, privacy technology makes ordinary supervision unusually weak, and the proposed middle grounds, selective disclosure and proof of compliance schemes, require an authority to define what is being proved. Argue that this is the industry's most durable unresolved question and that anyone claiming to have solved it has usually just chosen a side. Name the contest and describe the strongest version of each position. The piece must not endorse either position, must not name technologies or projects as solutions, must not describe any tool's effectiveness, and must not give any reader guidance.",
+    "pref": [
+      "mixers-and-the-privacy-argument",
+      "privacy-in-a-state-ledger",
+      "what-enforcement-learned"
+    ]
+  },
+  {
+    "slug": "what-compliance-actually-catches",
+    "era": "institutional",
+    "kind": "explainer",
+    "cluster": "The compliance layer",
+    "title": "Nobody Publishes What Any of This Actually Prevents",
+    "seoTitle": "What the Compliance Layer Actually Catches",
+    "description": "Enormous resources go into screening and reporting, and there is very little public evidence about what the whole apparatus prevents.",
+    "lede": "The system is expensive, universal and almost entirely unmeasured.",
+    "angle": "Argues that the effectiveness question is genuinely open: outputs such as reports filed and accounts refused are measured, outcomes such as harm prevented are not, and this is true of financial crime compliance generally rather than of crypto specifically. Take a clear position that a control regime with no published effectiveness measure should be described as unmeasured rather than as effective, and that this applies equally to the industry's critics and defenders. Close the cluster on the measurement theme that runs through the whole site. The piece must not state any effectiveness or illicit activity figure, must not cite vendor estimates as data, must not name any jurisdiction or firm, and must not argue for or against any compliance requirement.",
+    "pref": [
+      "the-compliance-vendor-industry",
+      "the-reputational-inheritance",
+      "why-early-adoption-figures-are-unknowable"
+    ]
+  }
+]

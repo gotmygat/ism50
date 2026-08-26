@@ -1,0 +1,203 @@
+[
+  {
+    "slug": "what-a-dao-became",
+    "era": "defiSummer",
+    "kind": "explainer",
+    "cluster": "DAOs after The DAO",
+    "title": "The Word Came Back Meaning Something Much Vaguer",
+    "seoTitle": "What the Word DAO Came to Mean",
+    "description": "The label was reused for everything from a treasury with a voting contract to a group chat with a shared wallet, which makes the category hard to analyse.",
+    "lede": "The term returned attached to arrangements that share almost nothing with the original.",
+    "angle": "Establishes what the label actually covers in this era, from protocol parameter governance to collective purchasing groups to communities with a shared treasury, and argues that the category has no useful boundary as commonly used. Propose a workable distinction based on what the votes actually control, which separates the arrangements where governance is consequential from the ones where it is decorative. Take the position that most of the disappointment in this area comes from applying expectations from one type to another. The piece must not name any organisation, must not state treasury sizes or membership counts, must not comment on the legal status of any arrangement, and must not advise a reader on participating in anything.",
+    "pref": [
+      "what-the-dao-actually-was",
+      "governance-tokens-as-distribution"
+    ]
+  },
+  {
+    "slug": "token-weighted-voting-and-its-failure",
+    "era": "defiSummer",
+    "kind": "postmortem",
+    "cluster": "DAOs after The DAO",
+    "title": "One Token One Vote Produces the Outcome You Would Expect",
+    "seoTitle": "Why One Token One Vote Fails",
+    "description": "Weighting votes by holdings concentrates decisions among the largest holders, which is the mechanism working correctly rather than failing.",
+    "lede": "The system does exactly what it is designed to do, and people are surprised every time.",
+    "angle": "Follows a governance failure to its cause and finds it is not a malfunction: weighting by stake gives control to concentrated holders, and since distributions were concentrated at launch, so is control. Argue that the alternatives, quadratic schemes, reputation weighting and identity based voting, each require solving a harder problem, which is establishing that two accounts are two people. Commit to the position that no one has solved this and that acknowledging it would improve the honesty of every governance claim in the industry. The piece must not name organisations or holders, must not state concentration figures, must not present any voting scheme as solving the problem, and must not advise participation.",
+    "pref": [
+      "what-a-dao-became",
+      "the-carbon-vote",
+      "the-premine-question"
+    ]
+  },
+  {
+    "slug": "voter-apathy-and-delegation",
+    "era": "defiSummer",
+    "kind": "profile",
+    "cluster": "DAOs after The DAO",
+    "title": "Almost Nobody Votes, and Delegation Recreates a Board",
+    "seoTitle": "Voter Apathy and the Return of the Board",
+    "description": "Participation in on chain governance is consistently low, and delegation solves the turnout problem by concentrating decisions in a few professionals.",
+    "lede": "Turnout is low everywhere, and the fix is to hand your vote to somebody who will use it.",
+    "angle": "A profile of the professional delegate, beginning with the rational basis for low participation, which is that reading proposals costs time and a small holder's vote is unlikely to be decisive, and then treating delegation as the role that filled the gap. Argue that widespread delegation produces a small set of professional delegates who function as a board without being appointed as one, and that this is neither hidden nor obviously bad, but it is not what was described. Note that the same dynamics govern shareholder voting and that proxy advisers exist for the same reason. The piece must not name delegates or organisations, must not state turnout figures, must not evaluate any delegate, and must not describe governance participation as available or advisable to a reader.",
+    "pref": [
+      "token-weighted-voting-and-its-failure",
+      "rough-consensus-and-running-code"
+    ]
+  },
+  {
+    "slug": "the-multisig-behind-the-curtain",
+    "era": "defiSummer",
+    "kind": "profile",
+    "cluster": "DAOs after The DAO",
+    "title": "Behind Most On Chain Governance Sits a Small Group With Keys",
+    "seoTitle": "The Multisig Behind Most Governance",
+    "description": "Execution of governance decisions, and often emergency powers, rests with a small set of signers whose identities and thresholds vary widely.",
+    "lede": "Somebody has to actually execute the decision, and that somebody is usually a handful of people with keys.",
+    "angle": "A profile of the signer set that sits behind most on chain governance: votes produce an outcome, execution requires a transaction, and that transaction is signed by a threshold group which frequently also holds pause or upgrade authority. Argue that this arrangement is a reasonable operational compromise and that describing systems built this way as decentralised without qualification is simply inaccurate. Take the position that publishing the signer set and the threshold should be a minimum standard and often is not. The piece must not name any organisation or signer, must not state thresholds, must not allege misuse, and must not describe any arrangement as safe.",
+    "pref": [
+      "voter-apathy-and-delegation",
+      "the-upgradeable-contract-risk",
+      "maintainers-not-owners"
+    ]
+  },
+  {
+    "slug": "the-treasury-problem",
+    "era": "defiSummer",
+    "kind": "postmortem",
+    "cluster": "DAOs after The DAO",
+    "title": "A Treasury Held Entirely in Your Own Token Is Not a Treasury",
+    "seoTitle": "Why Most DAO Treasuries Were Not Treasuries",
+    "description": "Holdings denominated in the organisation's own token fall in value exactly when the organisation needs to spend, which is the same trap as the token sale era.",
+    "lede": "A war chest that is worth most when you need it least is not much of a war chest.",
+    "angle": "Follows the failure of these treasuries to its cause: an organisation whose treasury consists of its own governance token faces an asset that declines with its own prospects, and selling it into the market to fund operations is self defeating. Argue that this is a straight repetition of the token sale era's treasury failure with the same absent expertise, and that the organisations that diversified were criticised for it by their own holders. Take a clear position that the governance structure made prudent treasury management politically impossible. The piece must not name organisations, must not state treasury compositions or sizes, must not recommend any treasury policy, and must not offer financial or accounting guidance.",
+    "pref": [
+      "what-happened-to-the-money",
+      "the-multisig-behind-the-curtain"
+    ]
+  },
+  {
+    "slug": "the-legal-wrapper-question",
+    "era": "defiSummer",
+    "kind": "explainer",
+    "cluster": "DAOs after The DAO",
+    "title": "An Unincorporated Group Holding Assets Together Is a Familiar Legal Shape",
+    "seoTitle": "The Legal Wrapper Question for DAOs",
+    "description": "Groups acting collectively without an entity may find that a default legal characterisation applies to them anyway, and that has consequences for members.",
+    "lede": "Choosing not to incorporate is not the same as having no legal form.",
+    "angle": "Explains the general issue without giving advice: legal systems have long standing default categories for groups acting in common, and declining to choose an entity does not exempt a group from being characterised. Argue that the industry's initial position, that these arrangements existed outside legal categories, was never well supported and that the later adoption of purpose built entity forms in some jurisdictions reflects that. Present the tension between the entity forms available and the properties participants wanted. The piece must not give legal advice, must not state the law in any jurisdiction, must not name any organisation or proceeding, and must not tell any reader what their exposure is.",
+    "pref": [
+      "what-a-dao-became",
+      "jurisdiction-shopping"
+    ]
+  },
+  {
+    "slug": "the-proposal-process",
+    "era": "defiSummer",
+    "kind": "explainer",
+    "cluster": "DAOs after The DAO",
+    "title": "The Path From an Idea to an Executed Change Is Long and Mostly Off Chain",
+    "seoTitle": "How a Governance Proposal Actually Works",
+    "description": "Forum discussion, temperature checks, formal drafting, an on chain vote and a time lock, with most of the filtering happening before any vote.",
+    "lede": "By the time anything reaches a vote, the decision has usually already been made in a forum.",
+    "angle": "Makes the process comprehensible end to end and locates where the real filtering happens, which is in the informal stages where a proposal either attracts support from large holders or quietly does not proceed. Argue that this makes the on chain vote a ratification step in most cases, which is worth knowing before treating vote results as evidence of anything. Note that this structure closely resembles how decisions are made in conventional organisations. The piece must not name organisations or proposals, must not state vote outcomes, must not present any process as best practice, and must not advise readers on participating.",
+    "pref": [
+      "voter-apathy-and-delegation",
+      "the-bip-process"
+    ]
+  },
+  {
+    "slug": "off-chain-signalling",
+    "era": "defiSummer",
+    "kind": "explainer",
+    "cluster": "DAOs after The DAO",
+    "title": "Most Voting Does Not Happen On Chain at All",
+    "seoTitle": "Why Most DAO Voting Is Off Chain",
+    "description": "Signed messages recorded off chain became the standard voting method because on chain voting is expensive, and that choice has consequences.",
+    "lede": "The votes are usually signed messages stored on somebody's server, not transactions.",
+    "angle": "Explains the mechanism and the trade off: signature based voting removes the transaction cost that suppressed participation, and it moves the record and its availability into the hands of whoever operates the service. Argue that this is a reasonable engineering decision with an under discussed dependency, since a governance record held by one provider is exactly the kind of single point the industry claims to avoid. Note that execution still requires an on chain step regardless. The piece must not name providers or organisations, must not state participation figures, must not describe any provider as reliable, and must not present the method as binding.",
+    "pref": [
+      "the-proposal-process",
+      "the-multisig-behind-the-curtain"
+    ]
+  },
+  {
+    "slug": "governance-capture",
+    "era": "defiSummer",
+    "kind": "postmortem",
+    "cluster": "DAOs after The DAO",
+    "title": "Recurring Votes on Where Incentives Flow Create a Permanent Lobby",
+    "seoTitle": "How Recurring Votes Create a Lobby",
+    "description": "When a vote decides where rewards are directed, participants organise to influence it, and the resulting market for votes is entirely predictable.",
+    "lede": "Give people a repeated vote on where money goes and a lobbying industry appears within months.",
+    "angle": "Follows this failure to its incentive structure: a periodic vote allocating incentives creates a return on acquiring voting power, producing vote accumulation, bribery markets and coalitions, all conducted openly because nothing prohibits them. Argue that this is the most intellectually interesting thing to come out of on chain governance, because it made visible a set of dynamics that are normally hidden in political and corporate settings. Take the position that the transparency is genuinely valuable and the outcomes are not. The piece must not name any protocol, market or participant, must not state amounts spent, must not describe how to participate, and must not present any of it as an opportunity.",
+    "pref": [
+      "token-weighted-voting-and-its-failure",
+      "liquidity-mining-as-customer-acquisition",
+      "governance-attacks"
+    ]
+  },
+  {
+    "slug": "contributor-compensation",
+    "era": "defiSummer",
+    "kind": "profile",
+    "cluster": "DAOs after The DAO",
+    "title": "Paying People Without an Employer Is Harder Than It Sounds",
+    "seoTitle": "Paying Contributors Without an Employer",
+    "description": "Organisations without an entity struggled with continuity, accountability and the ordinary machinery of employment, and contributors bore the cost.",
+    "lede": "Working for something with no employer means no contract, no continuity and no recourse.",
+    "angle": "A profile of the unincorporated contributor: the arrangements they worked under, grants, streaming payments, working groups and periodic renewal votes, and the problems each left unsolved for the people doing the work. Argue that the flexibility celebrated by these organisations was largely a transfer of risk onto contributors, and that the better run ones eventually reintroduced most of the structures they had set out to avoid. Take a clear position without moralising about any specific group. The piece must not name organisations or individuals, must not state compensation figures, must not give any employment, payroll or tax guidance of any kind, and must not characterise any arrangement's legal status.",
+    "pref": [
+      "who-pays-the-developers",
+      "the-treasury-problem",
+      "the-legal-wrapper-question"
+    ]
+  },
+  {
+    "slug": "the-collective-purchase-groups",
+    "era": "defiSummer",
+    "kind": "timeline",
+    "cluster": "DAOs after The DAO",
+    "title": "Groups Formed Quickly to Buy One Thing, and Then Had to Exist Afterwards",
+    "seoTitle": "The Groups That Formed to Buy One Thing",
+    "description": "Rapid collective fundraising for a single purchase demonstrated real coordination capability and left behind organisations with no purpose.",
+    "lede": "Raising the money took days and deciding what to do next took years.",
+    "angle": "Sequences the pattern at a structural level: a shared objective attracts contributions quickly, the objective is achieved or not, and the group is left holding assets and obligations with no continuing purpose and no exit procedure. Argue that the speed of formation was a genuine demonstration of what these tools do well, and that the absence of a dissolution mechanism is the clearest evidence of what they do badly. Note that ordinary partnership and company law has dissolution procedures for exactly this reason. The piece must not name any group or purchase, must not state amounts raised, must not describe any outcome for contributors, and must not give legal guidance.",
+    "pref": [
+      "the-legal-wrapper-question",
+      "what-a-dao-became"
+    ]
+  },
+  {
+    "slug": "a-dissolution-taken-apart",
+    "era": "defiSummer",
+    "kind": "postmortem",
+    "cluster": "DAOs after The DAO",
+    "title": "Winding One Up Turns Out to Be the Hardest Part",
+    "seoTitle": "Why Winding Up a DAO Is So Hard",
+    "description": "Dissolution requires agreeing who is owed what, executing distributions and closing obligations, none of which the governance design anticipated.",
+    "lede": "Starting one takes an afternoon and ending one can take years.",
+    "angle": "Follows the dissolution problem to its causes generically: no defined membership at a point in time, no procedure for valuing claims, assets that may be illiquid, and unresolved questions about obligations that survive. Argue that the absence of a wind up procedure is the single most consistent design omission across this entire category, and that it is directly traceable to founding documents written as manifestos rather than as constitutions. Commit to that as the finding. The piece must not name any organisation or dissolution, must not state distributions or amounts, must not give legal guidance, and must not characterise any participant's conduct.",
+    "pref": [
+      "the-collective-purchase-groups",
+      "contributor-compensation",
+      "the-treasury-problem"
+    ]
+  },
+  {
+    "slug": "what-daos-are-good-at",
+    "era": "defiSummer",
+    "kind": "explainer",
+    "cluster": "DAOs after The DAO",
+    "title": "The Honest Answer About What These Tools Actually Do Well",
+    "seoTitle": "What DAOs Are Genuinely Good At",
+    "description": "Transparent treasuries, rapid formation, and public decision records are real capabilities, and everything else has been overclaimed.",
+    "lede": "Strip out the claims that did not survive and a short, real list remains.",
+    "angle": "Sets out the capabilities that hold up under examination: a treasury anyone can inspect, formation without institutional permission, an auditable record of decisions, and a credible commitment to parameter rules. Argue that this is a genuinely useful set of properties that would have been an impressive claim on its own, and that the category damaged itself by claiming to replace the corporation. Commit to a position that the modest version is the durable one, and note which existing organisations have quietly adopted these properties. The piece must not name organisations, must not present any structure as suitable for a reader, must not give legal or organisational advice, and must not predict the category's future.",
+    "pref": [
+      "a-dissolution-taken-apart",
+      "governance-capture",
+      "what-a-dao-became"
+    ]
+  }
+]

@@ -1,0 +1,169 @@
+[
+  {
+    "slug": "what-a-central-bank-digital-currency-is",
+    "era": "institutional",
+    "kind": "explainer",
+    "cluster": "The state's own answer",
+    "title": "A Direct Claim on the Central Bank, Available to Everyone",
+    "seoTitle": "What a Central Bank Digital Currency Is",
+    "description": "The defining feature is who the liability belongs to, not the technology used, and almost all popular coverage gets this backwards.",
+    "lede": "The novelty is whose promise it is, and everything else is implementation.",
+    "angle": "Establishes the definition properly: currency in circulation is already a direct claim on the central bank and deposits are a claim on a commercial bank, so the proposal is to make a digital direct claim available. Argue that framing this as a blockchain project is the single most common error in the coverage, and that the design questions that actually matter are institutional. Set the frame for the cluster and note that this is where crypto's ideas met the institutions they were built to route around. The piece must not describe any specific project's status, must not name countries or systems, must not offer any view on monetary policy, and must not predict any implementation.",
+    "pref": [
+      "why-dollars-won-on-chain",
+      "the-multilateral-response"
+    ]
+  },
+  {
+    "slug": "wholesale-versus-retail",
+    "era": "institutional",
+    "kind": "explainer",
+    "cluster": "The state's own answer",
+    "title": "Two Completely Different Projects Share One Name",
+    "seoTitle": "Wholesale Versus Retail Digital Currency",
+    "description": "One version settles between financial institutions and is largely uncontroversial, the other reaches the public and carries every difficult question.",
+    "lede": "One of these is plumbing between banks and the other is a change to what money the public holds.",
+    "angle": "Separates the two clearly: settlement between institutions is an upgrade to existing infrastructure with modest political content, while a version available to the public raises questions about privacy, bank funding and the state's relationship with individual payments. Argue that conflating them, which happens constantly, makes almost all public argument on the subject incoherent. Note that most actual work has been on the first while nearly all the argument has been about the second. The piece must not describe any project as active or abandoned, must not name systems or countries, must not take a position on any policy, and must not forecast anything.",
+    "pref": [
+      "what-a-central-bank-digital-currency-is"
+    ]
+  },
+  {
+    "slug": "the-disintermediation-problem",
+    "era": "institutional",
+    "kind": "explainer",
+    "cluster": "The state's own answer",
+    "title": "If Everyone Can Hold Central Bank Money, What Funds the Banks",
+    "seoTitle": "The Bank Disintermediation Problem",
+    "description": "Deposits fund lending, and a safe alternative available to everyone could move deposits at exactly the wrong moment.",
+    "lede": "The design problem is that the safest option becomes most attractive precisely during a crisis.",
+    "angle": "Explains the mechanism: commercial bank deposits fund credit, a risk free digital alternative competes with them, and the competition is strongest during stress, which is when deposit flight is most damaging. Argue that this is the central design constraint behind the holding limits and tiered remuneration that appear in nearly every published design, and that those features are not arbitrary. Present the counterargument that the effect may be smaller than modelled. The piece must not state any figures or model results, must not name systems, must not offer any view on banking policy, and must not predict outcomes.",
+    "pref": [
+      "wholesale-versus-retail",
+      "what-a-central-bank-digital-currency-is"
+    ]
+  },
+  {
+    "slug": "the-two-tier-design",
+    "era": "institutional",
+    "kind": "explainer",
+    "cluster": "The state's own answer",
+    "title": "Nearly Every Design Keeps the Banks in the Middle",
+    "seoTitle": "Why Every Design Keeps Banks in the Middle",
+    "description": "Published designs almost universally distribute through existing institutions, which preserves the current structure and answers several problems at once.",
+    "lede": "Almost nobody proposed that the central bank open accounts for the public directly.",
+    "angle": "Explains the intermediated architecture and what it resolves: the central bank does not take on customer service, identity verification or fraud handling, and the existing distribution and compliance machinery is reused. Argue that this design choice makes the proposals far more conservative than the debate implies, and that it also blunts most of the claimed benefits. Note that this is the direct opposite of the design philosophy in every earlier era of this site. The piece must not describe any project's chosen architecture without a published source, must not name systems, must not evaluate any design, and must not offer policy views.",
+    "pref": [
+      "the-disintermediation-problem",
+      "wholesale-versus-retail"
+    ]
+  },
+  {
+    "slug": "privacy-in-a-state-ledger",
+    "era": "institutional",
+    "kind": "explainer",
+    "cluster": "The state's own answer",
+    "title": "The Privacy Question Is the One Nobody Has Answered Well",
+    "seoTitle": "Privacy in a State Issued Digital Currency",
+    "description": "Cash is anonymous by construction, and every digital replacement must decide how much of that to preserve and how.",
+    "lede": "Replacing cash means deciding, deliberately, how much anonymity to leave in the system.",
+    "angle": "Sets out the genuine tension: obligations around illicit finance require traceability, cash provides anonymity that the public is accustomed to, and the technical approaches to partial privacy, tiered thresholds and cryptographic schemes, are real but partial. Argue that this is the substantive core of the political opposition and that dismissing it as paranoia misreads a legitimate design question. Name the contest and describe both positions accurately. The piece must not take a position on surveillance policy, must not name any project or country, must not characterise any government, and must not present any privacy technology as sufficient.",
+    "pref": [
+      "the-two-tier-design",
+      "the-pseudonymity-misunderstanding",
+      "mixers-and-the-privacy-argument"
+    ]
+  },
+  {
+    "slug": "the-offline-requirement",
+    "era": "institutional",
+    "kind": "explainer",
+    "cluster": "The state's own answer",
+    "title": "Cash Works When the Power Is Out, and That Is a Hard Requirement",
+    "seoTitle": "The Offline Payment Requirement",
+    "description": "Any credible cash replacement must work without connectivity, which is a demanding constraint that most digital payment systems do not meet.",
+    "lede": "The thing being replaced works in a blackout, which turns out to be a difficult specification.",
+    "angle": "Explains why offline capability is treated as a requirement rather than a feature, covering resilience, inclusion and the double spend problem that reappears exactly as it did in the earliest era of this site. Argue that this is the most technically interesting part of the work, because preventing double spending without a network is the original problem in a new setting, and the answers involve secure hardware and deferred settlement. Draw the connection back to the site's opening cluster explicitly. The piece must not describe any implementation, must not name projects or vendors, must not present any approach as solved, and must not offer policy views.",
+    "pref": [
+      "the-double-spend-problem",
+      "privacy-in-a-state-ledger"
+    ]
+  },
+  {
+    "slug": "why-a-blockchain-is-usually-not-used",
+    "era": "institutional",
+    "kind": "explainer",
+    "cluster": "The state's own answer",
+    "title": "A Known Operator Does Not Need Permissionless Consensus",
+    "seoTitle": "Why These Projects Skip the Blockchain",
+    "description": "Consensus among mutually distrusting strangers solves a problem a central bank does not have, so most designs use conventional databases.",
+    "lede": "The expensive part of the design exists to remove an operator, and here the operator is the point.",
+    "angle": "Explains the reasoning directly: the machinery of open consensus exists to allow agreement without a trusted operator, and a central bank is a trusted operator by definition, so the machinery is a cost with no corresponding benefit. Argue that this is the cleanest available demonstration of when a blockchain is the wrong tool, and that being able to say so is a mark of technical seriousness rather than hostility. Note where distributed ledger techniques genuinely are used, in settlement between multiple institutions. The piece must not name projects or their architectures without a source, must not disparage any technology choice, must not present any design as correct, and must not offer policy views.",
+    "pref": [
+      "byzantine-fault-tolerance-plainly",
+      "what-a-central-bank-digital-currency-is"
+    ]
+  },
+  {
+    "slug": "fast-payments-as-the-real-competitor",
+    "era": "institutional",
+    "kind": "timeline",
+    "cluster": "The state's own answer",
+    "title": "Instant Bank Transfers Solved Most of the Problem First",
+    "seoTitle": "How Fast Payment Systems Got There First",
+    "description": "Domestic instant transfer systems delivered most of the practical benefits without any new form of money, which reshaped the case for everything else.",
+    "lede": "In many countries the payment problem was quietly solved by upgrading the bank rails.",
+    "angle": "Sequences the arrival of modern instant payment systems alongside the crypto payments story and argues that they addressed most of the everyday case that both crypto payments and retail digital currency proposals were built to serve. Take the position that this is the most consequential and least discussed development in payments during this whole period, and that its existence changes what the remaining problems are, which are largely cross border. Note that it does nothing for the properties crypto was built for. The piece must not name systems or countries, must not state adoption or cost figures, must not evaluate any system, and must not offer policy views.",
+    "pref": [
+      "why-a-blockchain-is-usually-not-used",
+      "stablecoins-as-payment-rails"
+    ]
+  },
+  {
+    "slug": "the-cbdc-pilots",
+    "era": "institutional",
+    "kind": "timeline",
+    "cluster": "The state's own answer",
+    "title": "A Great Deal of Research, Very Little Deployment",
+    "seoTitle": "The Pilots, Sequenced Honestly",
+    "description": "Many central banks have published research and run limited trials, and the number of full public deployments remains very small.",
+    "lede": "The gap between the volume of research and the amount of deployment is the finding.",
+    "angle": "Sequences the general pattern of activity, from research programmes to limited pilots to the small number of live systems, at a structural level rather than by naming projects. Argue that the discrepancy between attention and deployment reflects genuine unresolved design questions rather than institutional slowness, and that the pilots have largely functioned as a way to learn what the hard parts are. Read it against the threshold, since research activity expanded rapidly while deployment barely moved. The piece must not name any country or system, must not state numbers of projects, must not describe any pilot's results, and must not predict any launch.",
+    "pref": [
+      "fast-payments-as-the-real-competitor",
+      "the-two-tier-design"
+    ]
+  },
+  {
+    "slug": "the-political-argument",
+    "era": "institutional",
+    "kind": "explainer",
+    "cluster": "The state's own answer",
+    "title": "The Objections Are Political, and Naming Them Properly Is the Job",
+    "seoTitle": "The Political Argument, Stated Fairly",
+    "description": "Opposition rests on concerns about surveillance, programmability and the state's role in individual transactions, and those are arguments rather than noise.",
+    "lede": "The objection is about what a state could do with the system, not about whether it would work.",
+    "angle": "States the opposing positions in their strongest form: proponents point to inclusion, resilience and payment system competition, and opponents point to the capabilities a state acquires when it can see and potentially condition individual payments. Argue that the second concern is about capability rather than intent, which is a coherent way to reason about institutional design and is routinely dismissed as conspiracy. Name the contest and refuse to adjudicate it. The piece must not endorse either position, must not name any country, government or official, must not repeat any specific political claim as fact, and must not predict any policy.",
+    "pref": [
+      "privacy-in-a-state-ledger",
+      "the-cbdc-pilots",
+      "the-network-asked-to-take-a-side"
+    ]
+  },
+  {
+    "slug": "what-the-state-borrowed",
+    "era": "institutional",
+    "kind": "timeline",
+    "cluster": "The state's own answer",
+    "title": "The Institutions Took the Ideas and Left the Politics",
+    "seoTitle": "What Central Banks Borrowed From Crypto",
+    "description": "Programmable settlement, atomic exchange and cryptographic privacy techniques were absorbed into institutional work without the accompanying arguments.",
+    "lede": "The techniques travelled into the institutions and the ideology did not.",
+    "angle": "Sequences what was actually adopted and when, including settlement finality by construction, exchange without a settlement intermediary, and cryptographic techniques for selective disclosure, noting that each arrived stripped of any claim about removing intermediaries. Argue that this is the most common fate of a radical technology and that it is neither a betrayal nor a vindication, which is an uncomfortable conclusion for both camps. Commit to that reading and close the cluster on it. The piece must not name projects or institutions, must not claim any specific borrowing without a published source, must not evaluate the outcome as good or bad, and must not offer policy views.",
+    "pref": [
+      "why-a-blockchain-is-usually-not-used",
+      "the-political-argument",
+      "flash-loans-what-they-actually-are"
+    ]
+  }
+]

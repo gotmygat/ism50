@@ -1,0 +1,191 @@
+[
+  {
+    "slug": "the-double-spend-problem",
+    "era": "origins",
+    "kind": "explainer",
+    "cluster": "Before the whitepaper",
+    "title": "The Double Spend Problem, and Why Every Earlier Attempt Needed a Referee",
+    "seoTitle": "The Double Spend Problem Explained",
+    "description": "Why a digital coin is trivially copyable, why every pre-2009 design solved that with a trusted issuer, and what that dependency cost them.",
+    "lede": "A file can be copied perfectly and for free, which is exactly the property you do not want in money.",
+    "angle": "Sets up the whole site by naming the single technical constraint that every digital cash design before 2009 had to answer, and shows that they all answered it the same way, with a central party who keeps the ledger and refuses the second spend. Argue that the trusted referee was not a design flaw but a business model, and that it put a single company inside the settlement path of every transaction, which is the thing that later kept getting shut down. Frame it against the site's line: the technical capability was expanding steadily through the 1990s while the number of surviving operators was contracting, and almost nobody read those two curves together at the time. The piece must not claim that Bitcoin solved double spending absolutely or permanently, because it did not, it made reversal expensive rather than impossible, and it must not assert any figure for transaction volumes or user counts at any of the earlier systems.",
+    "pref": []
+  },
+  {
+    "slug": "david-chaum-and-blind-signatures",
+    "era": "origins",
+    "kind": "profile",
+    "cluster": "Before the whitepaper",
+    "title": "David Chaum and the Idea That Payment Privacy Could Be Mathematical",
+    "seoTitle": "David Chaum and the Blind Signature",
+    "description": "The cryptographer who argued in the early 1980s that electronic payment would either be private by construction or surveilled by default.",
+    "lede": "Chaum described the surveillance problem in electronic payments roughly a decade before most people had an electronic payment to make.",
+    "angle": "A profile built strictly from Chaum's published academic work and the public record of the companies he founded, covering what a blind signature actually does and why it let a bank authorise a payment without learning who made it. Argue that his contribution was framing rather than mechanism: he made privacy a design requirement instead of a courtesy, and that framing outlived every product he shipped. Use the site's lens on the gap between an expanding academic literature and a contracting commercial appetite for it. The piece must not speculate about his views on Bitcoin or on any later project beyond what he has published under his own name, must not characterise him as a precursor who was cheated of credit, and must not assign dates to unpublished work.",
+    "pref": [
+      "the-double-spend-problem"
+    ]
+  },
+  {
+    "slug": "digicash-postmortem",
+    "era": "origins",
+    "kind": "postmortem",
+    "cluster": "Before the whitepaper",
+    "title": "DigiCash: Correct Cryptography, No Distribution",
+    "seoTitle": "DigiCash: Why the Cryptography Was Not Enough",
+    "description": "A company with working privacy-preserving digital cash that could not get banks or merchants to carry it, and what that failure actually proves.",
+    "lede": "DigiCash shipped a working product that almost nobody could spend anywhere, which turns out to be the harder half of the problem.",
+    "angle": "Follows one failure to its causes: a system that worked technically and still ran out of road because it required banks to adopt it and merchants to accept it, and neither had a reason to move first. Argue that the binding constraint was distribution and counterparty willingness rather than cryptography, which is a pattern that recurs across the next twenty five years of this site. Read it through the threshold: cryptographic capability well above the line, commercial adoption well below it, with the two mistaken for one number. The piece must not state a valuation, a funding figure, an employee count or a transaction volume for the company, must not reconstruct private negotiations from secondary retellings, and must not present the outcome as inevitable in hindsight.",
+    "pref": [
+      "david-chaum-and-blind-signatures",
+      "the-double-spend-problem"
+    ]
+  },
+  {
+    "slug": "e-gold-and-the-compliance-wall",
+    "era": "origins",
+    "kind": "postmortem",
+    "cluster": "Before the whitepaper",
+    "title": "e-gold and the Compliance Wall Every Centralised Issuer Eventually Hits",
+    "seoTitle": "e-gold and the Compliance Wall",
+    "description": "A privately issued digital currency backed by metal that grew fast, attracted the wrong users, and was closed through its operator rather than its protocol.",
+    "lede": "e-gold demonstrated that a centralised digital currency has a throat to choke, and that somebody eventually chokes it.",
+    "angle": "Traces how a system with a single identifiable operator and a single point of custody was addressed by law enforcement and regulators through that operator, without any need to attack the technology. Argue that this is the cleanest available illustration of why later designs went to such lengths to remove the operator, and that the lesson was learned by builders long before it was articulated. The threshold reading is that user growth and regulatory tolerance moved in opposite directions across the same period, and the second curve was the one that mattered. The piece must not restate specific charges, pleas, sentences or dollar amounts from any proceeding, must not characterise the intent of any named individual, and must not imply the outcome was unjust or just, because that argument belongs somewhere other than a history site.",
+    "pref": [
+      "digicash-postmortem",
+      "the-double-spend-problem"
+    ]
+  },
+  {
+    "slug": "the-cypherpunks-list",
+    "era": "origins",
+    "kind": "profile",
+    "cluster": "Before the whitepaper",
+    "title": "The Cypherpunks Mailing List as an Institution",
+    "seoTitle": "The Cypherpunks Mailing List, Explained",
+    "description": "A mailing list with no membership, no funding and no leadership produced a body of ideas that most of this site's later chapters are built on.",
+    "lede": "The list had no institutional form at all, which is exactly why its output is hard to attribute and easy to misquote.",
+    "angle": "A group profile that treats the list as the organisational unit rather than any individual on it, describing how a public archive with open posting produced a durable set of shared assumptions about privacy, anonymity and money. Argue that the archive is the reason this period is documented at all, and that its survival is an accident we should not expect to repeat for later forums. Note honestly that reading the archive today invites hindsight bias, because we know which threads mattered and the participants did not. The piece must not attribute a position to any named participant without quoting the archived message that carries it, must not treat list consensus as existing, since it plainly did not, and must not use the list to support any claim about who wrote the Bitcoin whitepaper.",
+    "pref": [
+      "david-chaum-and-blind-signatures"
+    ]
+  },
+  {
+    "slug": "the-crypto-wars",
+    "era": "origins",
+    "kind": "timeline",
+    "cluster": "Before the whitepaper",
+    "title": "The Crypto Wars: How Strong Encryption Stopped Being a Munition",
+    "seoTitle": "The Crypto Wars and Export Control",
+    "description": "The sequenced fight over export controls on strong cryptography in the 1990s, and why its outcome made everything after 2009 legally possible.",
+    "lede": "Before anyone could build public cryptographic money, publishing the code had to stop being a controlled export.",
+    "angle": "A genuinely sequenced piece covering the regulatory position on strong cryptography, the legal and political challenges to it, and the eventual relaxation, using only the public rulemaking and court record. Argue that this is the single most underweighted precondition in crypto history, because the freedom to publish the code was won by other people, for other reasons, before the code existed. The threshold framing is direct: state tolerance for civilian cryptography crossed from contraction to expansion, and everything downstream depended on which side of the line it settled. The piece must not claim the fight is settled, must not attribute motives to any agency beyond what is in the public record, and must not name a specific court holding without the case actually saying it.",
+    "pref": [
+      "the-cypherpunks-list"
+    ]
+  },
+  {
+    "slug": "hashcash-the-actual-mechanism",
+    "era": "origins",
+    "kind": "primarySource",
+    "cluster": "Before the whitepaper",
+    "title": "Hashcash: What the Proposal Actually Said It Was For",
+    "seoTitle": "Hashcash: What the Proposal Actually Said",
+    "description": "Proof of work was designed as an anti-spam postage stamp, not as a monetary policy, and the original document is explicit about it.",
+    "lede": "The mechanism at the centre of Bitcoin mining was proposed to make email spam expensive.",
+    "angle": "Built around the hashcash proposal itself, reading what it says the cost function is for and what problem it claims to solve, then showing precisely which part Bitcoin reused and which part it discarded. Argue that a great deal of confused writing about energy and mining comes from treating proof of work as a monetary invention when it was an access-control one. Show that the original framing, making an action cheap to verify and expensive to perform, is the property that carried forward, and that the anti-spam application never really worked. The piece must not quote the document from memory or paraphrase it as a quotation, must not claim it anticipated a blockchain, and must not attach any energy or cost figure to any era of mining.",
+    "pref": [
+      "the-double-spend-problem",
+      "the-cypherpunks-list"
+    ]
+  },
+  {
+    "slug": "b-money-the-proposal",
+    "era": "origins",
+    "kind": "primarySource",
+    "cluster": "Before the whitepaper",
+    "title": "b-money: A Short Proposal That Named Most of the Problem",
+    "seoTitle": "b-money: Reading the Original Proposal",
+    "description": "A brief 1998 proposal for a distributed currency that described collective bookkeeping and left the hardest part explicitly unsolved.",
+    "lede": "b-money is short enough to read in one sitting and honest enough to say where it does not work.",
+    "angle": "Reads the proposal as a document, separating what it specifies from what it gestures at, and paying particular attention to the passage where it acknowledges the unresolved problem of who keeps the accounts honest. Argue that its value to this history is not that it was a blueprint but that it maps the shape of the difficulty, which is why a later document could cite it in a single line. Treat the citation in the Bitcoin whitepaper as a fact about the whitepaper, not as a claim about influence. The piece must not present b-money as a working design, must not use it as evidence in any authorship theory, and must not paraphrase its text as though quoting it.",
+    "pref": [
+      "hashcash-the-actual-mechanism",
+      "the-double-spend-problem"
+    ]
+  },
+  {
+    "slug": "bit-gold-the-proposal",
+    "era": "origins",
+    "kind": "primarySource",
+    "cluster": "Before the whitepaper",
+    "title": "bit gold: Unforgeable Costliness as a Design Goal",
+    "seoTitle": "bit gold and Unforgeable Costliness",
+    "description": "A proposal that framed digital scarcity as a property to be manufactured rather than declared, and where its own author said it fell short.",
+    "lede": "bit gold asked what would have to be true for a string of bits to be expensive in the way a metal is.",
+    "angle": "Works through the proposal's core argument that scarcity has to be produced by cost rather than asserted by rule, and then works through the parts the author himself flagged as incomplete, particularly the question of how the chain of proofs is agreed. Argue that this is the most philosophically direct of the pre-2009 proposals and the least implementable, and that the gap between those two is the entire story of the period. Use the threshold to describe an idea space expanding while the set of running systems stayed at zero. The piece must not use the proposal's similarity to Bitcoin as evidence about who wrote Bitcoin, a claim that recurs constantly and is not established, and must not attribute to the author any statement he has not published.",
+    "pref": [
+      "b-money-the-proposal",
+      "hashcash-the-actual-mechanism"
+    ]
+  },
+  {
+    "slug": "the-timestamping-papers",
+    "era": "origins",
+    "kind": "primarySource",
+    "cluster": "Before the whitepaper",
+    "title": "The Timestamping Papers Bitcoin Cited, and What They Were Solving",
+    "seoTitle": "The Timestamping Papers Bitcoin Cited",
+    "description": "Academic work on how to prove a document existed at a point in time, published years earlier, and how it shows up in the whitepaper's references.",
+    "lede": "The chain of hashes at the centre of the design was published as a way to notarise documents, not to move money.",
+    "angle": "Reads the cited timestamping literature on its own terms, explaining what problem it set out to solve for digital documents and how linking hashes into a chain makes retroactive alteration detectable. Show the specific step Bitcoin took beyond it, replacing the trusted timestamping service with a competition, and be precise that this is one step rather than a wholesale invention. Argue that the citation list of the whitepaper is the best available evidence of what its author had actually read, and that it is routinely ignored in favour of folklore. The piece must not claim the timestamping authors anticipated cryptocurrency, must not present the citation as an endorsement, and must not reproduce the papers' text as a quotation without the source in hand.",
+    "pref": [
+      "bit-gold-the-proposal",
+      "the-double-spend-problem"
+    ]
+  },
+  {
+    "slug": "byzantine-fault-tolerance-plainly",
+    "era": "origins",
+    "kind": "primarySource",
+    "cluster": "Before the whitepaper",
+    "title": "Byzantine Fault Tolerance, Explained Without the Generals",
+    "seoTitle": "Byzantine Fault Tolerance, Explained Plainly",
+    "description": "What it means for a system to keep agreeing when some participants are actively lying, and why that is a different problem from participants going offline.",
+    "lede": "A machine that crashes is easy to plan around, a machine that lies to you selectively is not.",
+    "angle": "Built around the paper that introduced the problem, which is worth reading rather than paraphrasing: the difference between crash faults and adversarial faults, why the second is much harder, and what a fault tolerance threshold actually bounds. Argue that most popular writing collapses this into a slogan about trustlessness and thereby loses the only interesting part, which is that every such system buys safety by assuming a limit on how much of the network is hostile. Connect it forward by noting that every later consensus argument on this site, including the ones that turned into political fights, is a disagreement about that assumption. The piece must not attach a specific percentage threshold to any named production network without deriving it from that network's own documentation, and must not claim any live system has been formally proven Byzantine fault tolerant in practice.",
+    "pref": [
+      "the-double-spend-problem"
+    ]
+  },
+  {
+    "slug": "smart-contracts-before-blockchains",
+    "era": "origins",
+    "kind": "primarySource",
+    "cluster": "Before the whitepaper",
+    "title": "The Term Smart Contract Predates Every Chain That Runs One",
+    "seoTitle": "Smart Contracts Before Blockchains Existed",
+    "description": "The original meaning of the phrase, why the vending machine was the example, and how much drift the term has taken on since.",
+    "lede": "The phrase was coined to describe a vending machine, and it has been sliding away from that meaning ever since.",
+    "angle": "Built around the essay that coined the term, recovering the original definition, a contract whose performance is embedded in a mechanism rather than enforced after the fact, and showing why the vending machine example is more precise than most later usages. Argue that the drift matters practically, because calling deployed code a contract imports assumptions about enforceability, interpretation and remedy that the code does not carry. Set up the later era of this site by naming the confusion in advance, since a large share of the DAO argument turns on exactly this equivocation. The piece must not assert what any jurisdiction currently holds about the legal status of contract code, must not give any reader guidance on whether their own arrangement is enforceable, and must not quote the coinage from memory.",
+    "pref": [
+      "bit-gold-the-proposal",
+      "the-cypherpunks-list"
+    ]
+  },
+  {
+    "slug": "why-the-earlier-attempts-failed",
+    "era": "origins",
+    "kind": "timeline",
+    "cluster": "Before the whitepaper",
+    "title": "Twenty Years of Digital Cash Attempts, and the Three Ways They Ended",
+    "seoTitle": "Why Digital Cash Kept Failing Before 2009",
+    "description": "A sequenced read of the pre-2009 attempts, sorted by how they ended: no adoption, an operator shut down, or a design that was never built.",
+    "lede": "The attempts before 2009 failed in only a few distinct ways, and sorting them that way is more useful than listing them.",
+    "angle": "Sequences the period and then classifies it, arguing that the failures cluster into three modes and that only one of them, the operator being removable, was actually addressed by what came next. Make the uncomfortable point that adoption failure was never solved by any protocol change and had to be solved socially, over a decade, which is why the second era of this site is about exchanges rather than cryptography. The threshold framing is the summary of the whole cluster: capability was above the line for years while distribution and legal tolerance were below it. The piece must not present the sequence as a march of progress toward Bitcoin, must not assign a success or failure verdict to any project still operating, and must not supply user, revenue or volume figures for any of them.",
+    "pref": [
+      "digicash-postmortem",
+      "e-gold-and-the-compliance-wall",
+      "the-crypto-wars"
+    ]
+  }
+]

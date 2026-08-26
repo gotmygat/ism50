@@ -1,0 +1,182 @@
+[
+  {
+    "slug": "the-first-fork-of-the-code",
+    "era": "earlyExchange",
+    "kind": "timeline",
+    "cluster": "The clone economy",
+    "title": "The First Serious Fork Was Not About Money at All",
+    "seoTitle": "The First Serious Fork of the Bitcoin Code",
+    "description": "The earliest important derivative project used the consensus machinery for domain names, establishing that the ledger was a general tool.",
+    "lede": "The first project worth taking seriously copied the consensus mechanism and pointed it at something other than payments.",
+    "angle": "Sequences the appearance of the first derivative project and explains why applying the same machinery to name registration was a genuine conceptual step rather than a copy. Argue that this established the pattern for the entire following decade, in which the interesting question stopped being whether the ledger worked and became what else you could put in it. Note the merged mining arrangement as the first real attempt to solve the security problem that every small chain immediately has. The piece must not claim the project succeeded or failed commercially, must not state user or registration counts, and must not present merged mining as securing a chain to the same degree as its parent.",
+    "pref": [
+      "the-license-choice",
+      "the-first-alternative-clients"
+    ]
+  },
+  {
+    "slug": "naming-as-a-use-case",
+    "era": "earlyExchange",
+    "kind": "explainer",
+    "cluster": "The clone economy",
+    "title": "Decentralised Naming Is the Use Case That Keeps Almost Working",
+    "seoTitle": "Decentralised Naming: The Use Case That Keeps Returning",
+    "description": "Putting domain names on a ledger solves a real problem and creates several new ones, and the same design keeps being reinvented.",
+    "lede": "Every few years somebody rediscovers that naming is the obvious application, and hits the same three walls.",
+    "angle": "Explains the mechanism and the recurring difficulties: squatting under a first come rule, the absence of a dispute process, the resolution problem for ordinary software, and the renewal economics. Argue that naming is genuinely well suited to a public ledger and genuinely badly suited to being the only layer, and that every later attempt has rediscovered this. Take the position that the repeated reinvention is evidence the industry does not read its own history. The piece must not name any current naming project as working or dominant, must not state registration figures, and must not advise a reader to register anything.",
+    "pref": [
+      "the-first-fork-of-the-code"
+    ]
+  },
+  {
+    "slug": "the-parameter-change-fork",
+    "era": "earlyExchange",
+    "kind": "explainer",
+    "cluster": "The clone economy",
+    "title": "Changing Three Constants Was Enough to Launch a Rival",
+    "seoTitle": "How a Parameter Change Launched Rival Chains",
+    "description": "Most early alternatives were the same software with different block timing, supply and hashing, and that low barrier defined the era.",
+    "lede": "A working competitor could be produced by editing a handful of numbers and writing an announcement.",
+    "angle": "Explains exactly which parameters were typically altered, what each change actually does to the resulting network, and why the effect on user experience was almost always smaller than the marketing claimed. Argue that the low cost of launching a chain is the single most important economic fact of this era, because it made narrative rather than engineering the competitive variable. Read it through the threshold: the number of chains expanded enormously while the amount of distinct engineering contracted toward zero. The piece must not evaluate any specific project's technical merit, must not state market capitalisations or rankings, and must not describe any parameter choice as better.",
+    "pref": [
+      "the-first-fork-of-the-code",
+      "the-license-choice"
+    ]
+  },
+  {
+    "slug": "the-asic-resistance-claim",
+    "era": "earlyExchange",
+    "kind": "postmortem",
+    "cluster": "The clone economy",
+    "title": "ASIC Resistance Was a Promise the Mathematics Could Not Keep",
+    "seoTitle": "Why ASIC Resistance Never Held",
+    "description": "Memory hard hashing was supposed to keep mining on general purpose hardware permanently, and specialised chips arrived anyway, repeatedly.",
+    "lede": "Every chain that promised mining would stay on ordinary computers eventually watched purpose built hardware arrive.",
+    "angle": "Follows a promise that failed repeatedly to its causes: what memory hardness is meant to achieve, why it raises the cost of specialisation without preventing it, and why a sufficiently valuable network always justifies the engineering. Argue that the repeated failure of this promise is the clearest available case study in confusing a temporary economic barrier with a permanent technical one. Note that some projects responded with repeated algorithm changes and explain the cost of that strategy. The piece must not name a current algorithm as resistant, must not state hardware performance figures, and must not present any mining approach as accessible or worthwhile to a reader.",
+    "pref": [
+      "the-parameter-change-fork",
+      "cpu-mining-as-a-hobby"
+    ]
+  },
+  {
+    "slug": "the-premine-question",
+    "era": "earlyExchange",
+    "kind": "explainer",
+    "cluster": "The clone economy",
+    "title": "Who Holds the Supply at Launch Is the Question That Divides Everything",
+    "seoTitle": "The Premine Question, Explained",
+    "description": "Whether founders allocate themselves units before public launch is the sharpest structural distinction between projects in this era.",
+    "lede": "The distribution at block zero tells you more about a project than its whitepaper does.",
+    "angle": "Explains the mechanics of the different launch distributions, mined from zero, allocated to founders, sold in advance, or a mixture, and what each implies about incentives and about who bears risk. Argue that the premine debate was moralised early and analysed late, and that the useful framing is not fairness but concentration, because concentrated supply changes what governance and market behaviour are possible. Commit to the position that opaque distribution is the reliable warning sign and that the label itself is not. The piece must not state any project's distribution figures without a verifiable source, must not describe any launch as fair or unfair, and must not draw any conclusion about a project's current holders.",
+    "pref": [
+      "the-parameter-change-fork",
+      "faucets-and-the-distribution-problem"
+    ]
+  },
+  {
+    "slug": "thin-markets-and-coordinated-trading",
+    "era": "earlyExchange",
+    "kind": "explainer",
+    "cluster": "The clone economy",
+    "title": "Why Thin Markets Attract Coordinated Trading, Structurally",
+    "seoTitle": "Why Thin Markets Attract Coordinated Trading",
+    "description": "An asset with little depth and no surveillance is cheap to move, and this era created thousands of them at once.",
+    "lede": "The cost of moving a price is a function of depth, and these markets had almost none.",
+    "angle": "Explains the structural conditions that make coordinated trading cheap: low depth, no market surveillance, no reporting obligation, and a retail audience reading price as information. Argue that describing this era's episodes purely as fraud misses the design failure, because the same conditions would produce the same behaviour with entirely different participants. Keep it structural and historical, and note which of these conditions later regulation actually addressed. The piece must not describe how any scheme was executed in operational detail, must not name projects or individuals, must not state gains or losses, and must not be written in a way any reader could act on.",
+    "pref": [
+      "order-books-without-market-makers",
+      "the-premine-question"
+    ]
+  },
+  {
+    "slug": "narrative-as-the-product",
+    "era": "earlyExchange",
+    "kind": "postmortem",
+    "cluster": "The clone economy",
+    "title": "When the Code Is Identical, the Story Becomes the Only Difference",
+    "seoTitle": "When the Story Becomes the Whole Product",
+    "description": "With near identical software freely available, projects competed on positioning, community and promise rather than on anything technical.",
+    "lede": "If the software is a copy, everything a project can compete on is a claim about the future.",
+    "angle": "Follows the collapse of technical differentiation to its consequence in a market where the product is free to reproduce, showing how differentiation moved to branding, community management and forward looking claims. Argue that this is the origin of the promotional register that still dominates the industry's communication, and that it began as a rational response to commoditisation rather than as dishonesty. Take the position that the shift from engineering claims to narrative claims is the moment the subject became hard to write about accurately. The piece must not quote any project's marketing without a source, must not name projects as examples of dishonesty, and must not make any claim about which projects delivered.",
+    "pref": [
+      "the-parameter-change-fork",
+      "thin-markets-and-coordinated-trading"
+    ]
+  },
+  {
+    "slug": "the-first-proof-of-stake-attempts",
+    "era": "earlyExchange",
+    "kind": "timeline",
+    "cluster": "The clone economy",
+    "title": "Proof of Stake Was Proposed Early and the Objections Came Immediately",
+    "seoTitle": "The First Proof of Stake Attempts",
+    "description": "Replacing physical cost with holdings was proposed within a few years, along with the nothing at stake objection that took a decade to answer.",
+    "lede": "The alternative to burning electricity was described early, and so was the reason it is hard.",
+    "angle": "Sequences the early attempts and the objections raised against each in turn, beginning with the core substitution, using ownership rather than expenditure to select who extends the chain, and the objection that a validator with nothing to lose can support multiple histories at once. Argue that the early implementations were partial and dependent on centralised safeguards, and that saying so is not a criticism of the idea but a description of an unfinished one. Set up the later era where the objection is answered by explicit penalties. The piece must not claim any early implementation was secure or insecure without evidence, must not compare energy usage with figures, and must not present either consensus family as superior.",
+    "pref": [
+      "byzantine-fault-tolerance-plainly",
+      "the-parameter-change-fork"
+    ]
+  },
+  {
+    "slug": "the-joke-that-did-not-die",
+    "era": "earlyExchange",
+    "kind": "profile",
+    "cluster": "The clone economy",
+    "title": "The Project Launched as a Joke and Still Running",
+    "seoTitle": "The Joke Project That Never Went Away",
+    "description": "A deliberately unserious clone outlasted almost every serious one, and the reason is a genuine finding about what sustains a network.",
+    "lede": "The least serious project of the era outlived nearly all of the serious ones, which is worth explaining rather than laughing at.",
+    "angle": "A profile of a project and the community around it, arguing that survival in this industry correlates far more strongly with community durability than with technical differentiation, and that this case is the cleanest evidence available. Handle the humour honestly, since the joke framing lowered expectations and removed the pressure to make claims that would later be falsified. Take the position that this is a real finding about network effects rather than an anomaly. The piece must not state any price, market capitalisation or ranking, must not mention any individual endorsement or promotion, must not present the project as an investment in any framing, and must not predict anything about its future.",
+    "pref": [
+      "narrative-as-the-product",
+      "the-parameter-change-fork"
+    ]
+  },
+  {
+    "slug": "tokens-on-top-of-bitcoin",
+    "era": "earlyExchange",
+    "kind": "primarySource",
+    "cluster": "The clone economy",
+    "title": "Before Anyone Built a New Chain, People Tried Tokens on the Old One",
+    "seoTitle": "The First Attempts at Tokens on Bitcoin",
+    "description": "Early protocols encoded additional assets inside ordinary transactions, and their limitations explain why a new chain was built instead.",
+    "lede": "The first tokens were smuggled into a ledger that had no idea they existed.",
+    "angle": "Built around the early specifications for embedding asset data in transactions, explaining what the encoding actually did, why validation had to happen outside consensus, and what that meant for reliability. Argue that these projects deserve more credit than they get, because they proved demand for tokenisation before any purpose built platform existed, and that their technical ceiling is the direct reason the next era happened. Note the first public token sale of this kind as a historically significant fundraising artefact. The piece must not state amounts raised without a verifiable source, must not describe any of these projects' later outcomes as success or failure, and must not paraphrase a specification as though quoting it.",
+    "pref": [
+      "what-the-first-client-actually-did",
+      "the-first-fork-of-the-code"
+    ]
+  },
+  {
+    "slug": "coloured-coins-and-the-idea-that-moved",
+    "era": "earlyExchange",
+    "kind": "explainer",
+    "cluster": "The clone economy",
+    "title": "Marking Individual Units to Represent Something Else",
+    "seoTitle": "Coloured Coins and the Tokenisation Idea",
+    "description": "The proposal to designate specific units as representing an external asset was elegant, limited, and the seed of everything after it.",
+    "lede": "The idea was to agree that certain units stand for something, which works exactly as far as the agreement does.",
+    "angle": "Explains the mechanism and its dependency: the ledger tracks units, the meaning of a unit lives in an off chain agreement, and the whole scheme rests on everyone using the same interpretation software. Argue that this dependency is the permanent problem of tokenising real world assets, unchanged from this era to the present, and that no protocol has ever removed it. Commit to a clear position that the representation problem is legal and institutional rather than technical, which is why it keeps not getting solved. The piece must not claim any current tokenisation scheme has solved custody of an underlying asset, must not give any view on the enforceability of any arrangement, and must not name products.",
+    "pref": [
+      "tokens-on-top-of-bitcoin",
+      "smart-contracts-before-blockchains"
+    ]
+  },
+  {
+    "slug": "why-most-clones-died",
+    "era": "earlyExchange",
+    "kind": "timeline",
+    "cluster": "The clone economy",
+    "title": "Thousands Launched, Almost All Stopped, and the Failures Rhyme",
+    "seoTitle": "Why Almost Every Early Altcoin Stopped",
+    "description": "A sequenced and classified account of what actually ends a small chain, which is usually neither an attack nor a bug.",
+    "lede": "Chains rarely die dramatically, they stop having anyone left to run them.",
+    "angle": "Sequences the rise and disappearance of the clone cohort and classifies the endings: abandonment by the developer, loss of exchange listings, loss of mining support to the point of trivial attack, and simple loss of interest. Argue that the dominant cause is attention rather than technology, which is uncomfortable for an industry that describes itself in engineering terms. The threshold reading is the cleanest on the site, since the number of live chains expanded past any plausible level of demand and then contracted violently without any single event causing it. The piece must not list specific dead projects by name in a way that reads as mockery, must not state how many chains existed at any point, and must not present any surviving project as validated by survival.",
+    "pref": [
+      "the-parameter-change-fork",
+      "narrative-as-the-product",
+      "the-asic-resistance-claim"
+    ]
+  }
+]

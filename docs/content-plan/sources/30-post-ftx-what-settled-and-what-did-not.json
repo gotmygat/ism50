@@ -1,0 +1,178 @@
+[
+  {
+    "slug": "the-separation-that-finally-happened",
+    "era": "postFtx",
+    "kind": "timeline",
+    "cluster": "What settled and what did not",
+    "title": "Custody and Trading Are Being Pulled Apart, Slowly",
+    "seoTitle": "The Separation That Is Finally Happening",
+    "description": "The structural change the industry avoided for a decade is arriving through licensing and institutional demand rather than through any single decision.",
+    "lede": "The change everyone identified after the first great failure is arriving fifteen years later.",
+    "angle": "Sequences the structural movement toward separating asset holding from market operation, driven by licensing regimes, institutional requirements and the practical consequences of the failures. Argue that this is the single most consequential structural change in the industry's history and that it arrived not through insight but through repeated loss. Read it against the threshold as the site's closing example, since the arrangement crossed the line only when the cost of not crossing it became undeniable. The piece must not name firms or jurisdictions, must not describe any current arrangement as complete or safe, must not state figures, and must not predict any further development.",
+    "pref": [
+      "custody-as-a-separate-business",
+      "what-changed-because-of-it",
+      "the-cost-of-getting-custody-wrong"
+    ]
+  },
+  {
+    "slug": "what-survived-structurally",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "What settled and what did not",
+    "title": "The Things That Are Still Running After Everything",
+    "seoTitle": "What Is Still Running After Fifteen Years",
+    "description": "A small set of systems has operated continuously through every collapse in this history, and identifying what they have in common is worthwhile.",
+    "lede": "A handful of things have simply kept running through all of it.",
+    "angle": "Identifies what has operated continuously and asks what those systems share: minimal discretionary administration, no dependence on a single operator's solvency, and a narrow function. Argue that the common factor is the absence of a party who can fail, which is the original design proposition arriving as an empirical result rather than a claim. Be careful to distinguish continuous operation from usefulness or from value, since they are different questions. The piece must not name any system as an investment or an endorsement, must not state prices, market values or usage figures, must not predict continued operation, and must not advise readers.",
+    "pref": [
+      "the-separation-that-finally-happened",
+      "why-most-clones-died",
+      "the-cost-of-getting-custody-wrong"
+    ]
+  },
+  {
+    "slug": "the-comprehensive-frameworks-arrive",
+    "era": "postFtx",
+    "kind": "timeline",
+    "cluster": "What settled and what did not",
+    "title": "Several Jurisdictions Now Have Actual Rulebooks",
+    "seoTitle": "When Actual Rulebooks Finally Arrived",
+    "description": "Bespoke regimes covering issuance, venues, custody and stable units have been adopted in several places, which changes the nature of the industry's complaint.",
+    "lede": "The clarity that was always six months away arrived in some places and not others.",
+    "angle": "Sequences the general arrival of comprehensive regimes at a structural level and describes the categories they typically address, without stating any specific provision. Argue that the arrival changes the industry's position fundamentally, since a sector that spent a decade asking for rules must now decide whether it wanted rules or wanted an exemption. Take the position that the answer will differ by firm and that watching which firms comply and which relocate is the most informative signal available. The piece must not describe any framework's provisions or status, must not name jurisdictions or legislation, must not give compliance guidance, and must not predict outcomes.",
+    "pref": [
+      "the-comprehensive-framework-approach",
+      "the-clarity-that-never-came",
+      "the-licensing-regimes"
+    ]
+  },
+  {
+    "slug": "the-institutional-re-entry",
+    "era": "postFtx",
+    "kind": "timeline",
+    "cluster": "What settled and what did not",
+    "title": "Institutions Came Back Through the Regulated Door",
+    "seoTitle": "How Institutions Came Back In",
+    "description": "Renewed participation arrived through approved products, licensed venues and established custodians rather than through the channels that failed.",
+    "lede": "They came back, and they came back through completely different plumbing.",
+    "angle": "Sequences the pattern of renewed institutional participation and notes that it flowed through regulated wrappers, licensed venues and established custodians rather than through the offshore and unregulated channels that dominated earlier. Argue that this is the clearest evidence that the failures changed behaviour, and that it also means the industry that returned is a different industry from the one that collapsed. Keep it strictly structural with no market commentary. The piece must not state flows, prices or allocations, must not name products, firms or institutions, must not describe participation as validation, and must not offer any investment framing or forecast.",
+    "pref": [
+      "the-approval-and-what-changed",
+      "what-institutional-adoption-measured",
+      "the-separation-that-finally-happened"
+    ]
+  },
+  {
+    "slug": "what-the-technology-actually-does",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "What settled and what did not",
+    "title": "After Fifteen Years, the Short and Honest Capability List",
+    "seoTitle": "What the Technology Actually Does",
+    "description": "Settlement without a settlement operator, verifiable issuance and transfer, and programmable conditions on those transfers, and that is close to all of it.",
+    "lede": "The list of things this technology genuinely does is short and it is not nothing.",
+    "angle": "States the capability list plainly and argues that it is both shorter than the industry claims and more significant than the critics allow: transfer without a clearing intermediary, publicly verifiable issuance and holding, and conditions enforced by execution rather than by a party. Argue that everything on this site that worked is an application of one of these and everything that failed involved reintroducing a trusted party while claiming otherwise. Commit to that as the site's central technical conclusion. The piece must not describe any use case as an opportunity, must not name systems or products, must not state adoption figures, and must not offer any forecast or recommendation.",
+    "pref": [
+      "what-survived-structurally",
+      "the-double-spend-problem",
+      "what-the-state-borrowed"
+    ]
+  },
+  {
+    "slug": "the-ideas-that-were-right-too-early",
+    "era": "postFtx",
+    "kind": "timeline",
+    "cluster": "What settled and what did not",
+    "title": "Several Ideas Were Correct and Arrived Before Anything Could Support Them",
+    "seoTitle": "The Ideas That Were Right Too Early",
+    "description": "Proof of solvency, formal specification, separated custody and privacy by construction were all proposed years before anyone would adopt them.",
+    "lede": "The good ideas were mostly published early and ignored until something expensive happened.",
+    "angle": "Sequences the proposals documented across this site that were correct, published and ignored, in the order they appeared, and asks what they had in common, which is that adopting them cost something immediately and saved something contingently. Argue that this is the most consistent pattern in fifteen years and that it is a governance and incentive finding rather than a technical one. Take the position plainly that the industry has never adopted a preventive measure before the loss it prevents. The piece must not present any idea as a solution to any current problem, must not name projects or people, must not predict adoption, and must not offer any recommendation.",
+    "pref": [
+      "proof-of-solvency-before-it-had-a-name",
+      "the-warnings-that-existed",
+      "the-yellow-paper"
+    ]
+  },
+  {
+    "slug": "the-promises-that-were-not-kept",
+    "era": "postFtx",
+    "kind": "postmortem",
+    "cluster": "What settled and what did not",
+    "title": "The Claims That Fifteen Years Have Falsified",
+    "seoTitle": "The Promises That Were Not Kept",
+    "description": "Banking the unbanked, replacing intermediaries, cheap global payments and code as enforcement have each been tested, and the results are documented.",
+    "lede": "Several of the founding claims have now been tested for long enough to answer.",
+    "angle": "Follows the industry's recurring promises to their outcomes without softening: intermediaries returned and grew, payment costs were addressed mainly by conventional systems, and enforcement by code proved conditional. Argue that a history site that cannot say this plainly is not a history site, and that stating it is compatible with taking the technology seriously. Commit to the position that the gap between claim and outcome is the industry's central credibility problem and it is self inflicted. The piece must not overcorrect into claiming the technology is useless, must not name firms or people, must not state figures, and must not make any prediction.",
+    "pref": [
+      "remittances-as-the-claimed-use",
+      "why-exchanges-became-the-industry",
+      "code-is-law-after-the-fork"
+    ]
+  },
+  {
+    "slug": "the-people-who-paid",
+    "era": "postFtx",
+    "kind": "profile",
+    "cluster": "What settled and what did not",
+    "title": "The Losses Landed Mostly on People With No Way to Assess Any of It",
+    "seoTitle": "Who Actually Bore the Losses",
+    "description": "Across every failure documented here, the parties least able to evaluate the arrangements were the ones holding the claims at the end.",
+    "lede": "The people who could least assess these arrangements are the ones who were left holding them.",
+    "angle": "A group profile of the ordinary participant across fifteen years, written without condescension: what information was actually available, what the marketing said, and what recourse existed afterwards. Argue that treating these losses as the price of financial education is the least defensible position in the whole subject, since the information required to assess the arrangements was frequently not available to anyone outside. Handle it seriously and without sentimentality. The piece must not name any individual or use any personal account, must not state loss figures, must not characterise participants as foolish or as victims, and must not offer any guidance about participating in anything.",
+    "pref": [
+      "the-promises-that-were-not-kept",
+      "the-lenders-and-what-they-did",
+      "why-early-adoption-figures-are-unknowable"
+    ]
+  },
+  {
+    "slug": "what-fifteen-years-established",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "What settled and what did not",
+    "title": "The Findings That Would Survive Being Argued With",
+    "seoTitle": "What Fifteen Years Actually Established",
+    "description": "A short list of conclusions supported by the documented record rather than by anyone's position, stated so they could be argued against.",
+    "lede": "Here is the short list that the record actually supports, stated so somebody could disagree with it properly.",
+    "angle": "States the site's conclusions explicitly: intermediation returns wherever it is convenient, custody failure is the dominant loss mechanism, voluntary disclosure follows crises rather than preventing them, and governance disputes resolve by exit rather than by procedure. Argue each briefly with reference to the documented cases across the site, and mark clearly which conclusions rest on strong evidence and which are interpretations. Take the position that a history that cannot be argued with has not said anything. The piece must not present any conclusion as settled beyond what the record supports, must not use any figure without a source, must not name firms or people, and must not extend any conclusion into a prediction.",
+    "pref": [
+      "the-promises-that-were-not-kept",
+      "the-cost-of-getting-custody-wrong",
+      "the-ideas-that-were-right-too-early"
+    ]
+  },
+  {
+    "slug": "the-questions-still-open",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "What settled and what did not",
+    "title": "The Questions This History Cannot Answer Yet",
+    "seoTitle": "The Questions Still Genuinely Open",
+    "description": "Privacy against supervision, governance without procedure, and whether separation holds under pressure remain unresolved after fifteen years.",
+    "lede": "Several of the central questions are exactly as open as they were at the beginning.",
+    "angle": "Enumerates the genuinely unresolved questions documented across the site and explains why each has resisted resolution, which in each case is that the disagreement is about values rather than about facts. Argue that a history site's most useful final act is to hand a reader an accurate map of the open questions rather than a conclusion, because the conclusions on offer are mostly positions. Mark clearly which questions might be settled by evidence and which will not be. The piece must not resolve any listed question, must not predict how any will be settled, must not name parties, and must not present any position as the emerging consensus.",
+    "pref": [
+      "what-fifteen-years-established",
+      "the-privacy-compliance-deadlock",
+      "what-the-scaling-wars-settled"
+    ]
+  },
+  {
+    "slug": "how-to-read-the-next-one",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "What settled and what did not",
+    "title": "A Method for Reading Whatever Happens Next",
+    "seoTitle": "A Method for Reading Whatever Comes Next",
+    "description": "The reading habits assembled across this site, applied as a checklist to any new claim, mechanism or failure in this industry.",
+    "lede": "The useful output of fifteen years of history is a way of reading, not a view.",
+    "angle": "Collects the site's recurring reading rules into one method: identify who holds the assets, ask what is being proved and by whom, distinguish an allegation from a finding, check whether a figure has a method behind it, and ask what would have to be true for the claim to fail. Argue that this method is the only durable takeaway from a history whose specifics keep changing, and that it is deliberately not a way to decide what to do with money. State that explicitly. The piece must not contain any forecast, market view, price expectation or recommendation of any kind, must not name any current project or firm, must not tell a reader whether to participate in anything, and must not be framed as investment or financial guidance.",
+    "pref": [
+      "the-verification-habit",
+      "reading-a-court-record",
+      "what-fifteen-years-established"
+    ]
+  }
+]

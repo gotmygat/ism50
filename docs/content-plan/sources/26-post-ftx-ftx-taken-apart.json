@@ -1,0 +1,206 @@
+[
+  {
+    "slug": "what-the-business-actually-was",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "FTX, taken apart",
+    "title": "Four Businesses, One Group, No Wall Between Them",
+    "seoTitle": "What the Business Actually Was",
+    "description": "An exchange, a broker, a proprietary trading firm and a token issuer inside one group is a structure regulated markets separate deliberately.",
+    "lede": "Every function that regulated markets keep in separate companies was in one group here.",
+    "angle": "Describes the group structure from the public record and maps each function to how it is separated in a regulated market, including who is normally prohibited from trading against customers and why. Argue that the structure alone, without any allegation about conduct, was sufficient to guarantee a conflict, and that its existence was publicly known and treated as unremarkable. Set the frame for the cluster, which is that the structure is the story and the personalities are not. The piece must not describe any charge, plea, trial or verdict, must not characterise any individual, must not state financial figures, and must not assert what anyone knew or intended.",
+    "pref": [
+      "what-an-exchange-actually-is",
+      "the-omnibus-account-problem",
+      "custody-as-a-separate-business"
+    ]
+  },
+  {
+    "slug": "the-affiliated-trading-firm",
+    "era": "postFtx",
+    "kind": "postmortem",
+    "cluster": "FTX, taken apart",
+    "title": "A Venue Trading Against Its Own Customers Is an Old Prohibited Thing",
+    "seoTitle": "Why Venues Cannot Trade Against Customers",
+    "description": "Rules separating market operators from proprietary traders exist because the operator sees the order flow and controls the rules of the venue.",
+    "lede": "The operator knows what everyone is doing, which is exactly why it is not allowed to trade.",
+    "angle": "Follows a structural conflict to its consequences: a venue operator sees pending orders, position data and liquidation levels and sets the rules of the venue, so an affiliated trading firm has advantages no other participant can obtain. Argue that this is why the separation is mandatory in regulated markets rather than a matter of good practice, and that the industry treated its absence as a technicality. Keep the analysis about the structure and its known consequences. The piece must not allege any specific conduct, must not describe any legal proceeding or finding, must not name or characterise individuals, and must not state trading figures.",
+    "pref": [
+      "what-the-business-actually-was",
+      "what-a-pool-operator-controls"
+    ]
+  },
+  {
+    "slug": "the-collateral-that-was-its-own-token",
+    "era": "postFtx",
+    "kind": "postmortem",
+    "cluster": "FTX, taken apart",
+    "title": "A Balance Sheet Supported by an Asset the Group Issued",
+    "seoTitle": "When the Collateral Was Self Issued",
+    "description": "Holding a large position in a thinly traded token you issued means the quoted value and the realisable value are different numbers.",
+    "lede": "A market price for an asset almost nobody trades is not a number you can rely on.",
+    "angle": "Follows a valuation failure to its cause: a large holding of a token with limited float and limited depth cannot be sold at the quoted price, so marking it at market overstates what it could realise. Argue that this is a standard and well understood issue in illiquid securities with established haircut practice, and that the absence of any such discipline here was structural. Connect it directly to the reflexive collateral piece, since this is the same defect at institutional scale. The piece must not state any valuation, holding or price, must not describe any legal finding, must not characterise anyone's intent, and must not name individuals.",
+    "pref": [
+      "reflexive-collateral",
+      "the-affiliated-trading-firm",
+      "order-books-without-market-makers"
+    ]
+  },
+  {
+    "slug": "customer-funds-and-segregation",
+    "era": "postFtx",
+    "kind": "postmortem",
+    "cluster": "FTX, taken apart",
+    "title": "Segregation Is a System, Not a Promise",
+    "seoTitle": "Why Segregation Is a System, Not a Promise",
+    "description": "Keeping customer assets separate requires separate accounts, reconciliation and controls that make commingling detectable, and none of it is automatic.",
+    "lede": "Saying customer assets are segregated means nothing unless something makes commingling impossible to hide.",
+    "angle": "Follows the failure class to its causes: segregation in regulated markets is enforced by separate accounts, daily reconciliation, independent verification and reporting, and a statement of segregation without those mechanisms is an assertion. Argue that the industry adopted the language of segregation without any of the machinery, and that customers had no way to test the claim. Take the position that verifiable segregation was technically achievable throughout and commercially unattractive. The piece must not describe any specific conduct, code path or system at any firm, must not state amounts, must not describe any legal proceeding or finding, and must not characterise individuals.",
+    "pref": [
+      "what-the-business-actually-was",
+      "the-omnibus-account-problem",
+      "what-an-audit-would-have-caught"
+    ]
+  },
+  {
+    "slug": "the-week-it-ended",
+    "era": "postFtx",
+    "kind": "timeline",
+    "cluster": "FTX, taken apart",
+    "title": "The Collapse Took Days and the Public Record Is Unusually Complete",
+    "seoTitle": "The Week It Ended, Sequenced",
+    "description": "Public statements, on chain movements and filings from a very short period make this one of the best documented corporate failures anywhere.",
+    "lede": "Very few corporate failures leave a public record this dense and this fast.",
+    "angle": "Sequences the period strictly from dated public artefacts: published statements, exchange announcements, observable chain movements and the initial filings. Argue that the density of the record is itself historically significant, because a comparable conventional failure would have produced almost none of it in public, and that this creates an unusual opportunity and an unusual temptation to over interpret. Mark clearly where the public record is silent. The piece must not quote any statement without an archived source, must not state balances or flows, must not describe any charge or proceeding, and must not assert what anyone knew at any point.",
+    "pref": [
+      "customer-funds-and-segregation",
+      "who-stopped-withdrawals-and-when",
+      "what-a-run-looks-like-on-chain"
+    ]
+  },
+  {
+    "slug": "the-controls-declaration",
+    "era": "postFtx",
+    "kind": "primarySource",
+    "cluster": "FTX, taken apart",
+    "title": "The Court Filing That Described the Control Environment",
+    "seoTitle": "The Filing That Described the Controls",
+    "description": "A sworn filing by incoming management set out findings about recordkeeping and controls, and it is a far better source than any reporting about it.",
+    "lede": "The most quoted document in this story is a court filing that very few people have read.",
+    "angle": "Built around the filing as a document: who made it, in what capacity, what it states about records, controls and governance, and the important limitation that a filing by one party is an account rather than an adjudicated finding. Argue that reading it directly corrects several widely circulated paraphrases and also shows how much of the popular account rests on this single document. Establish the distinction between a sworn account and a finding as a general reading rule. The piece must not quote the filing without the document in hand, must not state its contents as adjudicated fact, must not describe any charge, plea or verdict, and must not characterise any individual.",
+    "pref": [
+      "the-week-it-ended",
+      "how-to-read-a-regulatory-document",
+      "mt-gox-in-the-bankruptcy-record"
+    ]
+  },
+  {
+    "slug": "the-auditor-question",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "FTX, taken apart",
+    "title": "What an Audit Opinion Covers, and Who It Is For",
+    "seoTitle": "What an Audit Opinion Actually Covers",
+    "description": "An opinion addresses whether statements are fairly presented under a framework, which is narrower than the assurance most readers assume it gives.",
+    "lede": "An audit opinion answers a specific question, and it is not the question most people think.",
+    "angle": "Explains what an audit engagement covers, the scope and materiality concepts involved, who the opinion is addressed to, and what it does not undertake to detect. Argue that the industry's use of an audit as a general trust signal was a misunderstanding that suited everybody, and that the same misunderstanding recurs with attestations and reserve reports. Keep the discussion entirely about the nature of the engagement in general terms. The piece must not name any firm or engagement, must not describe any specific audit or auditor, must not state any accounting or tax treatment, must not give accounting or audit guidance to any reader, and must not allege professional failure by anyone.",
+    "pref": [
+      "attestation-versus-audit",
+      "what-an-audit-would-have-caught",
+      "customer-funds-and-segregation"
+    ]
+  },
+  {
+    "slug": "the-diligence-question",
+    "era": "postFtx",
+    "kind": "profile",
+    "cluster": "FTX, taken apart",
+    "title": "What Investor Diligence Normally Covers, and What It Cannot Reach",
+    "seoTitle": "What Investor Diligence Can and Cannot Reach",
+    "description": "Venture diligence examines what it is given, and a minority investor without board control has limited ability to verify internal controls.",
+    "lede": "Diligence looks at what management provides, which is a real limitation and not a secret one.",
+    "angle": "A profile of the venture investor in this sector: what investment diligence typically covers and its structural limits, reliance on management representations, limited access to systems, and the difference between governance rights and operational visibility. Argue that the retrospective criticism often assumes powers that minority investors do not have, while the fair criticism is about the governance terms accepted rather than about failing to detect anything. Present both carefully. The piece must not name any investor or firm, must not describe any specific investment or its terms, must not allege any breach of duty, must not state amounts, and must not give investment guidance.",
+    "pref": [
+      "the-auditor-question",
+      "what-the-business-actually-was"
+    ]
+  },
+  {
+    "slug": "the-endorsement-question",
+    "era": "postFtx",
+    "kind": "postmortem",
+    "cluster": "FTX, taken apart",
+    "title": "Paid Promotion of Financial Products Has Rules for a Reason",
+    "seoTitle": "Why Paid Financial Promotion Has Rules",
+    "description": "Disclosure requirements for compensated promotion of financial products exist across jurisdictions, and enforcement in this sector arrived late.",
+    "lede": "The requirement to say you were paid is old and was widely treated as optional here.",
+    "angle": "Follows a recurring disclosure failure to the principle it breached, which is that compensated endorsement of a financial product must be disclosed so an audience can weight it. Argue that the sector's promotional culture treated this as a formality and that the eventual attention to it was predictable rather than novel. Keep the discussion entirely at the level of the rule and its rationale. The piece must not name any promoter, celebrity, athlete or public figure, must not describe any specific promotion, must not reference any proceeding or settlement, must not state compensation, and must not characterise anyone.",
+    "pref": [
+      "the-advisor-economy",
+      "disclosure-was-the-actual-issue"
+    ]
+  },
+  {
+    "slug": "what-the-record-establishes",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "FTX, taken apart",
+    "title": "Separating What Is Documented From What Is Widely Believed",
+    "seoTitle": "What the Record Establishes, and What It Does Not",
+    "description": "A great deal of the popular account rests on a small number of documents and a large amount of repetition, and the difference is checkable.",
+    "lede": "Sort the claims by what document supports them and the pile gets much smaller.",
+    "angle": "Takes the widely repeated claims about this collapse and sorts them by evidentiary basis: filings, self published statements, chain data, contemporaneous reporting, and unsourced repetition. Argue that this exercise is the most useful thing a history site can do with a heavily covered event, since narrative is abundant and evidentiary discipline is not. Be explicit about which important claims sit in the weakest category. The piece must not adjudicate any disputed claim, must not describe any charge, plea, verdict or sentence, must not name or characterise individuals, and must not state figures without a cited document.",
+    "pref": [
+      "the-controls-declaration",
+      "the-week-it-ended",
+      "what-we-still-do-not-know"
+    ]
+  },
+  {
+    "slug": "what-remains-unknown-ftx",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "FTX, taken apart",
+    "title": "The Questions the Documents Do Not Answer",
+    "seoTitle": "The Questions the Documents Do Not Answer",
+    "description": "Several central questions about how this operated remain outside the public record, and listing them is more honest than another confident retelling.",
+    "lede": "The confident accounts all stop at the same place, which is where the documents stop.",
+    "angle": "Enumerates what remains outside the public record: internal decision making, the sequence by which arrangements developed, and the completeness of the reconstructed records themselves. Argue that a history site adds more by mapping the boundary of the known than by joining the many attempts to narrate across it. Note that some of these questions may be answered later and that the piece should be written so that a future update is an addition rather than a correction. The piece must not speculate about any unanswered question, must not name or characterise individuals, must not describe any legal proceeding, and must not present any account as likely.",
+    "pref": [
+      "what-the-record-establishes",
+      "what-we-still-do-not-know"
+    ]
+  },
+  {
+    "slug": "what-changed-because-of-it",
+    "era": "postFtx",
+    "kind": "timeline",
+    "cluster": "FTX, taken apart",
+    "title": "The Practices That Exist Now Because of This",
+    "seoTitle": "What Changed Across the Industry Afterwards",
+    "description": "Reserve publication, custody separation, supervisory attention and institutional caution all moved after this, in ways that can be described structurally.",
+    "lede": "The industry changed several practices quickly, and it is worth checking which ones were the important ones.",
+    "angle": "Sequences the structural changes that followed and assesses which addressed the actual failure mechanisms and which were visible gestures. Argue that the pattern established after the first great exchange failure repeated exactly: the industry adopted the demonstrable measures and left the structural one, bundled custody and trading, only partially addressed. Draw the parallel explicitly across a decade. The piece must not name firms or their current practices, must not claim any regulation was enacted in response without a source, must not state figures, and must not present any current arrangement as safe.",
+    "pref": [
+      "what-mt-gox-changed",
+      "custody-as-a-separate-business",
+      "what-the-record-establishes"
+    ]
+  },
+  {
+    "slug": "the-comparison-that-actually-holds",
+    "era": "postFtx",
+    "kind": "explainer",
+    "cluster": "FTX, taken apart",
+    "title": "The Useful Comparison Is Not the One Everybody Reaches For",
+    "seoTitle": "The Historical Comparison That Actually Holds",
+    "description": "Comparisons to famous frauds are popular and mostly unhelpful, while the comparison to earlier crypto custody failures is exact and instructive.",
+    "lede": "The comparison that teaches you something is the one to the last time this happened in the same industry.",
+    "angle": "Argues that the widely used comparisons to famous financial frauds obscure more than they reveal, because the mechanisms differ, and that the precise comparison is to the earlier custody failures documented elsewhere on this site. Show the shared mechanism, an intermediary holding customer assets without verifiable segregation, and the shared aftermath, a long insolvency and partial recovery. Commit to the position that the industry's failure to treat its own history as evidence is the deepest problem the site has identified. The piece must not describe any legal characterisation of any event, must not name or characterise individuals, must not state amounts, and must not assert intent.",
+    "pref": [
+      "what-changed-because-of-it",
+      "the-cost-of-getting-custody-wrong",
+      "what-mt-gox-changed"
+    ]
+  }
+]

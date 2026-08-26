@@ -1,0 +1,202 @@
+[
+  {
+    "slug": "what-the-dao-actually-was",
+    "era": "icoEra",
+    "kind": "explainer",
+    "cluster": "The DAO and the fork",
+    "title": "It Was an Investment Club With No Managers and a Withdrawal Mechanism",
+    "seoTitle": "What The DAO Actually Was",
+    "description": "Stripped of the rhetoric, it pooled contributions, let holders vote on proposals and included a complicated mechanism for leaving.",
+    "lede": "The structure was a pooled fund governed by token holders, with an exit mechanism that turned out to matter more than anything else.",
+    "angle": "Describes the actual construction: contributions in exchange for governance tokens, proposals voted on by holders, and a splitting mechanism that let a dissenting minority leave with their share. Argue that the splitting mechanism is the part worth understanding, since it is both the most interesting governance idea in the design and the location of the failure. Establish that the ambition was genuine and widely admired at the time, because the retrospective consensus that it was obviously doomed is hindsight. The piece must not state the amount raised or the number of participants without a verified source, must not name individual contributors, and must not characterise anyone's intent.",
+    "pref": [
+      "the-evm-explained",
+      "smart-contracts-before-blockchains",
+      "the-ether-presale"
+    ]
+  },
+  {
+    "slug": "code-is-law-as-a-claim",
+    "era": "icoEra",
+    "kind": "primarySource",
+    "cluster": "The DAO and the fork",
+    "title": "The Terms Said the Code Was the Agreement, in Writing",
+    "seoTitle": "The Claim That the Code Was the Agreement",
+    "description": "Published terms stated that the deployed code governed the arrangement and that other descriptions were merely explanatory, and then it was tested.",
+    "lede": "The published terms said explicitly that the code was the contract, which is a bold thing to write down before an audit.",
+    "angle": "Built around the published terms and explanatory materials as artefacts, reading what they actually claimed about the relationship between the code and any other description of the arrangement. Argue that this is the highest quality primary source available on the code is law position, because it is a real contractual assertion rather than a slogan, and the events that followed are the closest thing to a test anyone has run. Handle the outcome with care, since what happened next is contested in its meaning rather than in its facts. The piece must not state whether the terms would be legally enforceable anywhere, must not give any reader legal guidance, and must not quote the terms without the archived document in hand.",
+    "pref": [
+      "what-the-dao-actually-was",
+      "smart-contracts-before-blockchains"
+    ]
+  },
+  {
+    "slug": "the-reentrancy-bug",
+    "era": "icoEra",
+    "kind": "explainer",
+    "cluster": "The DAO and the fork",
+    "title": "Reentrancy, Explained by What the Contract Assumed",
+    "seoTitle": "Reentrancy, Explained Without the Code",
+    "description": "The bug class turns on a contract updating its records after it hands control away, and it has never stopped appearing.",
+    "lede": "The mistake is doing the paperwork after you hand over the money, and it is easy to make.",
+    "angle": "Makes the mechanism comprehensible without exploitable detail: a contract sends value to another contract, that call can run code, and if the sender has not yet updated its own accounting the call can come back in and be served again. Argue that the underlying error is an ordering assumption that is invisible in ordinary programming because ordinary programs do not hand control to an adversary mid transaction. Note honestly that the bug class had been described publicly before the incident and that the warning existed and was not acted on. The piece must not include working exploit code or a step by step method, must not name individual auditors or developers as at fault, and must not present any mitigation as complete.",
+    "pref": [
+      "the-language-choice",
+      "what-the-dao-actually-was"
+    ]
+  },
+  {
+    "slug": "the-drain-and-the-week-after",
+    "era": "icoEra",
+    "kind": "timeline",
+    "cluster": "The DAO and the fork",
+    "title": "The Week Between the Drain and the Decision",
+    "seoTitle": "The Week Between the DAO Drain and the Fork",
+    "description": "A sequenced account of the public events between funds beginning to move and the community settling on a response.",
+    "lede": "The most consequential week in the network's history was conducted almost entirely in public, in real time.",
+    "angle": "Sequences the public record: the observation that funds were moving, the delay imposed by the splitting mechanism itself, the proposals floated, the counter proposals, and the narrowing to a decision. Argue that the unusual feature is the delay, since the exit mechanism's own waiting period gave the community a window that almost no financial failure ever gets, and the way that window was used is the actual subject. Note the appearance of a public message claiming to be from the party moving funds and treat its authenticity as unestablished. The piece must not treat any anonymous message as authentic, must not identify the party involved, must not state amounts without a chain verified source, and must not characterise anyone's conduct as criminal.",
+    "pref": [
+      "the-reentrancy-bug",
+      "code-is-law-as-a-claim"
+    ]
+  },
+  {
+    "slug": "the-carbon-vote",
+    "era": "icoEra",
+    "kind": "primarySource",
+    "cluster": "The DAO and the fork",
+    "title": "The Vote That Was Held, and What It Actually Measured",
+    "seoTitle": "The Carbon Vote and What It Measured",
+    "description": "A rapidly built holder poll was used to gauge sentiment before the fork, and its methodology has been argued about ever since.",
+    "lede": "A poll assembled in days became the closest thing to a mandate, which is worth examining rather than repeating.",
+    "angle": "Built around the vote as an artefact: how it worked, what unit it weighted by, what participation it attracted, and therefore what population it actually sampled. Argue that it is the first significant instance of a pattern this site returns to constantly, in which a hastily built measurement becomes the legitimising evidence for a decision that was going to be made anyway. Present the critiques fairly, including that holdings weighted voting measures stake and not agreement. The piece must not state participation figures or results without a source, must not describe the vote as binding or as a mandate, and must not claim it did or did not represent the community.",
+    "pref": [
+      "the-drain-and-the-week-after",
+      "rough-consensus-and-running-code"
+    ]
+  },
+  {
+    "slug": "the-fork-decision",
+    "era": "icoEra",
+    "kind": "postmortem",
+    "cluster": "The DAO and the fork",
+    "title": "How a Network With No Decision Procedure Made the Biggest Decision",
+    "seoTitle": "How the Fork Decision Was Actually Made",
+    "description": "There was no mechanism for deciding this, so one was improvised in days out of clients, miners, exchanges and public argument.",
+    "lede": "Nobody had the authority to make the call, and the call was made anyway, which is worth explaining carefully.",
+    "angle": "Follows the decision to its causes: who wrote the code, who released it, who ran it, who chose to point their hash rate at it, and which exchanges assigned which ticker to which chain. Argue that the exchanges' ticker decision was as decisive as any technical step and that this is almost never included in accounts of the fork. Take the position that the episode revealed the real governance of the system, which is a coalition of client maintainers, large miners and large venues, and that this has not changed. The piece must not describe the decision as legitimate or illegitimate, must not name individuals as responsible, must not state vote or hash rate figures without sources, and must not present the outcome as inevitable.",
+    "pref": [
+      "the-carbon-vote",
+      "the-drain-and-the-week-after",
+      "what-a-hard-fork-actually-is"
+    ]
+  },
+  {
+    "slug": "the-minority-chain",
+    "era": "icoEra",
+    "kind": "timeline",
+    "cluster": "The DAO and the fork",
+    "title": "The Chain That Did Not Fork Kept Running, Which Surprised Nearly Everyone",
+    "seoTitle": "The Minority Chain That Kept Running",
+    "description": "The unmodified chain was expected to die within weeks and did not, establishing that a minority chain can persist indefinitely.",
+    "lede": "The assumption was that the old chain would be abandoned in days, and it simply was not.",
+    "angle": "Sequences what happened to the unforked chain: continued mining, exchange listings, a distinct community, and the establishment of a durable second asset. Argue that this outcome permanently changed how every later fork was understood, because it proved that a split produces two assets rather than one winner and turned forking into an economic event with its own incentives. Note the practical chaos that followed, including replay issues and the confusion over which chain any given tool was talking to. The piece must not state market values or hash rate for either chain, must not describe either chain as the legitimate one, and must not characterise either community.",
+    "pref": [
+      "the-fork-decision",
+      "what-a-hard-fork-actually-is"
+    ]
+  },
+  {
+    "slug": "replay-and-split-mechanics",
+    "era": "icoEra",
+    "kind": "explainer",
+    "cluster": "The DAO and the fork",
+    "title": "After a Split, Your Transaction Can Happen Twice",
+    "seoTitle": "Replay Attacks After a Chain Split",
+    "description": "A transaction valid on both chains can be rebroadcast on the other one, and the fixes for this were retrofitted rather than designed.",
+    "lede": "If the two chains accept the same signed transaction, sending on one can move funds on both.",
+    "angle": "Explains the mechanism plainly and then explains the class of fixes, which is to make the two chains reject each other's transactions by including a chain identifier in what gets signed. Argue that the retrofitting is the historically interesting part, since the need was obvious in advance to anyone who thought about it and was addressed only under pressure. Note that later splits handled this with varying competence and that the variation is a useful measure of preparation. The piece must not give operational instructions relevant to any split, must not state losses attributed to replay, and must not claim any specific split had or lacked protection without checking.",
+    "pref": [
+      "the-minority-chain",
+      "what-a-hard-fork-actually-is"
+    ]
+  },
+  {
+    "slug": "code-is-law-after-the-fork",
+    "era": "icoEra",
+    "kind": "explainer",
+    "cluster": "The DAO and the fork",
+    "title": "What Survived of Code Is Law, and What Replaced It",
+    "seoTitle": "What Survived of Code Is Law",
+    "description": "The strong version of the claim did not survive the fork, and the weaker versions that replaced it are rarely stated as clearly.",
+    "lede": "The absolute version of the claim was tested once and abandoned, and nothing precise took its place.",
+    "angle": "Traces the position before and after: an absolute claim that deployed code defines the arrangement, followed by a range of weaker claims about defaults, expectations and the cost of intervention. Argue that the weaker versions are actually more defensible and much less useful for marketing, which is why they were adopted quietly rather than announced. Commit to a position that the honest formulation is that intervention is possible, expensive and socially constrained, and that saying so is stronger than pretending it is impossible. The piece must not claim the fork proved the claim false as a matter of law, must not offer any view on contract enforceability, and must not characterise either camp's arguments as bad faith.",
+    "pref": [
+      "code-is-law-as-a-claim",
+      "the-fork-decision",
+      "the-value-overflow-incident"
+    ]
+  },
+  {
+    "slug": "the-regulatory-report-that-followed",
+    "era": "icoEra",
+    "kind": "primarySource",
+    "cluster": "The DAO and the fork",
+    "title": "A Regulator Published an Analysis of the Whole Arrangement",
+    "seoTitle": "The Regulatory Report on The DAO",
+    "description": "An investigative report set out how existing securities analysis applied to a token sale, and it functioned as the industry's first clear notice.",
+    "lede": "The report answered a question the industry had been carefully not asking.",
+    "angle": "Built around the report as a document: what it examined, what analytical framework it applied, what conclusion it stated and, importantly, what action it did and did not take. Argue that its significance is as notice rather than as enforcement, since it told every subsequent project what analysis to expect while leaving the outcome of any particular case open. Note that a great deal of subsequent industry structuring was designed around this document, which makes reading it directly more useful than reading commentary about it. The piece must not summarise the report's conclusions without the document in hand, must not state that any specific token is or is not a security, must not offer legal guidance, and must not describe the current position of any regulator.",
+    "pref": [
+      "what-the-dao-actually-was",
+      "the-ether-presale"
+    ]
+  },
+  {
+    "slug": "the-audit-industry-that-followed",
+    "era": "icoEra",
+    "kind": "profile",
+    "cluster": "The DAO and the fork",
+    "title": "An Entire Security Industry Grew Out of One Bug",
+    "seoTitle": "The Audit Industry That Grew From One Bug",
+    "description": "Contract auditing became a profession in the years after, along with the recurring question of what an audit actually promises.",
+    "lede": "The industry that reviews contract code exists because of one very expensive ordering mistake.",
+    "angle": "A profile of the contract auditor as a new profession: the first firms, the standardisation of report formats, the bug bounty norms, and the persistent gap between what buyers think an audit certifies and what the reports actually say. Argue that the audit became a marketing artefact faster than it became a control, which is why audited contracts kept failing throughout the next era. Take a clear position that a time boxed review of a codebase is a useful input and never a guarantee, and that the industry's language obscured this deliberately. The piece must not name firms, must not describe any specific audit as good or bad, must not state failure rates, and must not present any audited system as safe.",
+    "pref": [
+      "the-reentrancy-bug",
+      "the-language-choice"
+    ]
+  },
+  {
+    "slug": "what-the-fork-precedent-established",
+    "era": "icoEra",
+    "kind": "explainer",
+    "cluster": "The DAO and the fork",
+    "title": "The Precedent Was Not About Refunds, It Was About Who Can Act",
+    "seoTitle": "The Real Precedent Set by the DAO Fork",
+    "description": "The lasting consequence is a demonstrated procedure for intervention, and every later crisis has been argued against that template.",
+    "lede": "The fork established that intervention is available, which changed every subsequent argument about whether to use it.",
+    "angle": "Argues that the precedent people cite, that losses can be reversed, is the less important one, and that the durable precedent is procedural: a coalition of maintainers, miners and venues can change the rules in days when sufficiently motivated. Show how this template has been invoked and declined in later incidents, and that the declining is as informative as the doing. Connect back to the value overflow incident to establish that this was a rediscovery rather than an invention. The piece must not claim any specific later incident should or should not have been reversed, must not describe any current network's willingness to intervene, and must not present intervention as available to any reader.",
+    "pref": [
+      "the-fork-decision",
+      "code-is-law-after-the-fork",
+      "the-value-overflow-incident"
+    ]
+  },
+  {
+    "slug": "what-remains-disputed-about-the-dao",
+    "era": "icoEra",
+    "kind": "explainer",
+    "cluster": "The DAO and the fork",
+    "title": "The Facts Are Settled and the Meaning Is Not",
+    "seoTitle": "What Is Still Disputed About The DAO",
+    "description": "Almost every factual question here is answerable from the chain, and almost every interpretive question is still actively argued.",
+    "lede": "This is the rare episode where the record is clear and the argument is permanent.",
+    "angle": "Separates the settled from the contested: the chain records what moved and when, the archives record what was said, and the disputes are about whether the intervention was correct, what it implies about immutability, and whether the exit mechanism's use was an exploit or a permitted action. Argue that this last question is genuinely open and that both readings are defensible from the published terms. Commit to a position on method rather than on outcome: a history site should describe the disagreement precisely and refuse to resolve what the participants have not. The piece must not characterise the party who moved the funds, must not describe any legal proceeding, must not pick a side on the exploit question, and must not present community consensus where none exists.",
+    "pref": [
+      "code-is-law-after-the-fork",
+      "the-drain-and-the-week-after",
+      "what-the-fork-precedent-established"
+    ]
+  }
+]
