@@ -1,0 +1,28 @@
+---
+/**
+ * The datum line: a rule with a reading on it.
+ *
+ * Used as the divider between the major regions of a page. It is the site's one
+ * piece of pure iconography and it earns its place by doing a job a heading does
+ * badly: on a document with long unbroken passages it tells a reader where one
+ * claim ends and the next begins, without pretending to be a section title.
+ *
+ * The `reading` defaults to 50 because 50 is the line. A page that genuinely
+ * needs a different figure can pass one, but nothing does yet, and a figure
+ * invented to look interesting would be exactly the kind of decoration this
+ * site refuses elsewhere.
+ */
+interface Props {
+  /** The mono figure sitting on the rule. */
+  reading?: string;
+  /** Small uppercase text after the figure. */
+  label?: string;
+}
+const { reading = "50", label } = Astro.props;
+---
+
+<div class="datum" role="separator" aria-hidden="true">
+  <span class="datum__reading">{reading}</span>
+  {label && <span class="datum__label">{label}</span>}
+  <span class="datum__scale"></span>
+</div>

@@ -1,0 +1,30 @@
+---
+/**
+ * The wordmark.
+ *
+ * `ISM` then a short rule then `50`. The rule is the index scale and the figure
+ * is the reading at the end of it, which is the whole idea of the site rendered
+ * as three objects: a name, a line, and a number sitting on it.
+ *
+ * IT SCALES BY FONT SIZE ALONE. The rule is sized in `em`, so the mark holds its
+ * proportions from the 1.18rem header to the 2rem footer with no second
+ * stylesheet and no second SVG. A wordmark that needs a different file per size
+ * is a wordmark that will be wrong at one of them.
+ *
+ * `aria-label` carries the name as one string, because a screen reader
+ * encountering "ISM" and "50" as separate text nodes with a decorative rule
+ * between them announces two things rather than one.
+ */
+interface Props {
+  /** Rendered as a link on every page except the one it points at. */
+  href?: string | null;
+}
+const { href = "/" } = Astro.props;
+const Tag = href ? "a" : "span";
+---
+
+<Tag class="wordmark" {...(href ? { href } : {})} aria-label="ISM50">
+  <span aria-hidden="true">ISM</span>
+  <span class="wordmark__scale" aria-hidden="true"></span>
+  <span class="wordmark__reading" aria-hidden="true">50</span>
+</Tag>

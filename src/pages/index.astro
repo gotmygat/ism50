@@ -1,0 +1,202 @@
+---
+/**
+ * The home page.
+ *
+ * ITS CLAIM IS THE THESIS, NOT THE NEWEST PIECE. That ordering decision is why
+ * the recent-articles strip near the bottom carries `data-lastmod-rail` and the
+ * era table does not: this page's most prominent block is structural and stable,
+ * so its sitemap `lastmod` should not move every single publishing day for a
+ * year. See scripts/sitemap-lastmod.mjs, which explains where this site
+ * deliberately differs from kna-group.com on exactly that point.
+ *
+ * NOTHING HERE IS CENTRED AND NOTHING IS A CARD. The page reads down a left edge
+ * like an index report, with the datum rule marking each region.
+ */
+import Base from "../layouts/Base.astro";
+import Datum from "../components/Datum.astro";
+import ArticleRow from "../components/ArticleRow.astro";
+import { site } from "../lib/site";
+import { routeMeta } from "../lib/seo";
+import { getArticles } from "../lib/collections";
+import { ERA_ORDER, ERAS } from "../lib/eras";
+
+const articles = await getArticles();
+const recent = articles.slice(0, 6);
+
+/** Live pieces per era, so the table can say how much of each is written. */
+const counts = new Map(
+  ERA_ORDER.map((era) => [era, articles.filter((a) => a.data.era === era).length])
+);
+
+const DIRECTION_LABEL = {
+  expansion: "Expanding",
+  contraction: "Contracting",
+  mixed: "Both at once",
+} as const;
+---
+
+<Base {...routeMeta.home}>
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">
+        <span class="eyebrow__num">00</span>
+        <span>A diffusion index of fifteen years</span>
+      </p>
+
+      <h1 style="max-width: 18ch;">Crypto history, above and below the line.</h1>
+
+      <p class="page-head__lede" style="max-width: 62ch;">{site.heroLede}</p>
+    </div>
+  </section>
+
+  <section class="section--tight">
+    <div class="container">
+      <Datum label="The line" />
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: var(--space-6);">
+        <p>
+          A purchasing managers' index is not a price. It is a count of how many
+          respondents said a thing got better rather than worse, and fifty is the
+          point where those two groups are the same size. Above it the thing is
+          expanding. Below it the thing is contracting. The number itself carries
+          no information about size, only about direction.
+        </p>
+        <p>
+          That is the most useful lens anyone has for crypto, and almost nobody
+          uses it. Capital, attention, credit, belief, users, developers and
+          regulation have each crossed that line more than once since 2008, in
+          both directions, and the crossings rarely happened at the same time as
+          each other or at the same time as the price.
+        </p>
+        <p>
+          So every piece on this site is written to answer three questions. What
+          was expanding. What was contracting. And who, at the time, could
+          actually tell. The third one is usually the interesting one, because the
+          answer is normally that almost nobody could, including the people whose
+          later accounts say they did.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <Datum label="Six crossings" />
+
+      <p class="eyebrow">
+        <span class="eyebrow__num">01</span>
+        <span>The eras, and what defines each one</span>
+      </p>
+
+      <p style="max-width: 60ch; margin-bottom: var(--space-6); color: var(--ink-soft);">
+        The spans below are approximate and say so. Era boundaries in crypto are
+        contested, most of the confident ones were drawn after the fact by
+        whoever was writing the retrospective, and this site does not state a
+        contested boundary as a fact. What defines a period here is what was
+        happening in it.
+      </p>
+
+      <div class="era-table">
+        {
+          ERA_ORDER.map((era) => {
+            const copy = ERAS[era];
+            const count = counts.get(era) ?? 0;
+            return (
+              <div class="era-row">
+                <div>
+                  <p class="era-row__name">{copy.label}</p>
+                  <p class="era-row__direction">
+                    <span class={`chip chip--${copy.direction}`}>
+                      {DIRECTION_LABEL[copy.direction]}
+                    </span>
+                  </p>
+                </div>
+                <p class="era-row__span">roughly {copy.span}</p>
+                <div>
+                  <p class="era-row__summary">{copy.summary}</p>
+                  <p class="era-row__span" style="margin-top: var(--space-3);">
+                    {count === 0 ? "nothing published yet" : count === 1 ? "1 piece" : `${count} pieces`}
+                  </p>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  {
+    /* `data-lastmod-rail` is read by scripts/sitemap-lastmod.mjs, which hashes
+       each page's rendered output to decide whether its sitemap `lastmod` moves
+       and skips every element carrying this attribute.
+
+       This strip changes on every publishing day, and this page's actual claim
+       is the thesis above it rather than the newest piece below it. Hashed, the
+       home page would report a modification every morning for a year, which
+       teaches a crawler that this host's `lastmod` is a build clock and to stop
+       reading the field at all. The /articles/ index is where a new piece
+       legitimately changes the document, and that page is not marked. */
+    recent.length > 0 && (
+      <section class="section" data-lastmod-rail>
+        <div class="container">
+          <Datum label="Most recent" />
+          <p class="eyebrow">
+            <span class="eyebrow__num">02</span>
+            <span>Recently published</span>
+          </p>
+          <div class="rows">
+            {recent.map((article) => (
+              <ArticleRow article={article} />
+            ))}
+          </div>
+          <p style="margin-top: var(--space-5);">
+            <a href="/articles/">Every piece, grouped by era</a>
+          </p>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="section">
+    <div class="container">
+      <Datum label="Standing rules" />
+
+      <p class="eyebrow">
+        <span class="eyebrow__num">03</span>
+        <span>What this site does not do</span>
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: var(--space-6); max-width: 68rem;">
+        <div>
+          <h3>It quotes no price.</h3>
+          <p style="margin-top: var(--space-3); color: var(--ink-soft);">
+            Not a market capitalisation, not a valuation, not a figure for what
+            anything was worth on a given afternoon. The history is what happened
+            and what the record says; a chart is a different site.
+          </p>
+        </div>
+        <div>
+          <h3>It makes no forecast.</h3>
+          <p style="margin-top: var(--space-3); color: var(--ink-soft);">
+            No target, no view on what is cheap, no prediction. Everything here is
+            written with hindsight the people involved did not have, which is a
+            reason for humility rather than a licence to extend the line.
+          </p>
+        </div>
+        <div>
+          <h3>It invents nothing.</h3>
+          <p style="margin-top: var(--space-3); color: var(--ink-soft);">
+            No date, no quote and no claim about what a named person said, unless
+            it is verifiable. Where a claim is contested the contest is named.
+            Where a source is dead the piece says so, and says what it said.
+          </p>
+        </div>
+      </div>
+
+      <p style="margin-top: var(--space-6);">
+        <a href="/about/">Why a tax and financial consultant writes this</a>
+      </p>
+    </div>
+  </section>
+</Base>

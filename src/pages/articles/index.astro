@@ -1,0 +1,106 @@
+---
+/**
+ * The article index.
+ *
+ * GROUPED BY ERA, NOT REVERSE CHRONOLOGICAL, and that is the one structural
+ * decision on this page. A reverse-chronological list of a history site is a
+ * list ordered by when the WRITER got to a subject, which tells a reader nothing
+ * about the subject. Grouped by era it is a table of contents for the argument.
+ * The rows inside each era are still newest first, so a returning reader finds
+ * what is new without hunting.
+ *
+ * THIS PAGE IS NOT MARKED `data-lastmod-rail`. Unlike the rails on the home page
+ * and at the foot of an article, the list here IS the document: adding a piece
+ * to it is a real change, and this is the one URL on the site that should report
+ * a modification on a publishing day.
+ */
+import Base from "../../layouts/Base.astro";
+import Datum from "../../components/Datum.astro";
+import ArticleRow from "../../components/ArticleRow.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { routeMeta } from "../../lib/seo";
+import { getArticles, getArticlesByEra, KIND_LABEL } from "../../lib/collections";
+import { ERAS } from "../../lib/eras";
+
+const all = await getArticles();
+const groups = await getArticlesByEra();
+const trail = [{ label: "Articles", href: "/articles/" }];
+
+const KIND_NOTE: Record<keyof typeof KIND_LABEL, string> = {
+  timeline: "what happened, in order, with dates that can be checked",
+  postmortem: "something failed, and what the record shows about why",
+  explainer: "a mechanism, explained so it is still true in three years",
+  primarySource: "one document, read closely and located",
+  profile: "a person or an organisation, and what they actually did",
+};
+---
+
+<Base {...routeMeta.articles} pageTypes={["CollectionPage"]} breadcrumbs={trail}>
+  <Breadcrumbs trail={trail} />
+
+  <header class="page-head">
+    <div class="container">
+      <p class="eyebrow">
+        <span class="eyebrow__num">{String(all.length).padStart(2, "0")}</span>
+        <span>{all.length === 1 ? "piece published" : "pieces published"}</span>
+      </p>
+      <h1>Fifteen years, piece by piece.</h1>
+      <p class="page-head__lede">
+        Grouped by era rather than by date, because a list ordered by when the
+        writer got to a subject tells you nothing about the subject.
+      </p>
+    </div>
+  </header>
+
+  <section class="section--tight">
+    <div class="container">
+      <Datum label="Five kinds" />
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: var(--space-5); max-width: 68rem;">
+        {
+          (Object.keys(KIND_LABEL) as (keyof typeof KIND_LABEL)[]).map((kind) => (
+            <div>
+              <p><span class="chip">{KIND_LABEL[kind]}</span></p>
+              <p style="margin-top: var(--space-3); font-size: var(--step--1); color: var(--ink-soft);">
+                {KIND_NOTE[kind]}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {
+    groups.length === 0 ? (
+      <section class="section">
+        <div class="container">
+          <p class="empty">Nothing has published yet. The first piece appears on its date.</p>
+        </div>
+      </section>
+    ) : (
+      groups.map((group, index) => {
+        const copy = ERAS[group.era];
+        return (
+          <section class="section--tight">
+            <div class="container">
+              <Datum label={copy.label} />
+              <p class="eyebrow">
+                <span class="eyebrow__num">{String(index + 1).padStart(2, "0")}</span>
+                <span>roughly {copy.span}</span>
+              </p>
+              <h2 style="max-width: 20ch;">{copy.label}</h2>
+              <p style="margin-top: var(--space-4); margin-bottom: var(--space-6); max-width: 62ch; color: var(--ink-soft);">
+                {copy.summary}
+              </p>
+              <div class="rows">
+                {group.articles.map((article) => (
+                  <ArticleRow article={article} showEra={false} />
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      })
+    )
+  }
+</Base>

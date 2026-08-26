@@ -1,0 +1,170 @@
+/* =========================================================================
+   ISM50 DESIGN TOKENS
+   =========================================================================
+
+   THE IDEA THE WHOLE THING IS BUILT FROM.
+
+   Fifty is the line. Above it a diffusion index says the thing is expanding,
+   below it the thing is contracting, and the number itself is not a value so
+   much as a threshold. Fifteen years of crypto is a sequence of things crossing
+   that line in both directions, and the point of the site is that almost nobody
+   living through a crossing could tell which side they had just landed on.
+
+   So the interface is an index report crossed with an archive. Not a magazine,
+   not a trading screen, not a brand site. Hairline rules, square corners,
+   tabular figures, a visible datum, and a monospace layer that carries the
+   record: dates, era labels, kinds, block heights, counts. Nothing is rounded,
+   nothing is centred, nothing has a soft shadow, and there is no gradient
+   anywhere in the build.
+
+   WHAT THE TWO ACCENTS MEAN, BECAUSE AN ACCENT THAT MEANS NOTHING IS DECORATION.
+
+   `--expansion` and `--contraction` are the two directions the index can point,
+   and they are used for exactly two things:
+
+     --expansion    forward motion. Links, the reader going deeper, the current
+                    item, the datum tick.
+     --contraction  the things this site is honest about. A contested claim, a
+                    dead source, a correction, a caveat. That is the editorial
+                    promise made visible: where a claim is contested, name the
+                    contest; where a source is dead, say so and say what it said.
+
+   They are DELIBERATELY NOT green and red. Green and red on a page about crypto
+   reads as a price ticker, which invites exactly the reading this site refuses
+   to offer, and this site publishes no prices and no view on what anything is
+   worth. Ultramarine and iron oxide are archival printing colours; they carry
+   direction without carrying a recommendation.
+
+   THEMING, DONE THE WAY IT HAS TO BE DONE.
+
+   The COMPLETE light palette is defined on bare `:root`. Every token has its
+   only unconditional definition there, so no colour depends on a media query
+   having matched or an attribute having been set. The dark palette then
+   REDEFINES the same names twice, and both blocks are required:
+
+     @media (prefers-color-scheme: dark) with :root:not([data-theme="light"])
+        covers the reader whose device is dark and who has expressed no
+        preference here, and steps aside the moment they choose light.
+
+     :root[data-theme="dark"]
+        covers the reader who chose dark on a light device. Without it the
+        toggle only works in one direction, which is the usual bug.
+
+   `body` gets an explicit token background. A transparent body borrows whatever
+   the host is painting behind it, which is how a dark page ends up with a white
+   flash at the bottom of a short document.
+   ========================================================================= */
+
+:root {
+  color-scheme: light dark;
+
+  /* -- ground ------------------------------------------------------------ */
+  /* A cool grey paper, not cream. Cream plus a serif plus a warm accent is the
+     look every generated site arrives wearing, and this one is a cold document
+     rather than a warm one. */
+  --ground: #e7eaee;
+  --surface: #fbfcfd;
+  --surface-sunk: #dde2e8;
+
+  /* -- ink --------------------------------------------------------------- */
+  --ink: #10141c;
+  --ink-soft: #4d5766;
+  --ink-faint: #7b8698;
+
+  /* -- rules ------------------------------------------------------------- */
+  /* Two weights only. A hairline for structure inside a block, and a heavier
+     rule for the datum and for the top of a major section. */
+  --rule: #c6ccd6;
+  --rule-strong: #10141c;
+
+  /* -- direction --------------------------------------------------------- */
+  --expansion: #1f3fd0;
+  --expansion-quiet: #d6dcf6;
+  --contraction: #a33a10;
+  --contraction-quiet: #f2ddd2;
+
+  /* -- focus ------------------------------------------------------------- */
+  --focus: #1f3fd0;
+
+  /* -- type -------------------------------------------------------------- */
+  /* The three families come from astro.config.mjs, which downloads, subsets and
+     self hosts them at build time. The variables it defines are the *-family
+     names; the stacks below are what components actually reference. */
+  --font-display: var(--font-display-family), "Helvetica Neue", Arial, sans-serif;
+  --font-body: var(--font-body-family), Charter, Georgia, serif;
+  --font-mono: var(--font-mono-family), Menlo, Consolas, monospace;
+
+  --step--1: clamp(0.82rem, 0.8rem + 0.1vw, 0.87rem);
+  --step-0: clamp(1rem, 0.97rem + 0.15vw, 1.08rem);
+  --step-1: clamp(1.18rem, 1.1rem + 0.4vw, 1.35rem);
+  --step-2: clamp(1.42rem, 1.28rem + 0.7vw, 1.75rem);
+  --step-3: clamp(1.72rem, 1.45rem + 1.35vw, 2.4rem);
+  --step-4: clamp(2.05rem, 1.55rem + 2.5vw, 3.4rem);
+
+  /* The label size. Mono, uppercase, wide. Used for every chip and eyebrow. */
+  --step-label: 0.7rem;
+
+  /* -- space ------------------------------------------------------------- */
+  /* A 4px base, because a ruled layout lives or dies on rules landing on the
+     same grid. */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: 6.5rem;
+
+  /* -- measure ----------------------------------------------------------- */
+  --measure: 68ch;
+  --container: 74rem;
+  --container-narrow: 44rem;
+}
+
+/* Dark, for a dark device with no explicit choice on this site. Guarded so a
+   reader who has chosen light on a dark device keeps light. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #0b0e14;
+    --surface: #131821;
+    --surface-sunk: #070a0f;
+
+    --ink: #e2e7ef;
+    --ink-soft: #9aa5b6;
+    --ink-faint: #6d798c;
+
+    --rule: #262e3b;
+    --rule-strong: #e2e7ef;
+
+    --expansion: #7f9dff;
+    --expansion-quiet: #1a2440;
+    --contraction: #e2915b;
+    --contraction-quiet: #2e1e14;
+
+    --focus: #7f9dff;
+  }
+}
+
+/* Dark, chosen explicitly. Required as well as the block above: without it the
+   toggle moves a light-device reader to dark and nothing happens. */
+:root[data-theme="dark"] {
+  --ground: #0b0e14;
+  --surface: #131821;
+  --surface-sunk: #070a0f;
+
+  --ink: #e2e7ef;
+  --ink-soft: #9aa5b6;
+  --ink-faint: #6d798c;
+
+  --rule: #262e3b;
+  --rule-strong: #e2e7ef;
+
+  --expansion: #7f9dff;
+  --expansion-quiet: #1a2440;
+  --contraction: #e2915b;
+  --contraction-quiet: #2e1e14;
+
+  --focus: #7f9dff;
+}

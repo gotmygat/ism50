@@ -1,0 +1,812 @@
+/* =========================================================================
+   ISM50 COMPONENTS
+
+   Every class here exists because more than one template needs it. Anything
+   used once lives in the template that uses it.
+
+   THE VOCABULARY, so a new page can be built without inventing a new one:
+
+     .datum          the signature device. A rule with the reading on it.
+     .chip           a mono, uppercase label. Era, kind, count.
+     .row            a ruled record. The index is rows, not cards.
+     .block          a ruled region with a mono eyebrow above it.
+     .prose          the reading treatment for MDX bodies.
+     .note           the contraction accent, for a caveat or a dead source.
+
+   THERE ARE NO CARDS AND NO SHADOWS. A card with a rounded corner and an accent
+   rail down its left edge is what a generated site looks like. This one is a
+   printed index: rules, columns, and figures that line up.
+   ========================================================================= */
+
+/* -------------------------------------------------------------- layout -- */
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+}
+
+/* THE READING COLUMN, AND IT IS LEFT ALIGNED RATHER THAN CENTRED.
+   The obvious version of this class is a narrow centred box, and that is what it
+   was until a full-height render showed the problem: the page head, the header
+   and the footer all read down the same left edge, and then the body of an
+   article stepped inwards to the middle of the page. Two left edges on one
+   document, and the eye has to find the second one.
+   So the OUTER box is the same box `.container` uses, with the same left edge,
+   and it is the CONTENT that is capped at a reading measure. Everything on the
+   site now starts in the same column, which is the whole point of building it as
+   an index report rather than a magazine. */
+.container-narrow {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+}
+
+.container-narrow > * {
+  max-width: var(--container-narrow);
+}
+
+/* THE TWO SECTION RHYTHMS.
+   Tightened after looking at a full-height render: the original values stacked
+   a section's own padding on top of the datum's margin on top of the next
+   section's padding, which put roughly 270 pixels of nothing between the last
+   row of one region and the rule that opens the next. On a ruled layout that
+   does not read as breathing room, it reads as a page that has stopped. */
+.section {
+  padding-block: var(--space-7);
+}
+
+.section--tight {
+  padding-block: var(--space-5);
+}
+
+/* ---------------------------------------------------------- the datum --
+   THE SIGNATURE DEVICE, AND THE ONE THING ON THE SITE THAT IS PURELY THE IDEA.
+
+   A full-width rule with a mono figure sitting on it and a tick beneath. It is
+   a diffusion index datum: the line, and the reading on the line. Used as the
+   divider between the major regions of a page, and once at the top of an
+   article between the header and the body.
+
+   It is not decorative filler. Read down any page on this site and the rule
+   tells you where one claim ends and the next begins, which is the job a
+   heading does badly on a document with long unbroken passages. */
+
+.datum {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  border-top: 1px solid var(--rule-strong);
+  padding-top: var(--space-2);
+  /* Asymmetric on purpose: the rule belongs to what follows it, so it sits
+     closer to the block it opens than to the one it closes. */
+  margin-block: var(--space-6) var(--space-5);
+}
+
+.datum__reading {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  color: var(--expansion);
+  flex: 0 0 auto;
+}
+
+.datum__label {
+  font-family: var(--font-mono);
+  font-size: var(--step-label);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  flex: 0 0 auto;
+}
+
+/* The remaining rule, dashed, running to the right margin. The dash is a scale,
+   not an ornament: it is what a printed index axis looks like. */
+.datum__scale {
+  flex: 1 1 auto;
+  height: 1px;
+  background-image: linear-gradient(to right, var(--rule) 0 4px, transparent 4px 8px);
+  background-size: 8px 1px;
+  background-repeat: repeat-x;
+}
+
+/* ----------------------------------------------------------- wordmark --
+   `ISM` then a short rule then `50`. The rule between the letters and the
+   figure is the index scale, and the figure is the reading at the end of it. It
+   scales from the header at 1rem to the footer at 2rem without changing shape,
+   which is the test a wordmark has to pass. */
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1;
+}
+
+.wordmark:hover {
+  color: var(--ink);
+}
+
+.wordmark__scale {
+  width: 1.6em;
+  height: 2px;
+  background: var(--expansion);
+  flex: 0 0 auto;
+}
+
+.wordmark__reading {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+/* --------------------------------------------------------------- chip --
+   A mono, uppercase label. Era on one side of a row, kind on the other. The
+   underline rather than a background: a filled pill on a ruled layout reads as
+   a button, and none of these is clickable. */
+
+.chip {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--step-label);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 2px;
+  white-space: nowrap;
+}
+
+.chip--expansion {
+  color: var(--expansion);
+  border-bottom-color: var(--expansion);
+}
+
+.chip--contraction {
+  color: var(--contraction);
+  border-bottom-color: var(--contraction);
+}
+
+.chip--mixed {
+  color: var(--ink-soft);
+  /* Half one, half the other. The honest rendering of a period that did both. */
+  border-bottom: 0;
+  padding-bottom: 3px;
+  background-image: linear-gradient(
+    to right,
+    var(--expansion) 0 50%,
+    var(--contraction) 50% 100%
+  );
+  background-size: 100% 1px;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+/* -------------------------------------------------------------- rows --
+   THE INDEX IS ROWS, NOT CARDS. A row is a record in a printed table: a date in
+   a fixed column, then the claim, then the labels. Several hundred of these
+   have to be scannable, and a grid of cards stops being scannable at about
+   twelve. */
+
+.rows {
+  border-top: 1px solid var(--rule-strong);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: var(--space-2) var(--space-5);
+  padding-block: var(--space-5);
+  border-bottom: 1px solid var(--rule);
+}
+
+.row:hover {
+  background: var(--surface);
+}
+
+.row__when {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--ink-faint);
+  padding-top: 0.25em;
+  white-space: nowrap;
+}
+
+.row__body > * + * {
+  margin-top: var(--space-2);
+}
+
+.row__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-1);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.row__title a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.row__title a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+  text-decoration-color: var(--expansion);
+}
+
+.row__lede {
+  color: var(--ink-soft);
+  max-width: 62ch;
+}
+
+.row__labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+@media (max-width: 40rem) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  .row__when {
+    padding-top: 0;
+  }
+}
+
+/* ------------------------------------------------------------ eyebrow --
+   The mono label that sits above a region, with its ordinal. Numbered because
+   an index report numbers its sections and because it gives a reader a place to
+   point at. */
+
+.eyebrow {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--step-label);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: var(--space-4);
+}
+
+.eyebrow__num {
+  color: var(--expansion);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------- note --
+   THE CONTRACTION ACCENT, AND THE EDITORIAL PROMISE MADE VISIBLE.
+
+   Where a claim is contested, name the contest. Where a source is dead, say so
+   and say what it said. This is the block that does it, and it is the only
+   place on the site the contraction colour appears in body copy, so a reader
+   learns in one article what it means. */
+
+.note {
+  border-left: 3px solid var(--contraction);
+  background: var(--contraction-quiet);
+  padding: var(--space-4) var(--space-5);
+  margin-block: var(--space-5);
+}
+
+.note__label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--step-label);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--contraction);
+  margin-bottom: var(--space-2);
+}
+
+.note > p {
+  font-size: var(--step--1);
+  line-height: 1.6;
+}
+
+.note > p + p {
+  margin-top: var(--space-3);
+}
+
+/* -------------------------------------------------------------- meta --
+   The instrumentation row under an article's H1. Mono, small, ruled off. */
+
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--ink-faint);
+}
+
+.meta-row a {
+  color: var(--ink-soft);
+  text-decoration-color: var(--rule);
+}
+
+.meta-row a:hover {
+  color: var(--expansion);
+  text-decoration-color: var(--expansion);
+}
+
+.meta-row__sep {
+  width: 3px;
+  height: 3px;
+  background: var(--rule-strong);
+  opacity: 0.5;
+  flex: 0 0 auto;
+}
+
+/* ------------------------------------------------------- page heading -- */
+
+.page-head {
+  padding-top: var(--space-7);
+  padding-bottom: var(--space-5);
+}
+
+.page-head__lede {
+  margin-top: var(--space-4);
+  font-size: var(--step-1);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 56ch;
+}
+
+.lede {
+  font-size: var(--step-1);
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+/* ------------------------------------------------------------- prose --
+   The whole reading treatment for an MDX body. An author writes plain markdown
+   and gets ruled headings, a real measure, hanging list markers and a
+   scrollable table without knowing any of this exists. */
+
+.prose {
+  max-width: var(--measure);
+  font-size: var(--step-0);
+  line-height: 1.68;
+}
+
+.prose > * + * {
+  margin-top: var(--space-5);
+}
+
+.prose h2 {
+  font-size: var(--step-2);
+  margin-top: var(--space-8);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--rule-strong);
+}
+
+/* A prose block that OPENS with an h2 is nearly always sitting directly under a
+   datum, which is already a rule. Two rules a few pixels apart read as a mistake
+   rather than as structure, so the first heading drops its own. */
+.prose > h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.prose h3 {
+  font-size: var(--step-1);
+  margin-top: var(--space-6);
+}
+
+.prose h2 + p,
+.prose h3 + p {
+  margin-top: var(--space-4);
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 0;
+  list-style: none;
+}
+
+.prose li + li {
+  margin-top: var(--space-3);
+}
+
+/* Hanging markers, so the text edge stays flush with the paragraphs above. */
+.prose ul > li {
+  position: relative;
+  padding-left: var(--space-5);
+}
+
+.prose ul > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 10px;
+  height: 1px;
+  background: var(--expansion);
+}
+
+.prose ol {
+  counter-reset: prose-ol;
+}
+
+.prose ol > li {
+  position: relative;
+  padding-left: var(--space-6);
+  counter-increment: prose-ol;
+}
+
+.prose ol > li::before {
+  content: counter(prose-ol, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--expansion);
+}
+
+.prose blockquote {
+  border-left: 2px solid var(--rule-strong);
+  padding-left: var(--space-5);
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.prose blockquote cite {
+  display: block;
+  margin-top: var(--space-3);
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--ink-faint);
+}
+
+.prose figure {
+  margin-block: var(--space-6);
+}
+
+.prose figcaption {
+  margin-top: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--ink-faint);
+}
+
+/* A wide table scrolls inside its own container. The page body never scrolls
+   sideways. */
+.prose .table-wrap,
+.prose table {
+  width: 100%;
+}
+
+.prose table {
+  border-collapse: collapse;
+  font-size: var(--step--1);
+  display: block;
+  overflow-x: auto;
+}
+
+.prose th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: var(--step-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  font-weight: 500;
+  padding: var(--space-3) var(--space-4) var(--space-3) 0;
+  border-bottom: 1px solid var(--rule-strong);
+  white-space: nowrap;
+}
+
+.prose td {
+  padding: var(--space-3) var(--space-4) var(--space-3) 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+.prose pre {
+  background: var(--surface-sunk);
+  border: 1px solid var(--rule);
+  padding: var(--space-4);
+  overflow-x: auto;
+  font-size: var(--step--1);
+}
+
+.prose :not(pre) > code {
+  background: var(--surface-sunk);
+  padding: 0.1em 0.35em;
+  border: 1px solid var(--rule);
+}
+
+/* ------------------------------------------------------- author card -- */
+
+.author-card {
+  margin-top: var(--space-8);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--rule-strong);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-5);
+  align-items: start;
+  max-width: var(--measure);
+}
+
+.author-card__portrait {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.05);
+}
+
+.author-card__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-0);
+  letter-spacing: -0.01em;
+}
+
+.author-card__bio {
+  margin-top: var(--space-2);
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+/* ------------------------------------------------------- breadcrumbs -- */
+
+.breadcrumbs {
+  padding-top: var(--space-5);
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--ink-faint);
+}
+
+.breadcrumbs li + li::before {
+  content: "/";
+  margin-right: var(--space-2);
+  color: var(--rule);
+}
+
+.breadcrumbs a {
+  color: var(--ink-faint);
+  text-decoration-color: var(--rule);
+}
+
+.breadcrumbs a:hover {
+  color: var(--expansion);
+}
+
+/* ------------------------------------------------- header and footer -- */
+
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  background: var(--ground);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding-block: var(--space-4);
+}
+
+.site-header .wordmark {
+  font-size: var(--step-1);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+}
+
+.site-nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--ink);
+  border-bottom-color: var(--expansion);
+}
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--rule);
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-size: var(--step-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.35em 0.7em;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  color: var(--ink);
+  border-color: var(--rule-strong);
+}
+
+.site-footer {
+  border-top: 1px solid var(--rule-strong);
+  margin-top: var(--space-9);
+  padding-block: var(--space-7) var(--space-6);
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) repeat(2, minmax(0, 1fr));
+  gap: var(--space-6);
+}
+
+@media (max-width: 48rem) {
+  .site-footer__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.site-footer h2 {
+  font-family: var(--font-mono);
+  font-size: var(--step-label);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: var(--space-4);
+}
+
+.site-footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.site-footer li + li {
+  margin-top: var(--space-3);
+}
+
+.site-footer a {
+  color: var(--ink-soft);
+  text-decoration-color: var(--rule);
+}
+
+.site-footer a:hover {
+  color: var(--expansion);
+}
+
+.site-footer__colophon {
+  margin-top: var(--space-7);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  font-family: var(--font-mono);
+  font-size: var(--step-label);
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+}
+
+/* --------------------------------------------------------- era table --
+   The home page's structural block. One ruled row per era: the label, the
+   approximate span, the direction, and the one sentence that says what defines
+   the period. */
+
+.era-table {
+  border-top: 1px solid var(--rule-strong);
+}
+
+.era-row {
+  display: grid;
+  /* THE SPAN COLUMN IS 10rem AND IT HAS TO BE. It was 7rem, and "roughly 2008
+     to 2011" set in the mono face at this size is wider than that. With
+     `white-space: nowrap` on the cell the overflow does not wrap, it runs
+     straight over the summary in the next column, which is what a full-height
+     render of the home page showed. Sized to the longest string the era table
+     can produce rather than to a round number. */
+  grid-template-columns: 12rem 10rem 1fr;
+  gap: var(--space-3) var(--space-5);
+  padding-block: var(--space-5);
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+}
+
+.era-row__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-0);
+  letter-spacing: -0.01em;
+}
+
+.era-row__span {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
+.era-row__summary {
+  color: var(--ink-soft);
+  max-width: 60ch;
+}
+
+.era-row__direction {
+  margin-top: var(--space-2);
+}
+
+@media (max-width: 52rem) {
+  .era-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ------------------------------------------------------ estate links -- */
+
+.estate-list {
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.estate-list li {
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--rule);
+}
+
+.estate-list__host {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+}
+
+.estate-list__note {
+  margin-top: var(--space-1);
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+
+/* ------------------------------------------------------- empty state -- */
+
+.empty {
+  padding: var(--space-6) 0;
+  border-top: 1px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--ink-faint);
+}

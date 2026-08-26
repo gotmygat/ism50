@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "ism50",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "serve", "dist", "-l", "4331", "--no-clipboard"],
+      "port": 4331
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+---
+/**
+ * The site header. Two items of navigation and a theme toggle, because this site
+ * has two destinations and a reader who wants a third has the footer.
+ *
+ * `aria-current="page"` is set from the real pathname rather than from a prop,
+ * so a new route cannot forget to pass it. Compared with a trailing slash on
+ * both sides, because every route on this site has one and a comparison that
+ * ignored it would highlight nothing.
+ */
+import Wordmark from "./Wordmark.astro";
+import { site } from "../lib/site";
+
+const here = Astro.url.pathname;
+const isCurrent = (href: string) => here === href || (href !== "/" && here.startsWith(href));
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <Wordmark href="/" />
+
+    <nav class="site-nav" aria-label="Primary">
+      {
+        site.nav.map((item) => (
+          <a href={item.href} {...(isCurrent(item.href) ? { "aria-current": "page" } : {})}>
+            {item.label}
+          </a>
+        ))
+      }
+      {/* The toggle is rendered by the script below rather than in markup, so a
+          reader with JavaScript off is never shown a control that does nothing.
+          The theme itself still follows the device, because the whole palette is
+          defined in a media query as well as on an attribute. */}
+      <span id="theme-slot"></span>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  (function () {
+    var slot = document.getElementById("theme-slot");
+    if (!slot) return;
+
+    var KEY = "ism50-theme";
+    var button = document.createElement("button");
+    button.type = "button";
+    button.className = "theme-toggle";
+
+    function current() {
+      var set = document.documentElement.getAttribute("data-theme");
+      if (set === "dark" || set === "light") return set;
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+
+    function paint() {
+      var now = current();
+      /* The label names the destination, not the state. A button reading "Dark"
+         while the page is already dark is the usual bug and it is genuinely
+         ambiguous. */
+      button.textContent = now === "dark" ? "Light" : "Dark";
+      button.setAttribute("aria-label", "Switch to the " + (now === "dark" ? "light" : "dark") + " theme");
+    }
+
+    button.addEventListener("click", function () {
+      var next = current() === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try {
+        localStorage.setItem(KEY, next);
+      } catch (e) {
+        /* Private mode. The choice holds for this page and is not remembered. */
+      }
+      paint();
+    });
+
+    paint();
+    slot.appendChild(button);
+  })();
+</script>

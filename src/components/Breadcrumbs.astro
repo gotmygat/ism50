@@ -1,0 +1,36 @@
+---
+/**
+ * The VISIBLE trail. Its markup twin, the BreadcrumbList, is built by
+ * src/lib/schema.ts from the same array, via the same `withHome` call, so the
+ * two cannot disagree about where Home sits or what the labels say.
+ *
+ * Pass the SAME array to this component and to the layout's `breadcrumbs` prop.
+ * Passing one and not the other is the failure this shared function exists to
+ * make impossible to do accidentally.
+ */
+import { withHome, type Crumb } from "../lib/breadcrumbs";
+
+interface Props {
+  /** The trail EXCLUDING Home. */
+  trail: Crumb[];
+}
+
+const { trail } = Astro.props;
+const crumbs = withHome(trail);
+---
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <div class="container">
+    <ol>
+      {
+        crumbs.map((crumb, index) =>
+          index === crumbs.length - 1 ? (
+            <li><span aria-current="page">{crumb.label}</span></li>
+          ) : (
+            <li><a href={crumb.href}>{crumb.label}</a></li>
+          )
+        )
+      }
+    </ol>
+  </div>
+</nav>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.ism50.publish</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/kalhawari/GitHub/ism50/scripts/publish-scheduled.sh</string>
+  </array>
+
+  <!-- FOUR SLOTS A DAY, NOT ONE.
+       On 2026-08-08 the khaledhawari.ca job did not run at all. The Mac was
+       powered off at its single 07:15 slot and did not boot until 10:41, and
+       that day's article simply never published. kodelytics lost the same day
+       at 07:45.
+
+       launchd DOES catch up a missed StartCalendarInterval job when the machine
+       was asleep. It does NOT when the machine was switched off: the slot
+       passes unobserved and nothing runs. Proven the hard way, twice.
+
+       The script is unconditional and idempotent: it rebuilds from the article
+       dates and deploys, so a second or third run on the same day republishes
+       identical output, uploads only changed files, and skips the IndexNow ping
+       because the rendered HTML is byte-identical. The only cost of a redundant
+       run is a couple of minutes of CPU.
+
+       For a day to be lost now, the Mac has to be off at 09:15, 14:15, 19:15
+       AND 23:15.
+
+       WHY THESE PARTICULAR MINUTES. FIVE sites now build on one laptop and they
+       share a single publish lock at ~/Library/Caches/kal-site-publish.lock, so
+       two jobs starting together do not race, they queue. Staggering them 30
+       minutes apart means the queue is usually empty when a job arrives:
+
+           khaledhawari.ca    07:15  12:15  17:15  21:15
+           kodelytics.ca      07:45  12:45  17:45  21:45
+           khaledhawari.com   08:15  13:15  18:15  22:15
+           kna-group.com      08:45  13:45  18:45  22:45
+           ism50.com          09:15  14:15  19:15  23:15   (this file)
+
+       Last in the rotation because it is the newest site and the one with the
+       least to lose from being last to publish on a slow morning. The 23:15 slot
+       is the one to watch: it is the latest of the twenty, and on an Ottawa
+       machine it is still comfortably inside the local calendar day, which is
+       the day the publication gate compares against. See src/lib/publication.ts
+       for why that distinction has already cost this group an article. -->
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Hour</key><integer>9</integer><key>Minute</key><integer>15</integer></dict>
+    <dict><key>Hour</key><integer>14</integer><key>Minute</key><integer>15</integer></dict>
+    <dict><key>Hour</key><integer>19</integer><key>Minute</key><integer>15</integer></dict>
+    <dict><key>Hour</key><integer>23</integer><key>Minute</key><integer>15</integer></dict>
+  </array>
+
+  <!-- MUST be the real checkout, not a worktree or a copy, and it must NOT be
+       under ~/Documents.
+
+       Two separate reasons, both learned expensively:
+
+       1. macOS privacy protection blocks a launchd agent from reading
+          ~/Documents entirely. khaledhawari.ca lost days to that before its
+          repository was moved out.
+       2. firebase-tools binds the signed-in account to an EXACT directory path
+          in ~/.config/configstore/firebase-tools.json. This path is the one that
+          resolves to khhawari92@gmail.com, which is the account that can see the
+          ism50-a8a44 project. A different path silently falls back to a
+          different Google account and fails at deploy, after a full build. -->
+  <key>WorkingDirectory</key>
+  <string>/Users/kalhawari/GitHub/ism50</string>
+
+  <!-- The script timestamps and logs everything itself, to
+       ~/Library/Logs/ism50-publish.log. These two catch anything that dies
+       before it can redirect, such as a bad interpreter path or a missing
+       working directory. -->
+  <key>StandardOutPath</key>
+  <string>/Users/kalhawari/Library/Logs/ism50-publish.launchd.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/kalhawari/Library/Logs/ism50-publish.launchd.log</string>
+
+  <!-- TRUE, and this is the fix for the recurring miss rather than an oversight.
+
+       The sibling plists all shipped with this false, on the reasonable-sounding
+       note that loading a plist should not deploy as a side effect. On
+       2026-08-20 nothing published on any of the three sites then running: the
+       Mac was powered off from about 21:25 the previous night until 09:49,
+       covering every morning slot. The calendar-slot comment above already
+       explained exactly why that happens; the plists simply had no answer to it.
+       All of them were changed to true that day.
+
+       RunAtLoad is the answer. A LaunchAgent loads at login, so the job fires
+       once whenever the machine comes back, whatever time that is, and the
+       calendar slots keep covering a machine that stays on.
+
+       Safe because of the shared lock: five jobs firing together at login
+       serialise rather than starving each other, and a job that cannot take the
+       lock within 15 minutes exits 0 and leaves the day to the next slot. -->
+  <key>RunAtLoad</key>
+  <true/>
+
+  <!-- A build plus a deploy is a couple of minutes. This is a backstop against a
+       hung network call holding the slot until tomorrow. -->
+  <key>ExitTimeOut</key>
+  <integer>900</integer>
+</dict>
+</plist>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="ISM50">
+  <rect width="64" height="64" rx="8" fill="#0b0e14"/>
+  <g transform="translate(0 0) scale(1.0000)">
+    <!-- the datum: the line at fifty -->
+    <rect x="5" y="31.25" width="54" height="1.5" fill="#6d798c"/>
+    <!-- above the line, then down through it -->
+    <path d="M13 20 H32 V32" fill="none" stroke="#7f9dff" stroke-width="8" stroke-linejoin="miter" stroke-linecap="butt"/>
+    <!-- through it, then below the line -->
+    <path d="M32 32 V44 H51" fill="none" stroke="#e2915b" stroke-width="8" stroke-linejoin="miter" stroke-linecap="butt"/>
+  </g>
+</svg>

@@ -1,0 +1,208 @@
+---
+title: "The constant product formula is not an equation, and k does not stay constant"
+seoTitle: "Constant Product: The Formula Is an Inequality"
+description: "Every explainer writes x times y equals k. The contract requires greater than or equal, on fee-adjusted balances, so k rises with every trade."
+date: 2026-08-26
+author: "Khaled Hawari"
+era: defiSummer
+kind: explainer
+lede: "The invariant everybody quotes is an equality. The one the code enforces is not, and the difference is where the money comes from."
+---
+
+Here is the line, from the second paragraph of the Uniswap v2 whitepaper,
+describing v1:
+
+> maintaining the invariant that the product of the reserves cannot decrease
+
+Cannot decrease. Not stays the same. Every explainer of automated market making
+opens with `x * y = k` and then says something like "the product stays constant,
+which is where the name comes from". The name comes from there, and the sentence
+is wrong, and it is wrong in the exact place where the mechanism does its work.
+
+The deployed contract does not check an equality. It checks an inequality, on
+balances that have already had the fee subtracted, which means `k` **increases on
+every single trade**. That growth is not a rounding artefact. It is how liquidity
+providers get paid.
+
+## What the whitepaper actually specifies
+
+Section 3.2.1, "Adjustment for fee", gives the v1 rule:
+
+> Uniswap v1's trading fee is applied by reducing the amount paid into the
+> contract by 0.3% before enforcing the constant-product invariant. The contract
+> implicitly enforces the following formula:
+>
+> (x₁ − 0.003·x_in) · y₁ >= x₀ · y₀
+
+Note the direction of the comparison and note where the 0.003 sits: on the
+*input*, inside the product, before the check. For v2, which has to handle flash
+swaps where both inputs can be non-zero, it generalises and then gets restated in
+integer arithmetic:
+
+> (1000·x₁ − 3·x_in) · (1000·y₁ − 3·y_in) >= 1000000 · x₀ · y₀
+
+That last line is not an illustration. It is the code. From
+[UniswapV2Pair.sol](https://raw.githubusercontent.com/Uniswap/v2-core/master/contracts/UniswapV2Pair.sol):
+
+```solidity
+uint balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));
+uint balance1Adjusted = balance1.mul(1000).sub(amount1In.mul(3));
+require(balance0Adjusted.mul(balance1Adjusted) >= uint(_reserve0).mul(_reserve1).mul(1000**2), 'UniswapV2: K');
+```
+
+Three lines. Multiply both balances by a thousand, subtract three times each
+input, require that the product of those adjusted numbers is at least a million
+times the old product. The error string is `'UniswapV2: K'`, which is why the
+whole thing is remembered as an equation about k, and the operator on the line
+that raises it is `>=`.
+
+Two things follow that most explanations skip.
+
+**The fee is charged on the way in, so it is not 0.3% of what you get.** The
+whitepaper's own footnote does the arithmetic: relative to the amount withdrawn,
+the effective fee is `1/(1−0.003) − 1`, which is 3/997, or about 0.3009203%. A
+small difference, and a real one, and the sort of thing that separates a
+description written from the contract from one written from another description.
+
+**The invariant is a floor, not a target.** Anyone may hand the pool more than
+the check requires. The contract does not object, and the surplus becomes part of
+the reserves, which is to say it belongs to the liquidity providers. That is why
+the check is an inequality rather than an equality: an equality would forbid
+overpayment, and overpayment is the mechanism.
+
+## Who actually came up with it
+
+The received version is that Vitalik Buterin proposed constant product market
+makers in 2016 and Uniswap implemented them. Neither half survives the documents,
+and the person best placed to correct it corrected it twice.
+
+In "On Path Independence", June 2017, Buterin gives the formula
+`tokenA_balance(p) · tokenB_balance(p) = k` and appends, in parentheses, "credit
+to Martin Koppelmann". In March 2018, on ethresear.ch, in a post whose title is
+"Improving front running resistance of x*y=k market makers", he writes:
+
+> Martin Köppelmann from Gnosis suggested a simple approach for doing so, that I
+> call the "x*y=k market maker"
+
+Meanwhile Alan Lu, also at Gnosis, had described the constant product invariant
+explicitly in a post called "Building a Decentralized Exchange in Ethereum" dated
+6 March 2017, three months before the Buterin piece that credits Köppelmann.
+Uniswap's own history page goes further than either and states that Lu was the
+first person to conceive of these market makers on Ethereum, with Köppelmann
+relaying the idea to Buterin, Buterin publicising it, and Hayden Adams building
+the implementation.
+
+So the honest sentence is: the idea came out of Gnosis in 2016 and 2017,
+Buterin analysed and popularised it while explicitly crediting somebody else, and
+Adams shipped the first version anybody used. Uniswap v1 went to mainnet on 2
+November 2018, on the last day of Devcon 4 in Prague, with a 0.3% fee. Uniswap v2
+followed in a paper dated March 2020, adding arbitrary ERC20 pairs, a
+time-weighted price oracle, flash swaps, and a protocol fee switch that has never
+been the interesting part.
+
+<div class="note">
+  <span class="note__label">One link in that chain I could not open myself</span>
+
+  The October 2016 Buterin post that people cite as the origin is on Reddit, and
+  Reddit serves a gate page to anything that is not a browser. I have not read it.
+  My description of it as a proposal in the style of prediction-market makers
+  rather than a constant product proposal rests on Buterin's own later account of
+  his own post, in the March 2018 thread, where he writes that two years earlier
+  he had suggested running on-chain exchanges "in a similar way to what Augur and
+  Gnosis were proposing for on-chain market makers (eg. LMSR)". That is strong
+  evidence and it is not the document.
+
+  Related, and worth stating because the two get merged: LMSR, Hanson's
+  logarithmic market scoring rule, genuinely predates all of this, and it is a
+  different formula with different properties. "Constant function market making
+  has roots in the prediction market literature" is defensible. "x*y=k predates
+  Ethereum" is a claim I have found no primary source for, so I am not making it.
+
+  I have also seen an earlier origin attributed to Nick Johnson. I could not find
+  any such document. Absent one, that attribution should be dropped rather than
+  hedged.
+</div>
+
+## Impermanent loss, and why the name is disputed
+
+A liquidity provider who deposits into a constant product pool and later
+withdraws can end up with less value than if they had simply kept the two assets.
+The cause is price divergence: the pool automatically sells whichever asset is
+appreciating and buys whichever is depreciating, because that is what holding the
+product constant requires. The larger the divergence, the larger the shortfall
+against holding.
+
+The name that stuck is "impermanent loss", and it is contested for a good
+reason. There is nothing impermanent about it unless prices happen to return to
+where they started, and there is no mechanism that makes them do so. Naming a
+loss after the condition under which it would reverse, when that condition is not
+guaranteed and often does not occur, encourages exactly the reading that gets
+people into trouble: that the position is fine as long as you do not withdraw.
+The alternative name in circulation is "divergence loss", which describes the
+cause instead of a hypothetical cure, and some venues use it in their own
+documentation for that reason.
+
+I would like to tell you who coined "impermanent loss" and when. I cannot. The
+earliest widely-credited use is a 2019 Medium post by an author writing as
+Pintail, analysing returns for Uniswap liquidity providers, and Medium does not
+serve to anything that is not a browser. Two different URLs are in circulation for
+it, sources disagree about whether it is from January or June, and there is a
+claim I have seen but cannot confirm that the post was later edited to replace
+"impermanent loss" with "divergence loss". Every part of that is unverified. So
+the accurate statement is that the term entered general use through early Uniswap
+liquidity provider analyses around 2019, with no coiner I can name.
+
+The rigorous literature has largely moved past the argument anyway, toward
+loss-versus-rebalancing, which measures the shortfall against a strategy that
+actually rebalances rather than against passive holding.
+
+## Five sentences to stop repeating
+
+**"The product stays constant."** It does not. It rises on every trade. That is
+the fee. This is the most common error in the genre and it inverts the mechanism.
+
+**"Uniswap invented the AMM."** It did not. The constant product idea came from
+Gnosis, Uniswap's own history page says so, and Bancor shipped an on-chain
+automated market maker before Uniswap existed. What Uniswap built was the first
+constant product implementation that anybody used at scale, which is a real
+achievement and a different claim.
+
+**"Vitalik Buterin invented x*y=k."** He credits Martin Köppelmann, twice, in
+writing.
+
+**"No order book means no front-running."** Backwards. Buterin's March 2018 post
+is *titled* "Improving front running resistance of x*y=k market makers", eight
+months before Uniswap launched. Sandwich attacks are not a later discovery, they
+are structural: every trade is public before it settles and its price impact is
+deterministic, which is a better environment for extraction than an order book,
+not a worse one.
+
+**"The loss only becomes permanent if you withdraw."** This is the framing the
+"divergence loss" camp objects to and they are right. The shortfall against
+holding is real and continuous from the moment prices diverge. Withdrawing
+realises it; not withdrawing does not undo it.
+
+## What was expanding, what was contracting
+
+What expanded, and it is genuinely one of the most interesting expansions in the
+period, is the number of assets that could have a market at all. An order book
+needs somebody to sit on both sides of it, so an asset with no professional
+market maker has no market. A constant product pool needs nobody to sit on
+anything. Three lines of arithmetic and two piles of tokens make a price, and the
+price is continuous, and it is available at three in the morning for a token
+nobody has heard of.
+
+What contracted was the assumption that a market required a market maker as a
+role. Not as a function, which is what the pool performs, but as a party with a
+desk, an inventory policy and a view.
+
+And the thing almost nobody could tell at the time is that the pool takes the
+other side of every trade at a price set by a formula that does not know
+anything. It sells what is rising. It buys what is falling. Against an informed
+counterparty it loses systematically, and the fee is what has to cover that. When
+the fee covers it the provider is paid for the service. When it does not, the
+provider has been supplying free optionality to better-informed traders and
+calling the shortfall impermanent.
+
+That is the trade. It was legible from the arithmetic on day one, and it took the
+field about three years to name properly.

@@ -1,0 +1,47 @@
+---
+/**
+ * The shell every route renders through. Nothing reaches production without
+ * passing the metadata schema in BaseHead.
+ *
+ * ONE <main id="main"> PER ROUTE, ALWAYS. scripts/sitemap-lastmod.mjs hashes
+ * what is inside it to decide whether a page's sitemap `lastmod` moves, and
+ * throws rather than guessing if a sitemap route has no <main>. The header and
+ * the footer sit outside it, which is what excludes the navigation and the
+ * copyright year from the hash for free.
+ */
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../lib/site";
+import type { PageMeta } from "../lib/seo";
+import type { Crumb } from "../lib/breadcrumbs";
+import type { JsonLdNode } from "../lib/schema";
+import "../styles/components.css";
+
+interface Props extends PageMeta {
+  /**
+   * This page's trail EXCLUDING Home. Pass the SAME array to <Breadcrumbs> in
+   * the page body so the visible trail and the markup cannot disagree.
+   */
+  breadcrumbs?: Crumb[];
+  pageTypes?: string[];
+  jsonLd?: JsonLdNode[];
+}
+
+const { breadcrumbs, pageTypes, jsonLd, ...meta } = Astro.props;
+---
+
+<!doctype html>
+<html lang={site.locale}>
+  <head>
+    <BaseHead {...meta} breadcrumbs={breadcrumbs} pageTypes={pageTypes} jsonLd={jsonLd} />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

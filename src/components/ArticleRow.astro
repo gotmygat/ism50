@@ -1,0 +1,40 @@
+---
+/**
+ * One record in the index.
+ *
+ * A ROW RATHER THAN A CARD, and that is a decision rather than a default. This
+ * collection is planned to reach several hundred pieces. A grid of cards stops
+ * being scannable at about twelve, because the eye has to re-find the date and
+ * the title in a new place on every tile. A ruled row keeps the date in a fixed
+ * column and the claim in a fixed column, which is what a printed index does and
+ * what makes four hundred of them readable.
+ */
+import { KIND_LABEL, formatDate, isoDate, type ArticleEntry } from "../lib/collections";
+import { ERAS } from "../lib/eras";
+
+interface Props {
+  article: ArticleEntry;
+  /** Hidden when the surrounding block is already grouped by era. */
+  showEra?: boolean;
+}
+
+const { article, showEra = true } = Astro.props;
+const { title, lede, date, kind, era } = article.data;
+const eraCopy = ERAS[era];
+---
+
+<article class="row">
+  <div class="row__when">
+    <time datetime={isoDate(date)}>{formatDate(date)}</time>
+  </div>
+  <div class="row__body">
+    <h3 class="row__title">
+      <a href={`/articles/${article.id}/`}>{title}</a>
+    </h3>
+    <p class="row__lede">{lede}</p>
+    <p class="row__labels">
+      <span class="chip">{KIND_LABEL[kind]}</span>
+      {showEra && <span class={`chip chip--${eraCopy.direction}`}>{eraCopy.label}</span>}
+    </p>
+  </div>
+</article>

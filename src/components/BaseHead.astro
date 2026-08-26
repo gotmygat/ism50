@@ -1,0 +1,129 @@
+---
+/**
+ * Every route's <head>.
+ *
+ * There is no way to render a page without going through this component, and no
+ * way to go through it without valid metadata: `defineMeta` throws on anything
+ * missing, over-long or malformed, which stops the build rather than shipping a
+ * naked page.
+ *
+ * THE ICON SET IS DECLARED HERE AND NOWHERE ELSE, so a route cannot be built
+ * without it. Every file referenced below is committed under public/ and emitted
+ * to dist/ verbatim, and scripts/verify-links.mjs resolves each href against
+ * what the build actually produced, so a link to a missing icon fails the build
+ * rather than showing a blank browser tab that nobody notices for a month.
+ */
+import { Font } from "astro:assets";
+import { site } from "../lib/site";
+import { defineMeta, absoluteUrl, type PageMeta } from "../lib/seo";
+import type { Crumb } from "../lib/breadcrumbs";
+import { buildGraph, type JsonLdNode } from "../lib/schema";
+import "../styles/global.css";
+
+interface Props extends PageMeta {
+  /** This page's trail EXCLUDING Home, which is prepended for both halves. */
+  breadcrumbs?: Crumb[];
+  /** Extra `@type` values for the WebPage node, e.g. "CollectionPage". */
+  pageTypes?: string[];
+  /** Route-specific nodes: Article. */
+  jsonLd?: JsonLdNode[];
+}
+
+const { breadcrumbs = [], pageTypes = [], jsonLd = [], ...rest } = Astro.props;
+
+const meta = defineMeta(rest);
+const canonical = absoluteUrl(meta.path);
+
+/* Per-page image wins; the site default backstops it. */
+const ogImage = meta.ogImage
+  ? absoluteUrl(meta.ogImage)
+  : site.defaultOgImage
+    ? absoluteUrl(site.defaultOgImage)
+    : null;
+
+/* `follow`, deliberately, even on a noindexed page: a noindexed page still
+   passes internal link equity to the pages it links to, and `nofollow` would
+   strand it. */
+const robots = meta.noindex ? "noindex, follow" : site.robots;
+
+const graph = buildGraph({
+  canonical,
+  route: meta.path,
+  title: meta.title,
+  description: meta.description,
+  extraTypes: pageTypes,
+  crumbs: breadcrumbs,
+  extraNodes: jsonLd,
+});
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+
+<title>{meta.title}</title>
+<meta name="description" content={meta.description} />
+<link rel="canonical" href={canonical} />
+<meta name="robots" content={robots} />
+
+{/* Self-hosted, subset and preloaded by Astro at build time. No CDN request. */}
+<Font cssVariable="--font-display-family" preload />
+<Font cssVariable="--font-body-family" preload />
+<Font cssVariable="--font-mono-family" preload />
+
+<meta property="og:type" content={meta.type} />
+<meta property="og:site_name" content={site.shortName} />
+<meta property="og:locale" content={site.locale.replace("-", "_")} />
+<meta property="og:title" content={meta.title} />
+<meta property="og:description" content={meta.description} />
+<meta property="og:url" content={canonical} />
+{ogImage && <meta property="og:image" content={ogImage} />}
+{ogImage && <meta property="og:image:width" content="1200" />}
+{ogImage && <meta property="og:image:height" content="630" />}
+
+<meta name="twitter:card" content={ogImage ? "summary_large_image" : "summary"} />
+<meta name="twitter:title" content={meta.title} />
+<meta name="twitter:description" content={meta.description} />
+{ogImage && <meta name="twitter:image" content={ogImage} />}
+
+{
+  meta.publishedAt && (
+    <meta property="article:published_time" content={meta.publishedAt.toISOString()} />
+  )
+}
+{meta.updatedAt && <meta property="article:modified_time" content={meta.updatedAt.toISOString()} />}
+{meta.author && <meta property="article:author" content={meta.author} />}
+
+{/* THE ICON SET. See public/README-BRAND.md for what each file is and how it is
+    regenerated. The SVG is listed first because a browser that understands it
+    prefers it and it stays sharp at every size; the PNG is the fallback for one
+    that does not. */}
+<meta name="theme-color" content={site.themeColor} />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon.ico" sizes="32x32" />
+<link rel="icon" href="/brand/icon-192.png" type="image/png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<script type="application/ld+json" set:html={JSON.stringify(graph)} />
+
+{
+  /* THEME, RESOLVED BEFORE FIRST PAINT.
+     Inline and synchronous on purpose. Anything deferred here produces a light
+     flash on a dark-theme device on every navigation, which is the single most
+     visible defect a themed static site can ship. It reads one key, writes one
+     attribute, and touches nothing else. */
+}
+<script is:inline>
+  (function () {
+    try {
+      var stored = localStorage.getItem("ism50-theme");
+      if (stored === "dark" || stored === "light") {
+        document.documentElement.setAttribute("data-theme", stored);
+      }
+    } catch (e) {
+      /* Private mode, or storage disabled. The media query still applies. */
+    }
+  })();
+</script>

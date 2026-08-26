@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+!.env.example
+.DS_Store
+.firebase/
+*.log
+
+# Written by scripts/publish-scheduled.sh. It records the sha256 of the HTML
+# that was last actually published, which is state about ONE machine's deploys,
+# not about the repository. Committed, it would arrive in a fresh clone claiming
+# production looks like a build that clone never made.
+.cache/

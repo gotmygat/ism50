@@ -1,0 +1,123 @@
+---
+/**
+ * /disclaimer/ .
+ *
+ * IT EXISTS BECAUSE THIS IS YMYL CONTENT, NOT BECAUSE A TEMPLATE HAD A SLOT FOR
+ * IT. Google holds financial content to a higher standard than most, crypto is
+ * the part of financial content it holds to the highest standard of all, and the
+ * author's professional reputation is the entire reason any of these sites
+ * exists. A publication about money that never states its own limits is making a
+ * claim by omission.
+ *
+ * IT IS ALSO THE PAGE THAT PROVES THE NEGATION LOGIC IN
+ * scripts/verify-subject.mjs WORKS. This page necessarily contains the phrases
+ * "investment advice" and the names of professional designations, because saying
+ * that none of them applies is its whole job. A gate that could not tell "is
+ * investment advice" from "is not investment advice" would force this page to be
+ * deleted in order to pass, which inverts the rule it enforces. So the gate reads
+ * the sentence around each match and skips a negated one, and this page is the
+ * live test of that.
+ *
+ * WHAT IT MUST NEVER BECOME. It is not a disambiguation page. Nothing here
+ * distinguishes the author from anybody, and no sentence on this site does.
+ */
+import Base from "../layouts/Base.astro";
+import Datum from "../components/Datum.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { routeMeta } from "../lib/seo";
+
+const trail = [{ label: "Disclaimer", href: "/disclaimer/" }];
+---
+
+<Base {...routeMeta.disclaimer} breadcrumbs={trail}>
+  <Breadcrumbs trail={trail} />
+
+  <header class="page-head">
+    <div class="container">
+      <p class="eyebrow">
+        <span class="eyebrow__num">00</span>
+        <span>Limits, stated plainly</span>
+      </p>
+      <h1 style="max-width: 20ch;">What this site is not.</h1>
+      <p class="page-head__lede">
+        ISM50 publishes history. Everything below is a limit on what that means,
+        written once so no article has to carry a paragraph of it.
+      </p>
+    </div>
+  </header>
+
+  <section class="section--tight">
+    <div class="container-narrow">
+      <Datum label="Not advice" />
+
+      <div class="prose">
+        <h2>Nothing here is investment advice</h2>
+        <p>
+          No article on this site is investment advice, financial advice or
+          trading advice, and none of it is a recommendation to buy, to sell or to
+          hold anything. Nothing here is guidance for a reader's own
+          circumstances. The site quotes no price target, states no view on what
+          any asset is worth, and makes no forecast about what anything will do
+          next.
+        </p>
+        <p>
+          That is not a lawyer's sentence bolted onto an opinion site. It is a
+          description of what the writing actually does. Every piece is about a
+          period that has already finished, written with hindsight the people
+          involved did not have, and the recurring finding is that the people
+          closest to an event usually could not read it correctly at the time.
+          Anyone who took that seriously would be slower to make a prediction, not
+          quicker.
+        </p>
+
+        <h2>No professional designation is claimed</h2>
+        <p>
+          The author is not a Chartered Professional Accountant, is not a
+          Chartered Accountant, is not a Certified Public Accountant and is not a
+          Chartered Financial Analyst. He holds no accounting designation and no
+          analyst designation of any kind, and nothing on this site should be read
+          as claiming one. He is a consultant, which is the accurate word.
+        </p>
+        <p>
+          He is also not acting as anybody's adviser, agent or fiduciary by
+          publishing this, and reading it creates no professional relationship of
+          any sort.
+        </p>
+
+        <h2>The history is checked, and it is still history</h2>
+        <p>
+          Every factual claim on this site is meant to be traceable to a source a
+          reader can open, and where a claim is contested the contest is named
+          rather than resolved. That is a standard, not a guarantee. Primary
+          sources in this subject disappear, get edited, and are sometimes wrong
+          in the first place, and a piece written carefully today can be
+          superseded by a document that surfaces later.
+        </p>
+        <p>
+          If something here is wrong, the correction is worth more than the
+          original. It gets made on the page, with the change noted, rather than
+          quietly.
+        </p>
+
+        <h2>No tax guidance appears here, deliberately</h2>
+        <p>
+          This site does not write about what anybody owes anyone. That subject
+          belongs to
+          <a href="https://khaledhawari.ca/about-khaled-hawari/">khaledhawari.ca</a>,
+          which is the author's practice and covers it properly. The separation is
+          enforced by the build rather than by memory: a verifier fails the build
+          if the vocabulary appears on this domain at all.
+        </p>
+
+        <h2>Links out</h2>
+        <p>
+          Sources are linked because a reader should be able to check them.
+          Linking a document is not an endorsement of whoever published it, and
+          this site has no control over what a third party does with a URL after
+          it is cited. Where a link has died, the piece says so and says what the
+          document said.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

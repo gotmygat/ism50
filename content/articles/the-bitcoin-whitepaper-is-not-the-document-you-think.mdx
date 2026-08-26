@@ -1,0 +1,190 @@
+---
+title: "The Bitcoin whitepaper does not contain the words everyone quotes from it"
+seoTitle: "What the Bitcoin Whitepaper Does Not Say"
+description: "The nine-page paper contains no blockchain, no cryptocurrency, no wallet and no 21 million. What it does contain is one word that everyone misreads."
+date: 2026-08-24
+author: "Khaled Hawari"
+era: origins
+kind: primarySource
+lede: "Open the file, search it, and most of the vocabulary that the last fifteen years attached to it is simply absent."
+---
+
+Download the paper at [bitcoin.org/bitcoin.pdf](https://bitcoin.org/bitcoin.pdf),
+open it in anything with a search box, and type in "blockchain".
+
+Nothing. Try "block chain", two words, which is the version people reach for
+when the first one fails. Nothing again. The document that gave the world the
+blockchain does not use the word in either spelling. What it says, once, is
+"a chain of blocks", and it says it about an attacker:
+
+> This prevents the sender from preparing a chain of blocks ahead of time by
+> working on it continuously until he is lucky enough to get far enough ahead,
+> then executing the transaction at that moment.
+
+That is the only appearance. Everywhere else the paper calls the thing "the
+chain", "the longest chain", or "the proof-of-work chain". The noun everybody
+now uses was applied later by other people.
+
+This is not a pedantic point about vocabulary. It is the cleanest available
+demonstration of how the record in this subject actually behaves. The Bitcoin
+whitepaper is nine pages long, has been continuously available since 2008, is
+one of the most-read technical documents of the century, and is quoted daily by
+people who have not opened it. If that document has drifted from its own
+reputation, nothing else in crypto history should be taken on trust either.
+
+## What the file actually is
+
+Nine pages. Twelve numbered sections: Introduction, Transactions, Timestamp
+Server, Proof-of-Work, Network, Incentive, Reclaiming Disk Space, Simplified
+Payment Verification, Combining and Splitting Value, Privacy, Calculations,
+Conclusion. Eight references, opening with Wei Dai's b-money and closing with
+Feller's *An Introduction to Probability Theory and Its Applications*, which is
+from 1957 and is there because Section 11 is a gambler's ruin calculation.
+
+The byline as printed is four lines with no affiliation and no date:
+
+> Bitcoin: A Peer-to-Peer Electronic Cash System
+> Satoshi Nakamoto
+> satoshin@gmx.com
+> www.bitcoin.org
+
+There is no date anywhere on the face of the document. The only year that
+appears in the text is inside a sentence about the price of memory.
+
+<div class="note">
+  <span class="note__label">The version you have is not the one that was announced</span>
+
+  The file currently served at bitcoin.org/bitcoin.pdf is not the October 2008
+  document. Its own PDF metadata gives a creation date in March 2009 and names
+  OpenOffice.org 2.4 as the producer. It is a revision.
+
+  This matters more than it sounds, because the wording changed. The abstract in
+  the version circulating today reads "As long as a majority of CPU power is
+  controlled by nodes that are not cooperating to attack the network". The
+  abstract in the October 2008 announcement read "As long as honest nodes control
+  the most CPU power on the network". Those are different claims about what
+  honesty means, and a piece that quotes one while citing the other is quoting a
+  document that did not exist yet.
+
+  The byline is a second, sharper problem. The mailing list message came from
+  `satoshi@vistomail.com`. The PDF being served today says `satoshin@gmx.com`,
+  with an extra letter and a different provider. Whether the original PDF's
+  printed byline matched the sending address is not something I have been able to
+  confirm, because the archived copies I would need are behind rate limiting. So
+  I am not going to assert it. The announcement address is documented; the
+  original document's printed address is not, at least not by me.
+</div>
+
+## The announcement, which is still live
+
+On Friday 31 October 2008 at 14:10 EDT, a message went to the Cryptography
+mailing list at metzdowd.com under the subject "Bitcoin P2P e-cash paper". It
+opens:
+
+> I've been working on a new electronic cash system that's fully peer-to-peer,
+> with no trusted third party.
+
+The archive is at
+[metzdowd.com/pipermail/cryptography/2008-October/014810.html](https://www.metzdowd.com/pipermail/cryptography/2008-October/014810.html)
+and it still resolves, which is worth saying out loud. A large amount of the
+primary material from this period does not. The Nakamoto Institute keeps a
+mirror at
+[satoshi.nakamotoinstitute.org](https://satoshi.nakamotoinstitute.org/emails/cryptography/1/),
+which is where most people actually read it.
+
+## Four things that are not in the paper
+
+**"Cryptocurrency" does not appear.** Not once. The word "currency" appears
+exactly once, and it refers to cash you can hand somebody: "can be avoided in
+person by using physical currency".
+
+**"Wallet" does not appear.** The most common noun in the entire consumer
+vocabulary of this technology is absent from the document that founded it.
+
+**"Smart contract" does not appear.** Which is unsurprising, but it is worth
+recording, because a certain kind of retrospective implies the whole programme
+was latent in the paper.
+
+**Twenty-one million does not appear.** Not as "21 million", not as a numeral,
+not in any form. There is no total supply figure in the document at all. What
+Section 6 says is deliberately unquantified:
+
+> Once a predetermined number of coins have entered circulation, the incentive
+> can transition entirely to transaction fees and be completely inflation free.
+
+"A predetermined number." The cap is in the code, not in the paper, and if you
+have ever seen the whitepaper cited as the source of the 21 million limit, you
+have seen a citation that does not hold. That one is repeated constantly, in
+places that should know better.
+
+## The word that is there, and is read backwards
+
+"Miner" appears once. Singular usage: zero. Plural: one. "Mining" as a verb:
+zero. Here it is, in Section 6:
+
+> The steady addition of a constant of amount of new coins is analogous to gold
+> miners expending resources to add gold to circulation. In our case, it is CPU
+> time and electricity that is expended.
+
+The typo, "a constant of amount", is in the original. Leave it as it stands or
+mark it; do not clean it up, because a quotation that has been tidied is a
+quotation you cannot check.
+
+Note what that sentence is doing. It is an analogy to *gold* mining, offered to
+explain why issuing coins to participants is not arbitrary. It is not a name for
+the role. Throughout the paper, the participants are called **nodes**. The
+entire occupational category of "miner", with its rigs and its pools and its
+hashrate, was constructed by an industry out of one simile in one sentence.
+
+I am counting whole words here for a reason. My first pass at this returned
+several matches for "mining" and all of them were inside *determining* and
+*undermine*. That is exactly the class of error this subject is full of: a
+search that is technically correct and substantively wrong, repeated by somebody
+in a hurry.
+
+## What was expanding, and what was contracting
+
+In October 2008, almost nothing about this was expanding. The paper landed on a
+mailing list whose members had watched digital cash proposals arrive and fail
+for fifteen years, and several of the first replies were sceptical on scaling
+grounds. There was no software release yet, no market, no second implementer, no
+user.
+
+What had contracted, sharply, in the six weeks before that message was
+institutional credit. The paper does not mention it. There is a well-known
+sentence in the genesis block's coinbase about a bank bailout, but that is
+January 2009 and it is not in the paper, and reading the paper as a response to
+the financial crisis requires importing an argument the document itself never
+makes. The paper's stated problem is narrower and older: online commerce depends
+on financial institutions as trusted third parties, that dependence makes small
+reversible payments expensive, and non-reversible payment for non-reversible
+services is not available.
+
+The one thing that was unambiguously above the line was a specific, small
+technical community's appetite for exactly this problem. That is what the
+mailing list was for. And the honest reading of the response is that the
+community's first reaction was closer to "this probably does not work" than to
+recognition.
+
+## The sentence everything else rests on
+
+Section 4, and it is worth having exactly:
+
+> If a majority of CPU power is controlled by honest nodes, the honest chain will
+> grow the fastest and outpace any competing chains.
+
+And, two paragraphs earlier, the line that carries more freight than any other in
+the document:
+
+> Proof-of-work is essentially one-CPU-one-vote.
+
+Everything the next seventeen years argued about is downstream of that
+conditional. The paper does not claim the majority will be honest. It states what
+follows if it is, and Section 11 calculates how quickly an attacker with less
+than half falls behind. What it does not do, anywhere, is establish that CPU
+power will stay distributed, which turned out to be the load-bearing assumption
+and the one nobody was checking.
+
+That is the thing to take from reading the actual file. It is a careful,
+narrow, conditional document. Almost everything confident that has been said
+about it since is neither.

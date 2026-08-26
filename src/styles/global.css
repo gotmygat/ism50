@@ -1,0 +1,164 @@
+@import "./tokens.css";
+
+/* =========================================================================
+   RESET AND ELEMENT DEFAULTS
+   ========================================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  /* EXPLICIT, and a token. A transparent body borrows whatever the browser is
+     painting behind it, which is how a dark page ends up with a light band under
+     a short document. */
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.62;
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* -- headings -------------------------------------------------------------
+   Display face, tight tracking, and a line height that closes up as the size
+   grows. Headings are set at 600 rather than 700: the grotesque is doing the
+   work and a heavier weight reads as shouting on a document site. */
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.021em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--step-4);
+  letter-spacing: -0.03em;
+}
+h2 {
+  font-size: var(--step-3);
+}
+h3 {
+  font-size: var(--step-1);
+}
+h4 {
+  font-size: var(--step-0);
+}
+
+p,
+li {
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--expansion);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: color-mix(in srgb, var(--expansion) 40%, transparent);
+}
+
+a:hover {
+  text-decoration-color: var(--expansion);
+}
+
+/* A visible ring rather than a colour change, because on a ruled layout a
+   colour change is easy to miss. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+strong,
+b {
+  font-weight: 600;
+}
+
+code,
+kbd,
+samp {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+}
+
+::selection {
+  background: var(--expansion);
+  color: var(--surface);
+}
+
+/* Every numeral on this site is tabular. On a page whose subject is records,
+   figures that do not line up in a column read as an approximation. */
+time,
+.mono,
+table {
+  font-variant-numeric: tabular-nums;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--ink);
+  color: var(--ground);
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 0;
+}

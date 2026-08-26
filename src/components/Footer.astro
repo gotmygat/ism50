@@ -1,0 +1,69 @@
+---
+/**
+ * The site footer.
+ *
+ * IT CARRIES THE ESTATE LINKS AS ORDINARY ANCHORS, on every page, and that is
+ * the point rather than a courtesy. The relationship between this publication
+ * and the author's other properties is asserted in the JSON-LD through one
+ * shared Person `@id`, but a plain link with descriptive text on a page that is
+ * genuinely about the subject is the thing entity extraction has always read,
+ * and it costs nothing.
+ *
+ * The hub on .ca is `/about-khaled-hawari/`. The bare `/khaled-hawari/` 404s on
+ * three of the four sibling domains and only redirects on .ca, so it is never
+ * linked from anywhere on this site.
+ *
+ * The footer sits OUTSIDE <main>, which is what keeps the copyright year out of
+ * the sitemap hash. See scripts/sitemap-lastmod.mjs: a footer printing the
+ * current year, if hashed, would have every URL on the site claim to have been
+ * modified on 1 January, every year, over one line of boilerplate.
+ */
+import Wordmark from "./Wordmark.astro";
+import { site, ESTATE } from "../lib/site";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <div style="font-size: var(--step-2); margin-bottom: var(--space-4);">
+          <Wordmark href={null} />
+        </div>
+        <p style="max-width: 34ch; color: var(--ink-soft);">{site.tagline}</p>
+      </div>
+
+      <nav aria-labelledby="footer-site">
+        <h2 id="footer-site">This site</h2>
+        <ul>
+          <li><a href="/articles/">All articles</a></li>
+          <li><a href="/about/">About and author</a></li>
+          <li><a href="/disclaimer/">What this site is not</a></li>
+          <li><a href="/sitemap-index.xml">Sitemap</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="footer-estate">
+        <h2 id="footer-estate">Also by Khaled Hawari</h2>
+        <ul>
+          {
+            ESTATE.map((entry) => (
+              <li>
+                <a href={entry.href} class="mono">
+                  {entry.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+
+    <p class="site-footer__colophon">
+      <span>&copy; {year} ISM50</span>
+      <span>Published from Ottawa, Ontario</span>
+      <span>History, not advice</span>
+    </p>
+  </div>
+</footer>

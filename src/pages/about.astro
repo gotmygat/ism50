@@ -1,0 +1,279 @@
+---
+/**
+ * /about/ . THE ONLY PAGE ON THIS DOMAIN THAT CLAIMS THE PERSON.
+ *
+ * ===========================================================================
+ * WHY THIS PAGE IS A BIOGRAPHY AND NOT A COLOPHON
+ * ===========================================================================
+ *
+ * Every article title on this site leads with its SUBJECT and never with a
+ * person's name. That is correct: it is what a brand-first publication should do
+ * and it is the safest position available in an estate where two domains fronting
+ * one name already cost khaledhawari.ca page one in August 2026.
+ *
+ * The consequence is that no article here will ever rank for his name, because
+ * a piece about Ethereum in 2016 is not an answer to a question about a person.
+ * By design. Which leaves exactly one page on this domain able to carry the
+ * string "Khaled Hawari" into a search result, and this is it. So it is written
+ * as a page worth reading on its own: what the site is, why the name means what
+ * it means, the standard the record is held to, and who is writing it and why
+ * that is not an odd pairing.
+ *
+ * ===========================================================================
+ * THE RULES THIS PAGE FOLLOWS, ALL OF THEM MECHANICAL
+ * ===========================================================================
+ *
+ * THE H1 LEADS WITH THE NAME. The <title> does not. That split is deliberate and
+ * it is the same split kna-group.com arrived at after a sweep found its founder
+ * page opening with the same "Khaled Hawari," as two pages on .ca: the title is
+ * the contested slot across domains, the H1 is not, and the H1 is the stronger
+ * of the two for the person anyway. So the title leads with this site's own
+ * framing and carries the name after the divider, and the H1 opens with the name
+ * beside the occupation.
+ *
+ * THE NAME IS ALWAYS ONE CONTIGUOUS STRING. Never "Khaled (Kal) Hawari", which
+ * contains neither "Khaled Hawari" nor "Kal Hawari" as a phrase anyone can
+ * search for. The nickname is introduced in its own sentence and declared in the
+ * Person node's alias list, which is the one place that rendering belongs.
+ * scripts/verify-subject.mjs fails the build on the parenthesised form anywhere
+ * in visible copy or head metadata.
+ *
+ * THE FINGERPRINT ATTRIBUTES SIT NEXT TO THE NAME. Ottawa, Ontario. Tax and
+ * financial consultant. Founder of Kodelytics Inc. and KNA Group. Commerce at
+ * the University of Ottawa and Carleton University. English, French and Arabic.
+ * Search engines do not disambiguate by name, they disambiguate by the set of
+ * attributes that reliably co-occur with a name across many independent
+ * documents, and those are the attributes the other four domains carry too.
+ *
+ * NOTHING ON THIS PAGE REFERENCES ANY OTHER PERSON, ANY OUTLET OR ANY MATTER,
+ * and no sentence here distinguishes him from anybody. Publishing a denial
+ * creates the association in our own words, on a domain we control, and indexes
+ * it permanently. There is no safe wording for one. The rule is positive only,
+ * and scripts/verify-subject.mjs enforces it.
+ *
+ * IT CARRIES ProfilePage AND ITS `mainEntity` IS THE CANONICAL PERSON, and it is
+ * the only route in the build allowed to. See src/lib/schema.ts. The person's
+ * own `mainEntityOfPage` still points at khaledhawari.ca, because "this page is
+ * about him" and "the primary document about him is over there" are both true at
+ * once, and only the second is a claim this domain has no business making.
+ */
+import Base from "../layouts/Base.astro";
+import Datum from "../components/Datum.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { Image } from "astro:assets";
+import portrait from "../assets/khaled-hawari.jpg";
+import { site, ESTATE, PERSON_SAME_AS } from "../lib/site";
+import { routeMeta } from "../lib/seo";
+
+const trail = [{ label: "About", href: "/about/" }];
+const linkedin = PERSON_SAME_AS.find((url) => url.includes("linkedin.com"))!;
+---
+
+<Base {...routeMeta.about} breadcrumbs={trail}>
+  <Breadcrumbs trail={trail} />
+
+  <header class="page-head">
+    <div class="container">
+      <p class="eyebrow">
+        <span class="eyebrow__num">00</span>
+        <span>About ISM50 and its author</span>
+      </p>
+      {/* THE NAME LEADS THE H1 AND THE OCCUPATION SITS BESIDE IT. One
+          contiguous string, followed immediately by the discriminating
+          attribute, which is the arrangement that carries the most signal in the
+          strongest heading slot on the page. */}
+      <h1 style="max-width: 22ch;">Khaled Hawari writes a history of crypto.</h1>
+      <p class="page-head__lede" style="max-width: 60ch;">
+        He is a tax and financial consultant in Ottawa, Ontario, and the founder
+        of Kodelytics Inc. and KNA Group. This page explains what ISM50 is, why
+        it is called that, and why the pairing is less odd than it sounds.
+      </p>
+    </div>
+  </header>
+
+  <section class="section--tight">
+    <div class="container-narrow">
+      <Datum label="The name" />
+
+      <div class="prose">
+        <h2>Fifty is the line, and the name is the argument</h2>
+        <p>
+          The Institute for Supply Management publishes a diffusion index. It is
+          not a price and not a growth rate. It is a count of how many
+          respondents said a thing improved rather than deteriorated, and fifty
+          is the point at which those two groups are exactly the same size. Above
+          fifty the thing is expanding. Below fifty it is contracting. The number
+          says nothing at all about magnitude, only about direction, and that is
+          precisely what makes it useful.
+        </p>
+        <p>
+          Crypto has spent fifteen years crossing that line. Not once, and not
+          all at the same time: capital, attention, credit, belief, users,
+          developers and regulation each crossed it more than once, in both
+          directions, and rarely in step with each other or with the price. A
+          period that looks in hindsight like an obvious peak was, to the people
+          inside it, a period in which several of those series were still rising
+          and one had quietly turned.
+        </p>
+        <p>
+          That is the whole editorial position. Every piece on this site should be
+          able to answer three questions: what was expanding, what was
+          contracting, and who could tell at the time. The third one is usually
+          where the piece actually is, because the honest answer is normally that
+          almost nobody could, including several people whose later accounts say
+          otherwise.
+        </p>
+        <p>
+          The number is also, by now, close to a joke in this particular corner of
+          the internet. That is fine. A name that works on two levels is a better
+          name than one that works on one, and the site is not going to explain
+          the pun again anywhere else.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section--tight">
+    <div class="container-narrow">
+      <Datum label="The standard" />
+
+      <div class="prose">
+        <h2>Crypto history is badly documented, and that is the opportunity</h2>
+        <p>
+          Try to check almost anything from before 2015 and you will run into the
+          same three problems. Primary sources have quietly disappeared: a press
+          release that half the academic literature cites now returns a 404, and
+          the only surviving copy of its text is a block quote in a paper about
+          something else. Narratives have been rewritten by their participants,
+          usually in a direction that improves them. And the confident numbers
+          everyone repeats often trace back to nothing: a figure that appears in
+          a peer-reviewed paper with no citation, then in a hundred articles
+          citing the paper.
+        </p>
+        <p>
+          So the rules here are strict, and they are enforced by the build rather
+          than by good intentions.
+        </p>
+        <p>
+          <strong>Nothing is invented.</strong> No date, no figure, no quote and
+          no claim about what a named person said or did unless it can be
+          checked. Where a number cannot be sourced it is cut rather than
+          softened, because a hedged invented number is still an invented number.
+        </p>
+        <p>
+          <strong>Where a claim is contested, the contest is named.</strong> Not
+          "some say", which is a way of avoiding the work. The actual parties,
+          what each of them concluded, and the documents.
+        </p>
+        <p>
+          <strong>Where a source is dead, the piece says so and says what it
+          said.</strong> A dead link is itself a fact about the record, and
+          quietly dropping it hides the thing that most needed pointing out.
+        </p>
+        <p>
+          <strong>There are no prices and no forecasts.</strong> This site quotes
+          no market capitalisation, states no view on what anything is worth, and
+          makes no prediction. Everything here is written with hindsight the
+          people involved did not have, which is a reason for humility rather
+          than a licence to extend the line. See
+          <a href="/disclaimer/">what this site is not</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section--tight">
+    <div class="container-narrow">
+      <Datum label="The author" />
+
+      <div class="prose">
+        <h2>Why a tax and financial consultant writes this</h2>
+
+        <p style="margin-bottom: var(--space-5);">
+          <Image
+            src={portrait}
+            alt="Khaled Hawari"
+            width={160}
+            height={160}
+            style="width: 96px; height: 96px; object-fit: cover; filter: grayscale(1) contrast(1.05);"
+            loading="lazy"
+          />
+        </p>
+
+        <p>
+          Khaled Hawari is a tax and financial consultant in Ottawa, Ontario. He
+          founded Kodelytics Inc., an Ontario corporation doing technical delivery
+          work for agencies, and KNA Group, which runs the finance function for
+          incorporated Canadian companies. He studied commerce at the University
+          of Ottawa and at Carleton University, and works in English, French and
+          Arabic.
+        </p>
+        {/* THE NICKNAME GETS ITS OWN SENTENCE. The parenthesised form contains
+            neither name as a searchable phrase, so it is never used; both full
+            strings appear here contiguously instead, and the alias list in the
+            Person node declares the rest. */}
+        <p>
+          He goes by Kal. Kal Hawari and Khaled Hawari are the same person, and
+          both forms turn up on the client side of an engagement, which is the
+          only reason the distinction is worth a sentence at all.
+        </p>
+        <p>
+          The route into this subject was not enthusiasm. It was that clients
+          started arriving with exchange exports nobody could reconcile, and
+          reconciling them turned out to require knowing what a given platform
+          had actually been doing in a given year: which of its internal transfers
+          were real, what its withdrawal halt in some particular month had meant,
+          whether a token had been distributed or sold, and what the contract had
+          done as opposed to what the announcement had promised. Answering those
+          questions properly means reading primary sources, and reading primary
+          sources for long enough turns into knowing the history.
+        </p>
+        <p>
+          It also means having repeatedly found the received account to be wrong.
+          That is the specific thing this site is for. A great deal of what
+          everybody knows about crypto history is a press release that was never
+          checked, and the correction is usually sitting in a court filing, a
+          mailing list archive or a contract that has been public the whole time.
+        </p>
+        <p>
+          The financial work is on
+          <a href="https://khaledhawari.ca/about-khaled-hawari/">khaledhawari.ca</a>,
+          and it stays there. Nothing on ISM50 is guidance for a reader's own
+          situation, and this site does not write about what anybody owes anyone.
+        </p>
+      </div>
+
+      <p style="margin-top: var(--space-6);">
+        <a href={linkedin} class="mono">LinkedIn</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section--tight">
+    <div class="container-narrow">
+      <Datum label="Elsewhere" />
+
+      <div class="prose">
+        <h2>The other four</h2>
+        <p>
+          Four sites, four subjects, one person. They do not overlap on purpose:
+          the split is what keeps each of them the answer to its own question
+          rather than two of them competing for one.
+        </p>
+      </div>
+
+      <ul class="estate-list" style="margin-top: var(--space-5);">
+        {
+          ESTATE.map((entry) => (
+            <li>
+              <a href={entry.href} class="estate-list__host">
+                {entry.label}
+              </a>
+              <p class="estate-list__note">{entry.note}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</Base>

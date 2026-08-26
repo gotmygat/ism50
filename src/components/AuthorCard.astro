@@ -1,0 +1,32 @@
+---
+/**
+ * The card at the foot of every article.
+ *
+ * IT NAMES HIM AS ONE CONTIGUOUS STRING and links to /about/, which is the only
+ * page on this domain that claims him. "Khaled (Kal) Hawari" contains neither
+ * searchable name as a phrase, so it never appears in a byline here; the
+ * nickname is declared in the Person node's alias list, which is the one place
+ * that rendering belongs. scripts/verify-subject.mjs fails the build on the
+ * parenthesised form in visible copy.
+ */
+import { Image } from "astro:assets";
+import portrait from "../assets/khaled-hawari.jpg";
+import { site } from "../lib/site";
+---
+
+<aside class="author-card">
+  <Image
+    src={portrait}
+    alt="Khaled Hawari"
+    width={128}
+    height={128}
+    class="author-card__portrait"
+    loading="lazy"
+  />
+  <div>
+    <p class="author-card__name">
+      <a href={site.authorPagePath}>{site.authorName}</a>
+    </p>
+    <p class="author-card__bio">{site.authorCardBio}</p>
+  </div>
+</aside>

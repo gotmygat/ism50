@@ -1,0 +1,155 @@
+---
+/**
+ * One article.
+ *
+ * Everything after the frontmatter is MDX prose and this template does not touch
+ * it. The `.prose` class carries the whole reading treatment, so an author
+ * writes plain markdown and gets ruled headings, hanging list markers, a real
+ * measure and a scrollable table without knowing any of it exists.
+ *
+ * The Article node's `author` is the canonical person id shared with the four
+ * sibling sites. That single property is what makes a piece published here count
+ * toward the same author entity as one published on khaledhawari.ca, and on a
+ * domain planning several hundred pieces it is where nearly all of this site's
+ * contribution to that entity lives.
+ */
+import type { GetStaticPaths } from "astro";
+import { render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import Datum from "../../components/Datum.astro";
+import ArticleRow from "../../components/ArticleRow.astro";
+import AuthorCard from "../../components/AuthorCard.astro";
+import { site } from "../../lib/site";
+import { articleTrail } from "../../lib/breadcrumbs";
+import { absoluteUrl } from "../../lib/seo";
+import { articleNode } from "../../lib/schema";
+import { getArticles, getRelated, KIND_LABEL, formatDate, isoDate } from "../../lib/collections";
+import { ERAS } from "../../lib/eras";
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  /* Through `getArticles()`, so a future-dated piece is not emitted at all. This
+     is the first of the two gates; astro.config.mjs applies the same rule to the
+     sitemap, which it cannot import from here. */
+  const articles = await getArticles();
+  return articles.map((article) => ({
+    params: { slug: article.id },
+    props: { article },
+  }));
+};
+
+const { article } = Astro.props;
+const { title, seoTitle, description, lede, date, updated, author, kind, era } = article.data;
+
+const path = `/articles/${article.id}/`;
+const canonical = absoluteUrl(path);
+const trail = articleTrail(title, article.id);
+const eraCopy = ERAS[era];
+
+const { Content } = await render(article);
+
+/* The byline links to this site's page about him ONLY when the author is the
+   principal, which today is every article. An outside contributor would get a
+   name in the meta row and would not get a link to somebody else's page. Written
+   as a comparison rather than assumed, because the frontmatter field is a free
+   string with a default and the first guest piece should not silently attribute
+   itself. */
+const bylineIsPrincipal = author === site.authorName;
+
+const more = await getRelated(article.id, era, 3);
+---
+
+<Base
+  title={seoTitle}
+  description={description}
+  path={path}
+  type="article"
+  publishedAt={date}
+  updatedAt={updated}
+  author={author}
+  breadcrumbs={trail}
+  jsonLd={[
+    articleNode({
+      canonical,
+      headline: title,
+      description,
+      datePublished: date,
+      dateModified: updated,
+      section: eraCopy.label,
+      keywords: [eraCopy.label, KIND_LABEL[kind], "history of cryptocurrency"],
+    }),
+  ]}
+>
+  <Breadcrumbs trail={trail} />
+
+  <article>
+    <header class="page-head">
+      <div class="container-narrow">
+        <p class="meta-row" style="margin-bottom: var(--space-5);">
+          <span class="chip">{KIND_LABEL[kind]}</span>
+          <span class={`chip chip--${eraCopy.direction}`}>{eraCopy.label}</span>
+          <span class="meta-row__sep" aria-hidden="true"></span>
+          <time datetime={isoDate(date)}>{formatDate(date)}</time>
+          <span class="meta-row__sep" aria-hidden="true"></span>
+          <span>By {bylineIsPrincipal ? <a href={site.authorPagePath}>{author}</a> : author}</span>
+          {
+            updated && (
+              <>
+                <span class="meta-row__sep" aria-hidden="true" />
+                <span>
+                  Updated <time datetime={isoDate(updated)}>{formatDate(updated)}</time>
+                </span>
+              </>
+            )
+          }
+        </p>
+        <h1>{title}</h1>
+        <p class="lede page-head__lede">{lede}</p>
+      </div>
+    </header>
+
+    <div class="container-narrow">
+      <Datum label={`roughly ${eraCopy.span}`} />
+    </div>
+
+    <div class="section--tight">
+      <div class="container-narrow">
+        <div class="prose">
+          <Content />
+        </div>
+        {bylineIsPrincipal && <AuthorCard />}
+      </div>
+    </div>
+  </article>
+
+  {
+    /* `data-lastmod-rail` is read by scripts/sitemap-lastmod.mjs, which hashes
+       each page's rendered output to decide whether its sitemap `lastmod` moves
+       and skips every element carrying this attribute.
+
+       This rail shows three OTHER pieces, so tomorrow's article rewrites a row
+       here on every article page that already exists. Without the marker, one
+       publish would restamp the entire archive, and a year of daily publishing
+       would have several hundred URLs claiming a change every morning. A crawler
+       that learns a host's `lastmod` is a build clock stops reading the field at
+       all, which is worse than never having sent one.
+
+       The rail is a signpost to other documents rather than a change to this
+       one, which is also what Google's own guidance says `lastmod` is for. The
+       attribute renders into the HTML, is inert in the browser, and sits on the
+       OUTERMOST element of the rail, because the script removes the marked
+       element and everything inside it. */
+    more.length > 0 && (
+      <section class="section--tight" data-lastmod-rail>
+        <div class="container">
+          <Datum label="Read next" />
+          <div class="rows">
+            {more.map((entry) => (
+              <ArticleRow article={entry} />
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+</Base>

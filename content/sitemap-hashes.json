@@ -1,0 +1,40 @@
+{
+  "note": "Written by scripts/sitemap-lastmod.mjs on every build, and committed by scripts/publish-scheduled.sh after every successful deploy. COMMIT IT: it is the only record of what the last deploy actually rendered, and a sitemap lastmod is only honest if something remembers. Do not hand-edit.",
+  "routes": {
+    "/": {
+      "hash": "6a24a4f9911fa7d540986ce23b349fde",
+      "hashDay": "2026-08-26",
+      "lastmod": "2026-08-26"
+    },
+    "/about/": {
+      "hash": "fbc5725ca3c6a1fb692c997b9a3499d3",
+      "hashDay": "2026-08-26",
+      "lastmod": "2026-08-26"
+    },
+    "/articles/": {
+      "hash": "99bfbb51ccf2662de42befe6feaec2d6",
+      "hashDay": "2026-08-26",
+      "lastmod": "2026-08-26"
+    },
+    "/articles/constant-product-is-an-inequality/": {
+      "hash": "88e2be8da064b4e16d94ab6623da7fc5",
+      "hashDay": "2026-08-26",
+      "lastmod": "2026-08-26"
+    },
+    "/articles/mt-gox-the-coins-were-already-gone/": {
+      "hash": "69b38ba98360fa90da2cab0b9fccb659",
+      "hashDay": "2026-08-25",
+      "lastmod": "2026-08-25"
+    },
+    "/articles/the-bitcoin-whitepaper-is-not-the-document-you-think/": {
+      "hash": "78cd3abcf57262882bfc21da7ac586c3",
+      "hashDay": "2026-08-24",
+      "lastmod": "2026-08-24"
+    },
+    "/disclaimer/": {
+      "hash": "89bb1365612f907716f4a66b49b68e8d",
+      "hashDay": "2026-08-26",
+      "lastmod": "2026-08-26"
+    }
+  }
+}

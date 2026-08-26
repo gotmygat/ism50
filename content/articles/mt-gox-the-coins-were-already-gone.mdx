@@ -1,0 +1,217 @@
+---
+title: "Mt. Gox: the coins were already gone before the story was told"
+seoTitle: "Mt. Gox and the Bug That Explains Almost Nothing"
+description: "Mt. Gox blamed a Bitcoin protocol flaw in February 2014. Two independent analyses put the theft two and a half years earlier, and the arithmetic is not close."
+date: 2026-08-25
+author: "Khaled Hawari"
+era: earlyExchange
+kind: postmortem
+lede: "The exchange said a bug in Bitcoin took 850,000 coins in February. The chain says at most a few hundred could have gone that way."
+---
+
+Mt. Gox's own filing document is still online. That is unusual enough to lead
+with, because most of the primary material from this period is gone. The
+announcement it published on 28 February 2014, the day it went to the Tokyo
+District Court, is served today at
+[mtgox.com/img/pdf/20140228-announcement_eng.pdf](https://www.mtgox.com/img/pdf/20140228-announcement_eng.pdf).
+Everything in this piece that is attributed to the company comes from that file
+or from the press release that preceded it.
+
+The document says:
+
+> we found that approximately 750,000 bitcoins deposited by users and
+> approximately 100,000 bitcoins belonging to us had disappeared.
+
+Eight hundred and fifty thousand, in two buckets, and the split matters because
+the round total is what gets quoted and the breakdown is what tells you the
+company's own money went too. The same filing discloses a separate cash shortfall
+of roughly 2.8 billion yen, and a balance sheet with assets of ¥3,841,866,163
+against liabilities of ¥6,501,119,371.
+
+It also gives a cause.
+
+## What the company said happened
+
+Eighteen days earlier, on 10 February 2014, Mt. Gox had published a press release
+about transaction malleability. The original URL is dead now. Its full text
+survives because Christian Decker and Roger Wattenhofer quoted it in their paper
+and cited the URL they had retrieved it from:
+
+> A bug in the bitcoin software makes it possible for someone to use the Bitcoin
+> network to alter transaction details to make it seem like a sending of bitcoins
+> to a bitcoin wallet did not occur when in fact it did occur. Since the
+> transaction appears as if it has not proceeded correctly, the bitcoins may be
+> resent.
+
+The filing repeats the claim in legal language, without ever using the word
+malleability:
+
+> At the start of February 2014, illegal access through the abuse of a bug in the
+> bitcoin system resulted in an increase in incomplete bitcoin transfer
+> transactions... We believe that there is a high probability that these bitcoins
+> were stolen as a result of an abuse of this bug.
+
+Read those two together and the story is complete and self-contained. A flaw in
+Bitcoin itself, exploited in February, drained the exchange. The exchange is a
+victim of the protocol. It is a very good story, it was accepted almost
+universally at the time, and it is the reason "transaction malleability" entered
+general vocabulary.
+
+## What the chain said
+
+Decker and Wattenhofer published
+[arXiv:1403.6676](https://arxiv.org/abs/1403.6676) on 26 March 2014, four weeks
+after the filing. They did not argue about the story. They counted.
+
+> However, while MtGox claimed to have lost 850,000 bitcoins due to malleability
+> attacks, we merely observed a total of 302,000 bitcoins ever being involved in
+> malleability attacks. Of these, only 1,811 bitcoins were in attacks before
+> MtGox stopped users from withdrawing bitcoins. Even more, 78.64% of these
+> attacks were ineffective. As such, barely 386 bitcoins could have been stolen
+> using malleability attacks from MtGox or from other businesses. Even if all of
+> these attacks were targeted against MtGox, MtGox needs to explain the
+> whereabouts of 849,600 bitcoins.
+
+Three hundred and eighty-six, against eight hundred and fifty thousand. Not a
+discrepancy. Three orders of magnitude.
+
+And there is a second finding in that paper which is, if anything, worse for the
+company's account. The malleability attacks were not distributed across the
+period. The overwhelming majority happened *after* the 10 February press release:
+286,076 coins' worth between the 10th and the 11th, which the authors describe as
+two orders of magnitude larger than everything in the preceding period combined,
+and call a strong indicator that the attacks were triggered by the press
+releases. In other words, the phenomenon that was offered as the explanation
+largely came into existence once the explanation was published, when people who
+had just been told there was an exploitable flaw went and tried it.
+
+## Where the coins actually went
+
+The forensic account came from Kim Nilsson at WizSec, and both posts are still
+live, which for 2015 and 2017 material is not something to assume.
+
+[The Missing MtGox Bitcoins](https://blog.wizsec.jp/2015/04/the-missing-mtgox-bitcoins.html),
+April 2015:
+
+> Most or all of the missing bitcoins were stolen straight out of the MtGox hot
+> wallet over time, beginning in late 2011.
+
+[Breaking open the MtGox case](https://blog.wizsec.jp/2017/07/breaking-open-mtgox-1.html),
+July 2017, is more specific:
+
+> In September 2011, the MtGox hot wallet private keys were stolen, in a case of
+> a simple copied wallet.dat file.
+
+By mid-2013, WizSec puts the total taken through those compromised keys at around
+630,000 coins. Malleability appears in that account only as a roughly 40,000-coin
+bookkeeping artefact caused by address reuse, not as a cause of loss.
+
+So the two accounts are not a difference of emphasis. In one, the coins left in
+February 2014 through a flaw in Bitcoin. In the other, they had been leaving
+continuously since September 2011 through a copied file, and were long gone by
+the time anyone said the word malleability out loud. The gap between them is two
+and a half years and the entire question of who was responsible.
+
+<div class="note">
+  <span class="note__label">Where I am not going further than the sources</span>
+
+  WizSec names a suspect for the theft. That is an investigator's conclusion in a
+  blog post, not a finding of fact, and it is not what the man in question was
+  charged with in the United States. The Department of Justice announcement
+  concerns money laundering through a different exchange. I am not connecting
+  those two things here, because the sources do not connect them and a history
+  site that fills that gap on its own is doing the thing this site exists to
+  argue against.
+
+  Separately: the widely circulated eleven-page "Crisis Strategy Draft" that
+  appeared on 24 February 2014, claiming 744,408 coins lost, was never
+  authenticated by Mt. Gox in any document I can find on its own domain. Some
+  contemporaneous reporting said Karpelès confirmed it; other reporting called it
+  unverified. Its figure does not match the 750,000 in the official filing. Treat
+  it as a leaked draft of uncertain provenance, and do not quote it as a company
+  statement.
+</div>
+
+## Three dates that get collapsed into one
+
+The collapse is usually given a single date and it had at least three, which is
+worth keeping straight because they are different events with different meanings.
+
+**7 February 2014.** Bitcoin withdrawals halted. Fiat withdrawals had already
+been troubled for months. This is the point at which the outside world could tell
+something was wrong.
+
+**24 February 2014.** All trading suspended, the site offline within hours.
+
+**28 February 2014.** Civil rehabilitation filed at the Tokyo District Court,
+case number 2014 (sai) 12, with Baker & McKenzie as counsel and Nobuaki Kobayashi
+of Nagashima Ohno & Tsunematsu as supervisor.
+
+There is a small unresolved tension in the record here. Contemporaneous accounts
+put the trading halt on the 24th; the company's own filing says the site was
+closed "at noon on the 25th (Japan time)". Both can be true, with trading halted
+on one day and the site formally closed the next, and if you are going to name a
+single date it is worth saying which event you mean.
+
+On 20 March 2014, an old-format wallet last used before June 2011 was found to
+contain 199,999.99 coins. Write the number, not "200,000": the original
+announcement of the find is one of the pages that has gone, and the surviving
+figure is precise.
+
+## The title in the filing is not the one in the headlines
+
+Mark Karpelès signed the 28 February document as **Representative Director** of
+MtGox Co., Ltd. Not chief executive. Representative director is the actual
+corporate office under Japanese company law and it is what the legal record says;
+"CEO" is press shorthand that stuck.
+
+The verdict is also routinely reported wrongly, and it matters because it
+concerns a real person. On 15 March 2019 the Tokyo District Court convicted him
+of falsifying electronic records, relating to Mt. Gox's own books, and gave him
+two and a half years suspended for four. He was **acquitted** of embezzlement and
+of breach of trust, the two more serious counts. The Tokyo High Court rejected his
+appeal in June 2020. He was not convicted over the loss of the coins.
+
+## The number that is in every account and traces to nothing
+
+Almost every retelling contains a sentence like "by early 2014 Mt. Gox handled
+around 70% of all bitcoin transactions". It is wrong twice and unsourced once.
+
+Wrong first because of the category. Every traceable version of the figure
+concerns *exchange trading volume*. An exchange does not handle on-chain
+transactions; that is not a thing the sentence can mean.
+
+Wrong second because of the date. Roughly 70% was Mt. Gox's approximate share of
+exchange volume around **April 2013**. Through the second half of that year its
+share collapsed as Bitstamp and BTC-e took volume, and by the end of 2013 it was
+in third place. By the time it failed, its share was a fraction of the number
+attached to the failure.
+
+Unsourced because the version that everybody now cites, in Decker and
+Wattenhofer's own paper, carries no citation at all. It is one sentence in a
+peer-reviewed publication, and every modern repetition traces back to press
+coverage rather than to a measurement.
+
+I have not been able to open the contemporaneous volume analysis I would want to
+cite for the 2013 figures, so I am not printing percentages for the decline. What
+I will say, because the sources support it, is that the 70% figure belongs to
+2013 and to trading volume, and that pinning it to February 2014 gets both halves
+wrong.
+
+## What was expanding, what was contracting
+
+Through 2013, the thing that was expanding fastest was the number of places to
+trade, and the thing that was contracting fastest, quietly, was Mt. Gox's share
+of them. Almost nobody read the second as a warning, because market share loss
+looks like competition rather than like insolvency.
+
+The series that had been below the line since September 2011 was custody, and
+there was no way for anyone outside to see it. That is the actual lesson and it
+is not "exchanges are risky". It is that the thing that failed had already failed
+years before it was visible, that the failure was invisible precisely because the
+exchange was the only party who could see it, and that when the failure finally
+surfaced the first public explanation was wrong by three orders of magnitude and
+was believed anyway, for a year, by nearly everybody.
+
+The record was fixed by two outside parties counting things on a public ledger.
+That is the part worth remembering, because it is the only part that generalises.

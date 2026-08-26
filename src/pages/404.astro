@@ -1,0 +1,38 @@
+---
+/**
+ * The 404. Noindexed, and `follow` rather than `nofollow`, because a noindexed
+ * page still passes internal link equity to the pages it links to and
+ * `nofollow` would strand it.
+ *
+ * It gets a real navigation rather than an apology, because the only useful
+ * thing a 404 can do is get somebody to the thing they were looking for.
+ */
+import Base from "../layouts/Base.astro";
+import Datum from "../components/Datum.astro";
+import { routeMeta } from "../lib/seo";
+---
+
+<Base {...routeMeta.notFound}>
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">
+        <span class="eyebrow__num">404</span>
+        <span>Below the line</span>
+      </p>
+      <h1 style="max-width: 16ch;">Nothing at this address.</h1>
+      <p class="page-head__lede" style="max-width: 52ch;">
+        Either the page has never existed or a URL has changed. Both happen, and
+        on a site about badly documented history it would be poor form to pretend
+        otherwise.
+      </p>
+
+      <Datum label="Try these" />
+
+      <ul style="list-style: none; padding: 0; display: grid; gap: var(--space-4); max-width: 40rem;">
+        <li><a href="/articles/">Every article, grouped by era</a></li>
+        <li><a href="/about/">About ISM50 and its author</a></li>
+        <li><a href="/disclaimer/">What this site is not</a></li>
+      </ul>
+    </div>
+  </section>
+</Base>
