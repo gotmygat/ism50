@@ -112,4 +112,44 @@ for (const page of pages) {
   if (h1s.length > 1) report.error(where, `${h1s.length} <h1> elements, expected exactly one`);
 }
 
+/* THE ESTATE LINKS MUST NOT BE STRUCTURAL. Added 2026-08-26 after this site
+   shipped with all four sibling domains as anchors in the footer, on every
+   page. At the planned 365 articles that is roughly 1,480 sitewide links
+   between five domains owned by one person.
+
+   That is a link scheme footprint. Google names private blog networks and
+   excessive reciprocal linking in its spam policies, a manual action lands in
+   Search Console, it can hit the linked sites rather than only this one, and
+   clearing it takes a reconsideration request and months. The owner of these
+   domains is in the middle of a reputational problem with his own name and is
+   the last person who can afford to look like he runs a network.
+
+   Editorial links out are fine and wanted: /about/ says who wrote this, and a
+   piece may point at a sibling where the sibling genuinely answers the
+   question. Those are a handful of routes. A block rendered by a layout is not.
+
+   The ceiling is deliberately a small number rather than one, so an honest
+   editorial link on a third page does not fail the build. It is far below any
+   number a reinstated sitewide block could produce, which is the whole job. */
+const ESTATE_HOSTS = [
+  "khaledhawari.ca",
+  "khaledhawari.com",
+  "kodelytics.ca",
+  "kna-group.com",
+];
+const ESTATE_ROUTE_CEILING = 4;
+
+for (const host of ESTATE_HOSTS) {
+  const anchorRe = new RegExp(`<a\\b[^>]*href="https?://(?:www\\.)?${host.replace(".", "\\.")}`, "i");
+  const routes = pages.filter((page) => anchorRe.test(page.html)).map((page) => page.route);
+  if (routes.length > ESTATE_ROUTE_CEILING) {
+    report.error(
+      "estate links",
+      `${host} is linked from ${routes.length} routes (ceiling ${ESTATE_ROUTE_CEILING}). ` +
+        `A sibling domain appearing on this many routes is a layout block, not an editorial link. ` +
+        `Sample: ${routes.slice(0, 3).join(", ")}`,
+    );
+  }
+}
+
 process.exit(report.finish(pages.length));

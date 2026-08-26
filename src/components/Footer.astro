@@ -2,24 +2,12 @@
 /**
  * The site footer.
  *
- * IT CARRIES THE ESTATE LINKS AS ORDINARY ANCHORS, on every page, and that is
- * the point rather than a courtesy. The relationship between this publication
- * and the author's other properties is asserted in the JSON-LD through one
- * shared Person `@id`, but a plain link with descriptive text on a page that is
- * genuinely about the subject is the thing entity extraction has always read,
- * and it costs nothing.
- *
- * The hub on .ca is `/about-khaled-hawari/`. The bare `/khaled-hawari/` 404s on
- * three of the four sibling domains and only redirects on .ca, so it is never
- * linked from anywhere on this site.
- *
- * The footer sits OUTSIDE <main>, which is what keeps the copyright year out of
- * the sitemap hash. See scripts/sitemap-lastmod.mjs: a footer printing the
- * current year, if hashed, would have every URL on the site claim to have been
- * modified on 1 January, every year, over one line of boilerplate.
- */
+ * IT NO LONGER CARRIES THE ESTATE LINKS. It used to, on every page, and the
+ * paragraph that used to sit here argued for it. That argument was wrong and
+ * the reasoning is at the removal site below.
+*/
 import Wordmark from "./Wordmark.astro";
-import { site, ESTATE } from "../lib/site";
+import { site } from "../lib/site";
 
 const year = new Date().getFullYear();
 ---
@@ -44,20 +32,26 @@ const year = new Date().getFullYear();
         </ul>
       </nav>
 
-      <nav aria-labelledby="footer-estate">
-        <h2 id="footer-estate">Also by Khaled Hawari</h2>
-        <ul>
-          {
-            ESTATE.map((entry) => (
-              <li>
-                <a href={entry.href} class="mono">
-                  {entry.label}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
+      {/* THE ESTATE BLOCK IS GONE FROM THE FOOTER, DELIBERATELY, 2026-08-26.
+
+         It rendered all four sibling domains as anchors on EVERY page. At the
+         planned 365 articles that is roughly 1,480 sitewide cross-domain links
+         between five domains owned by one person, three of them deep links to
+         the siblings' own person pages.
+
+         That is a link scheme footprint. Google's spam policies name PBNs and
+         excessive reciprocal linking explicitly, and a manual action lands in
+         Search Console, can hit the linked sites rather than only this one, and
+         takes a reconsideration request and months to clear. The owner of these
+         domains is in the middle of a reputational problem with his own name.
+         He is the last person who can afford to look like he runs a network.
+
+         The estate links now live on /about/ ONLY, where a reader who wants to
+         know who wrote this goes looking, and where a single set of links is
+         editorial rather than structural. scripts/verify-schema.mjs fails the
+         build if a sibling host appears in an anchor on more than one route.
+
+         Do not restore this. The reasoning is not aesthetic. */}
     </div>
 
     <p class="site-footer__colophon">
