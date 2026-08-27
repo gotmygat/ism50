@@ -1,0 +1,227 @@
+---
+title: "The Supply Schedule Is a Rule in Code, Not a Promise in a Document"
+seoTitle: "How the Bitcoin Supply Schedule Works"
+description: "Where the issuance rule actually lives, what enforces it, and why calling it a hard cap is a statement about social consensus."
+date: 2026-09-26
+author: "Khaled Hawari"
+era: origins
+kind: primarySource
+lede: "The cap is enforced by every node choosing to run software that enforces it, which is a different kind of guarantee than most people hear."
+---
+
+Here is the entire issuance rule, as it stands today in `src/validation.cpp` of
+the reference implementation:
+
+```cpp
+CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
+{
+    int halvings = nHeight / consensusParams.nSubsidyHalvingInterval;
+    // Force block reward to zero when right shift is undefined.
+    if (halvings >= 64)
+        return 0;
+
+    CAmount nSubsidy = 50 * COIN;
+    // Subsidy is cut in half every 210,000 blocks which will occur approximately every 4 years.
+    nSubsidy >>= halvings;
+    return nSubsidy;
+}
+```
+
+Eleven lines. One integer division, one guard, one right shift. That is the
+whole of the thing that gets described as a monetary policy, an economic law and
+a mathematical certainty, and reading it changes what those descriptions can
+honestly mean.
+
+## The function does not issue anything
+
+This is the first thing to get straight, because the grammar of every summary
+gets it backwards. `GetBlockSubsidy` computes a number. It does not create a
+coin, credit an account or touch a balance. Nothing in the codebase issues
+anything at all.
+
+What happens instead is a rejection. In the block connection path:
+
+```cpp
+CAmount blockReward = nFees + GetBlockSubsidy(pindex->nHeight, params.GetConsensus());
+if (block.vtx[0]->GetValueOut() > blockReward && state.IsValid()) {
+    state.Invalid(BlockValidationResult::BLOCK_CONSENSUS, "bad-cb-amount", ...);
+}
+```
+
+`block.vtx[0]` is the coinbase transaction, the first in the block, the one that
+pays the miner. If it pays out more than fees plus the computed subsidy, the
+block is invalid and the node discards it. The error string is `bad-cb-amount`.
+
+So the rule is not "fifty coins are issued, halving every 210,000 blocks". The
+rule is "a block that pays its producer more than this is not a block, according
+to me". Every node reaches that verdict on its own, from its own copy of this
+function, without consulting anybody. A miner may write whatever number they
+like into a coinbase. What they cannot do is make anyone else accept it.
+
+That distinction is not pedantry. It is the difference between a schedule that is
+imposed and a schedule that is refused, and every serious claim about the cap
+rests on which one it is.
+
+## The famous number is a parameter, not a constant
+
+`nSubsidyHalvingInterval` is a field on a settings structure, and the same
+binary ships it with two different values. In `src/kernel/chainparams.cpp`:
+
+| Network | nSubsidyHalvingInterval |
+| --- | --- |
+| main | 210000 |
+| testnet | 210000 |
+| testnet4 | 210000 |
+| signet | 210000 |
+| regtest | 150 |
+
+Five networks, one file, one program. On the regression testing network the
+interval is a hundred and fifty blocks, so a developer can watch several
+halvings happen over a coffee. Nobody thinks that undermines anything, and it
+should not, but it does settle the category question. The interval is not a law
+of arithmetic. It is a configuration value, selected per network, that the
+running software reads.
+
+## Where 21 million is, and what it is doing there
+
+It is not in the subsidy function. The number appears in
+`src/consensus/amount.h`, and the comment attached to it is one of the more
+useful pieces of writing in the repository:
+
+```cpp
+/** No amount larger than this (in satoshi) is valid.
+ *
+ * Note that this constant is *not* the total money supply, which in Bitcoin
+ * currently happens to be less than 21,000,000 BTC for various reasons, but
+ * rather a sanity check. ...
+ * */
+inline constexpr CAmount MAX_MONEY{21'000'000 * COIN};
+inline bool MoneyRange(const CAmount& nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
+```
+
+The maintainers wrote *not* in emphasis, in a header file, because people keep
+getting this wrong. `MAX_MONEY` is a bounds check used to reject nonsense
+values. It is consensus critical, and the comment says why, but it is not the
+cap and it does not enforce the cap.
+
+The cap is not written down anywhere as a target. It is what you get if you sum
+the series that the shift produces, and the sum falls a little short of the
+round number, which is why the comment says "currently happens to be less than".
+
+One of the reasons is in the same file as the block reward check, a couple of
+hundred lines above it:
+
+```cpp
+// Special case for the genesis block, skipping connection of its transactions
+// (its coinbase is unspendable)
+```
+
+The first fifty coins were produced by the schedule and cannot be spent by any
+node running this software. They are counted by the arithmetic and absent from
+the usable supply, permanently, because of a special case in the validation
+path. That is not the only such reason and it is the easiest one to verify by
+reading.
+
+## The implementation has already been edited
+
+The version of this rule that shipped in the earliest published release looks
+like this:
+
+```cpp
+int64 CBlock::GetBlockValue(int64 nFees) const
+{
+    int64 nSubsidy = 50 * COIN;
+
+    // Subsidy is cut in half every 4 years
+    nSubsidy >>= (nBestHeight / 210000);
+
+    return nSubsidy + nFees;
+}
+```
+
+Two differences from the current version, and both are worth naming.
+
+There is no guard against an undefined shift. Shifting a 64 bit integer by 64 or
+more places is not defined by the language, so what the program does at that
+point depends on the compiler and the processor. The guard in the modern version
+exists because somebody noticed.
+
+And the height comes from `nBestHeight`, a global holding the height of the best
+chain this node currently knows about, rather than from the height of the block
+being validated. Those are the same number in the ordinary case of appending to
+the tip and they are not the same number in general.
+
+Whether either difference could have produced a different result on the chain
+that actually ran is a separate question, and this piece does not settle it. The
+point is smaller and harder to argue with. The supply schedule is a piece of
+software. It has been read, found wanting in detail, and corrected, in public, in
+a version control history anyone can walk. It is not a constant of nature and it
+never has been.
+
+## What would have to happen to change it
+
+Not a proof, not a discovery, not a mathematical impossibility being overcome.
+A patch to that function, merged, released, and then run.
+
+That last step is the one that carries all the weight, and it is the same step
+that carries the weight in every other governance question in this subject.
+[Merging is not deciding](/articles/maintainers-not-owners/), and neither is
+shipping. A node running the current function rejects a block paying more
+than the current subsidy, with `bad-cb-amount`, and follows a chain that does not
+contain it. If enough parties keep the old function, the chain containing the
+larger payment simply does not exist for them.
+
+So the honest statement of the guarantee is this. The supply rule holds for
+exactly as long as a sufficient number of independent parties would refuse the
+alternative, and those parties are not organised, cannot be identified in
+advance, and do not have to coordinate to refuse, because refusing is the
+default behaviour of software they already have installed.
+
+That is a social fact wearing a technical costume, and saying so out loud makes
+the design more impressive rather than less. A rule that cannot be changed is a
+claim about mathematics and it is false here. A rule that thousands of
+uncoordinated parties would independently refuse to change, with no meeting, no
+vote and no communication required, is a claim about coordination, and it is
+both true and much stranger.
+
+<div class="note">
+  <span class="note__label">What this piece is not covering</span>
+
+  [The nine numbered sections of the whitepaper](/articles/reading-the-bitcoin-whitepaper/)
+  do not establish this rule. There
+  is no cap in that document, and there is no halving schedule in it either. That
+  absence, and the general question of what the paper is assumed to say versus
+  what it says, is already covered:
+  [the whitepaper is not the document you think](/articles/the-bitcoin-whitepaper-is-not-the-document-you-think/).
+
+  What matters here is the consequence. If the rule is not in the founding
+  document, then it never had the status of a promise made by an author. It has
+  only ever had the status it has now, which is a function in a program that
+  people choose to run.
+</div>
+
+## What was expanding, what was contracting
+
+The contraction is written into the mechanism and it is the only one on this site
+that is scheduled in advance. The subsidy halves, and halves again, and the guard
+at 64 halvings sets a floor of zero. The share of a miner's revenue that comes
+from issuance rather than from transaction fees falls by construction, whatever
+else happens. That was decided by a right shift operator in 2009 and nothing has
+been able to argue with it since.
+
+The expansion is the credibility of the rule, and it moves in the opposite
+direction for a reason that has nothing to do with the arithmetic. Every
+additional independent implementation, every additional operator running their
+own copy, every additional party who would notice and refuse, makes a change
+harder. The rule got stronger over fifteen years, and not one of the fifteen
+years' worth of strengthening happened in this function, which has barely
+changed. It happened in the number of machines running it.
+
+Who could tell at the time is where the two halves come apart. The arithmetic was
+legible from the first release: anyone could read `GetBlockValue`, do the sum and
+see where it ends. The social claim was not legible at all in 2009, because there
+was nothing to measure. In January of that year the number of independent parties
+who would have refused a change was very small, and the honest description of the
+cap at that moment was that it held because approximately nobody wanted to alter
+it. That is still the description. What changed is the size of the word
+approximately.
