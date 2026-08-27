@@ -13,7 +13,7 @@
     "dev": "npm run sync:person && astro dev",
     "start": "npm run dev",
     "sync:person": "node scripts/sync-canonical-person.mjs",
-    "build": "npm run verify:emdash && npm run sync:person && astro build && npm run fix:sitemap-xsl && npm run fix:sitemap-lastmod && npm run verify:links && npm run verify:content && npm run verify:subject && npm run verify:schema",
+    "build": "npm run verify:emdash && npm run sync:person && astro build && npm run fix:sitemap-xsl && npm run fix:sitemap-lastmod && npm run split:sitemap && npm run verify:links && npm run verify:content && npm run verify:subject && npm run verify:schema",
     "preview": "astro preview",
     "astro": "astro",
     "typecheck": "tsc --noEmit",
@@ -27,7 +27,8 @@
     "fix:sitemap-lastmod": "node scripts/sitemap-lastmod.mjs",
     "indexnow": "node scripts/indexnow.mjs",
     "estate:titles": "node scripts/estate-title-check.mjs",
-    "publish:scheduled": "bash scripts/publish-scheduled.sh"
+    "publish:scheduled": "bash scripts/publish-scheduled.sh",
+    "split:sitemap": "node scripts/split-sitemap.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.4",
