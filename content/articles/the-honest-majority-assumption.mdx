@@ -1,0 +1,135 @@
+---
+title: "The Honest Majority Assumption Is an Assumption, and It Says So"
+seoTitle: "The Honest Majority Assumption, Examined"
+description: "Security rests on a stated condition about how much of the network is cooperating, and the document is explicit that it is a condition."
+date: 2026-10-08
+author: "Khaled Hawari"
+era: origins
+kind: primarySource
+lede: "The guarantee is conditional, the condition is named in the paper, and almost every popular summary drops it."
+---
+
+The introduction of the Bitcoin whitepaper ends on a conditional. Not a claim, a
+conditional, with the condition first:
+
+> The system is secure as long as honest nodes collectively control more CPU
+> power than any cooperating group of attacker nodes.
+
+The guarantee is the short half of that sentence. Every summary that keeps the
+first half and loses the second is describing a different system from the one in
+the document, and the difference is not a nuance. It is the difference between a
+theorem and a slogan.
+
+## The sentence that carries the whole guarantee
+
+Read what the condition is actually about, because three separate substitutions
+happen when people paraphrase it.
+
+It is about CPU power, not about people. A majority of participants proves
+nothing here, and neither does a majority of holdings. The quantity being counted
+is work per unit time, and the reason is structural: work is the only thing in the
+design that cannot be manufactured by creating more identities. If the condition
+were stated over participants, anyone could satisfy or break it by running more
+software.
+
+It is about honest nodes collectively, against any single cooperating group. Not
+against the sum of everyone who might prefer a different outcome. The comparison
+is one coalition at a time, which is a weaker claim than it first reads as, and
+an honest one.
+
+And it is stated as a condition of security, not as a description of the network.
+The paper does not assert that this holds. It asserts what follows if it does. The
+[reading of the document as a document](/articles/reading-the-bitcoin-whitepaper/)
+is the habit that makes this visible, because the sentence structure is doing the
+work and a paraphrase destroys it.
+
+## What section 11 says an attacker can and cannot do
+
+The most misread part of the paper is the part that limits the damage. Section 11,
+"Calculations", opens by narrowing the threat before it starts modelling it:
+
+> We consider the scenario of an attacker trying to generate an alternate chain
+> faster than the honest chain. Even if this is accomplished, it does not throw
+> the system open to arbitrary changes, such as creating value out of thin air or
+> taking money that never belonged to the attacker. Nodes are not going to accept
+> an invalid transaction as payment, and honest nodes will never accept a block
+> containing them. An attacker can only try to change one of his own transactions
+> to take back money he recently spent.
+
+That paragraph does more to define the guarantee than anything else in the
+document, and it is almost never quoted. The majority condition is not protecting
+the ledger from forgery. Forgery is handled elsewhere, by signature checking and
+validation rules that every node applies independently and that no amount of work
+overrides. The majority condition protects the *order* of otherwise valid
+transactions, and therefore protects a recipient against a payment being undone.
+
+So the honest majority assumption bounds reordering, not theft. A participant who
+breaks it does not gain the ability to move somebody else's balance. They gain the
+ability to un-say something they said, which is a real and serious power, and a
+much narrower one than the popular framing implies.
+
+The rest of the section is a probability calculation, treating the race between
+the two chains as a random walk and then as the classic ruin problem, producing the
+familiar table of how confirmation depth trades against an attacker's assumed
+share. Note what has to be supplied before that table means anything: you have to
+put in a number for the attacker's share. The paper takes it as a parameter. It
+never claims to measure it.
+
+## The word that got dropped in translation
+
+Trustless entered general use somewhere between that document and the popular
+literature about it, and the route is easy to reconstruct. Take a conditional
+guarantee, drop the condition, and what remains sounds like a property of the
+software rather than a property of the network on a given day. Repeat that for a
+decade and the word arrives at meaning safe.
+
+The precise version is duller and much more useful. Trust has not been eliminated,
+it has been relocated and made countable. You no longer trust a named institution
+to behave; you rely on a stated fraction of anonymous capacity not cooperating
+against you, plus a set of validation rules that each node enforces for itself.
+The second half of that sentence is the part that survives even when the first
+half fails, which is exactly what section 11 is telling you.
+
+This is not a distinction unique to one network. It is what a fault tolerance
+threshold always looks like, and the [general
+literature](/articles/byzantine-fault-tolerance-plainly/) had been stating bounds
+in that shape for decades before 2008. What is specific here is the choice of
+what gets counted, work rather than identities, and the specific damage the bound
+covers. What is standard is the conditionality itself.
+
+The cost of losing the distinction shows up later on this site, and not on the
+largest networks. When a small network with the same design and a fraction of the
+capacity is attacked, the reporting tends to treat it as a failure of the idea.
+It is nothing of the sort. It is the condition not holding, on a network where the
+condition was always cheaper to break, exactly as the paper said it would be. A
+guarantee that was never unconditional cannot be falsified by the condition
+failing.
+
+## What this piece will not tell you
+
+It will not tell you whether any particular network satisfies its condition now.
+That is a measurement, it changes, and measurements of concentration are
+notoriously sensitive to how you define a participant. Any figure worth using
+carries a date and a method, and a figure repeated without both is decoration.
+
+It will also not tell you that any attack is impossible. Nothing in the document
+says that. It says an attack of a given size succeeds with a probability that
+falls as confirmations accumulate, which is a statement about cost and odds, not
+about impossibility. Writers who upgrade that into impossibility are making a
+promise the paper declined to make.
+
+## The expanding curve, the contracting curve, and who was reading them
+
+What expanded, from 2009 onwards, was the audience for the claim. The document
+went from a mailing list to a general readership, and the number of people who
+could state the security property grew by orders of magnitude.
+
+What contracted was the number of them who could state it correctly. Each
+retelling shed a clause. Collectively went first, then CPU power became
+participants, then the conditional became a description, and by the end the
+network was simply trustless. The claim travelled and the qualification did not.
+
+Who could tell at the time? Anyone who read section 11 to the end, which is a
+smaller group than the number of people who cited the paper. The condition was
+never hidden. It was in the introduction, in plain language, in the same sentence
+as the guarantee it governs, and it was dropped anyway.

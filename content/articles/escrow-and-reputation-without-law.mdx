@@ -1,0 +1,148 @@
+---
+title: "How Strangers Trade When No Court Will Hear the Dispute"
+seoTitle: "Escrow and Reputation Without a Legal System"
+description: "Markets outside legal recourse had to build enforcement from escrow, ratings and repeat play, and the mechanisms are genuinely instructive."
+date: 2026-10-25
+author: "Khaled Hawari"
+era: earlyExchange
+kind: explainer
+lede: "Remove the courts and the parties have to manufacture enforcement out of nothing but repeated interaction."
+---
+
+Three mechanisms did the work a legal system usually does: a deposit held by
+neither party, a number attached to a trading name, and an operator who decided
+disputes. None was new. Merchants had used all three centuries earlier, in
+circumstances with the same missing ingredient, and the interesting question is
+not whether they worked but where each gave out.
+
+This is about the mechanisms as institutional design. It does not describe what
+was traded on [the markets in question](/articles/what-a-darknet-market-was/), it
+names none of them, and nothing here is a suggestion about anyone's own
+arrangements.
+
+## What a court supplies, itemised
+
+Be precise about what is being replaced, because enforcement is four things. A
+court supplies a **credible threat**, making performance the rational choice
+before any dispute arises. It supplies a **neutral finder of fact** with no
+interest in the outcome. It supplies **reach**, the ability to take assets from a
+party who ignores the judgment. And it supplies a **public record**, so strangers
+learn from disputes they were not party to.
+
+Remove all four and one raw material is left: the expectation of future
+interaction. Everything below is built from that.
+
+## The deposit somebody else holds
+
+Escrow converts a simultaneity problem into a sequencing problem. Neither party
+will go first, so a third party holds the funds, the seller performs, the buyer
+confirms, and the funds release.
+
+The thing to notice is that the release condition is never an observable fact. It
+is a judgement about whether performance occurred, which makes the holder a judge
+as well as a custodian.
+
+The refined version uses three keys, one each for buyer, seller and operator, any
+two of which release the funds. On paper that removes the operator's unilateral
+control, since the trading parties can settle a happy transaction between
+themselves. In practice it degrades twice over. If the buyer does not hold and use
+their own key, and most did not, the arrangement collapses back to one party
+controlling everything. And in the case the scheme exists for, a real
+disagreement, the operator's key is the tiebreak. Multi-party escrow
+decentralises the easy case and leaves the hard case where it was.
+
+## The number that stands in for a history
+
+Reputation is a compression of everything a stranger cannot check. A score built
+from completed trades makes future business conditional on present behaviour, so
+the discounted value of expected future trade acts as a bond that the trader
+forfeits by cheating. That is the whole theory, and it is sound.
+
+It gives out in three places.
+
+**The cold start.** A new entrant has no bond, so nobody transacts with them, so
+they cannot build one. Every system of this kind therefore grows a side market in
+established accounts, and once an identity can be transferred, reputation has
+stopped being a record of behaviour and become a tradeable asset describing the
+account rather than whoever now holds it.
+
+**The last round.** The bond is worth only what future trade is worth. A trader
+planning to stop has nothing at stake, and the amount they can take is largest
+exactly when their remaining stake is smallest. Repeat play disciplines the middle
+of a relationship and cannot discipline the end of one.
+
+**The custodian of the record.** The score is stored, computed and displayed by
+the operator. The reader is not observing a history, they are reading a claim by a
+party who needs the market to look healthy.
+
+## The operator is every other role at once
+
+Stack the roles and the problem states itself. The operator holds the float, keeps
+the reputation record, decides contested cases and hears the appeal against that
+decision. In a legal system those are deliberately four people with different
+incentives, and the separation is most of what makes the system trustworthy.
+
+Here the separation is not weakened, it is absent, and no mechanism could supply
+it. An independent arbitrator requires a party the market can compel to act
+fairly, which is precisely what this environment lacks.
+
+## Why the exit is structural rather than incidental
+
+The operator's payoff from defecting is the float. The float rises with how much
+the market trusts them, because trust is what makes people route larger
+transactions through an intermediary and leave balances sitting. The cost of
+defecting is the loss of the future income stream, discounted, and nothing else,
+because no external penalty is available.
+
+So the reward for betrayal grows with success while the penalty is bounded by the
+operator's own patience, and for any discount rate the float eventually exceeds
+the discounted remainder of the business. That crossing is a property of the
+arrangement rather than a flaw in a particular person, which is why the exit
+belongs in the design documents rather than in the incident reports. A legal
+system does not remove the temptation. It bounds the payoff, by keeping the
+assets reachable afterwards.
+
+## An old experiment, rerun without the closure
+
+The private ordering literature has studied this for decades: merchant courts
+attached to the medieval fairs, long distance trading coalitions enforcing through
+shared information and collective exclusion, the diamond trade's internal
+arbitration, the feedback systems of early online marketplaces. The findings are
+consistent. Private enforcement works when the community is small enough for
+information to circulate, when parties expect to meet again, and when exclusion is
+genuinely costly.
+
+Digital markets invert all three. Entry is nearly free, identity is a string that
+can be discarded and recreated, and the community is unbounded, so information
+about a bad actor does not reliably reach their next counterparty. The escrow and
+rating apparatus was doing the work closure used to do, in an environment
+engineered to have none. These markets are a natural experiment in institutional
+economics, run at scale and documented in public, and almost nobody reads them
+that way.
+
+The design was then rebuilt, close to line for line, by later peer to peer trading
+systems and decentralised marketplaces: a held deposit, a rating attached to the
+account, a platform dispute process, an arbitrator employed by the platform. The
+programmable version, covered in
+[smart contracts before blockchains](/articles/smart-contracts-before-blockchains/),
+inherits the same limit, since code can hold a deposit and cannot tell whether a
+physical thing arrived as promised.
+
+## The direction of travel, and what the participants could see
+
+What expanded was the speed at which a stranger could become creditworthy. A score
+compresses months of behaviour into something readable in a second, and that
+compression is what let these markets grow far past the size at which everyone
+could know everyone. The float grew with them, since a larger market means more
+value in escrow at any instant.
+
+What contracted was the cost of abandoning an identity, and the number of parties
+able to verify anything that mattered. By the end, one party knew whether the
+float was still there.
+
+Who could tell is the part that gets misremembered. Participants were not naive
+and were often shrewd about their counterparties, because they had direct evidence
+about them. But all of that evidence concerned the other trader, while the only
+party who could take everything was the intermediary, about whom the sole
+observable was that withdrawals were still being processed. That signal is not a
+measurement. It is a decision, taken daily by the one person it would indict.

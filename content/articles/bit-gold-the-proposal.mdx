@@ -1,0 +1,153 @@
+---
+title: "bit gold: Unforgeable Costliness as a Design Goal"
+seoTitle: "bit gold and Unforgeable Costliness"
+description: "A proposal that framed digital scarcity as a property to be manufactured rather than declared, and where its own author said it fell short."
+date: 2026-09-29
+author: "Khaled Hawari"
+era: origins
+kind: primarySource
+lede: "bit gold asked what would have to be true for a string of bits to be expensive in the way a metal is."
+---
+
+Start with a problem the document has before you read a word of it. The bit gold
+post sits on Nick Szabo's blog Unenumerated at a URL whose path segment is
+`2005/12`, and the date printed on the post itself is 27 December 2008. The page
+carries no note reconciling the two. Blogspot builds that path from the date at
+the time of first publication, so the ordinary reading is that a post from
+December 2005 later acquired a 2008 date, which is a thing that platform lets an
+author do.
+
+This site does not guess at reasons for that. It matters because bit gold is
+constantly placed on a timeline relative to other work, and the primary artefact
+will not support a confident placement to the month.
+
+## The six steps, as written
+
+The mechanism is short enough to follow completely. A challenge string is
+produced. Then, in the post's own words:
+
+> Alice on her computer generates the proof of work string from the challenge
+> bits using a benchmark function.
+
+The proof is timestamped, and the post is specific that the timestamping should
+not concentrate:
+
+> The proof of work is securely timestamped... with several different timestamp
+> services so that no particular timestamp service need be substantially relied
+> on.
+
+Then ownership is recorded:
+
+> Alice adds the challenge string and the timestamped proof of work string to a
+> distributed property title registry for bit gold. Here, too, no single server
+> is substantially relied on to properly operate the registry.
+
+And then the step that gives the structure its shape:
+
+> The last-created string of bit gold provides the challenge bits for the
+> next-created string.
+
+Reading is the reverse operation:
+
+> To verify that Alice is the owner of a particular string of bit gold, Bob
+> checks the unforgeable chain of title in the bit gold title registry.
+
+Six steps, and two separate chains. One is made of puzzle solutions, each seeded
+by the last. The other is a chain of title, recording who holds what. Keeping
+those two apart is the most useful thing this document does, because the systems
+that followed collapsed them into one structure and the collapse is exactly
+where the difficulty was.
+
+## Costliness is the whole of the argument
+
+The reason for all of it is stated in one sentence near the top:
+
+> Precious metals and collectibles have an unforgeable scarcity due to the
+> costliness of their creation.
+
+That is the load bearing claim, and it is a claim about manufacturing rather
+than about rules. A rule saying there shall only ever be so many of something is
+enforced by whoever enforces rules. A cost incurred in producing something is
+enforced by physics and by the electricity bill, and it does not care who is
+running the registry.
+
+The compressed phrase "unforgeable costliness" attaches to this idea so
+routinely that it has become the standard shorthand, including in the title
+above. It is worth saying that the phrase in that exact form does not appear in
+the bit gold post. What appears is the sentence quoted, and the difference is
+small but it is the kind of small difference that turns into a misquotation two
+citations downstream.
+
+The proof of work component does the same job that
+[hashcash](/articles/hashcash-the-actual-mechanism/) does, making a string
+expensive to produce and cheap to check. The difference is what the expense is
+for. Hashcash spends the cost to impose a price on sending something. bit gold
+spends it to make the resulting string worth holding, which is a much larger
+ambition resting on the same primitive.
+
+## Where the author stops
+
+What makes this document unusually honest is that it does not end on the design.
+It ends on the design's problems, and the author raises them himself.
+
+The first is fungibility. Because the difficulty of the puzzles moves with
+hardware, two strings of bit gold produced years apart cost wildly different
+amounts to produce, and the post says so:
+
+> bit gold will not be fungible based on a simple function of, for example, the
+> length of the string. Instead, to create fungible units dealers will have to
+> combine different-valued pieces of bit gold into larger units of approximately
+> equal value.
+
+That is not a solution, it is a description of the labour a market would have to
+perform. It hands the fungibility problem to dealers, and dealers are exactly
+the intermediaries the design was trying to avoid needing.
+
+The second is the production side:
+
+> Thus, it might be possible to be a very low cost producer (by several orders
+> of magnitude) and swamp the market with bit gold.
+
+An advantage in hardware becomes an advantage in issuance, without limit, and
+nothing in the six steps pushes back.
+
+## The registry is the part that does not close
+
+The unsolved problem sitting underneath both of those is the registry itself.
+Every step that matters ends in a phrase of the form "no single server is
+substantially relied on". That is a requirement, stated twice, and the post does
+not say how it is met.
+
+The requirement is harder than it sounds, because a registry made of many
+servers has to decide what to do when the servers disagree, and it has to decide
+that without an operator adjudicating. Any scheme that resolves disagreement by
+counting servers has to first answer why creating additional servers is
+expensive, and nothing in bit gold makes it expensive. The proof of work is
+spent on producing the units, not on the right to record them.
+
+That gap is the same one [b-money](/articles/b-money-the-proposal/) leaves open
+from a different direction, and noticing that two independent proposals stopped
+at the same wall is more informative than either proposal on its own. The wall
+was not a failure of imagination. It was the actual open problem of the period.
+
+## Nothing was running
+
+Here is the reading this site is for. Across the years these proposals were
+written, the design space was expanding steadily. More published schemes, more
+primitives, more precise statements of what a digital scarce object would need
+to be. Over the same period, the number of such systems in operation stayed at
+zero.
+
+Who could tell at the time is the sharpest part of the answer. Nobody could,
+because there was nothing to observe. A proposal that has never run produces no
+evidence about whether it works, and this one had no participant, no ledger and
+no failure mode anyone could point at. The period looks in retrospect like an
+accumulation of progress. From inside it, it was an accumulation of documents.
+
+One last thing, stated flatly because it is the claim that follows this document
+around. The resemblance between bit gold and what was built later is real and it
+is not evidence about who wrote what. Similarity of design between two documents
+in a small field where everyone read the same papers is the expected outcome, not
+an anomaly requiring an explanation. This site takes no position on the identity
+question, has no evidence to offer on it, and will not treat a structural
+parallel as though it were one.

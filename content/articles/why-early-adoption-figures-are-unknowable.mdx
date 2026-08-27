@@ -1,0 +1,152 @@
+---
+title: "Nobody Knows How Many Early Users There Were, Including the People Quoting Numbers"
+seoTitle: "Why Early Adoption Figures Cannot Be Known"
+description: "Addresses are not people, downloads are not users, and forum accounts are not either, so every early user count is a guess wearing a suit."
+date: 2026-10-16
+author: "Khaled Hawari"
+era: origins
+kind: postmortem
+lede: "Every unit you could count in the early years measures something other than a person."
+---
+
+Ask a simple question. How many people were using this in 2010?
+
+There is no honest answer, and the interesting part is why. Not because the
+records were lost, not because nobody looked, not because the tools were
+primitive. There is no answer because everything you could have counted at the
+time was counting something other than a person, and the gap between the proxy
+and the population was neither small nor estimable.
+
+This is a failure of measurement, and it is worth taking apart properly, because
+the habit it established did not stop. It is still how growth in this industry
+gets reported.
+
+## Addresses
+
+The most cited proxy, and the worst.
+
+An address is a destination for a payment. It is not registered anywhere, not
+issued by anyone, and not tied to a person by any part of the system. The early
+software generated them freely: a new one to hand out for each incoming payment,
+a fresh one for the change on each spend. That is the privacy behaviour the
+design intends, and it means one ordinary user's address count grows with their
+activity and never stops growing.
+
+So it overcounts badly, and the overcount scales with the very thing you were
+trying to measure. It also undercounts whenever anybody holds funds on behalf of
+others: an operator with many customers can transact from one address, and the
+chain shows one participant.
+
+There is a subtler problem underneath both. You cannot see an address until it
+appears in a transaction, so a count of addresses is a count of addresses that
+have been used, which measures activity rather than population. Somebody who
+generated a wallet, received nothing and left is invisible.
+
+## Downloads
+
+The distribution point reported a download counter, and download counters have
+been misread as user counts since the invention of the download counter.
+
+Overcounts: mirrors, crawlers, automated fetches, a person upgrading through
+several releases, a person with three machines, a person who downloads and never
+runs it. Undercounts: anybody who compiled from source, received the binary from
+a friend, or got it from a package repository rather than the primary host.
+
+The unit is a fetch event, and that is all it has ever been. The relationship
+between fetch events and human beings varies with release cadence, press coverage
+and crawler behaviour, none of it stable over time, so the counter is not even
+reliable as a trend line.
+
+## Forum registrations
+
+A forum reports registered accounts, and it is tempting because it feels like the
+closest thing to a census that existed.
+
+Overcounts: abandoned accounts, spam registrations, second accounts, accounts
+made to read one thread. Undercounts, and this is the larger error: lurkers.
+Reading required no account, the ratio of readers to posters on any message board
+is large, and it is not measurable retrospectively, because the people who never
+registered left no trace to count.
+
+The record itself demonstrates how unreliable this class of counter is.
+[The forum's own profile page and a third party mirror disagree about the post
+count of the single most examined account of the period](/articles/the-forum-as-the-only-record/).
+If two sources cannot agree on the number of posts made by one account, the
+number of humans behind all the accounts is not a quantity either of them is in a
+position to report.
+
+## Node observations
+
+The most technically respectable proxy, and still not a count of people.
+
+A crawler counts nodes that accept inbound connections. Nodes behind a router
+without a forwarded port do not accept them, and are invisible to the crawl while
+participating fully. That is not a rounding error, it is a large and unmeasurable
+share of the population, and it varies with how default software behaves and how
+ordinary home networks are configured.
+
+In the other direction, a node restarting on a dynamic address can be counted
+more than once in a window, and one operator can run several. A node is not a
+person in either case. It is a machine somebody chose to leave running, which
+selects hard for one type of participant and says nothing about everyone else.
+
+## The unit problem, stated once
+
+Every proxy above fails for the same underlying reason, and it is not
+carelessness on anybody's part.
+
+There is no registry. There was never intended to be one. The system was built so
+that participating requires no identity, no account, no permission and no
+disclosure, and a population count is precisely the thing that property makes
+impossible. You cannot have unlinkable pseudonymous participation and also know
+how many participants there are. Those are the same fact stated twice.
+
+So the measurement failure is not a gap in the historical record that better
+archaeology could fill. It is a direct consequence of the design succeeding at
+what it was for. The same property that
+[makes losses unverifiable](/articles/lost-keys-and-unverifiable-losses/)
+makes users uncountable, and for the same reason.
+
+## How a proxy becomes a citation
+
+The mechanism by which this turns into misinformation is boring and completely
+reliable.
+
+Someone publishes a proxy with its caveat attached. The next writer quotes the
+number and drops the caveat, because the caveat does not fit the sentence. The
+third quotes the second and attributes it to the first. Within a few rounds the
+number has a provenance and no caveat, and it is a fact in the literature that
+can only be dislodged by going back to the original methodology, which nobody
+does.
+
+The version that matters here is the analytics vendor. A firm publishing a figure
+is not independent confirmation of it, it is a party applying an unpublished
+heuristic to the same public data everyone else has, usually clustering addresses
+by transaction pattern. Their number and the raw chain are one source and an
+interpretation, and citing both looks like corroboration while providing none.
+
+Hence the position this site takes, stated flatly rather than hedged. The number
+is unknown. Not approximately known, not known within an order of magnitude,
+unknown. Picking the least bad proxy and publishing it with an asterisk is worse
+than saying nothing, because the asterisk gets stripped in the first re-citation
+and what remains is a guess with a footnote, indistinguishable from a
+measurement.
+
+## Confidence rising, precision falling
+
+What expanded through this period was the reported certainty. More charts, more
+adoption curves, more milestone announcements, more comparisons, each requiring a
+denominator that nobody possessed.
+
+What contracted was the connection between those figures and anything real. The
+proxies did not improve as the subject grew, they got worse, because custodial
+holdings, address reuse avoidance and automated activity all increased, and each
+widens the gap between the count and the population.
+
+Who could tell at the time? Every single user, in principle. Anyone who ran the
+software and watched it generate a fresh address for their own change had
+everything needed to work out that addresses are not people. It was not hidden,
+it was not subtle, and it required no analysis. Nobody checked, because until
+[the first merchants started accepting it](/articles/the-first-merchants/) there
+was no reason to care how many users there were, and by the time there was a
+reason, the numbers were already in circulation.

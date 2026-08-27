@@ -1,0 +1,140 @@
+---
+title: "The Timestamping Papers Bitcoin Cited, and What They Were Solving"
+seoTitle: "The Timestamping Papers Bitcoin Cited"
+description: "Academic work on how to prove a document existed at a point in time, published years earlier, and how it shows up in the whitepaper's references."
+date: 2026-10-03
+author: "Khaled Hawari"
+era: origins
+kind: primarySource
+lede: "The chain of hashes at the centre of the design was published as a way to notarise documents, not to move money."
+---
+
+Four of the eight entries in the Bitcoin whitepaper's reference list are about
+timestamping digital documents. Three carry the same two author names, Haber and
+Stornetta, across papers dated 1991, 1993 and 1997. The fourth, by Massias, Avila
+and Quisquater, is dated 1999, and its title carries the phrase that matters
+most: minimal trust requirements.
+
+None of those papers is about money. All of them address a problem older than
+computers, and reading them on their own terms rather than as Bitcoin's
+prehistory is the only way to see what was taken and what was not.
+
+## The problem is notarisation, and it is old
+
+If you want to prove that a paper document existed in a particular form on a
+particular day, the traditional answer is a notary with a stamp and a register.
+The evidentiary value of the stamp comes entirely from the register, and the
+register comes entirely from trusting the notary, who could in principle backdate
+an entry.
+
+Digital documents make this worse. A file has no physical substrate, no ink that
+ages, no paper stock that can be dated. It is a string of bits that can be
+replaced by a different string of bits leaving no trace. So the honest statement
+of the problem is not how to record when something was written. It is how to make
+a later alteration detectable by somebody who trusts neither the author nor the
+timestamping service.
+
+## Linking, which is the idea that travelled
+
+The 1991 answer is chaining. A timestamping service receives a hash of your
+document and, rather than storing it in isolation, issues a receipt that includes
+the hash of the preceding request. Do that continuously and every certificate
+becomes structurally dependent on the one before it.
+
+The consequence is the whole mechanism. To alter one entry after the fact you
+must recompute every entry after it, because each contains a commitment to its
+predecessor, and you cannot do it quietly, because the people holding those later
+certificates have copies. The service's honesty stops being what you rely on.
+What you rely on is that many unconnected people each hold a fragment of a
+structure that cannot be edited in one place.
+
+That makes tampering detectable rather than impossible, and detectable is the
+achievable goal. It is a different question from the [double spend
+problem](/articles/the-double-spend-problem/), which asks not whether a record was
+altered but which of two conflicting records is the real one.
+
+The 1993 paper, with Bayer added as an author, makes linking practical by
+batching: collect the requests that arrive in an interval, build a tree over them,
+and chain only the root. This is why Merkle's 1980 paper is also in the reference
+list. The reported commercial practice of the company built on this work was to
+publish the current root periodically in a newspaper classified advertisement, on
+the reasoning that a printed run reaches a very large number of independent
+holders at once and cannot be recalled and reset.
+
+## The one substitution
+
+Now the precise step, because this is where most retellings go soft.
+
+The whitepaper's third section is titled Timestamp Server. It describes taking a
+hash of a block of items, publishing that hash widely, and including each
+timestamp in the next one so that they form a chain. That is the 1991 and 1993
+architecture, restated in a paragraph, and cited to those papers.
+
+What is not in those papers arrives in the next section. The timestamping
+literature still has a service. Clients submit to it, it issues certificates, and
+the linking constrains what that service can get away with rather than removing
+it. Even the 1999 paper's minimal trust framing is about reducing what the service
+must be trusted for, not about there being no service.
+
+Bitcoin replaces the service with a competition. Instead of one party assembling
+the next batch and publishing the root, any party may attempt to assemble it, the
+right to do so is allocated by expenditure, and the winner is paid. That is one
+substitution: the identity of who gets to append is replaced by a contest with an
+adjustable difficulty. Everything else in the timestamp section was already on
+the page in the early nineties.
+
+Calling that one step is not a diminishment. It removes the last named party from
+the design, which is what every prior proposal, including [bit
+gold](/articles/bit-gold-the-proposal/), was circling. But it is one step, and the
+chain of hashes was not invented in 2008.
+
+<div class="note">
+  <span class="note__label">Why this piece paraphrases and does not quote</span>
+
+  The three Haber and Stornetta papers appear in a journal and in conference
+  proceedings, and the copies I could reach are not the copies the whitepaper's
+  author would have had. This site does not quote a document it does not have in
+  front of it, so the descriptions above are descriptions.
+
+  Note what that means for a reader who wants to check me. The most cited document
+  in this subject points at four papers, and following them is not a click. That
+  is normal for academic work, and it is one practical reason the bibliography
+  goes unread.
+</div>
+
+## What the citation does and does not establish
+
+The reference list is the best available evidence of what the whitepaper's author
+had actually read, and it is routinely passed over in favour of folklore about
+influences nobody can source. A separate piece on this site covers [the shape of
+the bibliography as a whole](/articles/what-the-whitepaper-cites/).
+
+Two things it does not establish. It does not mean the timestamping authors
+anticipated a currency. They were solving a document integrity problem, and
+nothing in their work needs Bitcoin to have happened for it to have been correct.
+Reading backwards from 2008 and awarding them foresight is a compliment they did
+not ask for and a distortion of what they wrote.
+
+And it is not an endorsement. A citation is an acknowledgement of use. It records
+that one author took something from another and says nothing about whether the
+second approved of the result, was aware of it, or would have agreed with a word
+of it.
+
+## The expansion and the contraction in this story
+
+What expanded through the nineties was how much of the problem had been solved
+without anybody needing to be trusted. Chaining removed the need to trust the
+register. Batching made it cheap. Publication to a wide, uncoordinated audience
+removed the need to trust the publisher. Each step took another party off the list
+of people whose honesty the scheme depended on.
+
+What contracted was the list itself, down to one stubborn entry: somebody still
+had to be the party that appends. That residue is why the 1999 paper's title says
+minimal trust rather than none.
+
+Who could tell at the time is the flat answer this history keeps giving. Almost
+nobody. These were cryptography papers read by cryptographers, and the commercial
+application was document notarisation. Nothing about their reception would have
+told a reader that the residue at the bottom of the list was the one thing
+standing between this work and a currency, because at the time it was not standing
+between the work and anything. It was the part that had not been finished.

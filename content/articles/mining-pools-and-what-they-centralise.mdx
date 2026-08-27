@@ -1,0 +1,151 @@
+---
+title: "Pools Solved Variance and Created a Different Problem"
+seoTitle: "What Mining Pools Actually Centralise"
+description: "Pooling smooths income for individual miners, and in doing so it concentrates block construction into a small number of hands."
+date: 2026-10-26
+author: "Khaled Hawari"
+era: earlyExchange
+kind: explainer
+lede: "A pool exists because random income is unbearable, and the price of fixing that is handing someone else the decisions."
+---
+
+The chart everybody uses to argue about mining centralisation is built from a
+field the pools fill in themselves. Blocks are attributed to pools largely from
+markers the pool writes into the block it constructed, plus inference from where
+the reward is paid. The measurement depends on the concentrated parties labelling
+their own work, which is a strange foundation for the argument it carries, and it
+is where this piece ends up.
+
+## Why an individual's income is unusable
+
+Finding a block is memoryless. Every hash is an independent trial with a minuscule
+chance of success, so the waiting time between successes is exponentially
+distributed: no accumulation, no progress, no getting closer.
+
+A small participant's expected interval between blocks is therefore measured in
+years, and the expectation is the least useful number in the distribution, since
+the tail runs long enough that a drought several times the mean is ordinary.
+
+Now put costs against that. Electricity arrives as a monthly bill, hardware is
+financed on a schedule, rent is due. Continuous costs against rare revenue is not
+a business, it is a lottery ticket with an operating expense attached. Pools did
+not appear because anybody preferred centralisation, but because the alternative
+was income nobody could plan around.
+
+## What a share is, and why it can be trusted
+
+The pool builds a candidate block and hands out the header work. Participants hash
+it and return any result beating a target far easier than the network's real one.
+Those are shares: proof that a quantity of work was performed, statistically
+proportional to effort, and worth nothing individually, which is exactly what
+makes a share a usable accounting unit. You cannot fabricate one without doing the
+work, and you cannot walk off with a block you found, because the candidate
+already pays the reward to the pool.
+
+Occasionally a returned share beats the real target too, and that is a block. The
+pool distributes the reward under whichever accounting scheme it runs, and the
+schemes differ mainly in who absorbs the remaining randomness and what they charge
+for it. That is the real transaction: the participant sells variance to the
+operator and receives something that behaves like a wage.
+
+## The decisions that change hands
+
+The pool does not only collect and distribute. It constructs the candidate block,
+and construction is a set of choices.
+
+**Which transactions are in the block, and in what order.** Inclusion is a
+decision and so is omission.
+
+**Which chain tip to extend.** During a fork or a reorganisation, this is the
+question that decides which history survives.
+
+**What the block signals.** Version bits used in soft fork activation are set by
+whoever builds the template.
+
+**What is in the coinbase**, including the payout destination and the marker
+that later becomes somebody's centralisation statistic.
+
+The participant supplies hashing and nothing else. Their hardware is casting a
+vote on a ballot somebody else wrote. Later protocol work, notably the second
+generation of the pool mining protocol, was designed specifically so that
+participants can supply their own templates and take those choices back, and I am
+describing that as a design rather than asserting anything about how widely it is
+deployed.
+
+## Share of hash rate measures a contract, not capital
+
+A statistic of the form "this pool accounts for some percentage of hash rate"
+describes where machines are currently pointed, and pointing a machine somewhere
+is a configuration line. The hardware belongs to many separate owners in many
+places, none of whom transferred anything to the pool, any of whom can repoint in
+the time it takes to restart a process.
+
+The number is therefore a snapshot of a revocable arrangement, routinely read as
+though it described ownership. A pool's share is a subscription list rather than a
+moat, and such lists can empty quickly, which the record shows every time a share
+has collapsed without a single machine changing hands.
+
+It misleads in the other direction too. Counting by pool understates concentration
+in a dimension nobody charts, since the number of distinct template-building
+implementations and transaction-selection policies is smaller than the number of
+pool brands, and separate brands can run shared software. It also says nothing
+about who owns the machines, a different concentration question with a different
+answer.
+
+<div class="note">
+  <span class="note__label">Why no percentages appear in this piece</span>
+
+  Pool concentration figures mean something only when attached to a date and a
+  methodology, because they move fast and because the attribution method
+  determines the result. I do not have a dated source open, so there are no
+  figures here. A share quoted without its date is exactly the sort of claim this
+  piece argues against, and printing one would be self-refuting.
+</div>
+
+## A real risk and a poor instrument, at the same time
+
+Both halves have to be held at once, and most writing picks one.
+
+The risk is real, because for the duration of the arrangement the pool exercises
+the construction decisions listed above, and those are what every governance
+argument is actually about. Censorship, signalling and reorganisation behaviour
+are properties of block construction, not of hashing. The escape hatch is also
+weaker than it sounds: switching is trivial but requires noticing something worth
+leaving over, while the income arrives from the party you would be leaving and the
+events justifying departure are hard to see from a dashboard reporting earnings.
+
+The instrument is poor, because a percentage of hash rate by pool cannot
+distinguish a durable concentration of capital from a temporary routing pattern,
+and those have different implications. An argument concluding that an attack is
+affordable needs the machines' owners to cooperate, not the pools. An argument
+concluding that the system is centralised is claiming durability the number cannot
+supply. And the reassuring version, that participants can always leave, concedes
+that until they do, somebody else chooses the contents of every block.
+
+This bears directly on how the security argument is usually stated, since
+[the honest majority assumption](/articles/the-honest-majority-assumption/) is a
+claim about the distribution of hashing, and pooling separates hashing from
+choosing. The two were the same thing when
+[the hardware generations](/articles/the-hardware-generations/) still put one
+machine and one decision in the same room, and they have not been the same thing
+since.
+
+## Income got smoother, construction got narrower
+
+What expanded was participation. Pooling is why mining could be a business with a
+budget and a payback period rather than a bet, and that opened it to everybody
+unable to tolerate years of silence between payments.
+
+What contracted was the number of parties deciding what a block contains. Before
+pools, every miner who found a block had built it. Afterwards, the building
+migrated to a small set of operators while the hashing stayed spread out, and the
+two halves of what used to be one role came apart without any announcement.
+
+Who could tell splits cleanly. The individual participant could tell immediately,
+because the change showed up in their own income, which is the most legible signal
+in this whole history. Nobody watching
+the chain could tell, because a pool-built block and an individually-built block
+are identical in structure. The migration is measurable only because pools chose
+to sign their work, and a measurement that exists at the discretion of the thing
+being measured should be handled carefully, above all by the arguments leaning on
+it hardest.

@@ -1,0 +1,130 @@
+---
+title: "The First Serious Fork Was Not About Money at All"
+seoTitle: "The First Serious Fork of the Bitcoin Code"
+description: "The earliest important derivative project used the consensus machinery for domain names, establishing that the ledger was a general tool."
+date: 2026-10-19
+author: "Khaled Hawari"
+era: earlyExchange
+kind: timeline
+lede: "The first project worth taking seriously copied the consensus mechanism and pointed it at something other than payments."
+---
+
+The first derivative project that mattered did not add a coin with a different
+name. It added a key value store and put domain names in it. Addresses under a
+namespace ending in `.bit`, resolved from a chain, belonging to whoever last proved
+they held the key, and unknown to every root server in the actual domain name
+system. That is a genuinely different act from anything before it.
+
+## Late 2010: the proposal is a forum thread
+
+The idea was worked out in public, in a thread on the project's forum, in the last
+weeks of 2010. The framing was a chain for domain name registration, and the
+discussion ran through the obvious objections: whether it needed its own chain at
+all, whether it could share the existing one, and what happened to a small chain's
+security if it went out alone. That last question was asked before there was a
+small chain in existence to ask it about. Hold on to it. It is the part of this
+story that generalises.
+
+The software appeared in April 2011, a copy of the existing codebase with the
+transaction rules extended. That was lawful because of
+[the licence the original was released under](/articles/the-license-choice/), chosen
+before anybody knew what it would be used for and the reason the next decade took
+the shape it did.
+
+## Why names are a real problem and not a demonstration
+
+This counts as a conceptual step rather than a copy because name registration is a
+hard problem with a known shape, argued about long before any of this existed.
+Naming systems want three properties at once: names that mean something to a human
+being, no central authority handing them out, and a guarantee that the name you
+resolve is the one its owner published. The received wisdom was that you could have
+any two: human meaningful and centrally issued, or decentralised and secure with
+names that were long strings of key material nobody can remember.
+
+A chain of the kind already running is a machine for agreeing on the order of
+events without an authority. Name registration is a problem whose whole difficulty
+is agreeing who claimed a name first, without an authority. Somebody put those two
+sentences next to each other, and the claim that emerged was that all three
+properties could be had at once. The point here is narrower and undisputed: this was
+the first time the machinery was pointed at a problem that was not payments and was
+not a toy.
+
+## What the software actually added
+
+Three operations, and the first two work as a pair.
+
+Registering a name happens in two steps. The first publishes a commitment to a name
+without revealing it. The second, some blocks later, reveals the name and claims it.
+The split defeats front running: if the first message a miner sees contains the name
+in plain text, whoever orders transactions can register it first. By the time anyone
+can read the name, the claim to it is older than they are. That is the first
+appearance on a chain of the problem this field would spend a decade rediscovering
+under other names.
+
+The third operation updates the value stored under a name you hold. Names expire
+unless renewed, which makes holding a name an ongoing act rather than a purchase.
+
+Note what this is not.
+[Alternative clients](/articles/the-first-alternative-clients/) compete to speak one
+protocol correctly, and the network refuses them when they get it wrong. A fork
+changes the rules and starts a separate network where nothing checks it against the
+original. The same word covers both, and they are opposites.
+
+## Merged mining, and what it does not do
+
+A new chain with its own proof of work has an immediate and severe problem: the
+work securing it is whatever work anybody bothers to point at it, which at the
+beginning is almost none, so rewriting its history costs almost nothing.
+
+The answer adopted later in 2011 was merged mining, and the mechanism is elegant. A
+miner working on the parent chain includes, inside the data it is already hashing,
+a commitment to a block on the second chain. If the resulting proof of work happens
+to satisfy the second chain's easier target, that same proof can be submitted there
+as valid work. One computation, two chains, no additional effort.
+
+Be precise about what this achieves, because it is routinely overstated. It removes
+the cost of participating in the second chain. It does not give the second chain the
+parent's security. The work is lent, not committed. Every miner contributing it can
+stop at any moment at no cost, losing nothing by dropping the extra commitment from
+a block they were building anyway. The child chain's security is a function of
+decisions made by people whose interests lie elsewhere, and the fraction of parent
+hashpower opting in can change without anybody announcing it.
+
+So merged mining converted an absolute problem into a dependency. That is an
+improvement and not a solution, and the gap between those descriptions is where a
+great deal of later trouble lived.
+
+## The pattern this set for everything after
+
+Before this, the question was whether the machinery worked at all. After this, it
+was what else you could put in it, and that question has never closed. Names in
+2011, then assets, then contracts, then identity, then whatever the current word
+is. Every one is the same move: take a mechanism for agreeing on an ordered history
+without an authority, and apply it to a problem whose difficulty is agreeing on an
+ordered history without an authority.
+
+Whether this project found users is a separate question, needing registration counts
+I cannot source. The conceptual contribution does not depend on them.
+
+## What grew, what thinned, and who had said so already
+
+What expanded was the space of things the machinery was understood to be for, and
+then, very quickly, the number of chains. Copying was lawful, the code was
+available, and demonstrating that the rules could serve a different purpose removed
+the last barrier to changing them for any purpose at all.
+
+What contracted was security per chain. There is a finite quantity of work in the
+world at any moment and a finite number of parties willing to direct it anywhere.
+Every additional chain divides that pool, and unequally: the overwhelming majority
+stayed where it was, leaving each new chain a fraction that was small, undisclosed
+and revocable. The field kept publishing the number of projects, which was rising.
+Nobody published the security available per project, which was falling, and which
+cannot be published, because it is not a fact about a chain, it is a fact about
+other people's intentions.
+
+Who could tell at the time? The people in the original thread. The security problem
+of a small chain was named in the design discussion before the first small chain
+existed, and the answer built for it was explicitly a way of borrowing rather than
+of having. It is rare in this history for the flaw to be identified in advance, in
+public, by the people building the thing. It made no difference at all to how many
+chains got built.

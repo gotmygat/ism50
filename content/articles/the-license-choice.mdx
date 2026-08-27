@@ -1,0 +1,148 @@
+---
+title: "The Licence Was Chosen Early and Shaped Everything That Could Be Built"
+seoTitle: "The Licence Choice and What It Permitted"
+description: "A permissive licence made forking the code legal and trivial, which is why the next era is full of near identical projects."
+date: 2026-10-06
+author: "Khaled Hawari"
+era: origins
+kind: primarySource
+lede: "The most consequential legal document in early crypto is a short permissive software licence."
+---
+
+The Bitcoin codebase was released under the MIT licence, and the MIT licence is
+about two hundred words long. It fits on one screen. It is shorter than the
+release announcement, shorter than the abstract of the whitepaper, and shorter
+than most of the arguments that have been conducted about what the project is
+for. It is also the reason the next several years of this history look the way
+they do.
+
+## What the document actually is
+
+The MIT licence is a template. The same text is reused verbatim across an
+enormous number of projects with only the copyright line changed, which is part
+of why it is so widely adopted: a reader who has seen it once does not have to
+read it again.
+
+Here is the operative sentence, taken from a copy of the template sitting in this
+site's own dependency tree, since that is a copy I can actually read rather than
+one I am recalling:
+
+> Permission is hereby granted, free of charge, to any person obtaining a copy of
+> this software and associated documentation files (the "Software"), to deal in
+> the Software without restriction, including without limitation the rights to
+> use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+> the Software, and to permit persons to whom the Software is furnished to do so,
+> subject to the following conditions:
+
+One condition follows, that the notice be included in copies, and then a
+disclaimer of warranty in capitals.
+
+Read the verbs. Use, copy, modify, merge, publish, distribute, sublicense, sell.
+To any person. Free of charge. Without restriction. The only obligation attached
+is that the notice travels with the copy.
+
+<div class="note">
+  <span class="note__label">This is history, not advice</span>
+
+  This piece describes what a licence permitted and what followed from that. It is
+  not legal advice, it does not tell any reader what their obligations are in any
+  situation, and it makes no claim that any particular project complied with or
+  breached any licence. Those are questions for a lawyer looking at specific
+  facts, and this site is not that.
+</div>
+
+## What it made possible in practice
+
+Consider what a person needed in order to launch a competing currency in the
+period immediately after the code was published.
+
+They needed the source, which was public. They needed permission, which the
+licence granted in advance to everyone. They needed to change parameters and
+distribute the result, both of which the licence explicitly permits. They needed
+to not be obliged to contribute anything back, which the licence does not require.
+And they needed no relationship of any kind with the original authors, no
+notification and no approval.
+
+That is a complete recipe with no gating step in it. The technical barrier to
+producing a variant was reduced to editing constants and rebuilding, and the
+legal barrier was reduced to keeping a notice file. By 2011 the first well known
+derivatives had appeared, and the pattern that followed was not a series of
+independent inventions. It was a codebase being copied, adjusted and relaunched,
+over and over, because that was the cheapest thing in the world to do.
+
+## The clone economy is a licence artefact
+
+The standard account of the years that followed treats the flood of near
+identical coins as a market phenomenon: demand appeared, and supply met it. That
+is half the story, and the less interesting half.
+
+Supply could appear that fast because the marginal cost of producing a credible
+looking new currency had been driven close to zero by a decision taken years
+earlier, in a file most of the people doing it had never opened. Speculation
+explains why anybody wanted to. The licence explains why it took an afternoon.
+
+Run the counterfactual. Under a strong copyleft licence, anyone distributing a
+modified version would have carried obligations rather than a bare permission.
+That would not have prevented derivative currencies, and anybody who says it
+would is overstating what a licence does. What it would have changed is texture: a
+compliance question attached to every launch, and a reason for derivative code to
+be visible rather than optional. The difference would be legible in what got
+published rather than in what got built.
+
+## The choice was right, and the bill was large
+
+I will take a position, since the alternative is pretending the tradeoff is
+undecided.
+
+The permissive choice was correct. The project's whole claim was that no
+permission was required to participate, and a licence that attached conditions to
+downstream distribution would have sat awkwardly against that claim from the
+first day. It also removed an entire category of dispute at exactly the moment
+when the project could least afford one. There was no organisation to bring or
+defend a claim, no funding for it, [maintainers who explicitly did not own the
+thing](/articles/maintainers-not-owners/), and, after [the original author
+stopped posting](/articles/the-departure/), nobody with any standing to revisit
+the terms even if they had wanted to. A permissive licence is the option
+that requires the least institutional capacity to sustain, and institutional
+capacity was the scarcest resource available.
+
+The bill was thousands of abandoned near copies, a decade of noise, and a
+persistent difficulty for readers in telling substantial work apart from a
+rebuild with new constants. That is a real cost and it was paid mostly by
+newcomers, who had no way to tell the difference. It was still the right side of
+the trade, because the alternative purchases tidiness with a permission structure,
+and a permission structure is precisely the thing the design existed to remove.
+
+## The other things a permissive licence enabled
+
+Two of them are worth naming, because the clone story tends to crowd them out.
+
+It made independent reimplementation legal and unremarkable, which matters for
+any argument about whether the rules are enforced by one program or by many. It
+also made the fork the normal instrument of disagreement rather than an
+exceptional one, which shows up later in [what a hard fork actually
+is](/articles/what-a-hard-fork-actually-is/) and in the tolerance for
+[disagreement resolved by copying rather than by
+voting](/articles/disclosure-without-a-company/).
+
+Neither of those is a market phenomenon. Both descend from the same two hundred
+words.
+
+## What the licence expanded and what it quietly narrowed
+
+What expanded is the set of people permitted to build on the work, which the
+licence set to everyone, in advance, permanently, with no mechanism by which it
+could later be narrowed. That is an unusually large expansion to have been
+accomplished by a file that most contributors never read.
+
+What contracted is the value of having been first. Once the code could be copied
+legally and trivially, originality was defensible by nothing except the network
+already assembled around the original. The moat was never the source, and the
+licence is the document that says so.
+
+Who could tell at the time is the usual answer, sharpened. The people choosing a
+licence for a small project were making a routine decision that thousands of
+projects make without consequence, and there is no evidence anybody treated it as
+strategic. Its consequences became legible only once there was something worth
+copying, which was years later, and by then the decision was long past being
+revisitable.

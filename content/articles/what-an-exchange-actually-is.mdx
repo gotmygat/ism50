@@ -1,0 +1,134 @@
+---
+title: "A Crypto Exchange Is Four Regulated Businesses in a Trench Coat"
+seoTitle: "What a Crypto Exchange Actually Is"
+description: "Matching, custody, settlement and banking are separate licensed functions in every other market, and crypto bundled all four into one company."
+date: 2026-10-17
+author: "Khaled Hawari"
+era: earlyExchange
+kind: explainer
+lede: "In every other market these four jobs are done by four firms who watch each other, and here one firm does all of them."
+---
+
+The Mt. Gox civil rehabilitation filing of 28 February 2014 had to account for two
+different kinds of missing property in one document: coins that users had
+deposited, and yen. One company held both, so one document had to explain both.
+That is not a detail about that company. It is the shape of the industry, and it is
+why this site can spend a year on failures that look unrelated and keep arriving at
+the same paragraph.
+
+A crypto exchange performs four jobs. Everywhere else those four jobs are done by
+four firms, and the separation is not tidiness. It is the only reason anybody
+outside a firm can tell whether its books are true.
+
+## Take the four jobs apart
+
+**Matching.** An order book, a matching engine, price and time priority, a printed
+trade. This is what the word exchange means in every other market. A trading venue
+in that sense holds nothing, and knows only what somebody else has told it about
+your balance, which turns out to matter enormously.
+
+**Custody.** Holding the asset itself. Elsewhere this is a custodian, a depositary,
+a securities depository, and the defining feature of the business is that it holds
+and does not trade.
+
+**Clearing and settlement.** Deciding that a trade is final and actually moving the
+two legs. Elsewhere this is a clearing house, frequently a central counterparty
+that steps between the two sides, takes collateral from both, and absorbs the
+failure of either. The point of the separation is that the party who declares a
+trade final is not the party who benefits from declaring it final.
+
+**Banking.** Taking the deposit, holding the cash, sending the withdrawal. A bank,
+with the client's money held apart from the firm's own, so that the firm failing
+and the client's money vanishing are two different events.
+
+Four functions, four balance sheets, four sets of records produced independently
+of each other. A crypto exchange runs all four inside one company, on one
+database, under one set of books.
+
+## What the separation actually buys, which is not safety
+
+Separating them does not, by itself, make things safer. Any of the four firms can
+fail. What separation buys is **reconciliation**, a different good entirely.
+
+If the venue says a trade happened, the clearing house says it settled, the
+custodian says it holds the asset, and the bank says it holds the cash, then four
+records of the same event exist, each produced by an organisation with a different
+interest and a different auditor. A discrepancy between two independently produced
+records is visible to a third party, and that visibility is the entire product.
+
+Collapse the four into one and reconciliation does not become harder. It stops
+existing. There is now one record of what is owed and what is held, written by the
+one party with a reason for the two numbers to agree on paper. Nobody is checking,
+not because nobody is diligent, but because there is no second copy to check
+against. A single set of books is not a weaker form of accounting. It is a
+different thing that happens to use the same word.
+
+## The part that undoes the industry's own argument
+
+When two customers of the same venue trade with each other, nothing happens on any
+chain. A row changes in a database. The public, verifiable, replicated ledger, the
+thing that is the entire justification for the asset existing, is not consulted,
+not written to, and not involved. Trading is an internal bookkeeping operation, and
+the bookkeeping is private.
+
+So the transparency argument evaporates at precisely the point where most of the
+activity happens. Deposits and withdrawals touch the chain. The market does not.
+This is also why counting anything from the outside during this era is hopeless:
+balances sat inside venues, invisible, and the on-chain record shows a venue's
+wallets rather than its customers. That problem is
+[why the early adoption figures are unknowable](/articles/why-early-adoption-figures-are-unknowable/),
+and it is a property of the bundle rather than of the measurement.
+
+## The bundle also makes the price
+
+There is a fifth job nobody assigned and everybody accepted. The venue prints the
+price, and the printed price becomes the reference: quoted in the press, used by
+other services, used by the venue to value what it is holding for you. In a
+separated market the reference price comes from a venue that holds none of the
+asset. In a bundled one, the party publishing the valuation is the party whose
+solvency depends on it. Nobody decided this. It fell out of the structure, the same
+way governance fell out of whoever owned the infrastructure once
+[the venue where decisions were made moved](/articles/the-governance-venue-moved/).
+
+## Why the failures all read as stories about bad people
+
+Read the next fifteen years without the bundle in mind and you get a series of
+morality plays: this operator lied, that one gambled, another one stole. Every one
+of those stories may be true in its particulars, and every one of them is a
+distraction, because the structure produces the same failure whether or not anyone
+intends it.
+
+An operator with a shortfall and one set of books has no mechanism that forces
+disclosure. An operator with no shortfall and one set of books also has no
+mechanism that demonstrates it. Both are indistinguishable from outside, on a
+Tuesday, to a customer with a balance on a screen. The screen is a claim on a
+company, not a holding of the asset, and the difference is invisible until the one
+moment the bundle is tested, which is withdrawal. That is why the recorded pattern
+is monotonous. Withdrawals slow, withdrawals are paused for maintenance,
+withdrawals stop. That sequence is not a coincidence of character, it is the only
+diagnostic the structure permits, and it runs once.
+
+[The earlier attempts](/articles/why-the-earlier-attempts-failed/) get filed under
+regulation, but the mechanism ran through the same point: they also held everyone's
+balance in one place, so there was exactly one thing to fail and exactly one party
+who could see it coming.
+
+## Two curves, and only one of them had a publisher
+
+What was expanding through this era was the number of people whose holdings were
+claims on a company rather than holdings of the asset. Every convenience pushed
+that way, because the bundle is genuinely better at what customers notice: instant
+trades, free internal transfers, a password reset when you lose access. The design
+in the whitepaper removes the intermediary. The market reinstated it within
+eighteen months because the intermediary is easier to use.
+
+What was contracting was the number of independent parties capable of checking any
+of it, and that number contracted to one. Not a small number. One, by
+construction, in every venue, at all times.
+
+Who could tell at the time? The venue. Only the venue, and only if it looked. The
+popular version of the lesson is "exchanges are risky", which is advice and
+therefore useless. The structural version is that the bundle deletes the observer,
+and a market with no observer does not produce warnings before it produces failures.
+Everything in this era that looks like a shocking surprise was a system operating
+exactly as designed, in the dark, until the dark ended.

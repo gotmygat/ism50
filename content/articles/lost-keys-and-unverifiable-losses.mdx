@@ -1,0 +1,131 @@
+---
+title: "Lost Coins Are A Category Where Almost Every Number Is Made Up"
+seoTitle: "Lost Coins and the Numbers Nobody Can Verify"
+description: "Estimates of permanently lost holdings circulate as facts, and the methods behind them cannot distinguish lost from dormant."
+date: 2026-10-05
+author: "Khaled Hawari"
+era: origins
+kind: explainer
+lede: "There is no test that separates a key thrown away from a key held patiently, and every estimate quietly assumes one."
+---
+
+An unspent output on the chain records two things: an amount, and a script
+setting the condition under which it may be spent. That is the whole record.
+There is no field for whether anybody still holds the key that satisfies the
+script, no field for intent, and no field that distinguishes a person who cannot
+spend from a person who has chosen not to.
+
+Every published figure for how much has been permanently lost is an attempt to
+recover a fact that the data structure does not contain.
+
+## The one class of loss that is genuinely provable
+
+Start with what can be established, because it is a real category and it is
+smaller than people expect.
+
+Some outputs are unspendable by construction. A script that can never evaluate
+true, whatever is supplied to it, locks its amount away in a way that anybody can
+verify by reading the script. An output paid to a script that begins with an
+operation causing immediate failure is the clearest example, and the reference
+implementation does not even carry such outputs in its set of spendable outputs,
+because there is no circumstance in which it would need them.
+
+There is also a documented structural case: the coinbase output of the very first
+block is not spendable through the reference implementation, because that block is
+not present in the transaction database the way every later block is. Whether that
+was intended is not something the code settles, and this piece will not guess.
+
+That is the honest boundary of the provable category. Scripts that cannot be
+satisfied. Everything past that line is inference.
+
+## What dormancy actually measures
+
+The analytical tools people reach for measure age, not loss.
+
+A dormancy metric asks how long an output has sat unmoved. Coin days destroyed
+weights each moved amount by how long it had been still, so that old holdings
+moving registers more strongly than recent ones. Age band charts group the
+outstanding supply by time since last movement. All of these are computed from
+the chain and all of them are correct as far as they go.
+
+What they measure is the absence of a transaction. The set of outputs that have
+not moved in a decade is a fact, and it can be recomputed by anybody. But absence
+of movement has at least four explanations that the chain cannot tell apart: the
+key was destroyed, the key was never recoverable in the first place, the holder is
+deliberately not moving it, or the holder is dead or otherwise unreachable while
+the key still exists somewhere. Three of those four are recoverable positions and
+one is not, and they produce identical evidence.
+
+There is a further trap in the same place. Movement is not proof of possession
+either. Custodial services consolidate and reshuffle holdings for their own
+operational reasons, and a single moving output may correspond to any number of
+underlying account holders, or to none at all. So the metric is noisy in both
+directions: stillness does not mean loss, and motion does not mean an owner
+decided anything.
+
+## The estimates are models wearing the clothes of measurements
+
+Here is the shape of essentially every loss figure in circulation. Take the set
+of outputs that have not moved since before some cut off. Apply a rule that
+classifies some fraction of that set as lost, on the basis of an assumption about
+behaviour in the early period. Report the result as a quantity.
+
+The second step is the entire estimate, and it is a judgement, not an
+observation. It cannot be checked against anything, because there is no
+independent record of losses to check against. Nobody files a report when a drive
+is wiped. The output that would have proved the key was still good stays exactly
+where it was, and the estimate cannot be falsified by any future event except one:
+the coins move, at which point that particular assumption was wrong and every
+figure built on it was too.
+
+This is why this piece does not repeat any of the specific numbers. Not because
+the people who produce them are careless, since the better ones state their
+assumptions clearly and present ranges. It is because the number detaches from the
+method within about one repetition. A carefully hedged range published with its
+assumptions becomes a round figure in a summary, and then a fact in a headline,
+and the assumption that was doing all the work is gone by the second hop.
+
+## The reading habit this teaches
+
+Generalise it, because this is a pattern rather than a quirk of one topic.
+
+When a figure about crypto arrives without a method, the method is usually the
+interesting part and usually the weak part. Ask what was measured and what was
+inferred. Ask what would have to be true for the inference to hold. Ask what
+observation would prove it wrong, and if the answer is that no observation could,
+you are looking at a model output, which may be a good one, but is not a
+measurement and should not be repeated as though it were.
+
+The same habit applies to plenty of other categories on this site. Counts of
+users, counts of nodes, counts of anything that is actually a count of addresses
+or of connections, all have the same structure: a real observable, an assumption
+that bridges to the quantity people care about, and a bridge that vanishes when
+the number is quoted. The [first transaction on
+chain](/articles/the-first-transaction-on-chain/) is a fact you can verify
+yourself. The number of people using the system in that period is not, and never
+was, however often it gets stated.
+
+## Growth on one side, loss of certainty on the other
+
+What expanded, from the earliest period onward, is the set of outputs that have
+never moved. It grows monotonically in one sense, because every day a still
+output stays still it enters an older band, and nothing except a spend can remove
+it. That accumulating set is the raw material for every claim in this area, and it
+is genuine data.
+
+What contracted, at the same time, is anybody's ability to say what that set
+means. In the first months there were few enough participants that the difference
+between an unmoved output and an abandoned one was partly a matter of who was
+around, and the people [running nodes when almost nobody
+did](/articles/running-a-node-when-nobody-did/) knew a good deal about each
+other. As participation grew, the population behind those outputs became
+unknowable, and the interpretive gap between the observable and the interesting
+question widened permanently.
+
+Who could tell at the time is the sharpest version of the problem, and the answer
+is one person per output, with no way to demonstrate it. A holder knows whether
+they still have the key. They cannot prove they do without spending, and spending
+destroys the dormancy that made the output interesting in the first place. Proof
+of continued control and continued dormancy are mutually exclusive by
+construction, which is why this category has stayed unresolvable for its entire
+history and why it will stay that way.

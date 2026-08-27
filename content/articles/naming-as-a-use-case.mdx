@@ -1,0 +1,141 @@
+---
+title: "Decentralised Naming Is the Use Case That Keeps Almost Working"
+seoTitle: "Decentralised Naming: The Use Case That Keeps Returning"
+description: "Putting domain names on a ledger solves a real problem and creates several new ones, and the same design keeps being reinvented."
+date: 2026-10-24
+author: "Khaled Hawari"
+era: earlyExchange
+kind: explainer
+lede: "Every few years somebody rediscovers that naming is the obvious application, and hits the same three walls."
+---
+
+In 2011, less than two years after the first chain started running, somebody
+started a second one whose purpose was to hold names. Not money, names. It
+borrowed the first chain's mining through a merged arrangement, and it served a
+namespace that ordinary software could not resolve. That combination, an elegant
+core and an unreachable edge, has been reproduced almost exactly by every attempt
+since.
+
+## The problem a name is solving
+
+A name maps a string a person can remember onto a value a person cannot: an
+address, a key, a machine. Somebody has to decide who holds which string, and that
+somebody is the whole difficulty.
+
+The existing answer is a hierarchy of registries. A registry is a party you trust
+to record the mapping, and a party you trust with a mapping can also change it,
+suspend it, transfer it under a court order or refuse it in the first place. Every
+property people dislike about naming follows from the registry being a party
+rather than a process. That is why naming keeps being proposed as the obvious
+thing to put on a ledger.
+
+## The part a ledger is genuinely good at
+
+A ledger provides one thing precisely: a replicated, permissionless agreement
+about the order in which writes happened. Registration is almost entirely an
+ordering question, and who claimed this string first is exactly what a chain
+answers well, without anyone occupying the registry seat.
+
+The fit is better than it gets credit for. Name records are tiny, they change
+rarely, and reads can be served from a local copy without revealing what you
+looked up, which is more than the existing system offers.
+
+The design was framed early on as a triangle: names meaningful to humans, names
+unique and unforgeable, and allocation that is decentralised, with the received
+wisdom being that you could have two of the three. Putting the registry on a chain
+is a claim to all three, and on the narrow question of allocation the claim holds
+up. The trouble is that allocation is one part of naming and the other parts do
+not move onto the chain with it.
+
+## Wall one: first claim wins, permanently
+
+A first-come rule is not a compromise, it is the design, and there is no
+adjudicator by construction.
+
+The existing system has one, and that is not an accident. Disputes over who ought
+to hold a string are settled by an administrative process sitting on trademark
+law, and the volume of that process measures how much of naming is legal rather
+than technical. On a ledger, the earlier transaction wins every time.
+
+So the desirable strings go to whoever automates registration, held for as long as
+they keep paying, and the only remedy for a later claimant is to buy the name.
+That is not a bug in the implementation, it is what removing the adjudicator
+means, and adding one back reintroduces the exact party the design existed to
+remove, now with unaccountable power and no appeal.
+
+## Wall two: nothing on the user's computer knows the namespace exists
+
+This is the wall that kills these systems in practice, and the least discussed of
+the three because it is not intellectually interesting.
+
+A browser resolves a name through the operating system's resolver, which speaks
+DNS to a hierarchy the ledger has no relationship with. Mail does the same. A
+certificate authority issues on proof of control of a DNS name, so the padlock in
+the address bar has nothing to say about a chain-based string.
+
+Three ways round it exist and each gives something back. Ship a plugin, and the
+namespace works for whoever installs it. Run a gateway resolving chain names into
+ordinary web addresses, and the operator sits exactly where the registry used to
+sit, with the added feature of being one convenient place to block everything.
+Persuade resolver software to adopt the namespace, which needs the central
+coordination the project exists to avoid.
+
+The result is a namespace with correct, censorship-resistant records that most
+software cannot see. Correct and unreachable is a hard combination to build a
+constituency on.
+
+## Wall three: the renewal arithmetic
+
+If a name never expires, the namespace is spent permanently in its first months,
+and every key later lost becomes a hole nobody can fill. Legacy registries handle
+a lost account by identifying the human. A chain cannot, by design.
+
+So names have to expire, which means a renewal, which means a fee, and the fee is
+where the design argues with itself. Denominate it in the chain's own unit and its
+real cost moves with whatever that unit does on the venues described in
+[the piece on the first exchanges](/articles/the-first-exchanges/), so a nominal
+fee becomes prohibitive or the reverse with nobody positioned to adjust it. Set it
+low and squatting costs almost nothing, so machines register the namespace. Set it
+high enough to deter that and only commercial holders can afford a name, which was
+the complaint about the old system.
+
+One more point about mechanism. A registration is a transaction, so it inherits
+every property of the chain carrying it, including the unobvious ones. Treating a
+submitted registration as final before the chain does is the mistake described in
+[the piece on transaction malleability](/articles/transaction-malleability-the-actual-bug/).
+
+## The loop, and what it says about the field
+
+Naming chains belong to the first wave of separate chains, alongside everything
+covered in [the first fork of the code](/articles/the-first-fork-of-the-code/),
+and they are the most defensible member of that wave, because they were built to
+do something the parent chain did not.
+
+What has happened since is a loop. A generation announces naming as the obvious
+application, ships first-come registration, discovers squatting, adds an auction
+or a fee schedule, discovers that ordinary software cannot resolve the names,
+ships a plugin and then a gateway, and finally proposes a dispute process its own
+architecture cannot support. The order is always the same and the walls are always
+presented as findings.
+
+That repetition is the evidence for a claim this site will keep making: the
+industry does not read its own history, so it pays for the same three lessons at
+full price every cycle. The walls were legible in 2011, in a design already
+running.
+
+## What grew, what shrank, and who could see it in ten seconds
+
+What expanded, in every generation of this idea, was ambition about the record.
+The first versions mapped a string to an address. Later ones map a string to keys,
+profiles, subdomains and identity claims, on the reasoning that if the mapping is
+trustworthy then everything hung off it inherits the trust.
+
+What contracted was recourse. Each step away from the registry removed somebody
+who could fix a mistake, and at the end the number of people who can correct a
+wrong entry, a lost key or a stolen name is zero. That is a feature, and it is
+also why these systems cannot serve the users who most want a name they control.
+
+Who could tell is unusually easy here. Anybody who tried to open one of these
+names in an ordinary browser found out in ten seconds. Anybody reading the
+announcement instead of trying it learned nothing of the sort, and the
+announcements are what got quoted forward into the next generation.

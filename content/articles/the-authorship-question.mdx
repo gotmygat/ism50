@@ -1,0 +1,138 @@
+---
+title: "The Authorship Question, and How to Write About It Without Guessing"
+seoTitle: "The Bitcoin Authorship Question, Handled Honestly"
+description: "A pseudonymous author, a long list of claimed identifications, no accepted proof, and a method for writing about unresolved questions."
+date: 2026-10-12
+author: "Khaled Hawari"
+era: origins
+kind: explainer
+lede: "The honest summary is that nobody has demonstrated who wrote it, and that summary is unsatisfying by design."
+---
+
+The paper carries a byline, an email address and a website, and that is the whole
+of the self description it offers. No institutional affiliation, no
+acknowledgements, no funding note, no biography. Every other document in its
+reference list can be traced to a person with an employer and a postal address.
+This one cannot, because the author declined to supply the information, and that
+decision has held for the entire life of the subject.
+
+This piece is not an attempt to close the question. It is the site's method,
+applied to the hardest case in the field: state what the record contains, state
+what would count as proof, state that it has not been produced. Then stop, which
+is the step that gets skipped.
+
+## What the record actually contains
+
+The documented artefacts are limited and they are of one kind. There is a paper,
+[which is a shorter and more careful document than its reputation suggests](/articles/the-bitcoin-whitepaper-is-not-the-document-you-think/),
+circulated to a cryptography mailing list on 31 October 2008. There is a source
+release and the commits that followed it. There are posts under one handle on a
+web forum, whose own profile page reports a registration on 19 November 2009 and
+a last activity on 13 December 2010. There is correspondence with a small number
+of people, most of it private, some of it published later by the recipients.
+
+Notice the class of evidence. All of it is text produced by an account. None of
+it links that account to a body. The record establishes that an account existed,
+wrote, released software and stopped, and no amount of close reading changes the
+category.
+
+That is not a gap waiting to be filled by better research. It is the intended
+output of choices the author made on purpose, and every method claiming to defeat
+those choices works from weaker material than the choices were made against.
+
+## What a demonstration would have to look like
+
+The subject has an unusually clean proof standard available to it, which is part
+of why the absence of a proof is worth writing about.
+
+A cryptographic signature over a message chosen by the person doing the
+verifying, produced by a private key the public record already ties to the
+author's activity, verifiable by anyone. The challenge string has to be chosen
+after the claim, otherwise a previously published signature can be replayed, and
+the key has to be one the record binds to the period rather than one asserted
+afterwards. Those two conditions are what make the test a test.
+
+Nothing of that shape has been produced and accepted. That is the finding, and it
+is a strong one, because the test is cheap for a genuine holder and impossible
+for everybody else.
+
+Two qualifications belong next to it. A valid signature would prove control of a
+key at the moment of signing, not authorship, since keys can be copied,
+transferred or lost to someone else. And the absence of a signature proves
+nothing about identity. It is evidence about willingness, which is a different
+question, and one where the mundane explanations are numerous.
+
+## The three shapes an identification takes
+
+Read the identification attempts as a body of work rather than one at a time and
+they collapse into three methods, each with a known failure.
+
+The first is stylometry: comparing the writing of the account against the writing
+of a candidate. The difficulty is not that the technique is worthless, it is that it answers a
+question about similarity and gets reported as an answer about identity.
+Similarity has a base rate. The candidate pool is not a closed
+set of a dozen people, it is everybody who had read the relevant literature and
+could write clear technical English, and
+[the mailing list where that literature was discussed](/articles/the-cypherpunks-list/)
+had a public archive and a membership nobody has ever fully enumerated. A method
+that ranks a candidate highly within an arbitrarily chosen pool has not
+established anything about the world outside the pool.
+
+The second is circumstantial timing: inferring a location from the hours at which
+posts appeared. This assumes one person, a conventional sleep pattern, no
+deliberate offsetting and no travel. Each assumption is exactly the sort of thing
+an author who chose a pseudonym would have reason to break, and none is
+checkable.
+
+The third is prior art proximity: somebody proposed a related design earlier,
+therefore they are a candidate. This is the weakest of the three and the most
+persuasive to a general reader.
+[Earlier proposals of this kind were published](/articles/bit-gold-the-proposal/)
+precisely so that other people would read them. Having written a document a later
+document resembles places a person in the same reading list as the author, and
+being in that set was the entire point of publishing.
+
+None of the three rests on a signature. That is the fact organising the whole
+literature, and it is why the field has produced a long list of identifications
+and no resolution.
+
+## Why a correct answer would change so little
+
+Suppose the question were settled tomorrow to everybody's satisfaction. Take an
+inventory of what would actually move.
+
+The software would behave identically. The rules would be the same rules, because
+they are enforced by whatever the nodes run and not by the standing of whoever
+wrote the first draft. The supply schedule would not change. Every technical
+claim on this site would survive the announcement unaltered, because each is
+sourced to code, to a document or to a block, none of which depend on a name.
+
+What would change is a large quantity of narrative, plus a custody question about
+coins mined in the first period that have never moved, and custody is about keys
+rather than about authorship. The appetite is for the narrative. A subject with
+no founder story feels incomplete to people who expect technologies to have
+founders, and that demand has kept a research industry running for a decade and a
+half on evidence that would not survive an afternoon in a seminar.
+
+The correct position is the flat one. The question is interesting as a study of
+evidence standards and close to uninteresting as history, and treating it as the
+central mystery has cost the field attention that the documented parts of the
+record badly needed.
+
+## The two lines, moving in opposite directions
+
+What expanded, without interruption, was the volume of the claim. More books,
+more documentaries, more identifications, more confidence, each round citing the
+previous round rather than the record.
+
+What contracted, over the same period, was the evidence available to test any of
+it. Mailing list archives moved and links died. Forum URLs changed hosts.
+Correspondence stayed private or was published in excerpt by interested parties.
+The claims grew as the substrate thinned, which is the signature of a field
+arguing rather than researching.
+
+Who could tell at the time? The handful of correspondents who exchanged email
+with the account before anybody thought it mattered. They were the only ones with
+primary material, they were not keeping it for posterity, and by the time the
+question became famous, the window in which an ordinary paper trail could have
+been assembled had already closed.

@@ -1,0 +1,138 @@
+---
+title: "Nobody Owns the Protocol, So Somebody Has to Pay for the Work Anyway"
+seoTitle: "Who Pays Protocol Developers, and Why It Matters"
+description: "Protocol work has no revenue model built into it, and every arrangement invented to fund it carries a different conflict of interest."
+date: 2026-10-10
+author: "Khaled Hawari"
+era: origins
+kind: profile
+lede: "The protocol generates no revenue for the people maintaining it, which is a structural problem with only awkward answers."
+---
+
+Read the issuance rules of any of these systems and count the parties they pay.
+There is a subsidy for producing blocks and there are fees for including
+transactions, and both go to the same place. There is no line anywhere in a
+consensus rule set that pays a reviewer, a maintainer, a test writer, a fuzzing
+harness author, a translator, or the person who answers a security report at two
+in the morning.
+
+That is not an oversight anyone can patch. The protocol pays for the thing it can
+verify, which is work already done on a block it can check. It cannot verify that
+a code review was careful. So the software that defines the system is produced
+entirely outside the system's economy, by people who have to be paid by somebody
+else, and that somebody always has a reason.
+
+## A job with users and no customers
+
+The role has an unusual shape. Its output is used by everyone holding or
+transacting, none of whom are in a commercial relationship with it. There is no
+licence, no support contract and no invoice. A user who has never heard of the
+maintainers still depends on their judgement, and has no mechanism to express
+demand for more of it.
+
+Economists have a dull name for this and the dullness is the point. Nobody can be
+excluded from the benefit, so nobody has a private incentive to pay for it, so it
+is chronically underfunded relative to the value it protects. The unusual part is
+not the free rider problem, which is ordinary. It is that the asset being
+protected is enormous and liquid, and the maintenance budget is discretionary and
+raised by asking.
+
+## The arrangements that actually pay for it
+
+Four arrangements do most of the work in practice, and I am deliberately not
+naming organisations or individuals in any of them. The categories are what
+matters, and a claim about who funds whom needs a published source in front of me
+rather than a recollection.
+
+**Employment by a firm with a commercial position.** Exchanges, custodians,
+hardware manufacturers, mining businesses and companies building on the protocol
+all employ people whose job is partly or wholly upstream work. The employer gets
+influence, reputation, and early sight of changes that affect its product.
+
+**Grants from nonprofits and foundations.** A body raises money from donors and
+redistributes it to individuals, usually in fixed terms that come up for renewal.
+The stated purpose is to break the link between a developer's income and any
+single firm's roadmap.
+
+**Pooled funds and sponsorships.** Multiple firms contribute to a common pot
+administered at arm's length, on the theory that many funders dilute any one
+funder's leverage.
+
+**Self funding and unpaid work.** Some contributors hold enough of the asset to
+work on it directly, and many more do the work in evenings around an unrelated
+job.
+
+## Every one of them has a position
+
+None of these is neutral, and pretending otherwise is how a funding argument turns
+into an accusation.
+
+An employed developer's conflict is the most visible and the most discussed. It is
+also the easiest to reason about, because the employer's commercial interest is
+usually public. The pressure it exerts is rarely on what gets merged. It is on
+what gets worked on at all, which is quieter and matters more, because a change
+nobody has time to review is a change that does not happen.
+
+A grant is subtler in a way that gets discussed less. Grants are finite and
+renewable, which means the funder makes a decision about a person's income on a
+schedule. Nobody has to say anything for that to shape behaviour. The mechanism is
+anticipation, and its defining feature is that it leaves no evidence.
+
+A pooled fund dilutes any single funder's leverage and concentrates the selection
+decision instead, in whoever decides which people receive money. That is a smaller
+group than the set of funders, and it is usually less visible than an employer.
+
+Self funding removes the external funder and replaces it with a holding in the
+asset, which is a position on the outcome. Unpaid work removes even that, at the
+cost of selecting for people who can afford to work for free, and of a burnout
+rate that quietly removes reviewers from a pool that was never deep.
+
+There is no clean option in that list. Every arrangement has a party with a
+preference, and every developer knows who that party is.
+
+## The rule I will commit to
+
+Given a choice between disclosed funding with an obvious conflict and undisclosed
+funding with a subtle one, take the first, every time.
+
+The reasoning is about what a reader can do with the information. A declared
+employment relationship at a firm with a known commercial interest lets every
+reviewer discount accordingly, and discounting is what review is for. The
+technical argument still has to stand on its own in public, in writing, where
+[a rejection has to carry a
+reason](/articles/rough-consensus-and-running-code/). A conflict that everyone can
+see is an input to that process. A conflict nobody can see is not.
+
+The failure mode of the opposite preference is worse than it looks. Demanding
+purity produces claimed independence rather than actual independence, because
+everyone is funded by someone and the only variable is whether they say so. It
+also feeds the accusation dynamic, which is the real hazard in this area. Motive
+claims are unfalsifiable. Once an argument moves from what a change does to whose
+interest it serves, the discussion cannot be concluded by evidence, and the
+technical question stops being answered at all.
+
+This is also why the structural protection matters more than the funding
+question. [Merging a change is not the same as anyone running
+it](/articles/maintainers-not-owners/), so a funder who successfully influences a
+developer has bought a commit, not a rule. That does not make the funding question
+harmless. It makes it a question about attention, expertise and priorities rather
+than about capture, which is the version worth arguing about.
+
+## What was growing, what was thinning, and who could tell
+
+What expanded was the surface that needed maintaining, and the value sitting on
+top of it. Consensus code, peer to peer networking, wallet software, build
+reproducibility, dependency review, security response, documentation and
+translation are all now permanent obligations rather than tasks with an end, and
+each one grew as the user base did.
+
+What contracted was the pool of people able and funded to do the least glamorous
+half of it. Review of consensus critical code is slow, unrewarded, largely
+invisible, and requires exactly the expertise that commands a salary elsewhere.
+Funders prefer to fund features they can point at. The result is a widening gap
+between the work that gets paid for and the work that keeps the thing correct.
+
+Who could tell at the time? The maintainers, who could see how few people were
+actually reviewing, and the funders, who could see how thin their applicant pool
+was. Users could not, and had no reason to look, because from outside the two
+things that were diverging looked identical: free software that kept working.

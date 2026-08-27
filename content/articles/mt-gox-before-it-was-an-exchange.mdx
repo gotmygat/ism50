@@ -1,0 +1,137 @@
+---
+title: "The Largest Exchange in the World Started as Something Else Entirely"
+seoTitle: "What Mt. Gox Was Before It Was an Exchange"
+description: "The venue that dominated trading for years began as an unrelated hobby project, was sold, and grew far past what its code was built for."
+date: 2026-10-18
+author: "Khaled Hawari"
+era: earlyExchange
+kind: timeline
+lede: "The dominant venue of the era was built on a codebase that was never designed to hold anybody's money."
+---
+
+The name is an acronym and none of the words in it are about money. Magic: The
+Gathering Online Exchange. The domain was registered in 2007 for a site where
+people could trade collectible card game cards with each other, the service ran
+briefly, and it was taken down. That is the origin of the string that would later
+appear on the Tokyo District Court's docket.
+
+This piece stops before February 2014. The collapse, the malleability claim and
+the forensic accounting of where the coins went are covered separately in
+[the coins were already gone](/articles/mt-gox-the-coins-were-already-gone/). What
+follows is the part that came first, which is the part that determined the rest.
+
+## 2007: a hobby project and a spare domain
+
+There is not much record of the card exchange and there does not need to be. What
+matters is the category. A small side project of the kind thousands of people build
+and abandon every year, whose residue was a registered domain sitting unused. That
+is not a criticism, it is the starting inventory: a name, a domain, and no
+institution of any kind behind either.
+
+## July 2010: the domain gets a second use
+
+In July 2010 the same domain came back as a place to buy and sell bitcoin for
+dollars. This is the pivot, and it is worth naming what it actually was. Not the
+founding of a financial institution. The reuse of a spare domain for a second
+hobby project, in a market that at that point consisted of a forum, a mailing list
+and a few hundred interested people.
+
+A venue like that has to perform, from day one, all four of the jobs that
+[an exchange is really doing](/articles/what-an-exchange-actually-is/): matching
+orders, holding the asset, finalising trades, and holding customer cash. There was
+no version of the project that did fewer than four, and in mid-2010 that entire
+stack was one person's web application.
+
+## March 2011: the site changes hands
+
+In March 2011 the site was publicly announced as changing ownership, passing to
+Mark Karpelès and to the Tokyo company Tibanne Co., Ltd., which is the entity that
+appears in the later legal record.
+
+The terms of that transfer are the most repeated unverified thing about the period.
+Figures circulate, sourced to documents that leaked in 2014 rather than to anything
+either party published, and I am not printing them. What the public record supports
+is the fact of the transfer, its approximate date, and the identity of the
+acquiring company. I am also not going to characterise why either party did it.
+Nobody has to be ambitious or negligent for the next three years to happen. The
+structure does the work on its own.
+
+## June 2011: the day the record had to be edited
+
+In June 2011 the site was compromised. Trades printed at prices far away from the
+prevailing market within minutes, and the operator's response was to suspend
+trading, reverse the affected trades, and restore the order book to an earlier
+state. Customer account data from the site was also exposed.
+
+Look past the incident at what the response proves. The trading record could be
+rolled back, by one party, unilaterally, after the fact. That is a completely
+ordinary property of a web application with a database behind it, and it is a
+disqualifying property of a settlement system. The whole content of settlement is
+that it is the moment after which the trade cannot be unmade. A venue that can
+unmake trades has not built settlement, it has built a spreadsheet with an undo.
+
+None of this was hidden. It happened in public, in 2011, and it was reported at the
+time. The reading available then, and that almost nobody made, is that the rollback
+told you what kind of system was underneath, and therefore what would happen when
+it was tested by something that could not be undone.
+
+## 2012 to 2013: it becomes the price
+
+Over the following two years the venue went from one of several places to trade to
+the place whose printed number was quoted as the price, by the press, by other
+services, and by people valuing their own holdings.
+
+I am deliberately not attaching a percentage to that, and the omission is the
+point. The figure everybody repeats for this venue's market share is misdated,
+mis-categorised and traceable to no measurement at all, and the companion piece
+takes it apart line by line. Anyone wanting to know the size of this thing runs
+into the same wall that makes
+[the early adoption figures unknowable](/articles/why-early-adoption-figures-are-unknowable/):
+the balances were inside the company, the trades never touched a chain, and the
+only party who could count was the party being counted.
+
+What can be said without a number is the shape. Its share rose to something like
+dominance and then fell as competitors appeared, and the fall happened well before
+the failure. The venue that failed was not the venue at its peak.
+
+## The mismatch is the condition, not the event
+
+An exchange is an accounting system with a user interface attached. The one thing
+it must do, continuously and correctly, is know the difference between what it
+holds and what it owes, in a way that survives the person who wrote the code being
+unavailable, disagreeing, or wrong.
+
+This one began as a card trading site's leftover domain, was rebuilt as a hobby
+project by a single author, changed owners, and grew into the reference price for
+an entire market. At no point in that sequence did anybody stop and rebuild the
+accounting as an accounting system.
+
+That is why later diligence could not have fixed it. Diligence checks whether the
+records are right. It cannot manufacture a second, independent record to check them
+against, and this system never had one. The evidence that the accounting could not
+see itself is not an opinion: forensic work published years later established that
+coins had been leaving continuously since 2011 without the company's own books
+registering it.
+
+[The earlier attempts](/articles/why-the-earlier-attempts-failed/) died of law and
+of banking, and they at least knew they were building financial infrastructure.
+This one did not start out believing that it was.
+
+## Share went up and the base underneath it did not
+
+What was expanding was share, attention, and the number of people whose holdings
+were an entry in this company's database. That expansion is the only series anyone
+was watching.
+
+What was contracting, or rather what never grew at all, was the operational base:
+one company, one jurisdiction, one set of books, one person able to authorise a
+change, one accounting system carried forward from a project with different
+requirements. The market got bigger by orders of magnitude. The thing underneath
+it got bigger by nothing.
+
+Who could tell at the time? Two groups, and neither was believed. The people who
+noticed the June 2011 rollback and understood what it implied about the
+architecture, and the customers who spent late 2013 unable to get their money out
+and were told it was a banking problem. Both signals were public, and both were read
+as growing pains, because a rising market makes every operational failure look like
+a queue rather than a symptom.

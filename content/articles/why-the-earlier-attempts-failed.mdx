@@ -1,0 +1,139 @@
+---
+title: "Twenty Years of Digital Cash Attempts, and the Three Ways They Ended"
+seoTitle: "Why Digital Cash Kept Failing Before 2009"
+description: "A sequenced read of the pre-2009 attempts, sorted by how they ended: no adoption, an operator shut down, or a design that was never built."
+date: 2026-10-15
+author: "Khaled Hawari"
+era: origins
+kind: timeline
+lede: "The attempts before 2009 failed in only a few distinct ways, and sorting them that way is more useful than listing them."
+---
+
+Lay the pre-2009 attempts out by date and you get a list. Lay them out by how
+each one stopped and you get something more useful, because the endings repeat
+and the list does not.
+
+Three endings, and only three. Nobody used it. Somebody could be told to stop. It
+was written down and never built. Every serious attempt in the two decades before
+2009 ends in one of those, several in two at once, and the classification does
+more explanatory work than any chronology.
+
+## The sequence, without the arrow
+
+First, the caution that makes the rest readable. What follows is not a relay race.
+These projects were not iterations of a shared programme with a known
+destination. Several did not cite each other, several were solving genuinely
+different problems, and the resemblances that look obvious now are visible mostly
+because we know which shape eventually got built. Retrospective sorting is a
+legitimate analytical move. Retrospective sorting presented as a lineage is a
+story, and stories about inevitability are the most common failure in writing
+about this period.
+
+The rough order runs like this. Blind signature cryptography in the early 1980s,
+making an untraceable payment mathematically describable for the first time. A
+company founded around that cryptography at the start of the 1990s, offering
+digital cash issued by an operator. Digital gold and reserve backed payment
+systems from the mid 1990s, businesses rather than research. Proof of work,
+published in 1997 as an anti spam measure and not as money. Two written proposals
+at the end of the 1990s describing decentralised issuance, one of
+[which this site has already taken apart](/articles/b-money-the-proposal/). A
+reusable proof of work system built in 2004 that ran on a server you had to trust
+was running what it claimed. Then a gap, and then 2008.
+
+Running underneath all of it,
+[the legal fight over whether strong cryptography could be deployed](/articles/the-crypto-wars/)
+determined what could be shipped, to whom, and from where.
+
+## Mode one, and it is the most common
+
+The most frequent ending is the least dramatic: it worked and nobody used it.
+
+The company built on blind signatures reached bankruptcy at the end of the 1990s,
+and
+[the post mortem is worth reading in its own right](/articles/digicash-postmortem/).
+The failure was not cryptographic. What did not happen was the simultaneous
+arrival of enough merchants to make the thing worth holding and enough holders to
+make it worth accepting, which is the oldest problem in payments and is not one a
+payment technology can solve about itself.
+
+The 2004 reusable proof of work system has the same ending in a purer form. It
+was built, it ran, it did what it described, and it stayed experimental. Not
+because anybody evaluated it and found it wanting. There was nothing to buy with
+it.
+
+Note what this mode is not. It is not evidence of a design flaw, and treating non
+adoption as proof of technical inadequacy runs through almost all popular writing
+on this period. Several of these systems were fully functional, and functional
+but unused is the default state for a payment network.
+
+## Mode two, and it is the one everyone remembers
+
+The second ending is that the thing worked, acquired users, and then the operator
+was subject to a legal process and the service stopped.
+
+The reserve backed payment systems of the late 1990s and 2000s are the clear
+cases, and
+[the compliance wall one of them ran into](/articles/e-gold-and-the-compliance-wall/)
+is the most instructive episode in the period. The design assumed a company: an
+issuer, an account system, a reserve, administrators. Every one of those is a
+point at which an authority can address an instruction to a named party, and a
+named party who receives an instruction backed by law complies or is compelled.
+
+This mode is why the period is usually narrated as a story about censorship
+resistance, and in fairness, it is the mode the next design actually addressed.
+Removing the operator was the engineering achievement. It was also, and this is
+the part the narration skips, the only one of the three modes addressed at all.
+
+## Mode three, and the reason it is not a lesser failure
+
+The third ending is that the design was published and never implemented.
+
+Both of the influential late 1990s proposals are in this category. They were
+descriptions rather than software: a mechanism, a set of properties, sometimes an
+outline of incentives, without a running network or in some cases a fully
+specified way to get one. This is often written up as though the authors merely failed to do the work,
+which is unfair and analytically wrong. A written proposal with an unresolved
+component is a different artefact from an abandoned implementation. It states
+what would have to be true, and it is useful precisely because it does not
+pretend the remaining problem is solved.
+
+The useful question about mode three is which component was left open, and in
+these cases it was consistently the same one: how a distributed set of
+participants agrees on a single ordering without a trusted party. That was not an
+oversight. It was the acknowledged hard part.
+
+## Only one of the three was engineered away
+
+Here is the uncomfortable summary, and it is the reason the second era of this
+site is about exchanges rather than about cryptography.
+
+Mode two was solved by design: remove the operator and there is nobody to serve
+an order on. Mode three was solved by somebody building the missing component.
+Mode one was not solved by anything, because it is not a technical problem and no
+protocol change has ever addressed it.
+
+Adoption was solved socially, over roughly a decade, by people building the
+unglamorous connective tissue: places to trade, ways to price, ways to hold, ways
+to accept. Every one of those reintroduced an operator, so the mechanism that
+solved mode one immediately recreated mode two at the edges. That is not an
+ironic footnote. It is the plot of the next era.
+
+## Capability above the line, distribution below it
+
+For most of these twenty years the capability was above the line and rising. The
+mathematics of untraceable payment was published in the early 1980s and improved
+steadily, proof of work was working by 1997, and by 2004 a running system did
+most of what a digital cash system needs to do. On the axis of what was
+technically possible, this period is one long expansion.
+
+What sat below the line the entire time, and contracting, was distribution and
+legal tolerance. The set of places you could spend any of these instruments
+stayed near zero, and the set of jurisdictions where an operator could run one
+without a licensing question narrowed as payments regulation matured.
+
+Who could tell at the time? The cryptographers could see the capability line
+rising, because they were raising it, and they read that as the binding
+constraint. Almost nobody in that group was measuring the other line, and the
+people who could have, the payments and compliance professionals inside banks and
+regulators, were not reading the papers. Each group saw half the chart, and
+nobody put the halves next to each other until the period was over.

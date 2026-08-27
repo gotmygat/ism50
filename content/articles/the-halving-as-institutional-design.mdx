@@ -1,0 +1,141 @@
+---
+title: "The Halving Is a Scheduled Revenue Cut for an Entire Industry"
+seoTitle: "The Halving as an Industrial Revenue Cut"
+description: "Read as monetary policy the halving is simple, but read as a business event it is a scheduled shock to every miner's income statement."
+date: 2026-10-04
+author: "Khaled Hawari"
+era: origins
+kind: explainer
+lede: "A scheduled, announced, unavoidable halving of revenue is a governance event that no ordinary industry would tolerate."
+---
+
+The whole of it is one right shift. In the reference implementation the block
+subsidy is computed by dividing the block height by the halving interval and
+shifting a starting value right by that many places, with the interval set to
+210,000 blocks. There is no committee, no vote, no announcement and no
+discretion. The arithmetic is described in more detail in [the supply
+schedule](/articles/the-supply-schedule/), and as arithmetic it is finished in a
+sentence.
+
+Now read the same line as an operator rather than as a protocol. At a known block
+height, the largest component of your revenue is cut in half, permanently, with
+no corresponding change in your electricity contract, your lease, your hardware
+financing or your payroll. Try to name another industry where that is a normal
+scheduled event.
+
+## Two revenue lines, one of which is legislated
+
+A miner is paid from two sources: the subsidy, and the fees attached to the
+transactions they include. The subsidy is fixed by the code and is identical for
+every participant. The fee component is not fixed by anything, varies with
+demand, and is the only part of the income statement that can respond.
+
+That split is the thing to hold onto, because it means the halving is not a
+proportional shock. It is a shock to one line only, and how badly it lands on any
+given operator depends on what share of their revenue that line represents. The
+protocol has no view on this. It is not aware that businesses exist.
+
+## No renegotiation is available
+
+What makes this unusual is not the size of the cut. Industries take revenue hits
+all the time. What is unusual is the total absence of the mechanisms that
+normally follow one.
+
+There is no counterparty to renegotiate with, because the subsidy is not paid by
+anyone. There is no regulator to petition for relief, because there is no
+regulator with jurisdiction over the issuance rule. There is no lobbying position
+that helps, because the rule is enforced by every node independently and a miner
+who writes a larger number into a coinbase transaction simply produces a block
+that everybody else rejects. And there is no ambiguity to exploit in the timing,
+because the cut is indexed to block height and the block height is public.
+
+Compare how a scheduled cost shock is handled anywhere else: notice periods,
+transitional relief, grandfathering, negotiation, a phase in. All of those require
+somebody with standing to grant them. Nobody here has that standing, which is the
+design working as intended and is also, from the operator's chair, the entire
+difficulty.
+
+## The release valve is real and it is slow
+
+There is one adjustment mechanism, and it is worth being precise about what it
+does and does not do.
+
+If enough capacity switches off, blocks arrive more slowly, and [the difficulty
+adjustment](/articles/the-difficulty-adjustment/) eventually lowers the target so
+that the remaining capacity produces blocks at the intended rate again. The
+survivors then earn a larger share of a smaller subsidy. That is a genuine
+stabiliser and it is the reason the system does not seize up.
+
+But notice its shape. It is retrospective, it operates on a fixed window of
+blocks rather than continuously, and it corrects the difficulty rather than the
+revenue. It does not restore anybody's income. It reallocates a reduced income
+across whoever is still running. An operator who cannot survive the interval does
+not benefit from the adjustment that their own departure helps cause.
+
+So the sequence is mechanical rather than dramatic. Revenue per unit of work
+falls at a known height. The operators furthest below their own cost line stop.
+Capacity leaves. Blocks slow. Difficulty falls. The remaining operators earn more
+per unit of work than they did immediately after the cut, and less than they did
+before it. Then capacity rebuilds, difficulty climbs, margins compress again, and
+the cycle waits for the next scheduled height.
+
+## Consolidation is the actual history
+
+That loop is why the interesting history of the halving is not monetary at all.
+It is a history of who was still operating afterwards.
+
+Each cut moves the marginal operator below their cost line, and marginal is not a
+judgement, it is a description: the operator with the worst power price, the
+oldest hardware, the least favourable financing, the least ability to wait. The
+fleet contracts, then expands again as newer and cheaper capacity arrives to
+occupy the space. What comes back is not the same population that left. It is
+larger, better capitalised, and located wherever the cost inputs are best, and
+that is a structural change dressed up as a schedule.
+
+This is the site's thesis in its most literal available form. Expansion and
+contraction, alternating, on a published timetable, in an industry that can see
+the timetable years in advance and still cannot fully prepare for it, because
+preparation costs money that the marginal operator does not have.
+
+## Who can actually see the contraction, and how well
+
+Here is the part that gets skipped. Nobody measures the fleet.
+
+Network hashrate is not reported by anybody. It is inferred, from the difficulty
+in force and the intervals between blocks, and block intervals are the output of
+a random process. A short run of slow blocks is indistinguishable from a modest
+loss of capacity, and a short run of fast blocks looks like growth that may not
+have happened. Every chart of hashrate is an estimate with error bars that are
+usually not drawn.
+
+So the honest statement is that a contraction is visible in aggregate, over a
+long enough window, and is not reliably visible while it is happening. The
+individual operator knows their own position exactly, on the day, and knows
+nothing about anybody else's. The observer sees a noisy aggregate and cannot
+resolve which firms left. That asymmetry is worth remembering whenever somebody
+narrates a halving as though the industry's response were legible in real time.
+
+## What the cut adds and what it removes
+
+Two things happen at once at each of these heights, and they point in opposite
+directions.
+
+What expands is concentration of the capacity that remains, and the capital
+intensity required to be part of it. A business that can absorb a scheduled
+halving of its main revenue line is by definition a business with reserves,
+cheap inputs or patient financing, and each cut selects for those attributes
+again.
+
+What contracts is the number of independent operators who can survive the
+transition, and with it the ease of entry that the early years enjoyed, when the
+work was done on [ordinary machines by
+hobbyists](/articles/cpu-mining-as-a-hobby/) with no cost line to fall below.
+
+One closing caution. There is a large body of commentary, mostly from market
+analysts and mostly published in the weeks either side of these events, that
+asserts a halving causes various downstream outcomes. This site is not repeating
+those claims, because assessing them would require price data and a method, and
+the ones offered in that commentary are usually neither stated nor testable. What
+can be said structurally is the above: the revenue line falls, the marginal
+operator exits, the difficulty follows, and the population that returns is not
+the population that left.

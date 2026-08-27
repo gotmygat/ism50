@@ -1,0 +1,136 @@
+---
+title: "Hardcoded Checkpoints Were an Admission, and a Reasonable One"
+seoTitle: "Hardcoded Checkpoints and What They Admitted"
+description: "Baking known good block hashes into the software traded a little purity for a lot of practical safety, and the tradeoff was argued openly."
+date: 2026-09-28
+author: "Khaled Hawari"
+era: origins
+kind: primarySource
+lede: "A checkpoint is the developers telling your node not to bother reconsidering the distant past."
+---
+
+On 17 July 2010, commit `ae922a36a4b5` added six lines to `AcceptBlock` in
+`main.cpp`. Its message reads "security safeguards, limited addr messages
+-- version 0.3.2". The six lines are these:
+
+```cpp
+// Check that the block chain matches the known block chain up to a checkpoint
+if (pindexPrev->nHeight+1 == 11111 && hash != uint256("0x0000000069e244f73d78e8fd29ba2fd2ed618bd6fa2ee92559f542fdb26e7c1d"))
+    return error("AcceptBlock() : rejected by checkpoint lockin at 11111");
+if (pindexPrev->nHeight+1 == 33333 && hash != uint256("0x000000002dd5588a74784eaa7ab0507a18ad16a236e7b1ce69f00d7ddfb5d0a6"))
+    return error("AcceptBlock() : rejected by checkpoint lockin at 33333");
+if (pindexPrev->nHeight+1 == 68555 && hash != uint256("0x00000000001e1b4903550a0b96e9a9405c8a95f387162e4944e8d9fbe501cd6a"))
+    return error("AcceptBlock() : rejected by checkpoint lockin at 68555");
+```
+
+There is no cryptography in that. It is three equality tests against three
+string literals someone typed into a header. If a block arrives claiming height
+11111 and its hash is not the one in the file, the node discards it, and the
+node does not have a way to ask why or an argument it could be persuaded by.
+
+## What a locked in height buys you
+
+The thing a checkpoint defends is the proof of work rule's one soft spot, which
+is that the rule compares chains by accumulated work and says nothing about
+when that work was done. Difficulty in the earliest part of the chain was set
+for the hardware of the time. Hardware did not stay there. A candidate chain
+branching from a very early block and running forward at that original
+difficulty is cheap to produce years later, in a way it was not cheap to produce
+originally.
+
+A node with no other information does what the rule says: it compares total
+work and follows the heavier chain. A node with a checkpoint at height 11111
+never gets that far, because any chain that does not contain the expected block
+at that height is rejected before the comparison happens.
+
+The second thing checkpoints bought was time on startup. A node that already
+knows a given block is on the chain everyone else is on can decline to redo
+some of the expensive verification below it. That is a performance argument
+rather than a security argument, and the two got bundled into one mechanism,
+which is most of why the mechanism was contentious for so long.
+
+Note what is not being claimed here. No specific attack was prevented by these
+lines, and nothing in the record establishes that one was attempted. What they
+did was remove a class of possibility from a node's behaviour. That is the only
+honest claim available, and it is the one worth making.
+
+## The objection, which is not silly
+
+A full node is supposed to be a machine that reaches its own view of history by
+applying rules to data, without deferring to anyone. That is the whole reason to
+run one rather than ask somebody. A checkpoint interrupts that. The node's view
+of the past below the last checkpoint is not derived, it is supplied, and it is
+supplied by whoever had commit access on the day the literal was typed.
+
+The objection was never that a checkpoint was dangerous in practice. It was that
+it changed the kind of thing a node was. The same instinct that produced this
+complaint produced the argument about
+[the alert key](/articles/the-alert-key/): a facility that is harmless while the
+people holding it behave well is still a facility, and the property being
+claimed for the system was supposed to be that nobody needed to behave well.
+
+This is the cleanest small example on this site of the recurring tension between
+what a system says about itself and what it needs in order to run. It is worth
+saying plainly that neither position is the naive one. Shipping the checkpoints
+was a considered response to a real weakness. Objecting to them was a considered
+defence of a real property. Nothing about the presence of those lines, or about
+their eventual absence, is evidence about anybody's motives, and reading them
+that way is the fastest route to a wrong conclusion.
+
+## The two jobs get separated
+
+The objection was answered by taking the mechanism apart rather than by arguing
+it down, which is the part of this story that usually gets left out.
+
+The startup performance job now belongs to a setting called `-assumevalid`.
+The help text in `init.cpp` describes it exactly: "If this block is in the chain
+assume that it and its ancestors are valid and potentially skip their script
+verification (0 to verify all...)". Two things changed. It only skips signature
+checking, so every other consensus rule is still applied to every block, and it
+is a user setting with a documented off switch rather than a rule welded into
+`AcceptBlock`.
+
+The cheap old chain job now belongs to `-minimumchainwork`, described as
+"Minimum work assumed to exist on a valid chain in hex". Instead of naming a
+block, it names a quantity of work below which a chain is not worth considering
+at all. That is a much better shaped answer to the same problem, because it is a
+statement about difficulty rather than a statement about which history is the
+real one, and an attacker cannot satisfy it by guessing what somebody typed.
+
+Both values sit in `chainparams.cpp` as consensus parameters, both are
+overridable at the command line, and both are quantities rather than identities.
+
+## What is in the file now
+
+Reading the master branch of the reference implementation: `src/checkpoints.cpp`
+is not there, and `src/kernel/chainparams.cpp` contains no checkpoint data for
+any network. The commit that did it is `3c5d1a468199`, dated 13 January 2025,
+with the subject "Remove checkpoints". `nMinimumChainWork` and
+`defaultAssumeValid` are both present and set for every network in the same
+file.
+
+That is a statement about the source at the time of reading and nothing more.
+Which shipped releases contain what is a separate question, and one that has to
+be checked against the release rather than assumed from the branch.
+
+## The honest version of the property
+
+What was expanding through the whole of that fifteen year arc was the chain
+itself, and with it the cost of a new node reproducing every conclusion from the
+genesis block. What was contracting was the range of histories a node would
+entertain, deliberately, first by naming specific blocks and later by naming a
+quantity of work.
+
+Who could tell at the time is the same answer as everywhere else in this period.
+In July 2010 the set of people who read `main.cpp` between releases was small
+enough to fit in a room. The lines were not hidden, they carried an explanatory
+comment, and they were in the tarball. Being public and being noticed are
+different states, and this record keeps demonstrating the gap.
+
+Decentralisation described as an absolute does not survive contact with this
+file. Described as a series of specific compromises, each one written down,
+argued about, and in this case eventually replaced with something narrower, it
+survives fine. That framing also explains why the fights catalogued in
+[what a soft fork actually is](/articles/what-a-soft-fork-actually-is/) are so
+bitter: once you accept that the line moves, every proposal is a negotiation
+about where.

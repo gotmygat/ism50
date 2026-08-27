@@ -1,0 +1,134 @@
+---
+title: "How Do You Responsibly Disclose a Bug When There Is No Vendor"
+seoTitle: "Disclosing a Protocol Bug With No Vendor"
+description: "Security disclosure assumes a company that can patch and push, and a public protocol with voluntary upgrades has neither."
+date: 2026-10-02
+author: "Khaled Hawari"
+era: origins
+kind: explainer
+lede: "Standard disclosure practice assumes somebody can ship a fix to everyone, which is exactly what does not exist here."
+---
+
+A fix for a consensus bug arrives as a commit in a public repository that
+anybody can watch, including the person you are trying to keep the bug away
+from. That single fact breaks most of what the software industry means by
+responsible disclosure, and it broke it before anybody had written down an
+alternative.
+
+## The four things the usual process assumes
+
+Take the ordinary shape of a vulnerability report. A researcher finds a flaw,
+reports it privately, a vendor reproduces it, a patch ships through an update
+channel, and some interval later the details are published so everyone else can
+learn from it. Google's Project Zero made its version of that timetable explicit
+with a published deadline of ninety days for the vendor, after which the report
+goes out regardless.
+
+Four things have to be true for that to work. There is a vendor with a name and
+an address. There is a build the vendor controls. There is a distribution
+mechanism that reaches installed copies. And there is a point in time after
+which almost everyone is patched, which is what makes publication safe.
+
+A public protocol maintained by volunteers has none of the four. There is no
+vendor, only [maintainers with commit access and no authority over
+anybody](/articles/maintainers-not-owners/). There is a build, but running it is
+optional. There is no update channel at all in the sense the word normally
+carries, because nothing installs software on a machine whose operator did not
+ask for it. And there is no moment when everyone is patched, because there is no
+list of who is running what.
+
+## A patch is a description of the bug
+
+The awkward part is that the fix and the disclosure are the same object.
+
+A commit that adds a bounds check tells a competent reader that the bound was
+previously unchecked, and where. A commit that adds a validation rule tells a
+reader which input used to be accepted. You cannot ship the repair without
+shipping the map. In a vendor world that hardly matters, because by the time the
+patch is visible it is already installed on most machines. Here the order is
+reversed: visible first, installed later, and the gap between the two is however
+long it takes independent operators around the world to notice, read, decide and
+restart.
+
+That gap is the entire risk window, and nobody controls its width.
+
+## Deployment is a vote nobody can call
+
+The second structural difference is worse. In a normal product, a patch is
+effective on the machine that installs it. Here, for a rule that governs what
+the network collectively accepts, a fix installed on your own node protects your
+own view of the record and does nothing about the record everyone else is
+keeping. Effectiveness is a function of how much of the network has moved, and
+the operators who need to move are unknown to each other, unpaid by anybody, and
+under no obligation whatsoever.
+
+So the fix is not an act of engineering that concludes when the code is correct.
+It is a piece of persuasion that concludes when enough independent parties have
+been convinced, and the persuasion has to happen without explaining the reason,
+because explaining the reason is the disclosure. Please upgrade urgently, and no,
+we will not say why yet, addressed to strangers who owe you nothing.
+
+The [value overflow incident](/articles/the-value-overflow-incident/) is the
+canonical worked example of what that pressure looks like when the clock is
+already running.
+
+## What the practitioners actually invented
+
+Out of that, without a standards body and without much visible deliberation, a
+practice emerged. Reports go to a private contact rather than a public issue
+tracker. A small group reproduces and fixes. A release goes out, often described
+in terms that are true but incomplete. Operators are urged to upgrade. Some time
+later, once the fix is judged to be sufficiently deployed, a fuller account is
+published, and historical flaws are eventually written up in detail and given
+identifiers so that they can be referenced.
+
+I want to be careful here, because there is a temptation to describe that as a
+protocol with a schedule. It is not. Different projects handle it differently,
+the delay before publication varies enormously and is decided case by case, and
+there is no cross project standard that anyone could point to and say a
+disclosure was early or late against it. Anyone who tells you there is a normal
+interval for this is describing one project's habits, or their own preference.
+
+What is genuinely impressive is that the practice exists at all. It was assembled
+under time pressure by people with no mandate and no ability to compel anybody to
+do anything, and it has repeatedly worked. That belongs on the short list of
+institutional achievements in this history, and never appears on one, because an
+achievement that consists of not having a disaster is invisible by construction.
+
+## The part that should make you uncomfortable
+
+The cost is not hidden and it should not be softened. A small group of people,
+communicating privately, deciding what the rest of the network gets told and
+when, is precisely the arrangement the design was built to make unnecessary. The
+whole argument for a public protocol is that no small group has to be trusted
+with a decision that affects everyone. During a live disclosure, a small group is
+trusted with exactly that.
+
+You can defend it, and the defence is good: the alternative is publishing an
+exploit to an adversary who reads the same repository. But it is a defence of an
+exception, not a demonstration that the exception is not there. Two properties
+that both matter are in conflict, and one of them yields temporarily. Saying so
+is more useful than pretending the design absorbed the problem, because it did
+not. People absorbed it, informally, on each occasion.
+
+## What grew, what shrank, and who was in a position to notice
+
+What expanded across this period is the number of independent operators and the
+value sitting behind rules that a single arithmetic error could invalidate. Every
+new node made the system harder to coerce and simultaneously made a quiet fix
+harder to land, because a fix now has to reach more people who have never heard
+of you.
+
+What contracted is the window in which anything can be done quietly. As the
+repository gained watchers, the interval between a patch appearing and a stranger
+understanding what it implied shrank toward nothing. The room for a discreet
+correction was largest when almost nobody was looking, which is the same period
+in which almost nothing was at stake.
+
+Who could tell at the time is the sharpest part. Almost nobody. A handful of
+people on a private list knew there was a problem. Everyone else saw an
+unremarkable release and a mildly insistent request to upgrade, and had no way to
+distinguish that from routine. The disclosure practice works by producing a
+period during which the public record is deliberately incomplete, and the honest
+reading of any calm stretch in this history is that some of the calm is real and
+some of it is a gap that was filled in later.
