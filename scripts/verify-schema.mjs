@@ -120,6 +120,8 @@ const EXPECTED_SAME_AS = [
   "https://khaledhawari.ca/",
   "https://khaledhawari.com",
   "https://kodelytics.ca",
+  "https://kna-group.com",
+  "https://ism50.com",
   "https://www.linkedin.com/in/khaledhawariottawa/",
   "https://www.crunchbase.com/person/khaled-hawari-ottawa",
   "https://muckrack.com/khaled-hawari-ottawa",

@@ -1,6 +1,6 @@
 # CANONICAL Person node values. Copy verbatim. Do not paraphrase.
 
-Every one of the four domains must emit these EXACT strings. A property that
+Every one of the FIVE domains must emit these EXACT strings. A property that
 differs by a word between two domains is two competing claims about one person,
 which is worse than not emitting it at all. If you think a string should change,
 STOP and report it rather than changing it locally.
@@ -146,3 +146,48 @@ The dates should also be reconciled honestly rather than smoothed over: the
 record shows KNA Tax and Business Advisors (Kanata, self-employed) 2014 to
 2020, and KNA-Group 2023 to 2024. Write the real history. Do not invent a
 continuous founding date to make the timeline look tidier.
+
+
+## FIVE domains, not four. And the estate `sameAs` graph is now complete. 2026-08-27.
+
+This sheet said "four domains" from the day it was written, because ism50.com
+did not exist yet. It does, it publishes under his name every day, and it
+declares this Person `@id`. It is the fifth domain and it is covered by every
+rule above.
+
+### What was actually wrong
+
+ism50.com appeared in NOBODY's `sameAs`, including its own. kna-group.com
+appeared only in khaledhawari.ca's. So of the twenty possible cross-edges
+between five domains, five were missing, and the two newest properties were the
+ones being under-declared.
+
+That is the weaker-witness problem. Every domain declares the SAME `@id`, so a
+crawler that reads only kodelytics.ca and a crawler that reads only
+khaledhawari.ca were being told two different-sized identities for one person.
+`sameAs` exists to stop exactly that.
+
+All twenty edges are now present and verified in the built HTML of all five
+sites, not in the source.
+
+### The ruling that had to be made first, because two domains disagreed
+
+ism50.com excluded company domains from the Person's `sameAs` on the argument
+that a firm's home page is not a profile of its owner. That argument is
+coherent and it is the more literal reading of the spec.
+
+It lost, on two grounds.
+
+It contradicted itself. It excluded ism50.com and kna-group.com on principle
+while carrying kodelytics.ca, a third company domain, in the same list. A rule
+with an unexplained exception is not being applied.
+
+And it contradicted four shipped domains, which is what the LESSON at the top of
+this file is about. khaledhawari.ca states the opposing reasoning and it holds:
+the claim "this practice IS that firm" is false and belongs nowhere, but the
+claim "this person operates that domain" is TRUE, and the Person node is where
+it is true. A local improvement that contradicts a shipped agreement is not a
+standard, it is a regression waiting to be applied by five agents at once.
+
+**If this convention is ever revisited it changes on all five domains in one
+pass, never on one first.**
