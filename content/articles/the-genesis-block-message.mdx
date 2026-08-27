@@ -1,0 +1,158 @@
+---
+title: "The Genesis Block Carries a Headline, and That Is Almost All We Know"
+seoTitle: "The Genesis Block Message, Read Carefully"
+description: "What is actually encoded in the first block, what it proves about timing, and how much interpretive weight it can honestly carry."
+date: 2026-09-10
+author: "Khaled Hawari"
+era: origins
+kind: primarySource
+lede: "The first block contains a newspaper headline, which proves a date floor and very little else."
+---
+
+The artefact first. Here is the coinbase input script of the only transaction in
+block 0, pulled from a block explorer while writing this, in hexadecimal exactly
+as it appears:
+
+```
+04ffff001d0104455468652054696d65732030332f4a616e2f3230303920
+4368616e63656c6c6f72206f6e206272696e6b206f66207365636f6e6420
+6261696c6f757420666f722062616e6b73
+```
+
+Seventy seven bytes. It decodes into three separate pushes, and the third one is
+the famous part.
+
+`04 ffff001d` pushes four bytes, `ffff001d`, which is the same difficulty target
+that sits in the block header. `01 04` pushes a single byte with the value 4.
+Then `45` pushes the next sixty nine bytes, and those sixty nine bytes are ASCII:
+
+> The Times 03/Jan/2009 Chancellor on brink of second bailout for banks
+
+That is the message. It is not hidden, it is not encrypted, and it is not in a
+special field. A coinbase input has no previous output to reference, so the space
+where a signature would go is free, and the first block put a sentence in it.
+
+## What the bytes establish
+
+Exactly one thing, and it is a floor rather than a date.
+
+Whoever built that transaction had the string in front of them. The string
+contains a date, `03/Jan/2009`, and the standard attribution is that it is the
+front page headline of The Times of London for that day. If the attribution holds,
+the coinbase could not have been constructed before that newspaper existed.
+
+That is a real and useful constraint, because it is one of a very small number of
+facts about the earliest period of this history that does not rest on somebody's
+memory. It is also considerably less than what the message is usually asked to
+prove.
+
+<div class="note">
+  <span class="note__label">The half of this I could not verify myself</span>
+
+  I verified the bytes. I did not verify the newspaper. The Times archive is
+  behind a paywall and I did not open the 3 January 2009 front page, so the link
+  between the string in the chain and a physical printed page is, in this piece,
+  an attribution I am repeating rather than a document I have read. The
+  distinction matters more than it sounds: everything downstream of "this is a
+  real headline from a real paper on a real day" inherits whatever confidence
+  that step deserves, and I am telling you that mine came from other people.
+</div>
+
+## The rest of the block, which nobody quotes
+
+The block header records a timestamp of 1231006505, which is 3 January 2009 at
+18:15:05 UTC. The single transaction pays 5,000,000,000 satoshis to a
+pay-to-public-key script, and explorers render the corresponding address as
+`1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa`. Because there is only one transaction, the
+block's merkle root is that transaction's own identifier,
+`4a5e1e4b...fdeda33b`.
+
+And then there is the thing that genuinely is odd, which almost nobody mentions
+in the same breath as the headline: that fifty coin output cannot be spent. Not
+by convention, and not because a key was lost. Because the software refuses to
+process the block's transactions at all. From `src/validation.cpp` in Bitcoin
+Core, in the function that connects a block to the chain state:
+
+```cpp
+// Special case for the genesis block, skipping connection of its transactions
+// (its coinbase is unspendable)
+if (block_hash == params.GetConsensus().hashGenesisBlock) {
+```
+
+The genesis block is short circuited before its outputs are ever added to the set
+of spendable coins. The consequence is that the supply everyone quotes is
+slightly wrong, by fifty, permanently.
+
+Is that deliberate? The comment in the modern source says the coinbase is
+unspendable, which is a statement of the effect rather than of the intent. The
+honest reading is that the original implementation special cased the first block
+because the first block has no parent to validate against, and this fell out of
+that. Whether it was designed as a gesture or emerged as a quirk is not something
+the code tells you, and the difference is exactly the kind of thing that gets
+narrated with confidence by people who did not open the file.
+
+## The six day gap
+
+Block 0 is timestamped 3 January 2009 at 18:15:05 UTC. Block 1 is timestamped 9
+January 2009 at 02:54:25 UTC. Both numbers are on the chain and either can be
+checked in a minute.
+
+That is roughly five and a half days of nothing between the first block and the
+second, on a network whose difficulty at the time was the minimum the protocol
+allows. It is a genuinely unusual gap, and it is contested. The explanations in
+circulation include a deliberate pause, a period of testing, a timestamp chosen
+rather than observed because the genesis block is hard coded into the client
+rather than mined by it, and simple non operation of the software in between.
+
+I am not going to pick one. None of them is established by a document, all of
+them are consistent with the two numbers, and the block timestamps are in any
+case assertions made by whoever produced the block rather than observations made
+by anything outside it. What is worth saying plainly is that a gap this large is
+the sort of detail that ought to make a reader more careful about the certainty
+of the surrounding story, not less.
+
+## The load the sentence cannot carry
+
+Sixty nine bytes are routinely made to establish a motive, a political programme,
+a monetary philosophy and a founding grievance. They do not.
+
+What can be said: somebody chose a headline about bank rescues, at a moment when
+[the banking system was extremely visibly in trouble](/articles/the-banking-crisis-backdrop/),
+and put it where the first block's spare bytes were. What cannot be said is why.
+The bytes are compatible with a timestamp proof and nothing more, with a comment
+on the news, with a joke, with a signal to a specific reader, and with several
+motives at once. Choosing among those requires evidence that is not in the block,
+and the evidence usually offered is a retrofit: the interpretation is read back
+onto the bytes from things said years later by other people.
+
+The same discipline applies to the paper. [The whitepaper](/articles/reading-the-bitcoin-whitepaper/)
+is an engineering document that argues about double spending, incentives and
+network assumptions. It does not contain a monetary manifesto, and a headline in a
+coinbase field does not supply one on its behalf. Treating the two together as a
+declaration of intent is the single most common move in writing about this period
+and it is not supported by either document.
+
+## What was expanding, what was contracting
+
+The interesting reading here is not about markets, because there was no market.
+It is about evidence.
+
+What was expanding, from block 0 forward, was the amount of history that would be
+recorded in a form nobody could quietly revise. Everything in this period that we
+know from forums, mailing lists and recollection is subject to editing, deletion,
+hosting decisions and memory. The chain is the exception. Sixty nine bytes were
+committed on 3 January 2009 and they are still byte for byte checkable by anybody
+who wants to check them, which is why this piece could open with hexadecimal
+instead of with a paraphrase.
+
+What was contracting, at the same instant and for the same reason, was the space
+for a certain kind of claim. Not immediately, and not visibly, but from that block
+onward there existed a class of assertion about crypto history that could be
+settled rather than argued.
+
+Who could tell at the time? Nobody, and that is not a criticism. On 3 January 2009
+there was one block, one participant capable of producing another, and no
+observers. The property that makes the genesis block valuable to a historian is
+not the message. It is that the message is in a structure that cannot be quietly
+changed, and the people who did the most interpreting of that message have
+generally been the least interested in the structure.

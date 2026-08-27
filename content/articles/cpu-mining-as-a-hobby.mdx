@@ -1,0 +1,191 @@
+---
+title: "When Mining Was Something You Left Running Overnight"
+seoTitle: "When Bitcoin Mining Was a Laptop Hobby"
+description: "The sequence from a checkbox in a desktop client to specialised hardware, and the exact points where each step stopped being viable at home."
+date: 2026-09-11
+author: "Khaled Hawari"
+era: origins
+kind: timeline
+lede: "Mining began as a toggle in a desktop program and ended as a category of industrial real estate."
+---
+
+The first documented instruction for how to mine is a menu path. From the release
+announcement posted to the Cryptography mailing list on 8 January 2009:
+
+> You can get coins by getting someone to send you some, or turn on
+> Options-&gt;Generate Coins to run a node and generate blocks.
+
+Options, then Generate Coins. A checkbox in a Windows program, sitting in the
+same menu as whatever else the application let you configure. That is the entire
+user interface for the activity that now occupies purpose built buildings.
+
+What follows is the sequence from there to here, with the dated steps separated
+from the undated ones, because the undated ones are where most of the confident
+writing about this period goes wrong.
+
+## Step one: the toggle, and the warning that came with it
+
+8 January 2009. The same announcement that gives the menu path also says, in the
+next breath, that the arrangement is temporary:
+
+> I made the proof-of-work difficulty ridiculously easy to start with, so for a
+> little while in the beginning a typical PC will be able to generate coins in
+> just a few hours. It'll get a lot harder when competition makes the automatic
+> adjustment drive up the difficulty.
+
+Read what that concedes. On the day the software was released, before there was a
+second participant, the author had already stated in public that the current
+situation would not hold and named the mechanism that would end it. Difficulty
+retargeting is not a defence against escalation. It is the thing that converts
+escalation into a permanently higher bar for everyone else.
+
+The announcement also notes that generated coins must wait 120 blocks before they
+can be spent. That detail is worth keeping because it tells you the shape of the
+activity at the time: something you turned on, forgot about, and checked later.
+Not a business with a cash cycle.
+
+## Step two: the argument about graphics cards, before there were graphics cards
+
+12 December 2009. In a forum thread titled "Re: A few suggestions", the project's
+author writes:
+
+> We should have a gentleman's agreement to postpone the GPU arms race as long as
+> we can
+
+and, in the same post:
+
+> It's nice how anyone with just a CPU can compete fairly equally right now.
+
+This is the most useful dated artefact in the whole sequence, and it is usually
+skipped. Eleven months after release, before general purpose graphics hardware
+had displaced anything, the escalation was already understood, already named as
+an arms race, and already the subject of an appeal to restraint rather than of a
+technical countermeasure.
+
+There was no technical countermeasure available. A gentleman's agreement is what
+you propose when the protocol does not give you a lever. The post also states the
+argument for why the escalation is collectively pointless, which is that faster
+hardware does not create more coins, it only redistributes the same issuance
+among whoever showed up. That argument is correct and it has never once stopped
+anybody.
+
+## Step three: graphics cards win, and the record gets thin
+
+Here is where the sequence stops being cleanly dateable, and I would rather say so
+than manufacture precision.
+
+The ordering is not in doubt: general purpose processors, then graphics
+processors, then reprogrammable logic, then chips built for one function. The
+mechanism is not in doubt either. Hashing is embarrassingly parallel, a graphics
+processor is a very large number of small arithmetic units, and a desktop
+processor is a small number of large ones optimised for entirely different work.
+Once somebody ran the search on the parallel hardware, the serial hardware was
+finished, and no amount of leaving a laptop on overnight was going to change the
+arithmetic.
+
+Who did it first is contested. The name usually given for the first substantial
+graphics based mining operation is a pseudonymous participant, and the name
+usually given for the first publicly released open source graphics miner is a
+different pseudonymous participant, and those are two different claims about two
+different things that get merged constantly. I could not settle either from a
+primary document, so this piece asserts neither. What can be asserted is the
+consequence, and the consequence did not depend on who was first.
+
+<div class="note">
+  <span class="note__label">The step with the worst record</span>
+
+  Reprogrammable logic, the stage between graphics cards and purpose built chips,
+  is the thinnest part of this timeline. It was brief, it was commercially
+  messy, the vendors involved made shipping claims that did not survive contact
+  with their own supply chains, and much of the contemporaneous discussion lived
+  on forums and vendor pages rather than in anything designed to last. I have no
+  dated primary source I am willing to build a step on, so it appears here as an
+  ordering rather than as a date. That is a gap in the record and not a gap in
+  the history.
+</div>
+
+## Step four: 19 January 2013
+
+The first consumer hardware built specifically and only for this one calculation
+shipped in a first batch reported at three hundred units, dispatched on 19
+January 2013 by a vendor called Avalon. The trade press wrote it up four days
+later, and the framing at the time was that Avalon had done what several better
+publicised competitors had promised earlier and not delivered.
+
+This is the step that closed the door rather than narrowing it. A graphics card
+is a general purpose object. Somebody who bought one for mining still owned a
+graphics card afterwards, and somebody who already owned one for another reason
+could join in with no capital decision at all. A chip that does one function has
+no second use and no resale market outside the activity, which means participating
+now requires a forward commitment rather than a spare afternoon. That is a
+different kind of person doing a different kind of thing, and the change was
+permanent.
+
+## Step five: the toggle is deleted
+
+The last step in this sequence is not an event in the world, it is a line in a
+changelog. The release notes for Bitcoin Core 0.13.0, whose tag in the repository
+is dated 22 August 2016, contain a section headed "Removal of internal miner":
+
+> As CPU mining has been useless for a long time, the internal miner has been
+> removed in this release, and replaced with a simpler implementation for the
+> test framework.
+
+The same notes record that `setgenerate` and `getgenerate` were removed as
+commands, along with the `-gen` and `-genproclimit` options.
+
+Seven years after a release announcement told people to open the Options menu and
+tick a box, the reference implementation deleted the box, the command behind it,
+and the flags that turned it on, on the stated grounds that the feature had been
+useless for a long time. The software's own history is the cleanest possible
+statement of what happened, and it was written by the people maintaining it rather
+than by anyone with a story to tell.
+
+## Why it was stepwise and not gradual
+
+The temptation is to describe this as a smooth curve of increasing efficiency. It
+was not. Each transition was a step, and at each step a class of participant
+stopped being able to take part at all, not gradually but at once.
+
+The reason is that mining is a contest rather than a task. There is no threshold
+of performance that qualifies you. There is only your share of the total, and
+your share falls as everyone else's rises whether or not your own machine got any
+slower. A person mining on a desktop processor did not experience a decline in
+performance when graphics cards arrived. They experienced their existing machine
+becoming irrelevant while doing exactly what it had always done.
+
+That is why each step removed people permanently. Falling behind in a contest of
+this shape is not recoverable by continuing.
+
+## What was expanding, what was contracting
+
+This is the site's line drawn in a single chart, and both curves are steep.
+
+Capacity expanded without interruption and by orders of magnitude. Whatever else
+is contested about this period, the total computational effort directed at the
+network went in one direction, through every price condition and every dispute,
+for the whole of the era this piece covers.
+
+Independent participation contracted at every one of those steps. The design
+described in the paper assumes the work is spread across many parties, and
+[the original client](/articles/running-a-node-when-nobody-did/) assumed the
+person doing it was also the person storing their own keys and validating their
+own chain, because it was all one program. Within a few years, the mining was
+somewhere else, run by someone else, on hardware that could do nothing else.
+
+Who could tell at the time? At least one person, in writing, in December 2009,
+which is the uncomfortable part. The escalation was not a surprise that arrived
+later and caught the field off guard. It was predicted in public by the project's
+own author, in a post that is still readable, and the response available was an
+appeal to restraint. Some of the earliest participants recorded misgivings about
+where the design's incentives pointed, and
+[Hal Finney's contemporaneous writing](/articles/hal-finney-and-the-first-node/)
+is unusual precisely because it was written down at the time rather than
+reconstructed afterwards. Most of the rest of what people believe about this
+period comes from
+[a single forum](/articles/the-forum-as-the-only-record/) and from memory, which
+is why the dated documents in this piece are doing so much work.
+
+Knowing something is coming and having a mechanism to stop it are different
+capabilities, and this network had the first without the second from the first
+week.
