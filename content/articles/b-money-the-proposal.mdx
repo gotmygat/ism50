@@ -1,0 +1,221 @@
+---
+title: "b-money: A Short Proposal That Named Most of the Problem"
+seoTitle: "b-money: Reading the Original Proposal"
+description: "A brief 1998 proposal for a distributed currency that described collective bookkeeping and left the hardest part explicitly unsolved."
+date: 2026-09-25
+author: "Khaled Hawari"
+era: origins
+kind: primarySource
+lede: "b-money is short enough to read in one sitting and honest enough to say where it does not work."
+---
+
+The document is a plain text file of a little over a thousand words, plus a
+three hundred word appendix. It has no title inside it, no abstract, no reference list and no date.
+It opens like this:
+
+> I am fascinated by Tim May's crypto-anarchy.
+
+Everything anyone knows about when it was written comes from other people's
+citations of it. The hashcash paper of 2002 lists it as published November 1998.
+The Bitcoin whitepaper lists it as 1998. The file itself says nothing, which is
+worth registering before anything else, because a great deal of writing about
+this document treats its date as a fact of the same kind as its contents.
+
+## What it specifies
+
+The stated goal is in the second paragraph and it is a goal about institutions,
+not about money:
+
+> A community is defined by the cooperation of its participants, and efficient
+> cooperation requires a medium of exchange (money) and a way to enforce
+> contracts. Traditionally these services have been provided by the government or
+> government sponsored institutions and only to legal entities. In this article I
+> describe a protocol by which these services can be provided to and by
+> untraceable entities.
+
+Two services, then. A medium of exchange and contract enforcement, and the
+document spends about as much space on the second as on the first, which is not
+what its reputation would lead you to expect.
+
+The first protocol has five numbered parts: the creation of money, the transfer
+of money, the effecting of contracts, the conclusion of contracts, and the
+enforcement of contracts. Every participant keeps a full set of accounts.
+
+Creation is one sentence:
+
+> Anyone can create money by broadcasting the solution to a previously unsolved
+> computational problem.
+
+With two conditions. The effort must be easy to measure, and the solution must
+be otherwise worthless, "either practical or intellectual". And then the pricing
+rule, which is the part almost nobody quotes and which is the largest single
+difference from what came later:
+
+> The number of monetary units created is equal to the cost of the computing
+> effort in terms of a standard basket of commodities.
+
+That is a peg to purchasing power. Not a fixed schedule, not a cap, not a
+halving. The design says the unit should be worth what it cost to make, measured
+in goods. The rule that eventually shipped in working software does the opposite:
+it fixes the quantity and lets the cost of producing it float.
+
+Transfer is one sentence too:
+
+> If Alice (owner of pseudonym K_A) wishes to transfer X units of money to Bob
+> (owner of pseudonym K_B), she broadcasts the message "I give X units of money
+> to K_B" signed by K_A. Upon the broadcast of this message, everyone debits
+> K_A's account by X units and credits K_B's account by X units, unless this
+> would create a negative balance in K_A's account in which case the message is
+> ignored.
+
+Read the last clause again, because it is where the design ends. The negative
+balance check is the entire defence against
+[double spending](/articles/the-double-spend-problem/), and it works only if
+every participant applies it to the same messages in the same order. The
+document assumes "a synchronous and unjammable anonymous broadcast channel" and
+says so in its third paragraph, where it also calls the resulting protocol
+"impractical" for exactly that reason. It states no ordering rule, because with a
+synchronous unjammable channel you do not need one.
+
+That is the missing piece, and the author put a fence around it himself on the
+first page.
+
+## Where it says it does not work
+
+The second protocol replaces "everyone" with a subset called servers. And then
+comes the sentence that makes this document worth an article:
+
+> Since the servers must be trusted to a degree, some mechanism is needed to keep
+> them honest.
+
+Not a hedge, and not buried. It is the opening line of the paragraph that
+introduces the practical version. The mechanism offered is three parts: each
+server posts a bond that can be forfeited, each server periodically publishes and
+commits to its books, and each participant checks their own balance and the total.
+The claim made for it is carefully bounded:
+
+> This prevents the servers, even in total collusion, from permanently and
+> costlessly expanding the money supply.
+
+Permanently. Costlessly. Two qualifiers in one sentence, and both of them are
+doing real work. The scheme does not prevent servers from expanding the supply.
+It prevents them from doing it forever and for free. That is a precise and modest
+claim by an author who understood exactly which part of his design was load
+bearing and which part was aspiration.
+
+## The appendix, in which he argues with himself
+
+Appendix A is titled "alternative b-money creation" and its first line is an
+objection to his own protocol:
+
+> One of the more problematic parts in the b-money protocol is money creation.
+> This part of the protocol requires that all of the account keepers decide and
+> agree on the cost of particular computations. Unfortunately because computing
+> technology tends to advance rapidly and not always publicly, this information
+> may be unavailable, inaccurate, or outdated, all of which would cause serious
+> problems for the protocol.
+
+Computing technology advances rapidly and not always publicly. In 1998, before
+any of the hardware history this subject would later generate, that is a sharp
+observation about why a peg to compute cost cannot be maintained.
+
+His replacement is an auction in four phases: planning, bidding, computation,
+money creation. The account keepers negotiate a quota for the period and publish
+their reasoning, bidders offer to create a quantity in exchange for solving a
+problem of publicly agreed nominal cost, solutions are broadcast, and the best
+bids by cost per unit are credited.
+
+Look at phase one. The account keepers "compute and negotiate with each other to
+determine an optimal increase in the money supply for the next period", and
+whether or not they reach consensus, each publishes their own quota and their
+macroeconomic reasoning. That is a committee, with published minutes, deciding
+monetary policy. The proposal for a currency for untraceable entities ends with a
+central bank made of pseudonyms, and the author does not pretend otherwise.
+
+So the shape of the document is: here is a protocol, here is the assumption it
+depends on, here is a practical version, here is the trust it reintroduces, here
+is a fix for the worst part, and here is what the fix costs. Nothing is
+oversold. That is why it is still readable and why it is not a blueprint.
+
+## The one line in the whitepaper
+
+The Bitcoin whitepaper's reference list begins:
+
+> [1] W. Dai, "b-money," http://www.weidai.com/bmoney.txt, 1998.
+
+That marker appears once in the body, in section 2, in this sentence:
+
+> To accomplish this without a trusted party, transactions must be publicly
+> announced [1], and we need a system for participants to agree on a single
+> history of the order in which they were received.
+
+One citation, for one idea: public announcement. And notice what follows the
+comma. "We need a system for participants to agree on a single history of the
+order in which they were received" is the exact hole b-money leaves open,
+restated as the next requirement, immediately after the citation for the document
+that leaves it open. Whether that adjacency was deliberate is not something the
+text establishes and this piece will not guess.
+
+What the citation establishes is a fact about the whitepaper: its author had read
+b-money and credited it for public broadcast. It establishes nothing about
+authorship of anything, and the volume of writing that tries to make it do so is
+one of the reasons this subject is hard to read honestly. This site is not
+joining that literature.
+
+There is an earlier citation, and it is a better piece of evidence about
+influence than the famous one. The 2002 hashcash paper, six years before the
+whitepaper, lists among the applications of its cost function:
+
+> hashcash as a minting mechanism for Wei Dai's b-money electronic cash proposal,
+> an electronic cash scheme without a banking interface
+
+So by 2002 the two documents were already in a citation relationship, and the
+[hashcash paper](/articles/hashcash-the-actual-mechanism/) was already describing
+b-money's creation step as something its own mechanism could serve. The pairing
+that later got assembled into a system existed as a footnote first.
+
+<div class="note">
+  <span class="note__label">Both citation URLs are decaying, in different ways</span>
+
+  The 2002 hashcash paper cites b-money at a personal directory on eskimo.com.
+  Checked on the day of writing: that URL returns 404. The document is not there
+  any more.
+
+  The Bitcoin whitepaper cites it at weidai.com, and that one still serves the
+  file. It serves it over plain HTTP only. The host does not complete a TLS
+  handshake at all, so anything that upgrades http to https before fetching,
+  which is now most software including a good deal of tooling that rewrites links
+  silently, cannot retrieve reference [1] of the most cited document in this
+  subject.
+
+  Neither of these is dramatic and both are how primary sources actually go: not
+  deleted, just gradually unreachable by the tools people use. I retrieved the
+  text over plain HTTP and quoted it above rather than from any secondary copy,
+  because there are a lot of secondary copies and I have no way to diff them
+  against a version I did not fetch myself.
+</div>
+
+## What was expanding, what was contracting
+
+What expanded through the 1990s is the precision of the description. Not the
+number of working systems, which stayed at approximately none, but the sharpness
+with which the remaining difficulty could be stated. b-money is the sharpest
+single statement of it before 2008, and it is sharp specifically because of its
+negative results: the broadcast channel it needs does not exist, the servers it
+falls back on have to be trusted, and the compute peg it prices with cannot be
+maintained. Three named obstacles in about a thousand words.
+
+What contracted is the number of unsolved pieces. Chaum had
+[made privacy a design requirement](/articles/david-chaum-and-blind-signatures/). Hashcash had made an action expensive to perform and cheap to check.
+b-money assembled those into a description of a currency and left one hole,
+clearly marked: who keeps the accounts honest, and how does everyone come to
+agree on one order of events. By 1998 the list of things nobody knew how to do
+was down to roughly one item.
+
+Who could tell at the time is unusually easy to answer here, and the answer is
+one person. The author could tell, and he wrote the appendix against himself, and
+he published a document that says where it fails. Nobody else was reading it in
+any number. The citations before 2008 are countable, and one of them is in a
+paper about email postage. The description of the problem was essentially
+finished for a decade before anyone shipped an answer to it, and it sat in a text
+file on a personal web page the entire time.

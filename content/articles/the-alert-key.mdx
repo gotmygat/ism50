@@ -1,0 +1,249 @@
+---
+title: "There Was a Key That Could Broadcast a Message to Every Node"
+seoTitle: "The Alert Key and Why It Was Retired"
+description: "The original software included a signed alert system controlled by a small number of holders, and removing it was a deliberate decision."
+date: 2026-09-24
+author: "Khaled Hawari"
+era: origins
+kind: primarySource
+lede: "For years the network shipped with a mechanism for a few people to display a message on everyone's screen."
+---
+
+For most of the period this site calls the origins, the reference client
+contained a function that verified a signature against one hardcoded public key
+and, if it matched, put a stranger's text on the user's screen. It was not a
+secret and it was not a back door. It shipped in the release, in the open, in a
+file anyone could read, and for years almost nobody read it.
+
+Then it was removed on purpose, argued about in public, and finished by
+deliberately destroying the privilege it created. That last part is rarer than
+the mechanism itself, and it is the reason this piece exists.
+
+## First, when it actually arrived
+
+The received phrasing is that the alert system was there from the beginning. I
+went to check, because [what the first client did](/articles/what-the-first-client-actually-did/)
+is one of the few things about this period that can be settled by reading rather
+than remembering.
+
+It was not there from the beginning. Searching the published sources for
+`CAlert`, `CUnsignedAlert` and the alert public key:
+
+```text
+v0.1.5    absent
+v0.3.0    absent
+v0.3.8    absent
+v0.3.10   absent
+v0.3.11   present
+```
+
+So the mechanism appeared some time after the network had been running for well
+over a year, not on day one. Anyone writing that the system was born with a
+broadcast channel is describing a version of the software that did not have one.
+
+<div class="note">
+  <span class="note__label">The early tags are reconstructions</span>
+
+  While checking the above I noticed something about the archive itself. In the
+  repository that carries this history, the tag for that release is not named
+  v0.3.11. It is named v0.3.11_notexact. Nearby there are tags named
+  v0.3.20.2_closest and v0.3.20.01_closest.
+
+  Somebody went back and reconstructed the early release points from what
+  survived, and was honest enough to name the tags after their own uncertainty.
+  That is a good archival practice and a reminder of what these files are. The
+  source for the first two years is a best effort reconstruction, labelled as
+  such by whoever did the work, and the labels are load bearing.
+</div>
+
+## What it could do
+
+The message format is a structure with the fields listed below, taken from the
+header as it stood in that release:
+
+```cpp
+int nVersion;
+int64 nRelayUntil;      // when newer nodes stop relaying to newer nodes
+int64 nExpiration;
+int nID;
+int nCancel;
+set<int> setCancel;
+int nMinVer;            // lowest version inclusive
+int nMaxVer;            // highest version inclusive
+set<string> setSubVer;  // empty matches all
+int nPriority;
+
+// Actions
+string strComment;
+string strStatusBar;
+string strRPCError;
+```
+
+Read the comment above the last three fields. **Actions.** The three actions
+available to the holder of the key are three strings.
+
+Everything above that line is targeting and lifecycle. An alert has an
+expiry, an identifier, and a list of earlier alerts it cancels. It can be aimed
+at a version range with `nMinVer` and `nMaxVer` and at specific client build
+strings with `setSubVer`, and the empty set matches everything. It has a
+priority, so that when several apply at once the loudest wins.
+
+The propagation rule is worth its own sentence. A node relays an alert onward if
+the alert applies to the peer, or applies to itself, or if `nRelayUntil` has not
+yet passed. That third clause means a node forwards messages that are not
+addressed to it, on behalf of a sender it cannot identify, to peers it did not
+choose. It is a broadcast channel operating over the same connections as the
+protocol.
+
+## What it could not do
+
+This is the half that gets lost, and getting it right is what separates a
+description of the mechanism from a scary story about it.
+
+The alert system could not move a coin, invalidate a block, change a consensus
+rule, alter a balance or stop a node from validating. Follow the string. The
+function that assembles warnings walks the set of active alerts, picks the
+highest priority one that applies to this client, and returns `strStatusBar` for
+the interface and `strRPCError` for the remote procedure call layer. That is the
+end of the path. The output is text.
+
+So the power the key conferred was power over what users were told, delivered
+straight into their own software with the authority of the program itself. That
+is a smaller power than "control of the network" and a much larger one than
+"a notice board", and the interesting question it raises is not technical. A
+message that arrives inside the client, signed, that the client displays without
+qualification, is an instruction from an unnamed party to every person watching a
+screen. What people then do is the attack surface, and people were the point.
+
+## Who held it, according to the published record
+
+Nobody has published a list and this piece is not going to construct one. What
+has been published, on the retirement notice dated 1 November 2016, is a
+description of the custody problem in the abstract, and it is unusually candid:
+
+> The holders of the singular Alert Key can at any time send an alert which could
+> affect the entire network. As more developers join, the Alert Key is given to
+> others, but cannot be taken away from those who have left.
+
+And, in the next sentence:
+
+> Because there is only one Alert key, it is not possible to prevent former
+> developers from sending an alert nor is it possible to identify who sent an
+> Alert.
+
+That is a ratchet. Membership of the set only ever increases, nobody outside it
+knows its size, and the mechanism is unauthenticated at the level that matters,
+because every signature looks identical regardless of which holder produced it.
+It is the exact failure mode that makes [commit access a poor proxy for
+authority](/articles/maintainers-not-owners/), except worse, because commit
+access can be revoked and this could not.
+
+## The retirement, and what the page says about itself
+
+The published plan had three steps and a fourth that was left open:
+
+| Action | Date |
+| --- | --- |
+| Pre-final alert posts | 2016-11-01 |
+| Pre-final alert | 2016-11-02 |
+| Final alert, maximum sequence, disabling the system | 2017-01-19 |
+| Alert key release | Postponed until further notice |
+
+The final alert is a maximum identifier alert, which by the cancellation rules
+overrides everything and cannot itself be overridden. Its text, hard coded into
+the 0.14.0 release so that old nodes would receive it, reads
+`URGENT: Alert key compromised, upgrade required`. Nothing in the published
+record reports an actual compromise, and the same notice states that no coins
+were at risk. The wording is a shutdown device: the one sentence guaranteed to
+make an operator stop trusting alerts forever.
+
+Then the delay, and the reason for it, published on the same page in May 2017:
+
+> Older clients may contain Alert handling code which is exploitable using the
+> alert key, therefore the public release of the key has been temporarily
+> postponed until considered safe.
+
+The disclosure that eventually followed says why more plainly than the
+postponement did:
+
+> Many of these issues were not known until the Alert System was removed as
+> developers inspected the code for vulnerabilities prior to releasing the Alert
+> Key.
+
+Sit with that sentence. The code had been compiled into essentially every node
+for around six years. The defects that made it dangerous were found when someone
+finally read it carefully, and they read it carefully because they were about to
+hand the key to the world. The audit happened because of the disclosure, not
+before it.
+
+The catalogued defects are all of one family: an unbounded map of active alerts,
+and alerts with unbounded fields, so that a holder of the key could exhaust a
+node's memory. Denial of service against the software, not theft from it, which
+is consistent with everything above about where the mechanism's power actually
+lay.
+
+<div class="note">
+  <span class="note__label">The retirement page now contradicts itself</span>
+
+  As served today, that page carries an updates log saying the key and the
+  vulnerabilities were disclosed on 3 July 2018, and, further down, a table
+  whose final row still reads "Postponed until further notice."
+
+  Both statements are on one page and one of them stopped being true eight years
+  ago. This is what a primary source looks like when it is maintained by
+  appending: correct at the top, stale in the middle, and no notice to the reader
+  that the two disagree. It is a small thing and it is exactly the kind of small
+  thing that turns into a confident secondary claim.
+</div>
+
+## Why publish a private key on purpose
+
+The stated reasoning:
+
+> One of the reasons for disclosure of the keys is to mitigate the effects of
+> unknown dissemination and proliferation of the keys.
+
+The set of holders had only ever grown, nobody could enumerate it, and a signed
+alert carried weight precisely because ordinary people could not produce one.
+Publishing the private key does not remove anyone's ability to sign. It gives it
+to everybody, which reduces the value of a signature to zero. You cannot revoke a
+privilege that has no revocation mechanism, so the alternative is to universalise
+it until it is worthless.
+
+The mainnet public key hardcoded in the 2010 source is the same string as the
+mainnet public key published in the 2018 disclosure alongside its private
+counterpart. That is checkable, and I checked it, and it is what closes the loop
+between the two documents.
+
+This piece does not reproduce the key material. It is published, it is linked
+from the notice above, and copying a long hex blob into an article about
+governance adds nothing except a chance of transcribing it wrong.
+
+## What was expanding, what was contracting
+
+What expanded is the number of independent parties the alert system had to
+address. In 2010 the network was close to one implementation and one release
+channel, and a shared broadcast key aimed at "everyone" was a coherent idea
+because everyone was running the same program. By 2016 there were many wallets
+and several implementations, most with their own notification systems, all still
+obliged to carry handling code for a channel that belonged to one project. The
+retirement notice puts it in one line:
+
+> Something specific for one software should not be imposed on the entire
+> network.
+
+What contracted is the set of things a small unnamed group could do to everybody
+at once. Not by anyone losing a fight, and not by a fork. By a published plan, a
+dated sequence of steps, a code removal, an audit prompted by the plan, and the
+destruction of the privilege by publication. Decentralisation is used as a label
+for almost anything. This is one of the few episodes in the period that fits the
+word in its literal sense, because a capability that was concentrated was
+measured, argued about, and then deliberately dissolved.
+
+Who could tell at the time is, for once, easy and unflattering. Almost nobody.
+The mechanism was quiet, it was never used in a way that hurt anyone as far as
+the published record shows, and it sat inside origin stories that described the
+system as trustless from the first block. The people who could tell were the ones
+reading the source, which for six years was a small enough group that when they
+did finally read this particular file, they found things nobody had noticed
+since [the founder stopped posting](/articles/the-departure/).
