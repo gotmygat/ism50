@@ -1,0 +1,158 @@
+---
+title: "What a Maintainer Can and Cannot Do to a Public Protocol"
+seoTitle: "What a Protocol Maintainer Can Actually Do"
+description: "Commit access looks like control and is not, because a maintainer can merge anything and cannot make anyone run it."
+date: 2026-09-04
+author: "Khaled Hawari"
+era: origins
+kind: profile
+lede: "The people with commit access have less power than their critics claim and more responsibility than they wanted."
+---
+
+There are three separate steps between an idea and a rule that anybody obeys,
+and nearly every argument about developer power collapses two of them into one.
+
+The steps are: a change gets merged into a repository, a release gets built and
+published from that repository, and some number of people choose to run that
+release. A maintainer is decisive at the first step, contributes at the second,
+and has no standing at all at the third. The third is the one that matters.
+
+## Step one, and what the project says about it
+
+Bitcoin Core's own contributor guide is unusually direct about the shape of the
+arrangement. Its opening paragraph:
+
+> First, in terms of structure, there is no particular concept of "Bitcoin Core
+> developers" in the sense of privileged people. Open source often naturally
+> revolves around a meritocracy where contributors earn trust from the developer
+> community over time. Nevertheless, some hierarchy is necessary for practical
+> purposes. As such, there are repository maintainers who are responsible for
+> merging pull requests, the release cycle, and moderation.
+
+And later, without hedging:
+
+> Whether a pull request is merged into Bitcoin Core rests with the project merge
+> maintainers.
+
+Two sentences that appear to contradict each other and do not. There is no
+privileged class, and somebody still has to press the button. The document then
+describes what the button is supposed to weigh: maintainers "take into account
+the peer review when determining if there is consensus to merge a pull request",
+and they "reserve the right to weigh the opinions of peer reviewers using common
+sense judgement". Reviewers signal with `Concept ACK`, `Approach NACK`, `ACK`
+followed by a commit hash. A rejection has to carry a reason, since "NACKs
+without accompanying reasoning may be disregarded."
+
+That is a real power and it is worth naming precisely. A maintainer decides what
+enters one repository. Nothing in that sentence is about what the network does.
+
+## Step two, which is deliberately not one person's
+
+Merging is not releasing, and the release procedure has been built specifically
+so that no single party can put a binary in front of users and have it trusted
+on their word.
+
+Releases are produced with Guix, a build system whose point is that the same
+source produces byte-identical output on unrelated machines. Independent
+builders then run the build themselves and publish signed attestations of the
+hashes they got, which are collected in a separate public repository of
+signatures. The release document instructs a builder to verify their own output
+against everybody else's before signing anything.
+
+So the second step distributes trust on purpose. It converts "this person says
+this binary matches the source" into "these people independently got the same
+bytes", which is a claim anybody can check and nobody can fake alone.
+
+## Step three, which nobody controls
+
+Then the binary has to be run, and here the maintainer role has exactly the
+authority of a stranger recommending a restaurant.
+
+The clearest statement of this in the primary literature is in the rationale
+section of the revised improvement proposal process, explaining why developers
+were left out of a definition of the economy that gets to accept or reject a
+change:
+
+> Developers are not included in the economy, since they merely write code, and
+> it is up to others to decide to use that code or not.
+
+That document also states the general position in a single line: "The BIP
+process does not aim to be a kind of forceful 'governance' of Bitcoin, merely to
+provide a collaborative repository for proposing and providing information on
+standards, which people may voluntarily adopt or not."
+
+This is why the founder's [departure](/articles/the-departure/) did not create a
+vacancy. There was no office to inherit. What existed was a repository, and
+whatever authority attaches to a repository is borrowed from the people who
+choose to run what comes out of it, and can be withdrawn by them at any time
+without a vote, an announcement or a fork of the social kind.
+
+## Both sides of the capture argument are aiming at step one
+
+The accusation is that a small group of maintainers controls the protocol,
+usually pointed at the merge button. The defence is that the merge button is
+constrained by review, which is also pointed at the merge button. Both are
+arguing about the step that does not settle anything.
+
+The leverage sits with whoever selects a binary. In the original arrangement
+that was every user personally, because
+[the program they ran was also the thing enforcing the rules](/articles/running-a-node-when-nobody-did/).
+The whitepaper's own security argument depends on that
+[distribution of enforcement](/articles/reading-the-bitcoin-whitepaper/) rather
+than on anybody's good behaviour. As enforcement moved outward to services,
+the practical question changed from "what will users run" to "what will the
+handful of organisations that users depend on run", which is a smaller and more
+addressable set, and that is the version of the capture worry that survives
+contact with the three steps.
+
+## Where this is genuinely contested
+
+It would be dishonest to present the above as settled, because it is not.
+
+One camp holds that the arrangement is structurally resistant to capture: no
+merge can compel adoption, the release is multiply attested, and any change that
+users reject simply fails to take effect on their machines. The other holds that
+this is a description of a formal freedom rather than a real one, on the grounds
+that the overwhelming majority of the network runs one implementation, most
+users never audit a release, and a default that nearly everyone accepts is a
+decision even if it is technically declinable.
+
+I cannot resolve that with a measurement, and I want to be explicit about why.
+The usual evidence is a count of nodes by software version, and those counts come
+from crawlers that can only see nodes accepting incoming connections. The
+improvement proposal process itself uses "at least 1% of public listening nodes"
+as an adoption threshold and then concedes in its own rationale that the figure
+"is unknown, and set rather arbitrarily at this time". If the process document
+will not claim the denominator is knowable, neither will I.
+
+<div class="note">
+  <span class="note__label">Why no names appear in this piece</span>
+
+  This is a profile of a role, not of the people currently filling it, and that
+  is a deliberate editorial choice rather than a gap. The composition of any
+  maintainer group changes, the lists published in older documents go stale
+  quickly, and naming individuals invites exactly the reading this piece argues
+  against: that the outcome of a protocol is a property of the character of the
+  people with commit access. The interesting unit here is the position, and the
+  position is defined by what it cannot do.
+</div>
+
+## What was expanding, what was contracting
+
+What expanded was the number of people who could propose a change. The process
+costs nothing to enter, the repository is public, the mailing list is public, and
+the standard for being heard is a technical argument rather than a title.
+
+What contracted, and kept contracting, was the number of parties whose choice of
+binary actually determines the rules in practice. Not because anyone was granted
+authority, but because users handed the running of software to services, one
+convenience at a time.
+
+Those two curves are usually reported as one story about developer power, and
+they are not the same story. The first one is about who can speak. The second one
+is about who is listened to by machines. A structure can be extremely open at the
+proposal stage and quite concentrated at the execution stage, and this one is
+both.
+
+Who could tell at the time? The people writing the process documents, who kept
+putting the caveat in the rationale sections where almost nobody reads it.

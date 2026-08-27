@@ -1,0 +1,178 @@
+---
+title: "What Running a Node Actually Meant Before Anyone Called It That"
+seoTitle: "What Running an Early Node Actually Meant"
+description: "A single program did wallet, miner, node and interface, and understanding that bundle explains most early advice that now reads as strange."
+date: 2026-09-03
+author: "Khaled Hawari"
+era: origins
+kind: profile
+lede: "The first software did four jobs at once, which is why early instructions sound like they were written for a different system."
+---
+
+Here are the instructions, in full, as they were actually published. This is
+from the release announcement posted to the Cryptography mailing list, archived
+at metzdowd with a timestamp of Thu Jan 8 14:27:40 EST 2009:
+
+> - Unpack the files into a directory
+> - Run BITCOIN.EXE
+> - It automatically connects to other nodes
+
+Three lines. There is no separate wallet to install, no node to point it at, no
+account to open, and no mining software to configure, because all four of those
+things were inside BITCOIN.EXE. The person the announcement is addressing is not
+a user of a service. They are the whole service, running on their own desk.
+
+That is the thing to hold onto, because almost every piece of early advice that
+now reads as eccentric is a consequence of it. Most of that advice survives in
+[a single web forum](/articles/the-forum-as-the-only-record/), which is its own
+problem, and a good deal of it is unintelligible without knowing what the
+program on the other end of the conversation actually was.
+
+## The bundle, from the file list
+
+The earliest commit in the Bitcoin repository contains thirty-odd files. Not
+thirty directories: thirty files, in one flat folder. `main.cpp` is the largest
+piece of logic at roughly eighty-four thousand bytes. `ui.cpp` and `uibase.cpp`
+are larger still, because the graphical interface was compiled into the same
+binary as the consensus code.
+
+You do not have to take the layout on trust. The declarations in `main.h` at
+that commit sit in a single list, in this order and without a boundary between
+them:
+
+```
+bool AddKey(const CKey& key);
+bool AddToWallet(const CWalletTx& wtxIn);
+...
+bool BitcoinMiner();
+bool ProcessMessages(CNode* pfrom);
+...
+int64 GetBalance();
+bool SendMoney(CScript scriptPubKey, int64 nValue, CWalletTx& wtxNew);
+```
+
+Key storage, wallet bookkeeping, mining, peer message handling, balance display
+and payment construction, declared in one header, backed by a global called
+`mapWallet`. Peer discovery lived in `irc.cpp`, which found other participants
+by joining an IRC channel. There was also `market.cpp`, whose header declares
+classes named `CUser`, `CReview` and `CProduct`, which is to say that a
+marketplace with product listings and reviews was sitting in the tree of the
+first release alongside the ledger. The readme names the dependencies: wxWidgets
+for the interface, Berkeley DB for storage, OpenSSL for signatures, and it says
+plainly that "Bitcoin does not use any encryption."
+
+So the honest count is not four jobs. It is at least six, and one of them never
+went anywhere.
+
+## What the announcement asked of you
+
+Read the rest of the release note as a job description rather than as marketing
+and it becomes clear what participation meant:
+
+> If you can keep a node running that accepts incoming connections,
+> you'll really be helping the network a lot.  Port 8333 on your
+> firewall needs to be open to receive incoming connections.
+
+And separately:
+
+> You can get coins by getting someone to send you some, or turn on
+> Options->Generate Coins to run a node and generate blocks.
+
+Note the phrasing of that second one. Generating coins and running a node are
+described as the same act, because in that build they were: the miner was a
+setting inside the program that was already validating everything. Note also
+that the first way to obtain coins listed is somebody sending you some. There
+was nowhere to buy them.
+
+The firewall sentence is the part that dates the piece most precisely. It
+assumes a reader with a machine that has a public address, a router they
+administer, and a willingness to leave a program running on it. That was a
+narrower population than it sounds, and it is the population this profile is
+about.
+
+## The unbundling, one product category at a time
+
+Every job in that binary later became somebody else's business, and the
+sequence is the actual history of the user experience of this subject.
+
+Mining left first, in practice long before it left the code. It left the code
+formally in Bitcoin Core 0.13.0, whose release notes are blunt about why: "As
+CPU mining has been useless for a long time, the internal miner has been removed
+in this release." The `setgenerate` call, the direct descendant of that
+Options menu item, was removed with it.
+
+Validation left next, for most people, when clients appeared that could check
+payments without holding the chain. The whitepaper had already described that
+possibility in its own terms, in the section
+[on simplified payment verification](/articles/reading-the-bitcoin-whitepaper/),
+and it is worth noticing that the document treats it as a convenience with a
+stated cost rather than as the normal case. Validation left more completely
+again when custodial services appeared that did not ask the user to check
+anything at all. Key custody left at the same time and often to the same party.
+
+The interface left last and least visibly. What replaced it was not a better
+window onto your own node. It was a window onto somebody else's.
+
+Each of those steps was a genuine improvement in convenience and each one moved
+a responsibility outward. That is the largest structural change in how people
+actually touch this technology, larger than any redesign, and it happened
+without a single decision that anyone announced.
+
+## Why the old advice sounds wrong now
+
+A 2010 forum answer that tells you to leave the client open so your transaction
+confirms is not confused. In that build, your client was the thing doing the
+confirming. A warning to back up your wallet file before upgrading is not
+paranoia, it is a Berkeley DB file on your own disk with no other copy. An
+instruction to open a port is not a security lapse, it is the difference between
+consuming the network and being part of it.
+
+The distance between that world and the current one is the reason a reader
+today needs the bundle explained before the advice makes sense. It is also why
+the same words mean different things in different decades. "Wallet" in 2009 is a
+file next to a validating node. "Wallet" later is an application, then a service,
+then an account.
+
+<div class="note">
+  <span class="note__label">Numbers I am not going to give you</span>
+
+  You will see confident counts of how many nodes were running in 2009, and
+  confident percentages of early users who mined. I have not found a
+  contemporaneous measurement that supports any of them. Node counts as they are
+  quoted today come from crawlers that see listening nodes only, they postdate
+  the period, and the period in question predates the crawlers. So this piece
+  names what the software did and what its author asked people to do, and stops
+  there.
+
+  For what it is worth, the improvement proposal process later adopted "at least
+  1% of public listening nodes" as an adoption criterion for peer services
+  proposals, and then explained in its own rationale that the right percentage
+  "is unknown, and set rather arbitrarily at this time". The people closest to
+  the measurement have been the most careful about it.
+</div>
+
+## What was expanding, what was contracting
+
+Two curves, running in opposite directions, both true at once.
+
+What expanded was the total amount of validation happening. More participants,
+more copies of the ledger, more machines independently refusing invalid blocks
+than existed in any year before.
+
+What contracted was the share of people using the system who were doing any of
+that themselves. Every convenience shipped moved one more person from doing the
+checking to trusting somebody who does.
+
+Set that against the design it replaced. In a blind signature system of the sort
+[David Chaum specified](/articles/david-chaum-and-blind-signatures/), the issuer
+performs the check that a coin has not already
+been spent, because only the issuer holds the list of serial numbers. The 2009
+software moved that check to everybody, and then the following fifteen years
+moved it quietly back toward a smaller set of parties, without ever moving the
+authority with it. Those are different things and they are easy to confuse.
+
+Who could tell at the time? Nobody was measuring it, and the people running that
+binary in the first months had no way to see the second curve because there was
+nothing yet on the other side of it. The unbundling is visible only in
+retrospect, from the file list, which is why the file list is where this piece
+started.
