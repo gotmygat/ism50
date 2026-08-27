@@ -1,0 +1,181 @@
+---
+title: "Giving It Away Was a Deliberate Answer to a Real Problem"
+seoTitle: "Faucets and the Early Distribution Problem"
+description: "A currency with no holders has no users and no merchants, and the earliest answer to that deadlock was simply to hand it out."
+date: 2026-09-15
+author: "Khaled Hawari"
+era: origins
+kind: explainer
+lede: "A payment network with no holders is a chicken and egg problem, and the first fix was to give the chicken away."
+---
+
+A payment network is worth using when the person you want to pay will accept
+what you are sending. That sentence contains the whole difficulty. Nobody
+accepts a unit nobody holds, and nobody bothers to hold a unit nobody accepts,
+and the two conditions sit there refusing to go first.
+
+Every new monetary system has to break that deadlock somehow, and the options
+are narrower than they look. You can compel acceptance, which requires a state.
+You can back the unit with something already accepted, which requires an issuer
+and a reserve, and puts a company inside the settlement path in the way that
+[e-gold and DigiCash both discovered](/articles/e-gold-and-the-compliance-wall/).
+Or you can hand the thing out until enough people are holding it that the
+question of who accepts it becomes answerable.
+
+The third option is the one the early network took, and the artefact it produced
+is the faucet.
+
+## What a faucet actually is
+
+Mechanically it is trivial, and the triviality is the interesting part. A faucet
+is a web page holding a balance, a form asking for a receiving address, and a
+gate cheap enough for a person to pass and expensive enough that a script cannot
+pass it a thousand times a minute. You solve the gate, you paste an address, the
+page sends you some units, the page's balance goes down.
+
+That is the entire machine. There is no protocol involvement, no special rule in
+the consensus code, no allocation schedule. A faucet is an ordinary user with a
+wallet and a public form in front of it. Anybody could run one and the operator
+had no more authority than anyone else, which is precisely why it could exist at
+all: distribution was a thing a person could just do, rather than a thing an
+issuer had to authorise.
+
+The gate matters more than it looks. A giveaway with no gate is not a
+distribution mechanism, it is a single automated withdrawal by whoever writes
+the fastest loop. The gate is what turns "give it away" into "give it away to
+many separate people", and many separate people is the entire objective. This is
+also the point where the mechanism is weakest, because the gate can only ever
+distinguish effort from automation, never one person from the same person
+returning under a different address. Nothing about a faucet can establish that
+its outputs went to distinct humans, and no faucet operator was ever in a
+position to claim otherwise.
+
+## The one I can actually read
+
+The instinct in this genre is to write from the received story. The received
+story about faucets is short, warm and unsourced, so here is an archived page
+instead, captured on 5 August 2010, run by Gavin Andresen and signed by him in
+the page copy.
+
+It is titled "Get Bitcoins from the Bitcoin Faucet". It asks the visitor to
+"solve the 'captcha' then enter your Bitcoin Receiving address and press Get
+Some", with captcha in its own scare quotes, which tells you roughly how much
+adversarial pressure the operator expected. It carries a heading reading "What's
+the catch?" and answers it:
+
+> No catch-- I want Bitcoin to be successful, so I created this little service to
+> give you a few coins to start with.
+
+There is a second section, headed "Hey! I thought you were giving away FIVE!",
+explaining that the faucet is "running dry due to very high demand" and that a
+donation from a third party would make it more generous again. A donation address
+is printed on the page for exactly that purpose, with a note that a refill may
+take up to thirty minutes to show up in the available balance.
+
+Three things follow from those two paragraphs, and none of them is sentimental.
+
+**The stated motive is adoption, not charity and not marketing.** The operator
+wants the network to work, and a network that works needs holders. That is a
+distribution argument, and it is made out loud on the page rather than
+reconstructed later by somebody explaining what the early community must have
+been thinking.
+
+**The supply was other people's, and it ran out.** The faucet was refillable by
+strangers, and it depended on being refilled. Whatever else it was, it was not an
+issuance mechanism. It could only redistribute units that already existed, which
+means it was structurally downstream of
+[whoever was generating them](/articles/cpu-mining-as-a-hobby/) and could never
+outrun them.
+
+**Demand for the free units was described as the problem.** "Running dry due to
+very high demand" is a sentence about people wanting the thing. It is not a
+sentence about people wanting to buy the thing, and the difference is the whole
+limitation of the mechanism, which is the next section.
+
+I am not reproducing the balance figure or the per-visit amount printed on that
+capture. A single snapshot of one page's balance is not a distribution statistic,
+and quoting it would dress an incidental number up as a measurement of something.
+How much moved through that faucet in total, and to how many separate people, is
+not recoverable from what survives.
+
+<div class="note">
+  <span class="note__label">Why the archive is doing the load bearing here</span>
+
+  The original page is long gone and the service it ran on has changed hands and
+  shape since. What I read was a Wayback capture, and everything above is
+  restricted to what is visible in that capture on that date. The page was edited
+  over its life, so a claim about "what the faucet did" is really a claim about
+  what one snapshot said, and I have written it that way on purpose.
+
+  This is the general condition of the period rather than a quirk of one site. As
+  the piece on [the forum as the only record](/articles/the-forum-as-the-only-record/)
+  argues, the documentary base for these years is a handful of privately operated
+  web properties that nobody was archiving as a duty. A history of early
+  distribution written without checking which pages still resolve is a history of
+  whatever happened to survive, presented as a history of what happened.
+</div>
+
+## What free distribution can and cannot do
+
+A faucet creates holders. That is a real accomplishment and it is also the entire
+accomplishment.
+
+It does not create demand. Somebody holding a unit they were handed has no
+reason to want a second one, no reason to refuse to part with the first, and no
+information at all about what either is worth. Demand had to arrive from
+somewhere else entirely: from people who wanted the units for a purpose, or who
+wanted them badly enough to give up something for them, and neither of those is a
+thing a giveaway can manufacture.
+
+Nor does it establish a price. A distribution event has no price in it, because
+nothing was traded. It produces a population who hold, and price formation begins
+after that and separately, in bilateral arguments between two people about what a
+fair swap looks like. A faucet moves the network from zero holders to some
+holders. Everything that makes a currency a currency happens in the next step.
+
+And it cannot demonstrate its own effect. There is no counterfactual. Nobody ran
+the network twice, once with a faucet and once without, and no measurement exists
+that separates units acquired free from units acquired any other way in what
+their recipients then did. Anyone who tells you the faucet was decisive, and
+anyone who tells you it was a rounding error, is telling you a preference.
+
+## The precedent, and the honesty gap
+
+Later eras on this site are dominated by arguments about token distribution: who
+got units, on what terms, before whom, and what was disclosed. Those arguments
+inherit the structure of the faucet and almost none of its candour.
+
+The faucet's design was fully legible from the page. One operator, one balance,
+one form, a stated motive, a public donation address, and a plain admission that
+the supply was finite and borrowed. You could read the whole mechanism in a
+minute, and you could verify the address it paid from.
+
+The later versions of "hand it out to bootstrap the network" are typically
+structured as allocations decided in advance, distributed against criteria
+published afterwards if at all, and described in language that presents a
+distribution decision as a discovery about who deserved one. That is not a claim
+that the later mechanisms were dishonest, which is a claim about intent that this
+site does not make. It is a claim about legibility, which is checkable: the
+faucet's rules fit on the page a user was looking at, and most of what came later
+did not.
+
+## What was expanding, what was contracting
+
+What expanded was the number of people holding a unit, and that expansion was
+deliberate, cheap and completely disconnected from the thing that usually
+produces holders, which is somebody buying something.
+
+What contracted, and this is the part that is easy to miss, was the share of
+holders who had any idea what they were holding. Early participants who obtained
+units by
+[running the software themselves](/articles/running-a-node-when-nobody-did/) had
+at least been through the process of understanding what the software did. A
+faucet recipient had solved a puzzle and pasted a string. The population grew and
+the average understanding inside it fell, and both curves were consequences of
+the same design decision.
+
+Who could tell at the time is the honest question, and the answer is nobody, in
+either direction. The operator could not measure whether the giveaway was
+converting recipients into users, because the only instrument available was a
+balance going down. That was one of the earliest moments in this history where a
+number was available, was watched, and was measuring the wrong thing.

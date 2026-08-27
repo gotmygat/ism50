@@ -1,0 +1,220 @@
+---
+title: "The First Client Shipped Features the Whitepaper Never Mentioned"
+seoTitle: "What the First Bitcoin Client Actually Did"
+description: "The initial source release included a marketplace, a messaging idea and a scripting system, none of which appear in the paper."
+date: 2026-09-18
+author: "Khaled Hawari"
+era: origins
+kind: primarySource
+lede: "The paper and the code that shipped alongside it are two different documents with two different scopes."
+---
+
+I have the archive open. Its published SHA1 is
+`35f83eaa334e0e447ceea77a7cc955a4ccdd1a1d` and its MD5 is
+`dca1095f053a0c2dc90b19c92bd1ec00`, and the copy on my disk matches both. Getting
+hold of it is the first finding, and it is in a note at the end of this piece
+rather than at the start, because the contents deserve to go first.
+
+Inside are thirty three source files and a resources directory under `src/`, a
+Windows executable, two DLLs and a readme. The readme's first line reads:
+
+> BitCoin v0.01 ALPHA
+
+Not v0.1.0, which is what the archive is named. That is a small thing and it is
+the correct register in which to read all of this. Everybody cites the paper.
+Almost nobody opens the tarball, and the tarball is louder.
+
+## Files that have no counterpart in the paper
+
+The paper describes a chain of digitally signed transactions, proof of work,
+network propagation, incentive, disk space reclamation, simplified payment
+verification, combining and splitting value, and privacy. Nine numbered sections
+of an engineering note.
+
+The source directory contains, among the files you would expect, these:
+
+- `market.cpp` and `market.h`
+- `irc.cpp` and `irc.h`
+- `script.cpp` and `script.h`
+
+None of the three subjects appears in the paper. The first is a marketplace. The
+second is peer discovery over a public chat network. The third is a general
+purpose programming language for spending conditions, and it is the one that
+changes what the software is.
+
+## The marketplace, in its own header
+
+`market.h` is not a stub. It declares three serialisable classes and three
+functions, and the shape of a system is visible in the field names alone.
+
+`CProduct` carries a network address, a `mapValue`, a `mapDetails`, a
+`vOrderForm` built as a vector of string pairs, a sequence number, a public key
+and a signature, plus `CheckSignature()` and `CheckProduct()`. `CReview` carries
+a hash of the thing being reviewed, a `mapValue`, a public key and a signature,
+and an `AcceptReview()` method. `CUser` carries three vectors named `vAtomsIn`,
+`vAtomsNew` and `vAtomsOut`, plus `vLinksOut`, and there is a file scope constant:
+
+```cpp
+static const unsigned int nFlowthroughRate = 2;
+```
+
+The free functions are `AdvertInsert`, `AdvertErase` and
+`AddAtomsAndPropagate`. There are two global maps, `mapProducts` and
+`mapMyProducts`, guarded by a critical section.
+
+The interface exists too. `ui.h` declares `CProductsDialog`,
+`CEditProductDialog`, `CViewProductDialog`, `CViewOrderDialog` and
+`CEditReviewDialog`, and the generated base classes in `uibase.cpp` contain the
+literal strings a user would have seen. A category combo box defaulting to
+`(Any Category)`. A search box and a `&Search` button. Product edit fields
+labelled `Category`, `Title` and `Price`. Two tab headings reading
+`Page 1: Description` and `Page 2: Order Form`. And, in the review dialog, a
+choice control whose options are ` 1 star` through ` 5 stars`.
+
+So: listings with categories and prices, a search, a two page product form with
+an order form on the second page, seller signatures, and five star reviews with
+a propagation rule for reputation. That is a signed peer to peer marketplace with
+a reputation system, and it is in the same tarball as the coin, in January 2009.
+
+What I am not going to tell you is what any of it was *for* beyond what the
+source documents, which is nothing. `nFlowthroughRate = 2` has no comment. The
+"atoms" have no comment. Whether the reputation propagation was thought through
+or a sketch, whether the marketplace was the point of the coin or an experiment
+alongside it, the code does not say and I am not going to supply an intention
+that no line of it carries.
+
+## The messaging idea, and an unfinished sentence
+
+The send dialog in `uibase.cpp` carries this instruction to the user:
+
+> Enter the recipient's IP address (e.g. 123.45.6.7) for online transfer with
+> comments and confirmation, or bitcoin address (e.g.
+> 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJED9L) if recipient is not online.
+
+There are two ways to pay somebody, and the first one is a live connection to a
+machine. That path has a `&Message:` field on the form. Payment carrying a
+message to a counterparty who is online and confirms it is not a ledger entry, it
+is a conversation with money attached, and it is the natural partner of the order
+form in the marketplace.
+
+There is also a `T&ransfer:` dropdown, and its list of choices in the shipped
+build has exactly one entry: ` Standard`. A dropdown with one option is a
+promise, and this one was not kept in this release.
+
+The best single line in the whole archive is in `main.h`, in the declaration of
+`CWalletTx`, which is the wallet's record of a transaction. Alongside `mapValue`
+and `vOrderForm` there is this:
+
+```cpp
+//// probably need to sign the order info so know it came from payer
+```
+
+Four slashes, lower case, no ticket number. That comment tells you the state of
+the thing more honestly than any retrospective: an order form attached to a
+payment, in a shipped release, with the author noting to himself that it is not
+yet authenticated.
+
+## The scripting system is the one that matters
+
+Here is the part where reading the paper and skipping the source produces an
+actively wrong picture of what was built.
+
+`script.h` declares an opcode enumeration running to more than a hundred entries.
+Arithmetic. String operations including `OP_CAT` and `OP_SUBSTR`. Bitwise logic.
+Comparison. Conditionals with `OP_IF`, `OP_ELSE` and `OP_ENDIF`, and an alt
+stack. Hash functions. Signature checking, including `OP_CHECKMULTISIG` and
+`OP_CHECKMULTISIGVERIFY`. `script.cpp` contains a full stack machine,
+`EvalScript`, that runs these.
+
+And then `Solver()` in `script.cpp` recognises exactly two shapes, with these
+comments:
+
+```cpp
+// Standard tx, sender provides pubkey, receiver adds signature
+vTemplates.push_back(CScript() << OP_PUBKEY << OP_CHECKSIG);
+
+// Short account number tx, sender provides hash of pubkey, receiver provides signature and pubkey
+vTemplates.push_back(CScript() << OP_DUP << OP_HASH160 << OP_PUBKEYHASH << OP_EQUALVERIFY << OP_CHECKSIG);
+```
+
+Two templates. A general evaluator underneath, and a wallet that knows how to
+build and recognise two specific spending conditions on top of it.
+
+That gap is the whole finding. The paper describes value moving from one owner to
+the next by signature. The code describes value locked behind an arbitrary
+predicate, of which "a signature from this key" is one case that the wallet
+happens to implement. A system with programmable spending conditions from the
+first release is not a simple ledger with a language bolted on later. It is a
+language, with a ledger as its first application, and the field spent years
+rediscovering that.
+
+I am not going to tell you which of those opcodes were later disabled or when.
+That is a change history question and it needs the commits open, not this
+tarball. What I can tell you is that they are present and enumerated in the
+release whose checksums are at the top of this piece.
+
+## Two more things in the file list
+
+`irc.cpp` connects to `chat.freenode.net` on port 6667 and sends `JOIN #bitcoin`
+followed by `WHO #bitcoin`. Peer discovery, in the first release, was a public
+IRC channel on somebody else's server. The network that answers to no
+intermediary found its first peers through one.
+
+And the readme, in a note about how to build OpenSSL, says this:
+
+> Bitcoin does not use any encryption.
+
+Which is correct and worth pausing on, given that
+[the freedom to publish this code at all](/articles/the-crypto-wars/) had been
+fought over for a decade on the question of encryption specifically. The system
+uses signatures and hashes. It encrypts nothing. It arrived on the far side of a
+legal fight it did not technically need to have been in.
+
+<div class="note">
+  <span class="note__label">The source is one hosting decision from unreachable</span>
+
+  The canonical public archive of this release publishes MD5 and SHA1 checksums
+  for it. Both of its listed download URLs, on the host the page itself is
+  served from, returned the site's 404 page when I tried them. What I actually
+  downloaded came from a content delivery host named in the page's markup rather
+  than in its visible text, and I verified it against the published checksums
+  before opening a single file. Anyone reading the page in a browser and clicking
+  the link gets nothing.
+
+  There is also a widely used repository mirror of the "original" source on a
+  code hosting site. I looked at it first. Its `src/readme.txt` announces a later
+  version than this tarball's does, so it is not the same tree, and a piece
+  written from it would be describing a release four days after the one it names.
+  I moved to the checksummed archive for that reason and everything above comes
+  from the tree whose hashes match.
+
+  There is a further point. The archive contains a compiled `bitcoin.exe`. I have
+  not run it and I have not disassembled it, so every claim here is a claim about
+  the source, not about the binary somebody in January 2009 would actually have
+  executed.
+</div>
+
+## What was expanding, what was contracting
+
+The design space in the code was much wider than the design space in the paper.
+The paper is a careful, narrow argument about one problem. The tarball is a
+marketplace, a reputation system, a messaging path, an order form, a chat network
+bootstrap and a programming language, most of it unfinished, some of it
+unreachable, all of it shipped.
+
+And the direction of travel afterwards was narrowing. Over the following years,
+the marketplace disappeared from the client, payment to an online counterparty
+disappeared, the discovery mechanism moved off the public chat network, and the
+language stopped being the interesting part until other systems made it the
+interesting part again. Each of those was a reasonable decision on its own terms.
+Together they turned a strange, ambitious, half built local application into a
+narrow and reliable one.
+
+Who could tell at the time is easy to answer here and the answer is unflattering
+to the field. Anybody who unpacked the archive could tell, because the file names
+give it away in one directory listing, and the [release
+announcement](/articles/the-first-release-announcement/) and the
+[paper](/articles/reading-the-bitcoin-whitepaper/) between them mention none of
+it. Fifteen years of writing about this period has been done from two documents
+while a third sat in a tarball with a published checksum, describing a
+substantially more ambitious program than either of them.
