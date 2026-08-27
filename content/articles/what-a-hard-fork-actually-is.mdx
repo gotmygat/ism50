@@ -1,0 +1,183 @@
+---
+title: "A Hard Fork Loosens the Rules, and Everyone Has to Move at Once"
+seoTitle: "What a Hard Fork Actually Is"
+description: "A rule change old software rejects forces a coordinated upgrade, and a failed coordination produces two chains and two assets."
+date: 2026-09-20
+author: "Khaled Hawari"
+era: origins
+kind: explainer
+lede: "The mechanism is simple, the coordination is not, and the coordination is where all the history happens."
+---
+
+BIP 123, by Eric Lombrozo, defines it in fourteen words:
+
+> In a hard fork, structures that were invalid under the old rules become valid
+> under the new rules.
+
+That is the mirror image of
+[the mechanism in the previous piece](/articles/what-a-soft-fork-actually-is/).
+One shrinks the set of things the rules accept. The other grows it. Everything
+else follows from which direction the set moved.
+
+## Why old nodes reject
+
+An old node is still asking its one question about each block: valid or not,
+under the rules it has.
+
+A block that takes advantage of the new, looser rule contains something the old
+rules forbid. The old node evaluates it and answers no. It does not answer "no,
+but I see there has been an upgrade". It answers no in exactly the way it answers
+no to a corrupt block or a fraudulent one, because to that program there is no
+difference. A rule violation is a rule violation.
+
+So the old node keeps building on, and keeps waiting for, blocks that satisfy the
+old rules. If anyone is still producing those, it follows them. If nobody is,
+it sits there, at the last block it accepted, in perfect health, seeing a network
+it considers to be producing garbage.
+
+That is the entire technical content. BIP 99, by Jorge Timón, adds the
+consequence in one line:
+
+> A consensus fork that makes previously invalid blocks valid. Hardforks require
+> all users to upgrade.
+
+Require. Not "encourage". A user who does not upgrade is not left on a slightly
+older version of the same thing, which is what happens under the other mechanism.
+They are left on a different chain, or on no chain at all.
+
+## The coordination is the whole subject
+
+Here is the part that makes this an interesting historical object rather than an
+engineering footnote.
+
+Nothing in the mechanism determines whether a hard fork is an upgrade or a split.
+The code cannot decide it. A vote cannot decide it, because there is no
+electorate: no membership roll, no way to identify a person, no way to establish
+that a signal came from a user rather than from somebody with a lot of something.
+Miner signalling measures hash power, which is a real thing and is not the same
+thing as agreement, and BIP 99 is blunt about the cases where it is irrelevant.
+Discussing a fork whose entire purpose is to act against block producers, the
+document says: "any notion of 'miners' voting' is utterly irrelevant", and later,
+of a different scenario, "miners are expected to oppose and they have to be
+ignored".
+
+What actually determines the outcome is a set of independent decisions taken
+outside the repository, by parties who do not answer to each other:
+
+- Which chain do the venues credit, and under which ticker.
+- Which chain do the block producers point at, and for how long.
+- Which chain does the wallet software a user did not choose to install default
+  to.
+- Which chain do the businesses accepting payment consider to be a payment.
+- Which chain do users, who mostly discover any of this after the fact, end up
+  holding a balance on.
+
+None of those parties is running a governance process. Each is making a
+commercial or technical decision for its own reasons, and the aggregate of those
+decisions is the outcome. That is why a hard fork is better understood as a
+proposal to an entire ecosystem than as a change to a piece of software. The
+software change is the easy half and it is finished before the interesting part
+begins.
+
+## When coordination fails
+
+BIP 99 has a name for the failure case, the schism hard fork, and it defines the
+term without reference to anybody's motive or to which ruleset came first:
+
+> users are consciously going to validate 2 different sets of consensus rules.
+> Since they will validate different rulesets, they will end up following 2
+> different chains for at least some time, maybe forever.
+
+And then, without hedging:
+
+> While 2 chains coexist, they can be considered two different currencies.
+
+The document goes on to work through what the coexistence might do to the
+respective sizes of the two, and its answer is a list of four possibilities
+followed by an ellipsis. That is the correct answer and it has not improved
+since. Nothing about the mechanism constrains the result.
+
+Note also the phrase "for at least some time, maybe forever". A split is not an
+event with a resolution date. Two chains sharing a history up to a block and
+diverging after it can both persist indefinitely, and whether one fades is a
+question about the people involved rather than about the code. BIP 99 says one
+possible outcome is that a chain "rapidly disappears" and immediately adds that
+"nothing indicates that this must always be the case".
+
+<div class="note">
+  <span class="note__label">Three things this piece is not going to do</span>
+
+  **It is not going to tell you which side of any historical split was
+  legitimate.** That question has no technical answer, and every available
+  non technical answer is somebody's position. A chain with more work, a chain
+  with the original ticker, a chain with the original rules and a chain with the
+  original developers can all be four different chains, and each of those
+  criteria has been used by somebody to mean "the real one".
+
+  **It is not going to tell you which chain is the real one in any case.** Same
+  reason. The naming that stuck in each case stuck because venues and users
+  coordinated on it, which is a fact about what happened rather than a finding
+  about what should have.
+
+  **It is not going to tell you that replay protection is standard.** A replayed
+  transaction is one that is valid on both chains after a split, so a spend on
+  one becomes a spend on the other. Protection against this has to be added
+  deliberately, by making the two chains' transactions mutually invalid, and it
+  has been present in some splits and absent in others. Anyone writing that
+  splits come with replay protection is describing a convention that does not
+  exist.
+</div>
+
+## Why the argument about fork types is not about fork types
+
+The technical debate has been conducted for a decade in the vocabulary of
+compatibility, deployment risk and node behaviour. Underneath it, the question is
+always the same one, and it is a question about consent.
+
+A soft fork changes the rules for people who did not agree and does not disturb
+them. A hard fork changes the rules for people who did not agree and stops them
+working. The first buys deployability with a silence that counts as assent. The
+second buys explicit consent at the price of being able to fail catastrophically
+in public.
+
+Every argument about which is preferable is therefore an argument about whose
+agreement is required before a monetary system's rules can change, dressed in
+engineering language. The engineering language is not a disguise, exactly. The
+people using it mostly mean it and the technical claims they make are usually
+correct. But two people can agree on every technical proposition here and still
+disagree completely, because the remaining disagreement was never technical.
+
+This is the failure mode that
+[the inherited decision norm](/articles/rough-consensus-and-running-code/) is
+worst at. Rough consensus works when the losing side keeps nothing, because the
+losing side then has no reason to keep arguing. Under a schism hard fork the
+losing side keeps a chain, and a balance on it, and a name to argue about. There
+is no version of "rough consensus" that produces an outcome when both sides can
+simply proceed.
+
+## What was expanding, what was contracting
+
+What expanded is the set of possible changes. Anything at all can be done by a
+hard fork, including undoing constraints that the other mechanism can only ever
+add. A system that could only tighten would ratchet in one direction forever,
+and the ability to loosen is the only thing that stops early decisions being
+permanent by construction.
+
+What contracted, every time one was seriously proposed, was the number of people
+who could stay out of the argument. That is the real cost and it is easy to miss
+while looking at the diff. A soft fork lets almost everybody ignore the question.
+A hard fork makes the question mandatory: every venue, every producer, every
+wallet author and eventually every holder has to take a position, including
+people with no view, no expertise and no wish to be involved. The set of
+participants required to have an opinion goes from a handful to everybody, and it
+does so on a deadline.
+
+Who could tell at the time is, unusually for this site, almost everyone. Hard
+forks are the least deniable events in this history. They are announced, dated
+and argued about in public for months in advance. And that visibility is exactly
+why they are such good evidence about how the system actually decides things:
+the mechanism was in
+[a numbered proposal document](/articles/the-bip-process/) years before it
+mattered, the taxonomy was written down, and none of that told anybody what would
+happen, because what happens is decided by parties the document has no authority
+over.

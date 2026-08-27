@@ -1,0 +1,236 @@
+---
+title: "The Crypto Wars: How Strong Encryption Stopped Being a Munition"
+seoTitle: "The Crypto Wars and Export Control"
+description: "The sequenced fight over export controls on strong cryptography in the 1990s, and why its outcome made everything after 2009 legally possible."
+date: 2026-09-17
+author: "Khaled Hawari"
+era: origins
+kind: timeline
+lede: "Before anyone could build public cryptographic money, publishing the code had to stop being a controlled export."
+---
+
+Every piece on this site so far assumes something that was not true for most of
+the decade before it: that a person can write cryptographic software, publish it
+on the internet, and not thereby have exported a defense article.
+
+That assumption was fought over for years in United States rulemaking and in
+three federal courts, by people who had never heard of digital cash and were not
+arguing about it. The outcome is the precondition for everything that follows,
+and it is the most consistently skipped chapter in this history. What follows is
+the sequence, restricted to the public record, with the disputes left as
+disputes.
+
+## The starting position
+
+Cryptographic software was a munition. That is not a figure of speech and not a
+gloss. It was designated as a defense article on the United States Munitions
+List, administered by the State Department under the International Traffic in
+Arms Regulations pursuant to the Arms Export Control Act.
+
+The specific citation appears in the Karn litigation below, where the Office of
+Defense Trade Controls stated that the item before it "is designated as a defense
+article under category XIII(b) (1) of the United States Munitions List". Category
+XIII is where the cryptography sat.
+
+**9 February 1994.** The National Institute of Standards and Technology publishes
+FIPS 185, the Escrowed Encryption Standard. Its abstract specifies "an
+encryption/decryption algorithm and a Law Enforcement Access Field (LEAF)
+creation method", and states that "the algorithm and the LEAF creation method are
+classified and are referenced, but not specified, in the standard". The LEAF, the
+document says, "is used in a key escrow system that provides for decryption of
+telecommunications when access to the telecommunications is lawfully authorized".
+
+Read the standard rather than the arguments about it and the shape is plainly on
+the page: strong encryption, in a device, with a mechanism for authorised access,
+and the algorithm withheld. FIPS 185 was withdrawn on 19 October 2015.
+
+## Karn: the book and the diskette
+
+**9 March 1994.** The plaintiff in what became *Karn v. U.S. Department of State*
+submits a commodity jurisdiction request for a diskette containing the source
+code printed in Part Five of the book *Applied Cryptography*. The book itself had
+already been determined not to be subject to the jurisdiction of the State
+Department under the regulations. The identical text, on a floppy disk, was
+designated a defense article.
+
+That is the whole case. The same characters, in the same order, by the same
+author, were a publication in one physical form and a controlled export in
+another.
+
+**22 March 1996.** Judge Charles R. Richey, United States District Court for the
+District of Columbia, Civil No. 95-1812 (CRR), rules for the government. He
+grants dismissal of the claim brought under the Administrative Procedure Act,
+holding that section 2778(h) of the Arms Export Control Act precluded judicial
+review of the designation decision, and grants summary judgment for the
+defendants on the First and Fifth Amendment claims, finding the regulation
+content neutral and rationally related to national security interests.
+
+## The transfer
+
+**15 November 1996.** Executive Order 13026, "Administration of Export Controls on
+Encryption Products", signed by President Clinton. It moves encryption products
+that were or would be designated as defense articles in Category XIII of the
+Munitions List over to the Commerce Control List, administered by the Commerce
+Department under the Export Administration Regulations.
+
+Two provisions are worth reading rather than summarising. The order makes
+sections 4(c) and 6(h)(2) to (4) of the Export Administration Act of 1979, which
+concern foreign availability, inapplicable to export controls on such encryption
+products. And section 1(c) states that publicly available encryption software
+shall not be considered or treated as "technology" within the Act's definition.
+
+That second one is the load bearing sentence and it is the opposite of what a
+casual reader expects from the word "publicly available". Ordinarily, published
+information escapes control precisely because it is published. Section 1(c)
+carves encryption software out of that treatment, which is to say the transfer to
+Commerce was a transfer of jurisdiction and not a release. Section 3 adds that
+the order is not intended to create any right to administrative or judicial
+review.
+
+The Sixth Circuit later summarised the move in one sentence, and this is the
+sentence to quote if you quote one: "In 1996, the President transferred export
+jurisdiction over nonmilitary encryption items from the State Department to the
+Commerce Department's Bureau of Export Administration."
+
+## Junger: what the regime looked like from a classroom
+
+**12 June 1997.** Peter Junger, a law professor who taught a course in computers
+and the law, submits three applications to the Commerce Department for commodity
+classifications of encryption software programs and other items. He wanted to
+post encryption source code he had written on his own web site.
+
+**4 July 1997.** The Export Administration tells him that Export Control
+Classification Number 5D002 covered four of the five software programs he had
+submitted. It found that the first chapter of his textbook, *Computers and the
+Law*, was an allowable unlicensed export. Its position, as the Sixth Circuit
+recorded it, was that the printed book chapter containing encryption code could
+be exported, and that export of the same text in electronic form would require a
+license if it contained 5D002 software.
+
+The print and electronic distinction from Karn had survived the change of
+jurisdiction intact.
+
+**1998.** The district court, Northern District of Ohio at Akron, Judge James S.
+Gwin, grants summary judgment to the government. On the Sixth Circuit's account,
+it "found that encryption source code is not sufficiently expressive to be
+protected by the First Amendment, that the Export Administration Regulations are
+permissible content-neutral restrictions, and that the Regulations are not
+subject to a facial challenge as a prior restraint on speech".
+
+## Bernstein: won, then unwon
+
+**6 May 1999.** A three judge panel of the Ninth Circuit, Judges Fletcher, Bright
+and T.G. Nelson, decides Daniel Bernstein's challenge. Bernstein was a doctoral
+student who had written an encryption method he called Snuffle and wanted to
+publish its source code; the State Department had responded that Snuffle was a
+munition under the regulations. The panel holds "the challenged regulations
+constitute a prior restraint on speech that offends the First Amendment", on the
+basis that the licensing scheme burdened scientific expression, vested boundless
+discretion in officials and lacked adequate procedural safeguards.
+
+The panel also wrote, in the same opinion: "We emphasize the narrowness of our
+First Amendment holding. We do not hold that all software is expressive."
+
+**30 September 1999.** The Ninth Circuit orders the case reheard by the en banc
+court pursuant to Circuit Rule 35-3, and the three judge panel opinion is
+withdrawn.
+
+This is where most retellings of the crypto wars go wrong, and it is worth being
+blunt about it. A withdrawn opinion is not law. Bernstein is cited constantly as
+the case that established that code is speech, and the opinion that said so was
+vacated by the court that issued it, four months later, without a merits ruling
+replacing it. The proposition may be right. That opinion is not the authority for
+it.
+
+## Junger on appeal, and the regulations moving underneath
+
+**January 2000.** With Junger argued and awaiting decision, the Bureau of Export
+Administration issues an interim final rule, Revisions to Encryption Items, 65
+Fed. Reg. 2492, to be codified at 15 C.F.R. Parts 734, 740, 742, 770, 772 and
+774.
+
+The regime it produced is worth stating precisely, because "encryption was
+deregulated in 2000" is not what the text says. Encryption software remained
+controlled under ECCN 5D002 for national security reasons. A license was required
+for the export of all encryption items to all foreign destinations except Canada.
+Encryption software in printed form was not subject to the Regulations, under 15
+C.F.R. section 734.3(b)(2). And for encryption software, the definition of
+"export" included publication of the software on the internet unless steps were
+taken to restrict foreign access to the site.
+
+**17 December 1999, argued. 4 April 2000, decided.** The Sixth Circuit, Chief
+Judge Boyce F. Martin Jr. writing, No. 98-4045, reverses. The holding is one
+sentence:
+
+> Because computer source code is an expressive means for the exchange of
+> information and ideas about computer programming, we hold that it is protected
+> by the First Amendment.
+
+And on the district court's reasoning that function overrides expression:
+
+> The fact that a medium of expression has a functional capacity should not
+> preclude constitutional protection. Rather, the appropriate consideration of
+> the medium's functional capacity is in the analysis of permitted government
+> regulation.
+
+The disposition was not a victory on the merits of the regulations. The court
+reversed and remanded "for further consideration of Junger's constitutional
+claims in light of the amended regulations", noting that after the amendments the
+district court should examine the new rules to determine whether Junger could
+bring a facial challenge at all.
+
+And the court said this, which is the reason the last section of this piece is
+worded the way it is:
+
+> In the present case, the record does not resolve whether the exercise of
+> presidential power in furtherance of national security interests should
+> overrule the interests in allowing the free exchange of encryption source code.
+
+<div class="note">
+  <span class="note__label">What is genuinely unsettled here</span>
+
+  The tidy version of this story ends in 2000 with encryption free and the
+  government beaten. The documents do not support that ending.
+
+  The strongest appellate statement that source code is protected expression is
+  Junger, and Junger reversed a court that had held the opposite, remanded
+  without deciding whether the amended regulations survive review, and stated
+  expressly that the record did not resolve the national security question. The
+  case most often cited for the proposition, Bernstein, was withdrawn. Export
+  controls on encryption items were not abolished; jurisdiction moved and the
+  licence requirements were rewritten, and a printed book remained outside the
+  Regulations while the same text on a wire did not.
+
+  I am also not characterising what any agency wanted. The public record contains
+  rules, orders and litigation positions. It does not contain motives, and this
+  subject attracts confident accounts of motive from every direction.
+</div>
+
+## What was expanding, what was contracting
+
+What expanded through this decade was the civilian demand for strong
+cryptography, driven by commerce arriving on a public network. What contracted,
+slowly and unevenly, was the position that the government could treat a published
+algorithm as a weapon.
+
+Neither curve crossed cleanly and neither crossed on a single date, which is why
+this is a timeline rather than an anniversary. The crossing was made out of a
+transfer of jurisdiction that was also a carve out, a rulemaking that liberalised
+and retained, and two appellate opinions of which one no longer exists.
+
+Who could tell at the time is the part that matters for this site. The
+[mailing list](/articles/the-cypherpunks-list/) could tell, and said so
+continuously, and was arguing for the freedom to publish cryptographic code as a
+civil liberties question rather than as groundwork for anything in particular.
+Nobody in that fight was clearing a path for digital money. The people who
+actually needed the path cleared, the ones who had already tried to build private
+electronic cash and been stopped by
+[distribution](/articles/digicash-postmortem/) and by
+[the operator being reachable](/articles/e-gold-and-the-compliance-wall/), were
+losing on entirely different grounds at the same time.
+
+The freedom to publish the code was won by other people, for other reasons,
+before the code existed. That is the finding, and it is a strange one: the single
+most important precondition in this history was secured by a fight that had
+nothing to do with it, and it was secured incompletely, and the incompleteness
+is still there.
