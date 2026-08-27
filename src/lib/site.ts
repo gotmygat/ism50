@@ -71,14 +71,22 @@ export const KNA_GROUP_ID = "https://kna-group.com/#organization";
  * different sets is five different answers to one question, which is the failure
  * `sameAs` exists to prevent rather than a variation on it.
  *
- * WHAT IS NOT ON IT, AND WHY, because the omission looks like an oversight and
- * is not. ism50.com and kna-group.com are absent. `sameAs` means "a reference
- * page that unambiguously indicates the ITEM's identity", and the item here is a
- * human. A publication's home page and a firm's home page are not profiles of
- * their owner, and asserting that they are is the same class of error as
- * minting a second Person node: it puts an Organization's URL where a person's
- * identity is being declared. The estate relationship is carried by the shared
- * `@id` itself, by `worksFor`, and by real crawlable links on /about/.
+ * ALL FIVE OWNED DOMAINS ARE ON IT, CORRECTED 2026-08-27. This list previously
+ * excluded ism50.com and kna-group.com on the argument that a publication's or a
+ * firm's home page is not a profile of its owner. That argument is coherent, and
+ * it lost, for two reasons.
+ *
+ * It contradicted itself: it excluded two company domains on principle while
+ * carrying kodelytics.ca, a third, in the same list. A rule with an unexplained
+ * exception is not being applied.
+ *
+ * And it contradicted the estate. Four domains ship the opposite convention, and
+ * khaledhawari.ca states the reasoning: the identity claim about the operator is
+ * false on a business node and TRUE on the Person, which is where it is made.
+ * docs/estate/CANONICAL-PERSON.md records why a lone correct-sounding local
+ * improvement loses to a shipped agreement: it is not a standard, it is a
+ * regression waiting to be applied by five agents at once. If this convention is
+ * to change it changes on all five domains in one pass, not here first.
  *
  * scripts/verify-schema.mjs restates this exact list, so adding a profile here
  * without adding it there fails the build rather than shipping a half-declared
@@ -88,6 +96,8 @@ export const PERSON_SAME_AS = [
   "https://khaledhawari.ca/",
   "https://khaledhawari.com",
   "https://kodelytics.ca",
+  "https://kna-group.com",
+  "https://ism50.com",
   "https://www.linkedin.com/in/khaledhawariottawa/",
   "https://www.crunchbase.com/person/khaled-hawari-ottawa",
   "https://muckrack.com/khaled-hawari-ottawa",

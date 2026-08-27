@@ -2,44 +2,44 @@
   "note": "Written by scripts/sitemap-lastmod.mjs on every build, and committed by scripts/publish-scheduled.sh after every successful deploy. COMMIT IT: it is the only record of what the last deploy actually rendered, and a sitemap lastmod is only honest if something remembers. Do not hand-edit.",
   "routes": {
     "/": {
-      "hash": "73877a2f9fd542378be7b0887a327a15",
+      "hash": "c110114665c807499bc25ac0456d7a16",
       "hashDay": "2026-08-27",
       "lastmod": "2026-08-27"
     },
     "/about/": {
-      "hash": "fbc5725ca3c6a1fb692c997b9a3499d3",
-      "hashDay": "2026-08-26",
-      "lastmod": "2026-08-26"
+      "hash": "669c67c0bd1ca8b35ccf6beb23388e82",
+      "hashDay": "2026-08-27",
+      "lastmod": "2026-08-27"
     },
     "/articles/": {
-      "hash": "5f43f0579269424e50992f532129bab3",
+      "hash": "4210c0845147ec20f2c2476a19c9c556",
       "hashDay": "2026-08-27",
       "lastmod": "2026-08-27"
     },
     "/articles/constant-product-is-an-inequality/": {
-      "hash": "88e2be8da064b4e16d94ab6623da7fc5",
-      "hashDay": "2026-08-26",
-      "lastmod": "2026-08-26"
+      "hash": "af3124a3f29d34ab9023e5bec87ddcc3",
+      "hashDay": "2026-08-27",
+      "lastmod": "2026-08-27"
     },
     "/articles/mt-gox-the-coins-were-already-gone/": {
-      "hash": "69b38ba98360fa90da2cab0b9fccb659",
-      "hashDay": "2026-08-25",
-      "lastmod": "2026-08-25"
+      "hash": "7607a4377d42b9e24c075227a82275ce",
+      "hashDay": "2026-08-27",
+      "lastmod": "2026-08-27"
     },
     "/articles/the-bitcoin-whitepaper-is-not-the-document-you-think/": {
-      "hash": "78cd3abcf57262882bfc21da7ac586c3",
-      "hashDay": "2026-08-24",
-      "lastmod": "2026-08-24"
+      "hash": "07f80112b04e01e6b5a499de270393c3",
+      "hashDay": "2026-08-27",
+      "lastmod": "2026-08-27"
     },
     "/articles/what-the-whitepaper-cites/": {
-      "hash": "aeb7944fa84ec991204dafc54a60137f",
+      "hash": "be3e8af1ad3095ad7d82242c8a778198",
       "hashDay": "2026-08-27",
       "lastmod": "2026-08-27"
     },
     "/disclaimer/": {
-      "hash": "89bb1365612f907716f4a66b49b68e8d",
-      "hashDay": "2026-08-26",
-      "lastmod": "2026-08-26"
+      "hash": "80cf5beda676e564802701318a202426",
+      "hashDay": "2026-08-27",
+      "lastmod": "2026-08-27"
     }
   }
 }
