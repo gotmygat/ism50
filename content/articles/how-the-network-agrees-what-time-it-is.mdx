@@ -1,0 +1,203 @@
+---
+title: "How a Network With No Clock Agrees What Time It Is"
+seoTitle: "How the Network Agrees What Time It Is"
+description: "Every block carries a timestamp asserted by whoever produced it, and the rules that keep those assertions roughly honest are a quiet piece of the design."
+date: 2026-09-06
+author: "Khaled Hawari"
+era: origins
+kind: explainer
+lede: "The time in a block is a claim made by the miner, and nothing outside the network can check it."
+---
+
+Every block header contains a four byte field holding a time. Nobody supplies
+that number except the party who produced the block, and no participant has any
+way to independently determine when the block was really made. There is no
+authoritative clock anywhere in the system, and there is no server to ask.
+
+So the honest description of a block timestamp is not "when the block was
+created". It is "when the producer of this block asserted it was created". What
+follows is how the network keeps that assertion inside a range that other
+participants will tolerate, which is a much weaker and much more interesting
+property than accuracy.
+
+Everything below is read out of the Bitcoin Core source at the current state of
+its main branch, and the constant names are given so you can check me. Other
+implementations exist and other constants apply to other networks; nothing here
+should be read as "the rule" in the abstract.
+
+## The floor: you cannot claim to be in the past
+
+In `src/validation.cpp`, the contextual check on a new header does this:
+
+```cpp
+// Check timestamp against prev
+if (block.GetBlockTime() <= pindexPrev->GetMedianTimePast())
+    return state.Invalid(BlockValidationResult::BLOCK_INVALID_HEADER,
+                         "time-too-old", "block's timestamp is too early");
+```
+
+`GetMedianTimePast` is defined in `src/chain.h`. It walks back at most
+`nMedianTimeSpan` blocks, where `nMedianTimeSpan = 11`, collects their
+timestamps, sorts them, and returns the middle one.
+
+So the lower bound on your claim is the median of the last eleven claims. Not the
+previous block's time, which would be trivially gamed by one participant, and not
+any outside reference. Eleven assertions, sorted, middle value. That number can
+only ever go up, and no single block producer can move it much, because moving a
+median requires moving a majority of the sample.
+
+## The ceiling: you cannot claim to be far in the future
+
+A few lines later:
+
+```cpp
+// Check timestamp
+if (block.Time() > NodeClock::now() + std::chrono::seconds{MAX_FUTURE_BLOCK_TIME}) {
+    return state.Invalid(BlockValidationResult::BLOCK_TIME_FUTURE,
+                         "time-too-new", "block timestamp too far in the future");
+}
+```
+
+`MAX_FUTURE_BLOCK_TIME` is declared in `src/chain.h` as `2 * 60 * 60`, two hours,
+with the comment "Maximum amount of time that a block timestamp is allowed to
+exceed the current time before the block will be accepted."
+
+Read that check carefully, because it is not the same kind of rule as the floor.
+The floor is evaluated against the chain, so every node reaches the same verdict
+forever. The ceiling is evaluated against `NodeClock::now()`, which is the
+receiving machine's own clock. Two nodes can disagree about it. The same node can
+disagree with itself an hour later.
+
+The codebase says so out loud. In `src/consensus/validation.h`, the enumeration
+entry for this failure is annotated:
+
+```cpp
+BLOCK_TIME_FUTURE,  //!< block timestamp was > 2 hours in the future (or our clock is bad)
+```
+
+"Or our clock is bad." A consensus system that concedes, in the identifier for
+its own rejection reason, that the rejection may be the rejector's fault.
+
+## Where an external clock used to sneak in, and no longer does
+
+For a long stretch the ceiling was measured not against the node's own clock but
+against a network adjusted time. In the 22.0 release, the same check reads
+`if (block.GetBlockTime() > nAdjustedTime + MAX_FUTURE_BLOCK_TIME)`, and
+`nAdjustedTime` came from `GetAdjustedTime()` in a file called `src/timedata.h`
+that maintained a median filter over time samples collected from peers.
+
+That is gone. `src/timedata.h` does not exist on the current main branch, and
+`GetAdjustedTime` does not appear in `validation.cpp` at all.
+
+What replaced it is `src/node/timeoffsets.h`, which keeps the same samples and
+uses them for nothing except a warning. Its constants say what it is for: a
+maximum of fifty stored offsets, and a `WARN_THRESHOLD` of ten minutes, described
+as the "Minimum difference between system and network time for a warning to be
+raised."
+
+The change is small in code and large in principle. Peer opinion about the time
+used to enter validation. Now the peers can only tell you that you look wrong,
+and what you do about that is your business.
+
+## Why any of this matters: difficulty reads these numbers
+
+If timestamps were decorative, none of the above would need rules. They are not
+decorative, because the difficulty adjustment is computed from them.
+
+In `src/pow.cpp`, difficulty only changes when the next height is a multiple of
+`DifficultyAdjustmentInterval()`, which is `nPowTargetTimespan / nPowTargetSpacing`.
+On mainnet `src/kernel/chainparams.cpp` sets those to fourteen days and ten
+minutes, giving an interval of 2016 blocks. The adjustment itself:
+
+```cpp
+int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
+if (nActualTimespan < params.nPowTargetTimespan/4)
+    nActualTimespan = params.nPowTargetTimespan/4;
+if (nActualTimespan > params.nPowTargetTimespan*4)
+    nActualTimespan = params.nPowTargetTimespan*4;
+```
+
+Two things follow. First, the retarget is clamped: however extreme the elapsed
+time looks, difficulty cannot move by more than a factor of four in either
+direction in one step. A system that trusted the timestamps absolutely would not
+need that clamp, and the clamp is an admission that it does not.
+
+Second, there is a well known arithmetic wrinkle sitting in plain sight.
+`GetNextWorkRequired` selects the first block of the window like this:
+
+```cpp
+int nHeightFirst = pindexLast->nHeight - (params.DifficultyAdjustmentInterval()-1);
+```
+
+That is 2015 blocks back, not 2016, so the measured span covers 2015 intervals
+and is then divided by a target expressed for 2016. The off-by-one has been in
+the consensus rules since the beginning and cannot be corrected without changing
+them, so it stays, permanently, as a small piece of arithmetic that everybody has
+agreed to keep being wrong about together. That is a fair picture of how
+consensus rules age.
+
+## The one place an outside clock is named
+
+There is exactly one moment in the chain where an external, checkable time
+reference appears, and it is a piece of text rather than a mechanism. In
+`src/kernel/chainparams.cpp` the genesis block is built by a function whose first
+parameter is literally called `pszTimestamp`, and on mainnet it is passed:
+
+```cpp
+const char* pszTimestamp = "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks";
+```
+
+The same block carries a header time of `1231006505`, which is 18:15:05 UTC on 3
+January 2009. A newspaper headline is not a clock, but it is a document with a
+date that other people published, and it is the only such anchor in the entire
+structure. What can and cannot be inferred from that single line is
+[a separate question](/articles/the-banking-crisis-backdrop/) and a contested one.
+
+## The incentive the rules exist to blunt
+
+Timestamp rules read as fussy until you notice that a block producer has reasons
+to lie. The improvement proposal that moved lock time evaluation onto the median
+of the last eleven blocks states the motivation without decoration:
+
+> Since the consensus rules do not mandate strict ordering of block timestamps,
+> this has the unfortunate outcome of creating a perverse incentive for miners to
+> lie about the time of their blocks in order to collect more fees by including
+> transactions that by wall clock determination have not yet matured.
+
+The fix was to stop asking the block what time it is and start asking the median
+of its recent ancestors, a value the same producer cannot move on their own.
+
+Related mitigations exist for the difficulty side. The current code carries a
+constant `MAX_TIMEWARP = 600` in `src/consensus/consensus.h`, but the check that
+uses it is guarded by `enforce_BIP94`, and in the chain parameters that flag is
+true for testnet4 and regtest and false for mainnet, testnet3 and signet. The
+comment above the check in `validation.cpp` says "Testnet4 and regtest only". I
+am not going to walk through how the corresponding manipulation is performed;
+what matters here is that the network's own developers treat block time as an
+adversarial input and write the rules accordingly.
+
+## What was expanding, what was contracting
+
+This mechanism is a miniature of the whole design, and it reads the same way on
+the site's line.
+
+What expanded was the number of independent parties permitted to assert what time
+it is. In every prior payment system, one institution stamped the record and
+everyone else accepted the stamp. Here, anybody who finds a block gets to make
+the claim.
+
+What contracted, deliberately and continuously, was the range of claims that
+others will accept. A floor set by a median nobody controls alone. A ceiling of
+two hours that each machine judges for itself. A clamp on how much a lie can move
+difficulty. A later change moving lock time evaluation onto the median so that a
+block cannot vouch for its own hour.
+
+The system does not obtain the truth from anywhere. It narrows the interval of
+tolerable lies until the residue is not worth having. That is what "trustless"
+actually describes, and it is much less impressive and much more durable than the
+word suggests.
+
+Who could tell at the time? Anyone reading the code, which is why the whitepaper's
+[own account of the mechanism](/articles/reading-the-bitcoin-whitepaper/) is
+worth reading beside it: the paper describes a timestamp server, and the shipped
+rules describe how much a timestamp is allowed to be worth.
