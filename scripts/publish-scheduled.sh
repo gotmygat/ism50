@@ -224,8 +224,18 @@ echo "preflight ok: ism50-a8a44 visible"
 # 1. Count the occurrences. The cache-buster is because Firebase serves this
 # with a revalidating cache header and a stale copy would make every day look
 # like a day with no change.
-before=$(curl -s --max-time 30 "https://ism50.com/sitemap-0.xml?v=$RANDOM" \
-  | grep -o '<loc>' | wc -l | tr -d ' ')
+# The sitemap is SPLIT BY TYPE, so there is no single file to count any more.
+# Read the index, then sum <loc> across every child it names. Counting one file
+# would silently under-report and make a normal day look like a broken one,
+# which is the failure this whole before/after comparison exists to catch.
+before=$(
+  curl -s --max-time 30 "https://ism50.com/sitemap-index.xml?v=$RANDOM" \
+    | grep -o '<loc>[^<]*</loc>' | sed -E 's|</?loc>||g' \
+    | while read -r child; do
+        curl -s --max-time 30 "$child?v=$RANDOM" | grep -o '<loc>' | wc -l | tr -d ' '
+      done \
+    | awk '{n+=$1} END {print n+0}'
+)
 echo "live URLs before: ${before:-0}"
 
 # `npm run build` is the full gate: verify:emdash, the canonical-person sync,
@@ -243,7 +253,13 @@ if ! npm run build; then
   exit 1
 fi
 
-after=$(grep -o '<loc>' dist/sitemap-0.xml | wc -l | tr -d ' ')
+# Same reason as `before`: sum every child sitemap in dist rather than the one
+# file that used to exist. scripts/split-sitemap.mjs deletes dist/sitemap-0.xml,
+# so the old line printed a grep error and a count of 0 on every single run.
+# Excludes sitemap-index.xml deliberately: its <loc> entries name the child
+# sitemaps, not pages, so including it would add one phantom URL per child.
+after=$(ls dist/sitemap-*.xml 2>/dev/null | grep -v index | xargs cat 2>/dev/null \
+  | grep -o '<loc>' | wc -l | tr -d ' ')
 echo "built URLs: $after"
 
 # Reclaim hosting storage BEFORE deploying, not after.
