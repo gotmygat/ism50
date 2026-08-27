@@ -1,0 +1,186 @@
+---
+title: "The Release Announcement Read as a Product Launch"
+seoTitle: "The First Bitcoin Release Announcement"
+description: "The original software announcement described features, requirements and limits, and reads far more like a beta release note than a manifesto."
+date: 2026-09-14
+author: "Khaled Hawari"
+era: origins
+kind: primarySource
+lede: "Read as a launch post rather than as history, the first announcement is strikingly ordinary."
+---
+
+The message is in the public archive of the Cryptography mailing list at
+metzdowd.com, in the January 2009 folder. Subject line: "Bitcoin v0.1 released".
+Sender: Satoshi Nakamoto, at a vistomail.com address. Timestamp: Thursday 8
+January 2009, 14:27:40 Eastern.
+
+It opens:
+
+> Announcing the first release of Bitcoin, a new electronic cash system that uses
+> a peer-to-peer network to prevent double-spending. It's completely
+> decentralized with no server or central authority.
+
+Two sentences, and they are the only two in the message that anybody quotes. What
+follows them is a release note, and reading the whole thing as a release note is
+the point of this piece, because the ordinary parts are doing more historical
+work than the famous parts.
+
+## What is actually in the document
+
+In order, as it appears.
+
+A pointer to a website for screenshots. A download link, to a `.rar` archive
+hosted on SourceForge. A platform note:
+
+> Windows only for now. Open source C++ code is included.
+
+Then three bullets of installation instructions that would fit on a support page:
+unpack the files into a directory, run `BITCOIN.EXE`, it automatically connects to
+other nodes.
+
+Then a request for help, phrased the way any small project phrases it:
+
+> If you can keep a node running that accepts incoming connections, you'll really
+> be helping the network a lot. Port 8333 on your firewall needs to be open to
+> receive incoming connections.
+
+Then a warning:
+
+> The software is still alpha and experimental. There's no guarantee the system's
+> state won't have to be restarted at some point if it becomes necessary,
+> although I've done everything I can to build in extensibility and versioning.
+
+Then the mining instructions, the two available methods of sending a payment, and
+the issuance schedule. Then a sign off.
+
+That is the whole document. A file format, an operating system limitation, a
+firewall port, and an admission that the ledger might have to be thrown away and
+started again.
+
+## The tone contains none of the significance
+
+Compare that to how the same event is described now, and the gap is the finding.
+
+The announcement makes no claim to be founding anything. It does not mention
+banks, monetary policy, inflation, the financial system, sovereignty, freedom or
+the state. It contains no argument about why the thing should exist beyond the
+technical one in its first sentence: this prevents double-spending without a
+central authority. It offers no vision of adoption. It asks for people to open a
+port.
+
+The most striking omission is confidence. "There's no guarantee the system's state
+won't have to be restarted at some point" is not something you write about an
+immutable ledger. It is something you write about an alpha, because in January
+2009 that is what it was, and the person who built it said so in the announcement
+in plain terms.
+
+The `.rar` deserves a moment too. Not a `.zip`, not an installer, not a signed
+package: a proprietary archive format, on SourceForge, Windows only, with the
+source included in the same bundle. That is the distribution posture of a personal
+project, and it is completely at odds with the way the release is now narrated.
+
+## The parts that were consequential and were stated flatly
+
+Two decisions in that message have shaped everything since, and both are delivered
+without emphasis, in the register of a specification.
+
+The first:
+
+> Total circulation will be 21,000,000 coins. It'll be distributed to network
+> nodes when they make blocks, with the amount cut in half every 4 years.
+
+Followed by the schedule, written out as four lines and an "etc...". The single
+most quoted parameter in this entire history is announced in a sentence, with the
+arithmetic shown, and no argument at all for why that number or that curve.
+
+The second is about what happens afterwards:
+
+> When that runs out, the system can support transaction fees if needed. It's
+> based on open market competition, and there will probably always be nodes
+> willing to process transactions for free.
+
+"If needed." "Probably." The long-run security question that the field has argued
+about ever since, what pays for the work once issuance stops, is addressed in two
+sentences and left as an expectation rather than as a design. That is not a
+criticism of the document. It is a release note, and release notes are allowed to
+leave things open. It is a criticism of every later account that reads the
+economics as fully worked out from the start, because the announcement plainly
+does not present them that way.
+
+## What happened next, as far as the archive shows
+
+The angle here has to be strict, because reception is exactly where this material
+gets invented. So: only what is in the archive index.
+
+The January 2009 folder of that mailing list contains eight messages under the
+subject "Bitcoin v0.1 released". Three of them are from Satoshi Nakamoto,
+including the original. The others are from Hal Finney, who posted twice, and from
+Jonathan Thornburg, Bill Frantz, and a poster listed as dan at geer.org.
+
+Eight messages. Five distinct participants. That is what the record shows for that
+list in that month, and it is all this piece will say about it. It is not a claim
+about how many people read the announcement, downloaded the archive, ran the
+program or thought about it, none of which is knowable. It is a count of messages
+in one archive, which is a different and much smaller fact, and the difference is
+the whole discipline.
+
+<div class="note">
+  <span class="note__label">The download link is dead</span>
+
+  The URL in the announcement, `downloads.sourceforge.net/bitcoin/bitcoin-0.1.0.rar`,
+  returns a 404 when requested today (checked 27 August 2026). The artefact the
+  message was written to distribute is not at the address the message gives.
+
+  The release itself is not lost, and copies of the 0.1 source are preserved in
+  several places. But a reader following the primary document's own instructions
+  arrives at nothing, and that is now true of a great many citations in this
+  period. A hyperlink is a claim about the present tense, and primary sources in
+  crypto history have a habit of quietly ceasing to be true while the sentence
+  around them stays published.
+</div>
+
+## Read against the paper
+
+[The whitepaper](/articles/reading-the-bitcoin-whitepaper/) and this announcement
+are two documents with two audiences and two jobs, published about ten weeks
+apart, and running them together is how a modest engineering claim acquired a
+political one.
+
+The paper argues. It has numbered sections, a threat model, a probability
+calculation and a conclusion. The announcement ships. It has a file, a port number
+and a warning about the alpha. Neither document says what the project is for in the
+grand sense, and the reason people believe both of them do is that the grand sense
+was supplied later, by other people, and read backwards onto whatever text was
+available. The
+[sixty nine bytes in the first block](/articles/the-genesis-block-message/) carry
+the same retrofitted load for the same reason.
+
+## What was expanding, what was contracting
+
+Answer the site's question honestly for 8 January 2009 and the answer is almost
+comic.
+
+Nothing was expanding. There was one implementation, on one operating system, in
+one archive format, with a network that had produced a handful of blocks and no
+second use. The capability had just come into existence and had not yet gone
+anywhere.
+
+What was contracting was the set of assumptions that had governed every previous
+attempt in this history, and it contracted to zero on that day without anyone
+noticing. Before the release, every design for digital cash required somebody to
+operate it: an issuer, a bank, a company with a charter and an address. After the
+release, there was a running example that did not, however alpha it was and
+however few people ran it.
+
+Who could tell? Effectively nobody, and the archive is the evidence. Eight
+messages, five people, on a specialist mailing list whose members were about as
+well equipped to evaluate the claim as any group on earth. The most credentialed
+possible audience read a competent release note, asked reasonable questions, and
+mostly moved on. The message immediately following the announcement in that
+archive is about weaknesses in hash functions.
+
+That is not a failure of judgement and it should not be written as one. The
+document did not announce a threshold crossing. It announced version 0.1, Windows
+only, port 8333, still alpha. The significance was added afterwards, and measuring
+the distance between the announcement and the legend is the most useful thing this
+particular primary source can be made to do.

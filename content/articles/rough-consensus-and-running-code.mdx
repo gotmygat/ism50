@@ -1,0 +1,187 @@
+---
+title: "Rough Consensus Was Borrowed From a Culture With Nothing at Stake"
+seoTitle: "Rough Consensus Applied to Money"
+description: "The decision norm crypto inherited from internet standards bodies was designed for protocols where disagreement did not move anyone's balance."
+date: 2026-09-12
+author: "Khaled Hawari"
+era: origins
+kind: explainer
+lede: "The norm works well when the losing side keeps nothing, and badly when the losing side holds the asset."
+---
+
+The phrase comes from a slide. David Clark, at the twenty fourth meeting of the
+Internet Engineering Task Force in July 1992, in a presentation the proceedings
+record as "A Cloudy Crystal Ball" with the subtitle "Visions of the Future":
+
+> We reject: kings, presidents and voting.
+>
+> We believe in: rough consensus and running code.
+
+Crypto took the second line and used it as a governance model for money. The
+first line is the one that turned out to matter, and the reason is that "we reject
+voting" is only half a sentence. If you are not voting, something else has to
+decide, and in the culture that produced this slogan the something else is a
+named human being with the authority to say the argument is over.
+
+That person does not exist in Bitcoin. The mechanism was borrowed without them.
+
+## What the norm actually specifies
+
+The IETF wrote its own norm down properly in June 2014, twenty two years after the
+slide, in RFC 7282, "On Consensus and Humming in the IETF" by Pete Resnick. It is
+worth noticing that they had to. The originating culture found its own practice
+had drifted far enough that participants were asking, in the document's words,
+"Why don't we just vote?"
+
+The RFC's section headings are the specification, and they are unusually blunt:
+
+- Lack of disagreement is more important than agreement.
+- Rough consensus is achieved when all issues are addressed, but not necessarily accommodated.
+- Humming should be the start of a conversation, not the end.
+- One hundred people for and five people against might not be rough consensus.
+- Five people for and one hundred people against might still be rough consensus.
+
+The last two are the whole design. Consensus here is not a count and cannot be
+turned into one. What determines the outcome is whether an objection has been
+genuinely engaged with, and the RFC is explicit that this is the point:
+
+> It's the existence of the unaddressed open issue, not the number of people,
+> which is determinative in judging consensus.
+
+Head counting is rejected on purpose, and the document names what it is rejecting
+it for. The word it uses is "vote stuffing". The worked example in section 7 is a
+participant who loses an argument on the merits, then recruits a hundred
+colleagues from their own company to post the same one line message, and the
+chair correctly disregards all hundred because none of them can answer a question
+about the technical point.
+
+## The load-bearing part
+
+Read that example again and notice who does the work. Not the process, not the
+document, not a rule. The chair.
+
+> If the chair of a working group determines that a technical issue brought
+> forward by an objector has been truly considered by the working group, and the
+> working group has made an informed decision that the objection has been
+> answered or is not enough of a technical problem to prevent moving forward, the
+> chair can declare that there is rough consensus to go forward, the objection
+> notwithstanding.
+
+Determines. Declares. This is a person exercising technical judgement and then
+making a call that binds the group, and the RFC is honest that the call is hard:
+it asks, rhetorically, how many of us are willing to say that the vast majority of
+people in the room are stonewalling.
+
+Rough consensus is therefore not an alternative to authority. It is a specific
+allocation of authority, to somebody with enough standing to overrule a
+majority, held in check by the fact that an appeal exists and that everyone
+involved has a professional reputation to lose. Remove the chair and you have not
+got a purer version of the norm. You have got a slogan.
+
+## What crypto kept, and what it did not
+
+[The improvement proposal process](/articles/the-bip-process/) borrowed the
+structure of the standards culture almost verbatim, including the numbered
+documents, the status fields and the mailing list discussion. What it did not
+borrow was the office.
+
+BIP 2, the process document, is direct about this. It assigns consensus building
+to the person proposing the change:
+
+> The BIP author is responsible for building consensus within the community and
+> documenting dissenting opinions.
+
+And it defines the only role that resembles a chair, in a sentence that reads like
+it was written specifically to close the door:
+
+> The BIP editors are intended to fulfill administrative and editorial
+> responsibilities.
+
+Administrative and editorial. Not judicial. An editor assigns a number, checks
+the formatting, verifies the thing was posted to the list, and merges the pull
+request. Nobody in the process is empowered to look at an objection and rule that
+it has been addressed.
+
+That was a choice, and it was defensible on its own terms. A network holding value
+has a much worse worst case for capture than a protocol working group, and a
+chair with the authority to declare an argument over is a chair somebody would
+have a very strong incentive to become. Declining to create the office is a real
+defence against a real threat. It also removes the component the norm was
+resting on.
+
+## Why the norm breaks specifically here
+
+The failure is not that people behave worse when money is involved. It is
+narrower and more interesting than that, and it survives the assumption that
+everybody is entirely sincere.
+
+The RFC's test is whether an objection has been addressed. Applying that test
+requires an observer to evaluate an argument on its technical merits. In a
+standards working group that evaluation is difficult but tractable, because a
+participant's stake in the outcome is mostly professional and mostly legible: they
+work for a vendor, everybody knows which vendor, and the argument is about a
+protocol nobody's savings are denominated in.
+
+In a network where the participants hold the asset, the same evaluation asks an
+observer to separate two things that produce identical text. A technical objection
+and a position in the outcome generate the same posts. They generate the same
+posts even when the objector holds no position at all, because the audience cannot
+see that either. And the RFC's own worked example depends on being able to ask an
+objector a follow up question and judge whether the answer is informed, which is
+precisely the judgement that becomes unavailable when every participant can be
+suspected, plausibly and unfalsifiably, of arguing their book.
+
+I want to be careful here, because this is the point at which most writing about
+protocol disputes goes wrong. The claim is not that anybody in any particular
+argument was motivated by their position. That is not knowable from the outside
+and asserting it is the error, not the analysis. The claim is structural: once the
+suspicion is available to everyone about everyone, the test the norm depends on
+stops returning a usable answer, and it stops returning one regardless of whether
+anybody is actually behaving badly.
+
+That is why these disputes do not resolve. Not because one side is dishonest, but
+because the mechanism for declaring them resolved was left out, and the
+substitute test cannot be applied.
+
+## What replaced it, which is nothing
+
+No better norm has arrived. It is worth saying that plainly rather than gesturing
+at one.
+
+The obvious substitute is counting something, and every version of counting has a
+worse failure than the one it replaces. Counting people invites the vote stuffing
+RFC 7282 was written to defeat. Counting holdings makes the objection the norm
+could not evaluate into the thing that decides, which does not solve the problem,
+it formalises it, and later eras on this site show at length what that produces.
+Counting hardware measures capital deployment rather than agreement.
+
+What is actually left is the arrangement described elsewhere on this site, where
+[merging a change is not the same as anyone running it](/articles/maintainers-not-owners/).
+Users choosing which software to run is the residual decision procedure, and it
+is slow, noisy, hard to read while it is happening, and impossible to appeal. It
+is also, and this is the honest concession, remarkably difficult to capture,
+because there is no office to take.
+
+Both of those are the same property. A system that cannot be captured quickly
+cannot decide quickly either.
+
+## What was expanding, what was contracting
+
+What expanded was the number of people entitled to participate in the argument.
+The standards culture the norm came from was open in principle and small in
+practice: attendance cost money and time, and the participants mostly knew each
+other. A public network with an open repository and a public list has no such
+filter, and by the middle of the following decade the number of people who could
+credibly claim standing in a protocol dispute had grown by orders of magnitude.
+
+What contracted, over exactly the same period, was the capacity to conclude one.
+Every mechanism the original norm used to end an argument depended on a small
+group, a shared professional culture, and a person willing to make an unpopular
+call. All three thinned as participation grew.
+
+Who could tell at the time? The people who had read the standards documents
+closely enough to notice that the office was missing, which was a very small
+number, and who mostly raised it as a procedural quibble rather than as a
+prediction. The rest of the field took a slide from 1992 as a description of how
+the thing already worked, and did not check what the second half of the sentence
+had been resting on.
