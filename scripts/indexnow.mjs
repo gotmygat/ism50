@@ -44,7 +44,19 @@ if (!key) {
    be submitted before its date by this path either. */
 const urls = process.argv.slice(2).length
   ? process.argv.slice(2)
-  : [...readFileSync("dist/sitemap-0.xml", "utf8").matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1]);
+  : readdirSync("dist")
+      /* Every child sitemap, and NOT sitemap-index.xml, whose <loc> entries
+         name the child files rather than pages. scripts/split-sitemap.mjs
+         splits by content type and deletes dist/sitemap-0.xml, so reading that
+         one file threw ENOENT: the publisher caught the non-zero exit and
+         warned, which meant IndexNow silently stopped submitting anything at
+         all rather than failing loudly. */
+      .filter((n) => /^sitemap-.+\.xml$/.test(n) && n !== "sitemap-index.xml")
+      .flatMap((n) =>
+        [
+          ...readFileSync(`dist/${n}`, "utf8").matchAll(/<loc>(.*?)<\/loc>/g),
+        ].map((m) => m[1]),
+      );
 
 if (!urls.length) {
   console.error("No URLs to submit.");
@@ -85,21 +97,25 @@ let res;
 try {
   res = await submit();
 } catch (err) {
-  console.warn(`IndexNow: transport failure (${err.cause?.code ?? err.name}), retrying once`);
+  console.warn(
+    `IndexNow: transport failure (${err.cause?.code ?? err.name}), retrying once`,
+  );
   await new Promise((r) => setTimeout(r, 5000));
   try {
     res = await submit();
   } catch (retryErr) {
     console.error(
       `IndexNow: submission failed after a retry (${retryErr.cause?.code ?? retryErr.name}). ` +
-        `The deploy is unaffected; these ${urls.length} URLs were not submitted.`
+        `The deploy is unaffected; these ${urls.length} URLs were not submitted.`,
     );
     process.exit(1);
   }
 }
 
 // 200 accepted, 202 accepted but key validation pending.
-console.log(`IndexNow: ${res.status} ${res.statusText} for ${urls.length} URLs`);
+console.log(
+  `IndexNow: ${res.status} ${res.statusText} for ${urls.length} URLs`,
+);
 if (res.status >= 400) {
   console.error(await res.text());
   process.exit(1);
