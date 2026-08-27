@@ -1,0 +1,166 @@
+---
+title: "Difficulty Adjustment: The Feedback Loop That Keeps the Clock Steady"
+seoTitle: "How Difficulty Adjustment Actually Works"
+description: "The rule that retargets mining difficulty is a control system, and understanding it explains most of what mining economics does under stress."
+date: 2026-09-30
+author: "Khaled Hawari"
+era: origins
+kind: explainer
+lede: "The network has no clock, so it built one out of a moving target."
+---
+
+Two numbers in `chainparams.cpp` produce everything in this piece.
+
+```cpp
+consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
+consensus.nPowTargetSpacing = 10 * 60;
+```
+
+And one line in `consensus/params.h` turns them into the only interval that
+matters:
+
+```cpp
+int64_t DifficultyAdjustmentInterval() const { return nPowTargetTimespan / nPowTargetSpacing; }
+```
+
+Two weeks divided by ten minutes is 2016. That is the whole origin of the number
+everyone quotes. It is not a constant anybody chose. It is a quotient of the two
+constants somebody did choose, which is worth knowing because it means the
+2016 falls out of the design rather than sitting inside it.
+
+## Why a fixed target could not have survived
+
+A proof of work is a search for a value whose hash falls below a threshold. Set
+that threshold once and never move it, and you have fixed the expected number of
+attempts required. You have not fixed the time, because time is attempts divided
+by the rate at which attempts are being made, and the rate is a property of
+whoever happens to be searching.
+
+That rate does not hold still. It moves when a participant buys hardware, when a
+participant switches off, and it moves permanently and in one direction as the
+hardware itself improves. A system with a fixed threshold and improving hardware
+does not produce a block every ten minutes for a while and then break. It
+produces blocks faster continuously, forever, with no floor. Since the issuance
+rule in [the supply schedule](/articles/the-supply-schedule/) counts blocks
+rather than seconds, a fixed threshold would have compressed the entire issuance
+curve into whatever period the hardware curve dictated, which is another way of
+saying it would have had no schedule at all.
+
+So the threshold has to be a function of observed reality rather than a
+constant. This is the piece of the original design that gets least attention and
+carries the most weight. The cap is a bound. This is a controller.
+
+## The measurement, and the ratio
+
+Every 2016 blocks, and only then, the node computes a new target. Here is the
+arithmetic, from `pow.cpp`, with the testnet branches left out:
+
+```cpp
+int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
+if (nActualTimespan < params.nPowTargetTimespan/4)
+    nActualTimespan = params.nPowTargetTimespan/4;
+if (nActualTimespan > params.nPowTargetTimespan*4)
+    nActualTimespan = params.nPowTargetTimespan*4;
+
+bnNew.SetCompact(pindexLast->nBits);
+bnNew *= nActualTimespan;
+bnNew /= params.nPowTargetTimespan;
+```
+
+Take the previous target. Multiply by how long the last period actually took.
+Divide by how long it was supposed to take. If the period ran fast, the ratio is
+below one, the target shrinks, and finding a qualifying hash gets harder. If the
+period ran slow, the target grows and it gets easier.
+
+That is a proportional controller with a two week sampling interval, expressed
+in four lines. There is no integral term, no smoothing and no history beyond the
+one interval. The simplicity is the reason it can be a consensus rule: every
+node has to compute the identical value from identical inputs, and anything with
+more state is more surface for two implementations to disagree on.
+
+## The clamp, and what it is protecting against
+
+The two comparisons before the multiplication bound the ratio to the range one
+quarter to four. No single retarget can move the target by more than a factor of
+four in either direction, no matter what the measured timespan says.
+
+The clamp exists because the measured timespan is built from block timestamps,
+and block timestamps are written by whoever mined the block. They are constrained
+elsewhere, but they are not a reading from a trusted instrument, and the network
+has no other clock. The clamp means that manipulating timestamps to distort a
+retarget has a bounded payoff per period rather than an unbounded one. It buys
+robustness against bad input at the cost of slower response to genuine change,
+which is the trade every control system makes.
+
+## The window that cannot be shortened
+
+The most consequential property of the loop is the one that is easiest to miss:
+the retarget is triggered by a block count, not by elapsed time.
+
+```cpp
+if ((pindexLast->nHeight+1) % params.DifficultyAdjustmentInterval() != 0)
+    return pindexLast->nBits;
+```
+
+Suppose a large share of the searching capacity stops. Blocks now arrive more
+slowly. The correction for that is a retarget, and the retarget happens after
+2016 blocks. But the blocks are arriving slowly, which is the problem, so the
+correction arrives late in proportion to the severity of the thing it is
+correcting. The worse the contraction, the longer the system runs in its
+degraded state before it adjusts. The loop is self correcting and it is
+deliberately not fast, and those are the same fact.
+
+The reverse case is gentler. Capacity arriving makes blocks come faster, which
+makes the next retarget come sooner, which raises difficulty sooner. Growth is
+damped promptly. Departure is not.
+
+## The off by one that is really there
+
+One detail that is genuinely in the code and is usually described wrongly. The
+first block of the measured window is selected like this:
+
+```cpp
+// Go back by what we want to be 14 days worth of blocks
+int nHeightFirst = pindexLast->nHeight - (params.DifficultyAdjustmentInterval()-1);
+```
+
+Subtracting 2015 rather than 2016. The comment says what was wanted. The
+subtraction covers 2015 intervals between 2016 blocks, so the measured span is
+one interval short of the period being corrected. It is a real error, it is
+small, it has been there the entire time, and it is not fixable without a
+consensus change, so it is now a rule rather than a bug. That is a useful thing
+to hold in mind whenever anyone describes the ruleset as designed.
+
+## What the loop tells you, and what it does not
+
+Here is the reading this site exists for. Hash rate crossing sharply is the
+clearest expansion and contraction signal the system generates about itself,
+because it is capacity voting with equipment rather than with opinions, and it
+shows up in the one measurement every participant shares.
+
+But notice who could tell, and when. Nobody observes hash rate. There is no
+meter. What a node observes is block intervals and the current target, and hash
+rate is estimated by inverting the very loop described here. The signal and the
+instrument are the same mechanism, which means the reading always lags the event
+and always carries the assumptions of the estimator. During the interval after a
+sharp departure, the slow blocks are the evidence, and the evidence is only
+legible after enough of it has accumulated, which is the same waiting period as
+the correction. A participant living through it sees blocks taking longer and
+does not yet know whether that is noise.
+
+The same relationship holds in the other direction. New capacity is invisible
+until it has produced blocks, and its effect on difficulty is only settled at the
+retarget. Everything anyone says about capacity in real time is inference from a
+small sample.
+
+Two things this piece will not do. It will not put historical numbers to any of
+that, because difficulty values, block times and hash rate estimates are exactly
+the figures that get repeated until they sound sourced, and none of them are
+needed to understand the mechanism. And it will not connect any of it to price.
+The loop described here is indifferent to what anything is worth. It measures
+how long the last 2016 blocks took and adjusts a threshold. Treating its output
+as an input to a valuation is reading a thermostat as a weather forecast.
+
+The cost side of that threshold, and the reason it can be trusted at all, is
+[hashcash](/articles/hashcash-the-actual-mechanism/), which supplies the
+primitive. The loop is what turned a primitive into a clock.

@@ -1,0 +1,143 @@
+---
+title: "The First Exchanges Were Side Projects That Accidentally Held Everyone's Money"
+seoTitle: "The First Crypto Exchanges, Sequenced"
+description: "A sequenced account of how trading venues appeared, mostly as personal projects, and how quickly they became systemically important."
+date: 2026-10-22
+author: "Khaled Hawari"
+era: earlyExchange
+kind: timeline
+lede: "The first venues were built by individuals with no intention of becoming financial infrastructure, and became it within months."
+---
+
+The first venue where you could trade this thing for national currency was
+announced in a forum thread. Not a prospectus, not a filing, not a licence
+application: a post, on a message board, by one person, describing something they
+had built and intended to run. That post is the entire founding documentation,
+because no body existed that would have required a second one.
+
+Everything that happened to the early venues follows from that. This is the
+sequence, and the sequence is short, which is the point.
+
+## The order, and where the order is all there is
+
+Dating this period precisely is harder than it looks, and the reason is part of
+the story. Announcements were forum posts on boards since migrated, re-indexed
+and in places edited. Terms of service were paragraphs that changed without a
+version history. What follows is ordered where I can order it and dated only
+where a date survives in something I can open.
+
+**Before any venue.** Trades were arranged in threads and settled directly. The
+venue function existed, performed by a public conversation and a lot of trust,
+and its component parts are set out in
+[what an exchange actually is](/articles/what-an-exchange-actually-is/).
+
+**Early 2010.** Bitcoin Market is announced on the forum and is operating by that
+spring. I am not asserting a launch day, because the surviving evidence is a
+thread rather than a record, and a thread tells you when somebody said something,
+not when a service began accepting orders.
+
+**Summer 2010.** Mt. Gox begins operating as a currency exchange, on a domain
+that had been doing something else entirely. The software release of that July,
+and the general-interest coverage that followed it, put more people in front of
+these venues in weeks than had used them in total beforehand.
+
+**2011.** Several venues exist at once, and the shape of an industry appears:
+competing order books, arbitrage between them, and a customer base that is no
+longer the same few dozen people. It is also the year the largest venue suffers a
+serious account compromise, suspends trading and reverses executed trades. Read
+that last clause slowly. A venue that can reverse a trade after the fact is not a
+market with an unfortunate incident, it is a database with an owner.
+
+**2012 onward.** Venues acquire customers who never intended to trade. People
+bought once and left the balance there, because that was easier and nobody had
+told them the alternative mattered. At that point the venue is not a marketplace,
+it is a bank without any of the apparatus of a bank.
+
+## The three jobs, all landing on one person
+
+An exchange in the ordinary sense does one job. Every one of these venues did
+three, and the second and third arrived unannounced.
+
+It **matched orders**, a software problem and the only one the operator had signed
+up for.
+
+It **held customer assets**, which is a custody problem, and custody is not
+software. It is key management, segregation of client funds from operating funds,
+reconciliation, and a plan for the hours when the one person who understands the
+system is asleep.
+
+It **published a number** that the rest of the world then used. Merchants, other
+venues and reporters treated a venue's last trade as the price of the asset, a
+promotion covered in
+[how a thing with no price gets one](/articles/how-a-thing-with-no-price-gets-one/).
+A venue's operational failure was therefore never contained to its own customers.
+It went straight into everybody's reference number, on top of a codebase written
+by somebody who had signed up to solve the first problem.
+
+## Volume was two numbers wearing one coat
+
+There was one public statistic anybody could read about a venue, and it was
+volume. No volumes, user counts or share figures appear in this piece, and the
+reason is the argument rather than caution.
+
+Volume measured trading capacity: the engine works, orders cross, people come
+back. It was read as though it also measured operational competence: the keys are
+safe, the ledger reconciles, withdrawals will clear. A matching engine can be
+fast, correct and popular while the private keys sit in a file that gets copied
+around. So the number rose as the first property improved, said nothing about the
+second, and was read as one signal because it was the only signal there was.
+
+## The gap, and the absence of any mechanism to close it
+
+Here is the thing that makes this period different from a normal story about
+young companies growing into their responsibilities.
+
+In every other custodial business there is machinery that closes the distance
+between what an operator is doing and what an operator ought to be doing before
+the failure rather than after it. Licensing, minimum capital, segregation rules,
+external audit, an insurer who prices your controls.
+
+None of that existed here, and none of it could have been supplied from inside
+the industry either. A published security policy is a claim rather than a
+verification. A commissioned audit had no standard to audit against. Customers
+could ask questions and could not check the answers. Competitors had every
+incentive to assert they were more careful and no way to demonstrate it, which is
+why this site will not rank the venues of this period by trustworthiness: the
+evidence that would support such a ranking did not exist then and does not exist
+now.
+
+The gap between hobby-project engineering standards and custodial
+responsibilities was therefore never closed by a process. It was closed, one
+venue at a time, by the venue failing.
+
+## Failure as the only feedback loop
+
+That is a terrible feedback mechanism and it is worth being precise about why.
+
+It is slow, since the signal arrives only after a loss too large to deny, and the
+tuition is paid by customers who never agreed to enrol. It teaches third parties
+nothing, because a failure describes that venue's controls and nobody else's. And
+nobody was collecting the lessons for the next operator.
+
+The careful operators of the period were careful because of who they happened to
+be, not because anything obliged them to be. That is not a criticism of them. It
+is a description of a system with no floor.
+
+## What grew, what shrank, and who could see it
+
+What expanded was reach. Inside two years the population able to convert between
+this asset and a national currency went from people who could find a counterparty
+in a thread to anybody with a browser, and the venues managed it by absorbing
+every function the ecosystem lacked.
+
+What contracted was the number of parties in a position to verify anything. When
+trades were bilateral, both sides saw the whole transaction. Once a venue sat in
+the middle, the customer saw a balance on a web page and the operator saw the
+truth, with nothing between those two views. Each convenience the venues added
+removed one more thing a customer used to be able to check.
+
+Who could tell at the time has an uncomfortable answer. The operators could,
+mostly, at least about their own systems. Nobody else could, because the only
+public evidence about a venue was that it was still working, and a venue with
+catastrophic controls looks exactly like a venue with good ones right up until
+the morning it does not.

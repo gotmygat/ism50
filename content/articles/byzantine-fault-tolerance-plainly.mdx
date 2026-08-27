@@ -1,0 +1,136 @@
+---
+title: "Byzantine Fault Tolerance, Explained Without the Generals"
+seoTitle: "Byzantine Fault Tolerance, Explained Plainly"
+description: "What it means for a system to keep agreeing when some participants are actively lying, and why that is a different problem from participants going offline."
+date: 2026-10-07
+author: "Khaled Hawari"
+era: origins
+kind: primarySource
+lede: "A machine that crashes is easy to plan around, a machine that lies to you selectively is not."
+---
+
+The document is called "The Byzantine Generals Problem", it was published in the
+July 1982 issue of *ACM Transactions on Programming Languages and Systems*, and
+its authors were working on fault tolerant flight control at SRI International
+rather than on anything resembling money. That last detail explains most of what
+the paper is, and most of what it is not.
+
+It is short, it is a proof rather than a metaphor, and the metaphor is the least
+useful thing in it. Strip the generals out and what remains is a bound, a
+statement of how much of a system can be hostile before agreement stops being
+possible at all.
+
+## The fault model that came first, and why it ran out
+
+Before this problem had a name, the standard picture of a broken component was
+that it stopped. A process dies, a disk goes offline, a link drops. That is
+called a crash fault, sometimes a fail stop fault, and its convenient property is
+that a failed part tells you nothing rather than telling you something false. You
+handle it with redundancy and a timeout.
+
+Avionics broke that picture. A faulty sensor does not reliably go silent. It can
+report a plausible value that happens to be wrong, and, worse, it can report one
+wrong value to one subsystem and a different wrong value to another. Nothing in
+the crash model has vocabulary for that, because the crash model assumes a failed
+component has stopped participating, and this one is still talking.
+
+The 1982 abstract frames the requirement in exactly those terms: a reliable
+computer system has to cope with malfunctioning components that give conflicting
+information to different parts of the system. Not components that fail. Components
+that disagree with themselves depending on who is asking.
+
+## What the paper actually establishes
+
+The paper reduces the general case to a small, checkable scene. One participant
+is the commander and issues an order. The others are lieutenants and receive it.
+Any of them, the commander included, may be faulty in the adversarial sense. Two
+conditions have to hold. All non-faulty lieutenants must act on the same order,
+and if the commander is not faulty, that order must be the one the commander
+actually sent.
+
+The first condition is the interesting one, because it must hold even when the
+commander is the liar. Agreement on a wrong instruction still counts as
+agreement. Consistency and correctness are separated on purpose, and most
+confused writing about consensus is a failure to keep them separate.
+
+From there the paper proves the negative result that gets quoted and the positive
+one that does not. With plain messages, three participants and one traitor admits
+no solution. The general form is that agreement is achievable only when more than
+two thirds of the participants are non-faulty, that is, at most one third may be
+adversarial. An earlier paper by the same group, "Reaching Agreement in the
+Presence of Faults" in the *Journal of the ACM* in 1980, had already established
+the counting result.
+
+The positive result changes the assumption rather than the arithmetic. If messages
+carry signatures that a faulty participant cannot forge, the two thirds bound
+stops applying, because a lie can now be caught by comparing what a participant
+told two different recipients. The cost is that you have imported a cryptographic
+assumption to buy a distributed systems guarantee. The bound did not disappear.
+It moved into the signature scheme.
+
+## The threshold is the price, not the product
+
+Here is where popular writing goes wrong, and it goes wrong in a specific,
+traceable way.
+
+A tolerance result is always conditional. It never says a system survives
+arbitrary hostility. It says a system survives hostility below a stated fraction,
+and it says nothing whatsoever about whether the real deployment sits under that
+fraction. The mathematics supplies the threshold. Only the world supplies the
+measurement, and the world is not obliged to cooperate.
+
+Collapse that into a slogan about being trustless and you have thrown away the
+only part worth knowing. Every one of these systems buys safety by assuming a
+limit on how much of the network is hostile and, just as importantly, by assuming
+you can tell who the participants are well enough to count them. That second
+assumption is the one that quietly does the most work. Counting participants
+requires that participants be countable, which is exactly what an open network,
+where anyone may run any number of identities, does not give you for free.
+
+This is also why I will not attach a percentage to any live network here. A
+threshold belongs to a specific protocol under a specific model, and reading one
+off a headline and pinning it to a running system is how a real assumption gets
+turned into a slogan. If you want the number for a given network, derive it from
+that network's own specification, and note what model it is stated under. And
+nothing in the literature amounts to a proof that any deployed, adversarial,
+economically live system meets its own assumption today. The proofs are about
+models. The deployments are not models.
+
+## Why every later argument on this site is a version of this one
+
+Read forward from 1982 and the pattern is hard to miss.
+
+[The double spend problem](/articles/the-double-spend-problem/) is a Byzantine
+problem with money attached: two conflicting statements, both properly
+authorised, and a network that must land on one. [The timestamping
+literature](/articles/the-timestamping-papers/) is an attempt to make ordering
+verifiable without a trusted party who could lie about it. [Bit
+gold](/articles/bit-gold-the-proposal/) reaches the same wall, and its unresolved
+question is how a set of participants agrees on a chain when some of them will
+not play along.
+
+The arguments that later turned into genuine political fights are the same
+argument again. A dispute about pool concentration is a dispute about whether the
+hostile fraction is bounded. A dispute about client diversity is a dispute about
+whether a bug counts as a correlated fault. A dispute about who counts as a
+participant is a dispute about the denominator. In each case people believe they
+are arguing about policy, and they are arguing about whether an assumption from
+1982 still holds.
+
+## What was expanding, what was contracting
+
+What expanded, through the 1970s and 1980s, was the number of independently
+failing parts in a single system. Redundancy stopped being a spare part and became an
+architecture.
+
+What contracted was the share of those failures the crash model could describe.
+Every year, more of the observed misbehaviour was a component still transmitting
+while wrong. The old model kept working and kept covering less.
+
+Who could tell at the time? A small research community with a specific obligation.
+People certifying flight control had to state a fault hypothesis and defend it, so
+they were forced to notice that the honest failure model was an assumption rather
+than a description. Nobody else had that discipline imposed on them. Two and a
+half decades later the same threshold arrived in a document read by people who
+had never had to write a fault hypothesis down, and the conditional half of the
+guarantee did not survive the trip.

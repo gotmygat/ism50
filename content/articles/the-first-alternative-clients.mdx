@@ -1,0 +1,137 @@
+---
+title: "The First Competing Implementations and the Question They Raised"
+seoTitle: "The First Alternative Bitcoin Clients"
+description: "Once a second implementation existed, the rules of the network stopped being defined by a program and started being defined by agreement."
+date: 2026-10-13
+author: "Khaled Hawari"
+era: origins
+kind: timeline
+lede: "A single implementation is a specification by accident, and the moment a second one appears that accident becomes a problem."
+---
+
+For roughly two years there was exactly one program that could participate in
+the network, and the answer to any question about the rules was to read it.
+Whether a transaction was valid, whether a block was acceptable, whether a
+sequence of bytes counted as a signature: all of these had one authority, and the
+authority was a C++ codebase released in January 2009 that
+[did a narrower set of things than most people remember](/articles/what-the-first-client-actually-did/).
+
+There was no specification document, and no statement of the rules separate from
+the code enforcing them. Nobody experienced this as a problem, because with one
+implementation the distinction between the rules and the program has no
+observable consequence. It becomes observable when something else tries to
+agree.
+
+## One binary, so the rules include the accidents
+
+Here is the property that matters and that nobody wrote down at the time. When
+the code is the specification, the specification contains everything the code
+does, including the parts the author did not intend and the parts contributed by
+libraries the author did not write.
+
+An ordinary program can have a bug and still be the same program after you fix
+it. A consensus program cannot, because the bug was part of what every other
+participant was agreeing with. Fixing it changes what the network accepts, and
+that is a change to the money, not a maintenance task.
+
+That distinction is the whole of what
+[a hard fork actually is](/articles/what-a-hard-fork-actually-is/), and in the
+single implementation period there was nowhere to notice it, because there was
+never a second opinion to disagree with.
+
+## The sequence, briefly
+
+The first departures from the original codebase were not attempts to replace it.
+They were attempts to do less than it did.
+
+In 2011 a Java library appeared that implemented the simplified payment
+verification mode described in section 8 of the whitepaper, verifying block
+headers and the Merkle branch for transactions it cared about rather than
+validating the full chain. It was a library rather than a full node, which
+matters: it did not have to agree with the reference implementation about every
+edge case, because it was not deciding validity for anyone else. Later
+implementations in other languages went further and validated the full chain,
+which is the point at which agreement becomes mandatory rather than optional.
+
+That distinction is more useful than a list of names. A wallet trusting somebody
+else's validation cannot split the chain. A full validator can, and every full
+validator that is not a copy of the original is a new opportunity for a rule to
+be interpreted twice.
+
+## The documented incident, and what it was actually between
+
+The best evidence for the risk is not a dispute between two implementations. It
+is BIP 50, the post mortem written after the chain fork of 11 March 2013, and the
+reason it is such good evidence is that the two sides of the split were running
+the same implementation.
+
+Version 0.8 had replaced the Berkeley DB storage layer with LevelDB. A block was
+mined that the newer version accepted and that the older version rejected,
+because the older version hit a limit on database locks that had never been
+written down as a rule of the network anywhere. It was a configuration property
+of a dependency. The chain ran in two directions for hours, and it was resolved by operators of
+newer nodes deliberately reverting to the older behaviour, which is to say by
+people agreeing rather than by software deciding.
+
+Read that carefully, because it settles the argument this article is about. The
+divergence was not caused by a rival implementation, a competing design
+philosophy or anyone's intention. It was caused by an unwritten side effect of a
+storage library, between two builds of the same program by the same people. If
+two versions of one codebase could diverge that way, the claim that two
+independent codebases would stay aligned by good engineering alone was never
+credible.
+
+Be careful about what the incident supports. It does not show that any particular
+alternative client ever caused a split, and I have no documented case I could set
+out here with the same confidence, so I am not going to assert one. It shows that
+the failure mode is real, that it arrives without warning, and that its trigger
+can be arbitrarily obscure.
+
+## Two readings of the same fact
+
+Once a second full validator existed, the field had a genuine disagreement
+available to it, and the disagreement was not about which program was better.
+
+One reading: diversity is resilience. A single implementation means a single bug
+takes the whole network with it, and there is no independent check on whether the
+reference code is doing what everyone believes it is doing. A second
+implementation is a second reading of the rules, and a discrepancy found by
+comparing them is a discrepancy found before an attacker finds it.
+
+The other reading: diversity is exposure. Consensus code is not like other
+software, where being ninety nine point nine per cent compatible is fine. A
+divergence in one case out of a billion is a chain split when that case occurs,
+and it will occur, because anybody can construct the input and submit it for
+free. Every additional validator multiplies the surface on which two honest
+programs can disagree.
+
+Both readings are correct. They are not a contradiction, they are the same fact
+described from two directions, and reasonable people weighted them differently
+depending on which failure they thought was likelier to arrive first. What is notable is that the field had to have the argument with no process for
+conducting it. The
+[improvement proposal machinery](/articles/the-bip-process/) came later, and the
+compatibility discipline later eras treat as obvious, the test vectors, the
+differential testing, the caution about touching validation code, was assembled
+after the problem showed up rather than before.
+
+## What grew, what narrowed, and who could see it
+
+What expanded was the number of ways to participate. More languages, more
+platforms, more devices that could hold a wallet, more people
+[who could run something without running the original program](/articles/running-a-node-when-nobody-did/).
+That was a real gain and it is why the network stopped being a thing you could
+only join from a desktop.
+
+What contracted, at exactly the same moment, was the permissible margin of
+disagreement. With one implementation the margin was undefined, because there was
+nothing to disagree with. With two full validators the margin became zero, and it
+had been zero all along without anyone stating it. The tolerance for behavioural
+difference in ordinary software is large. Here it went to nothing, permanently,
+the day the second validator connected.
+
+Who could tell at the time? Almost nobody, and not for lack of competence. A
+divergence between two implementations is invisible until an input arrives that
+crosses the boundary between them, and until then both programs look correct and
+both are producing identical output. The people best placed to see it were the
+ones reading two codebases side by side asking what happens at the edges, and
+that is a small, unglamorous job that nobody was paying for in 2011.

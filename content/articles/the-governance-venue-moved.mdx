@@ -1,0 +1,143 @@
+---
+title: "Every Time the Conversation Moved Venues, the Decision Rules Changed"
+seoTitle: "How Crypto Governance Kept Changing Venue"
+description: "From a mailing list to a forum to chat to a repository to social platforms, and each move quietly changed who could participate and who could not."
+date: 2026-10-14
+author: "Khaled Hawari"
+era: origins
+kind: timeline
+lede: "Where an argument happens determines who is in the room, and this argument kept moving rooms."
+---
+
+Try to cite a protocol argument from 2011 and one from a decade later, and
+notice the difference in what you can hand a reader.
+
+The first has a URL, a timestamp, a threading structure, an author line and a
+plain text archive that renders the same way in any browser. The second may exist
+only as somebody's screenshot of a chat window, or as a post whose surrounding
+replies are ordered by an engagement ranking that no longer reproduces. Both were
+real conversations among people with standing. Only one of them is a citation.
+
+That difference is not incidental to the history. It is the history, because a
+venue is not a neutral container. It is a set of rules about who speaks, who is
+heard, what is kept and what can be pointed at afterwards. Those rules changed at
+least five times, and nobody ever decided that they should.
+
+## The migration, in order
+
+The sequence is straightforward and each step is documented by the venue's own
+archive.
+
+**Mailing lists, through 2008 and before.** The design literature this subject
+rests on was argued out on subscription lists with public archives, of which
+[one carried most of the traffic](/articles/the-cypherpunks-list/). Plain text,
+threaded, chronological, permanently addressable, open to anybody who could
+subscribe, and invisible to anybody who did not already know the list existed.
+
+**A web forum, from late 2009.** Registration, boards, pagination and search.
+Access got dramatically easier and the population grew accordingly.
+[The record of the first two years is almost entirely that one forum](/articles/the-forum-as-the-only-record/),
+a dependency I have written about at length and will not restate.
+
+**Real time chat, overlapping with the forum and continuing.** Development
+conversation moved substantially into IRC, whose defining property is that it has
+no archive unless a participant volunteers to keep one. Where logs exist they
+exist because somebody ran a bot, and the bot's coverage is the coverage.
+
+**The repository, increasingly through the 2010s.** Discussion attached itself to
+diffs. A pull request thread is an argument bound to a specific proposed change,
+hosted by a company, with an identity system, a permission model and a merge
+button. It coexisted with a development mailing list, and
+[the process document that governs proposals](/articles/the-bip-process/) pins
+one step to a named venue, requiring that a proposal be posted to a list rather
+than merely opened as a change.
+
+**Social platforms and group chat, later.** Ranked feeds, unbounded audiences,
+character limits, and threading that is reconstructed rather than recorded.
+
+## Five properties, and what each move did to them
+
+A venue can be described by five things, and every migration traded some of them
+away.
+
+*Access cost.* How hard it is to be in the room at all. This fell monotonically
+across the sequence, from a list you had to know about to a feed anybody already
+had open. That is a genuine democratisation and should be counted as one.
+
+*Identity.* Whether the same name means the same person over time, and whether
+that person carries a history. A mailing list address is stable. Forum and
+repository accounts are stable and carry a visible history of posts or
+contributions. A social account is stable in principle and trivially multiplied
+in practice.
+
+*Ordering.* Whether the sequence you read is the sequence that happened.
+Chronological on a list, chronological within a thread on a forum, chronological
+in chat, structured around a diff in a repository, and ranked on a feed. Ranking
+is the important change: it means two people can read the same conversation and
+encounter different arguments, which was never true of a mailing list.
+
+*Exclusion.* Whether a mechanism exists to remove a participant. Some of these
+venues have such a mechanism and some do not, and I am deliberately not
+characterising how any of them used it. The structural point stands regardless of
+conduct: a venue with a removal mechanism has a different set of possible
+outcomes than one without, and the existence of the mechanism changes how
+participants behave whether or not it is ever used.
+
+*Durability.* Whether the conversation can be read in ten years. This is the
+property that fell hardest, and it fell without anybody trading it for anything.
+
+## The archive is the constraint on the history
+
+This is where venue stops being a background detail and becomes the thing that
+determines what can be written.
+
+The reason this site can quote the 1992 standards culture, reproduce a forum post
+from 2010, or count messages in a period, is that those venues kept text and
+served it at stable addresses. The reason there is comparatively little written
+about what was argued in chat is not that the chat was unimportant. It is that
+most of it does not exist any more.
+
+That produces a systematic bias in every history of this subject, including this
+one. Well archived venues are overrepresented in the record, therefore in what
+gets cited, therefore in what everybody believes happened. An argument settled in
+a room with no archive did not leave a smaller trace than one settled on a list.
+It left none, and the absence is silent, which is why it does not feel like a
+gap.
+
+Better to state that in the sentence than in a footnote. Where this site says the
+discussion went a certain way, it means the recorded discussion went that way,
+and the recorded discussion is a sample with a known and unmeasurable selection
+effect.
+
+## Why the loudest venue is the wrong one to read
+
+There is a specific failure that follows from all this, and it is the one worth
+guarding against.
+
+At any moment one venue has the most volume, and the temptation is to read the
+community's view off it. Volume is a function of access cost and ranking, neither
+of which has anything to do with whether the participants run anything, maintain
+anything or bear any consequence from the outcome. The venue with the most posts
+and the venue where a change gets implemented were rarely the same venue, and
+[the norm the field claims to decide by](/articles/rough-consensus-and-running-code/)
+was never a headcount in the first place.
+
+## Participation up, retrievability down
+
+What expanded, continuously, was participation. Each move made it cheaper to be
+present, and the population of people entitled to consider themselves part of the
+argument grew by orders of magnitude across the sequence.
+
+What contracted, just as continuously, was retrievability. The two curves are not
+coincidentally opposed. The features that lower access cost, real time delivery,
+ranked feeds, ephemeral rooms, are the same features that destroy the archive.
+You can have a searchable permanent record or a low friction mass conversation,
+and every migration here chose the second without acknowledging it was
+choosing.
+
+Who could tell at the time? Nobody was assigned to. Moving where you talk is not
+a governance decision, it is a convenience, and each individual move was
+defensible on its own terms. The cumulative effect was that a subject which will
+be argued about in courtrooms and textbooks for a century relocated its primary
+record, several times, into progressively less durable places, and no one step in
+that process was ever put to anybody as a question.

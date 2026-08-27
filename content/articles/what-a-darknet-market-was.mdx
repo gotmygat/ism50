@@ -1,0 +1,141 @@
+---
+title: "What Those Markets Actually Were, as Pieces of Software"
+seoTitle: "Darknet Markets, as Pieces of Software"
+description: "Stripped of the reporting, these were commerce platforms with escrow, ratings and dispute resolution, running over an anonymity network."
+date: 2026-10-20
+author: "Khaled Hawari"
+era: earlyExchange
+kind: explainer
+lede: "Described as software rather than as crime, they were ordinary marketplace platforms with an unusual transport layer."
+---
+
+The most useful surviving document about these markets is a computer science paper
+about payment traceability. "A Fistful of Bitcoins: Characterizing Payments Among
+Men with No Names" was presented at the Internet Measurement Conference in 2013,
+while the markets it examined were still operating, and its finding was the
+opposite of what the press of the period was saying. The payments were not
+untraceable. They were unusually traceable, because they were recorded permanently
+in a file that anybody could download.
+
+That gap is worth closing, because this was the first sustained use of the payment
+network by people who needed it to work rather than wanting to hold it. So: the
+software, as architecture, and nothing else.
+
+## Five components, none of them novel on its own
+
+**A transport layer.** Onion routing, developed out of publicly funded network
+research and released as free software. Traffic is wrapped in layers of encryption
+and passed through volunteer relays, each knowing only the previous hop and the
+next. The relevant extension is the hidden service protocol, which lets a
+server be reachable without either end learning the other's network location. It is
+general purpose infrastructure, used then and now by journalists and by people under
+censorship.
+
+**A marketplace application.** Ordinary web software. Listings, categories, search,
+seller profiles, a cart, an order state machine, an internal messaging system.
+
+**Escrow.** The platform holds the buyer's payment and releases it to the seller
+once the buyer confirms the order arrived.
+
+**A reputation system.** Feedback attached to completed orders, aggregated into a
+visible score on the seller's profile.
+
+**An irreversible payment method.** A transfer that neither the payer nor any
+intermediary can claw back after the fact.
+
+Four of those five were standard commerce technology by 2011. The fifth was new,
+and the reason it was needed is not the reason usually given.
+
+## The escrow is the interesting part
+
+Every marketplace has the same core problem: somebody has to go first. The buyer who
+pays first can be sent nothing, and the seller who ships first can be told nothing
+arrived. Ordinary commerce borrows its answer from outside: chargebacks, consumer
+protection statutes, small claims courts, and behind all of them the fact that both
+parties are identified and reachable.
+
+These platforms could borrow none of that, so the software had to manufacture all of
+it internally. That is a cleaner natural experiment in market design than anything
+you could construct.
+
+Escrow answers the going first problem by making neither party go first. The value
+sits with the platform, visible to both, until performance is confirmed. Around it
+grew the rest of a private legal system: a dispute process, a decision maker, rules
+about partial refunds, and time limits after which release happened automatically.
+Platform staff were functionally arbitrators, and their decisions were final in the
+way a court's are, because there was no appeal above them.
+
+Later designs reduced the platform's power over the pot by requiring two of three
+signatures to move escrowed funds, with keys held by buyer, seller and platform. The
+platform then cannot move money alone but can break a deadlock, which is what an
+arbitrator should be able to do.
+
+## Reputation is the collateral
+
+Escrow protects one transaction. It does nothing about a seller who performs on
+small orders and then fails on a large one.
+
+The reputation score answers that, and the mechanism is a bond. A seller account
+with a long feedback history holds value that is not transferable and not
+recoverable. It was earned by performing, it can be destroyed only once, and it
+disappears the instant the account defects. The account is collateral posted
+against future behaviour, and its size is the record of past behaviour. Nobody had
+to design that as a bond. It falls out of a feedback score attached to an identity
+that cannot be bought.
+
+## Where the reporting went wrong: two different layers
+
+The standard account of the period fused the two layers into one idea, usually
+phrased as untraceable internet money. That fusion is wrong in both directions.
+
+The anonymity was in the transport layer. Onion routing concealed who was talking to
+whom and where the server was. It is a network property, it has nothing to do with
+money, and it works identically whether you run a marketplace over it or read a news
+site.
+
+The payment layer was the opposite of anonymous. Every transfer was written to a
+public, permanent, globally replicated record with no delete function. Addresses do
+not carry names, which is not the same as untraceable, and the difference between
+pseudonymous and anonymous is the whole subject. The 2013 measurement work showed
+that ordinary heuristics could group addresses into common ownership and attach
+those groups to services, using nothing but the public record.
+
+So the reporting credited the payment system with a property belonging to the
+network layer. What these markets actually required was never anonymity. It was
+**irreversibility**. Neither side could go to court, so neither could tolerate a
+payment that a third party might reverse months later on somebody's say so. No
+existing payment network offered that. It is why this technology was reached for,
+and it is not the reason anybody gave at the time.
+
+It also makes the escrow position structurally identical to the problem inside
+[a venue that holds everyone's balance](/articles/mt-gox-before-it-was-an-exchange/).
+Read it as a balance sheet rather than a feature: the platform holds funds it does
+not own, for counterparties who cannot verify the balance, with no external record
+to check against and nobody able to compel one. Outages that looked like theft and
+platforms that stopped releasing escrow are documented across the whole class. None
+of it required advance planning. It is what a structure with one set of books and no
+observer does under stress.
+
+## The demand was real, the anonymity was not
+
+What was expanding, for the first time, was use. Not holding, not trading, not
+speculating on a price. Recurring transactions by people who needed a specific
+property of the payment system and had no substitute for it. The demand was daily,
+it arrived without anybody's permission, and no party was in a position to decline
+it, which is the situation the network had already been placed in when
+[it was asked to take a side](/articles/the-network-asked-to-take-a-side/). It is
+also when the machinery stopped being a single purpose payment experiment,
+alongside the demonstration that
+[the same code could be pointed at other problems](/articles/the-first-fork-of-the-code/).
+
+What was contracting was the credibility of the anonymity claim, and it contracted
+long before anybody acted on it. The clearest example ended with a server seized in
+October 2013 and its ledger history fully readable afterwards, which is what a
+permanent public record does. The measurement paper had been presented weeks
+earlier.
+
+Who could tell at the time? Researchers, and anybody who read them. The information
+was not secret and not hard to obtain. It was published in the open, it contradicted
+a more comfortable belief, and the belief won for years. That is the finding, and it
+is not a finding about crime. It is about how long a field holds a technical belief
+nobody has checked, once the belief is part of how the field describes itself.

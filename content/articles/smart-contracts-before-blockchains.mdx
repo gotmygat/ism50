@@ -1,0 +1,133 @@
+---
+title: "The Term Smart Contract Predates Every Chain That Runs One"
+seoTitle: "Smart Contracts Before Blockchains Existed"
+description: "The original meaning of the phrase, why the vending machine was the example, and how much drift the term has taken on since."
+date: 2026-10-11
+author: "Khaled Hawari"
+era: origins
+kind: primarySource
+lede: "The phrase was coined to describe a vending machine, and it has been sliding away from that meaning ever since."
+---
+
+The phrase was in circulation in the mid 1990s, more than a decade before any
+chain existed to run one. Nick Szabo used it in writing from 1994, and the fullest
+treatment, "Formalizing and Securing Relationships on Public Networks", appeared
+in *First Monday* in September 1997. Both are still online and both are shorter
+than most articles written about them.
+
+The relevant point for anyone reading the term today is that it was not coined to
+describe software on a shared ledger. It was coined to describe a category that
+already existed in the physical world, and the example chosen to anchor it was a
+vending machine.
+
+## The definition, and the machine it came from
+
+The essay defines a smart contract as a set of promises, specified in digital
+form, together with the protocols by which the parties perform on those promises.
+Two halves, and the second is the one that does the work. The novelty is not that
+the terms are written in a machine readable way. It is that performance is carried
+out by the mechanism rather than promised and then delivered separately.
+
+The vending machine is offered as the ancestor of the whole category, and it is a
+better example than most of what replaced it. Consider what it actually
+accomplishes. It offers terms to anyone at all, with no negotiation and no
+verification of who the counterparty is. It takes payment, performs, and returns
+change, in one step, so there is no interval in which one party has performed and
+the other has not. It requires no court, because there is no gap between agreement
+and performance for a dispute to occupy. And its protection is physical: the
+lockbox and the housing are engineered so that the cost of breaking in exceeds
+what can be taken out.
+
+That last clause is the part usually skipped, and it is the most rigorous idea in
+the essay. The security of the arrangement is a cost comparison, sized against the
+value at stake, rather than a promise of invulnerability. The essay reasons about
+tamper resistance in exactly those terms.
+
+## Four properties the essay asks for
+
+The essay does not stop at the definition. It sets out design objectives, and they
+are worth having in front of you because they are a checklist that most later
+usage of the term quietly fails.
+
+**Observability**, the ability of the parties to see each other's performance.
+**Verifiability**, the ability to prove to a third party that performance happened
+or did not. **Privity**, the principle that knowledge of and control over the
+contents of a relationship should be limited to the parties who actually need it.
+**Enforceability**, and, alongside it, the goal of reducing how much enforcement
+is needed in the first place.
+
+Read that list carefully and notice what it assumes. Verifiability presumes an
+arbitrator exists to be convinced. Enforceability is a property to be minimised
+rather than abolished. This is not a proposal to replace legal systems. It is a
+proposal to arrange transactions so that fewer of them ever need one, which is a
+much narrower and much more defensible claim.
+
+Privity is the objective that has aged most awkwardly, since a public chain
+publishes the terms and the performance of every arrangement on it to everybody.
+On the original checklist that is a defect to be engineered around, not an
+incidental feature of the deployment.
+
+## What the word contract brings with it
+
+Here is why the drift is a practical problem rather than a pedantic one.
+
+Calling a deployed program a contract imports, without anyone deciding to import
+them, a set of expectations that come from legal contracts. That a contract has
+parties who intended something. That where the words are ambiguous, somebody
+interprets them by asking what was meant. That mistake, misrepresentation and
+duress are recognised categories with consequences. That breach entitles the
+injured party to a remedy, and that some forum can order one.
+
+Deployed code carries none of that. It has no concept of intent, so there is
+nothing to appeal to when the text and the expectation diverge. It does not
+interpret; it executes, and a behaviour nobody wanted is treated identically to a
+behaviour everybody wanted. It has no notion of remedy, because there is nobody in
+the mechanism with the standing to order one. What a given legal system makes of
+any of this is a separate question, it varies, it changes, and this piece does not
+answer it. Nothing here is guidance about any arrangement of yours.
+
+The original formulation avoids the confusion by being explicit that the mechanism
+handles performance while enforcement remains a distinct thing that you are trying
+to need less of. The later usage collapses the two, and the collapse is entirely
+inside the word.
+
+The same author's [bit gold proposal](/articles/bit-gold-the-proposal/) shows the
+habit that makes the earlier writing worth reading directly: mechanisms are
+described in terms of what an adversary would have to spend, and the parts that
+remain unsolved are named as unsolved. That register, developed on the
+[cypherpunks list](/articles/the-cypherpunks-list/) and in the surrounding
+essays, is the first casualty when a term goes mainstream.
+
+## The equivocation, named in advance
+
+This site reaches, later in its run, an argument in which a large sum of money
+moved through code that behaved exactly as written and not at all as intended, and
+in which the community split over whether anything had gone wrong.
+
+Almost every position in that argument can be restated as a claim about the word
+contract. One side used it to mean that the mechanism had performed, so the
+outcome was the outcome, whatever anyone expected. The other used it to mean that
+there had been an agreement with terms, and that a mechanism producing a result
+nobody agreed to is a failure of the mechanism rather than a valid execution of the
+deal. Both usages are defensible. They are not the same usage, and the participants
+mostly did not notice they were arguing about a definition.
+
+The ambiguity was present in the vocabulary
+from the beginning, and the 1990s essays are careful in exactly the place the later
+argument was careless.
+
+## Expansion, contraction, and who could tell the difference
+
+What expanded was the reach of the phrase. From a handful of essays and a mailing
+list readership, smart contract became a term used in press releases, prospectuses
+and legislative hearings, applied to any program deployed to a public chain
+regardless of whether it involves promises, parties or performance at all.
+
+What contracted was its content. A term with four stated design objectives and a
+worked example became a synonym for on chain code. The specificity lost was the whole
+checklist against which a design could be judged.
+
+Who could tell at the time? The people who had read the essays, which was a small
+and shrinking share of the people using the term. And the drift was not a
+misunderstanding of an obscure source. The source was online, free and short
+throughout. It just stopped being read once the phrase became useful without it.

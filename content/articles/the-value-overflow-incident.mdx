@@ -1,0 +1,149 @@
+---
+title: "The Bug That Created Coins Out of Nothing, and the Fix That Rewrote History"
+seoTitle: "The Value Overflow Bug and the Chain Rewrite"
+description: "An arithmetic overflow allowed a transaction that violated the supply rule, and the response was a patched client and a reorganised chain."
+date: 2026-09-27
+author: "Khaled Hawari"
+era: origins
+kind: postmortem
+lede: "The supply rule was broken by an integer overflow, and the repair required the network to abandon blocks it had already accepted."
+---
+
+Ask any node on the network today for the block at height 74638 and it will
+hand you `000000000069e1affe7161ab4bcbeacebb4ddf155b50e807f42de971b688a09b`. It
+holds three transactions. The two that are not the coinbase pay out one coin
+and one coin, then one coin and forty nine coins. There is nothing remarkable
+in it at all.
+
+That is the point. The block that height is famous for is not the block that
+height contains.
+
+The block the incident is named after hashed to
+`0000000000790ab3f22ec756ad43b6ab569abf0bddeb97c67a6f7b1470a7ec1c`, and you
+do not have to take that on trust either, because the hash was written into the
+released source code within hours as a value to be refused. It sits in
+`main.cpp` in the v0.3.10 tag, inside a loop that walks backwards through a
+candidate chain looking for it:
+
+```cpp
+// Scanback checkpoint lockin
+for (CBlockIndex* pindex = pindexPrev; pindex->nHeight >= 74000; pindex = pindex->pprev)
+{
+    if (pindex->nHeight == 74638 && pindex->GetBlockHash() == uint256("0x0000000000790ab3f22ec756ad43b6ab569abf0bddeb97c67a6f7b1470a7ec1c"))
+        return error("AcceptBlock() : rejected by scanback lockin at %d", pindex->nHeight);
+}
+```
+
+A block that had been mined, relayed, validated and built upon was named in the
+software by hash and made permanently unacceptable. Everything else in this
+piece follows from that.
+
+## What the check looked like before
+
+The transaction in that block had outputs whose sum did not fit in the signed
+64 bit integer the code used for amounts. When the sum wrapped, the total
+outputs came out small, so the rule that inputs must cover outputs was
+satisfied by arithmetic that had stopped describing reality.
+
+The reason nothing caught it is short enough to read in full. Here is the
+relevant part of `CTransaction::CheckTransaction` as it stood before the fix:
+
+```cpp
+// Check for negative values
+foreach(const CTxOut& txout, vout)
+    if (txout.nValue < 0)
+        return error("CTransaction::CheckTransaction() : txout.nValue negative");
+```
+
+One comparison, against zero. No upper bound on any single output, and no
+running total. The function was checking for a mistake, not for an attack.
+Every summary that describes this as a failure of the validation logic is
+correct, but it undersells how little validation logic there was to fail.
+
+## A constant that did not exist until the cap was broken
+
+The fix is commit `d4c6b90ca3f9b47adb1b2724a0c3514f80635c84`, timestamped
+15 August 2010 at 21:35 UTC and recorded in the repository under the author
+string `s_nakamoto`. Its subject line is "fix for block 74638 overflow output
+transaction". It touches three files and adds nineteen lines.
+
+The first line it adds is this one, to `main.h`:
+
+```cpp
+static const int64 MAX_MONEY = 21000000 * COIN;
+```
+
+That constant was not in the software before that afternoon. The number that
+gets described as the founding economic law of the system, the one discussed
+in [the supply schedule](/articles/the-supply-schedule/), had no expression in
+the validation path at all until the day the supply was exceeded. The issuance
+side was bounded, because the subsidy halves on a schedule. The spending side
+was not, because nobody had written down that a transaction could not move more
+than everything.
+
+The rest of the commit accumulates a running total across the outputs and
+checks it after every addition, then does the same for the inputs in
+`ConnectInputs`. It also bumps the protocol version from 309 to 310.
+
+## Forty six minutes later, a second commit
+
+Patching the client stops new bad blocks. It does not remove the one already
+buried under further work, and it does not stop an upgraded node from
+downloading that chain and following it, because the bad block was valid under
+the rules the node had already applied.
+
+So a second commit landed at 22:21 UTC, `85de7d7c0cbb`, with the message
+"scanback check to prevent adding to the 74638 overflow chain". That is the
+loop quoted at the top. From then on the software did not merely reject the bad
+transaction going forward, it refused any chain containing that block, at any
+depth.
+
+There was no vote, no committee, no standards body and no process. There was
+none of that because none of it existed in August 2010. The response consisted
+of a source change and a request that people install it, and it worked to the
+exact extent that people did.
+
+## The figure this piece is not going to give you
+
+Accounts of the incident always quote a number of coins. This one will not,
+because the number cannot be checked where it should be checkable. The block is
+not in the chain, so no node will serve it, and no explorer following the
+best chain will show it. What survives is a description of the block rather
+than the block, and a description is not a record.
+
+The arithmetic constraint can be stated safely, because it comes from the
+mechanism rather than from an account: for a sum of positive 64 bit amounts to
+wrap to something small, the total has to land at or just past the point where
+the type runs out. That tells you the order of magnitude was absurd. It does
+not tell you the figure, and the figure is not load bearing for anything in
+this piece.
+
+## Immutability, stated more carefully
+
+This is the strongest counterexample available to the claim that the chain
+cannot be changed, and it is missing from almost every argument that makes the
+claim. Blocks that had been accepted by the network were abandoned, deliberately,
+by people who wrote a hash into a file and shipped it. Not by a majority
+overruling a minority through the ordinary fork rules described in
+[what a hard fork actually is](/articles/what-a-hard-fork-actually-is/), but by
+a small number of people acting fast on a Sunday evening.
+
+What was expanding was the supply, inside the ledger of every node that had
+accepted the block, without any rule having changed. What was contracting, and
+much faster, was the set of chains the software would consider, from anything
+with enough work down to anything with enough work that also did not contain one
+named block.
+
+Who could tell at the time is the part worth holding on to. Almost nobody. The
+population of people running the client was small enough that
+[running a node](/articles/running-a-node-when-nobody-did/) was a hobby rather
+than infrastructure, and of those, the number who read the diff was smaller
+still. The property being defended was that no participant has to trust another
+participant's word about the ledger. The defence of that property, on this
+occasion, was several dozen people trusting a source change they had not read.
+
+That precedent existed from the beginning. Every later argument about whether a
+chain may be rewritten to undo a loss is arguing about the size of the
+justification, not about whether the thing is possible. It was done in year
+two, in five hours, and it is why the honest form of the claim is that the chain
+is expensive to change rather than that it cannot be.

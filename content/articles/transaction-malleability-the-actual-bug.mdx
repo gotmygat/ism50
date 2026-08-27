@@ -1,0 +1,152 @@
+---
+title: "Transaction Malleability, Explained Properly and Without the Blame"
+seoTitle: "Transaction Malleability, Explained Properly"
+description: "A transaction could be rebroadcast with a different identifier while remaining valid, and understanding exactly what that allowed matters here."
+date: 2026-10-23
+author: "Khaled Hawari"
+era: earlyExchange
+kind: explainer
+lede: "The identifier could change without the transaction changing, which breaks any system that treats the identifier as final."
+---
+
+A transaction identifier is a hash of the transaction's own bytes. Some of those
+bytes are the signature. A signature cannot sign itself. Everything here follows
+from those three sentences, and none of it requires an accusation against anybody,
+so this piece does not make one.
+
+## What the identifier is actually a hash of
+
+A transaction is a list of inputs and a list of outputs. Each input names a
+previous output, by the identifier of the transaction that created it plus an
+index, and supplies an unlocking script: normally a signature and a public key.
+The structure is visible in
+[the first transaction on chain](/articles/the-first-transaction-on-chain/),
+which has only two parties in it.
+
+In the original design the identifier is the hash of the serialised transaction,
+and that serialisation includes the unlocking scripts. The identifier therefore
+depends on the signature bytes.
+
+Now consider what a signature can commit to. It has to be produced before it
+exists, which is a real constraint rather than a joke: the signer hashes a version
+of the transaction in which the input scripts are removed or substituted, and
+signs that. The signature covers which coins are being spent, where they are going
+and how much. It does not cover its own encoding. It cannot.
+
+That is the whole bug. The bytes that determine the payment are protected. Some of
+the bytes that determine the identifier are not, and the gap between those two
+sets is the room malleability lives in.
+
+## Which bytes could be changed without breaking anything
+
+Three families, worth knowing separately because they were closed separately.
+
+**The signature's own algebra.** An ECDSA signature is a pair of numbers, and for
+any valid pair there is a second, arithmetically related pair that verifies
+against the same key and message. Both are correct, and they are different bytes.
+
+**The encoding.** Signatures are serialised with length prefixes and integers, and
+early verification accepted encodings that were sloppy but parseable. Different
+bytes, same signature.
+
+**The script.** The same value can be pushed onto the stack by more than one
+opcode, and extra data can sometimes ride along without changing what the script
+evaluates to. Different bytes again.
+
+In each case a stranger who sees the transaction on the network can alter it and
+broadcast the altered copy. That copy spends the same inputs to the same outputs
+for the same amounts, and carries a different identifier. Only one of the two can
+confirm, and which one wins is a question of relay and timing rather than
+correctness.
+
+Note what the stranger cannot do: change the destination, the amount or the fee.
+Malleability is not theft, it is a renaming.
+
+## What breaks when the identifier is the primary key
+
+Picture a system that processes withdrawals. It builds a transaction, signs it,
+broadcasts it, writes a row saying withdrawal 4417 sent as identifier X, then
+polls the chain for X.
+
+X never confirms, because a copy of it did. The system sees an identifier it
+cannot find, waits, and concludes the send failed. What it does next is the whole
+problem. If it tells the customer the withdrawal failed, the books are wrong. If
+it rebuilds and rebroadcasts automatically, it sends the money twice, and the
+second send draws on coins that really are still unspent, so it succeeds.
+
+Nothing there is a failure of the protocol, which moved exactly the coins the
+signature authorised. The failure is an assumption that was never granted: that a
+network identifier is a stable name for a payment.
+
+## The defensive handling was available the entire time
+
+An accounting system never had to key on the identifier.
+
+Reconcile on inputs instead. You know which previous outputs you signed away, and
+a confirmed transaction spending those inputs to the outputs you intended is your
+payment, whatever it is called. Treat the identifier as a lookup hint, keep an
+internal reference no stranger can alter, and never automate a resend: an
+at-most-once requirement over an unreliable channel needs a human or a hard lock
+in the path, and that requirement predates this industry by decades.
+
+So the bug is a protocol-level flaw that any custodial business should have
+handled defensively, and both halves of that are true at once. A duplicated
+network packet is a real property of the internet and not an excuse for billing
+anybody twice.
+
+## It was known before it was famous
+
+The property is not subtle and was never hidden. It follows immediately from a
+signature being unable to cover itself, and it was discussed in public, in the
+project's own documentation and among developers, well before it reached a press
+release. The academic paper that measured malleability in March 2014 treats it as
+a known issue being quantified rather than as a discovery.
+
+That matters for one reason: a thing that was public is a thing an operator could
+have found. It says nothing about what any operator did.
+
+## What was subsequently changed
+
+The encoding forms were closed first, by making strict signature encoding a
+consensus rule and the alternative signature form non-standard for relay.
+
+The structural fix is segregated witness, activated on Bitcoin in August 2017,
+which moves witness data out of the data determining the identifier. For an input
+spending a segregated witness output the identifier does not depend on the
+signature at all, so nobody can rename it in flight. That describes the design
+rather than what is in use today, since older output types still exist and
+anything spending them is serialised the old way. The bug is not unfixed, and it
+was not fixed by erasing history. Removing it was also a prerequisite rather than
+a tidy-up, since any protocol referencing an unconfirmed transaction by its
+identifier is impossible while a stranger can rename it.
+
+## The accusation is a separate question, deliberately
+
+Most readers have heard of this bug because a venue named it as the cause of a
+very large loss. That claim, the arithmetic later run against it and where the
+coins went are dealt with in
+[the Mt. Gox piece](/articles/mt-gox-the-coins-were-already-gone/), with the
+venue's odd prehistory in
+[what it was before it was an exchange](/articles/mt-gox-before-it-was-an-exchange/).
+A mechanism that can only be understood through one company's failure has not been
+explained, it has been illustrated.
+
+## The assumption spread faster than the reading did
+
+What expanded was the number of systems treating the identifier as a permanent
+name. Explorers indexed by it, support desks quoted it, wallets showed it as a
+receipt, and accounting systems keyed on it because it was the obvious
+unique-looking string in the response. Every new integration inherited the
+assumption from the last.
+
+What contracted, in proportion, was the share of those depending on the
+assumption who had read enough of the protocol to know it was not guaranteed. The
+property never changed. The population resting on a misreading of it grew every
+month.
+
+Who could tell is the sharpest part. Developers reading the project's own
+documentation could, and said so. More pointedly, any operator could tell from
+their own logs, because a renamed payment leaves two records on your own disk: an
+identifier that never confirms, and a confirmed transaction spending the exact
+inputs you signed. The evidence was not only on the chain. It was in the
+reconciliation nobody was required to run.
