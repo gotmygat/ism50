@@ -1,0 +1,195 @@
+---
+title: "Hashcash: What the Proposal Actually Said It Was For"
+seoTitle: "Hashcash: What the Proposal Actually Said"
+description: "Proof of work was designed as an anti-spam postage stamp, not as a monetary policy, and the original document is explicit about it."
+date: 2026-09-21
+author: "Khaled Hawari"
+era: origins
+kind: primarySource
+lede: "The mechanism at the centre of Bitcoin mining was proposed to make email spam expensive."
+---
+
+The announcement is a mailing list post. Here is its header, as served today by
+`hashcash.org/papers/announce.txt`:
+
+```text
+To: cypherpunks@toad.com
+Subject: [ANNOUNCE] hash cash postage implementation
+From: Adam Back <aba@dcs.ex.ac.uk>
+Date: Fri, 28 Mar 1997 16:52:26 GMT
+```
+
+The subject line is the argument. Postage. Not issuance, not scarcity, not a
+monetary base. A stamp, which you buy by burning something, which the recipient
+checks and then throws away.
+
+The first paragraph of the body gives the property that outlived every
+application anyone proposed for it:
+
+> The idea of using partial hashes is that they can be made arbitrarily
+> expensive to compute (by choosing the desired number of bits of collision),
+> and yet can be verified instantly.
+
+Arbitrarily expensive to produce, instant to check. That asymmetry is the whole
+mechanism, and it is an access-control mechanism. It says nothing about how many
+of anything exists.
+
+## What the 1997 document is actually demonstrating
+
+The post is not a paper. It is a walkthrough of a C program, with terminal
+transcripts. The author reports his own machine at `speed: 7218 hashes per sec`
+and estimates nine seconds for a seventeen bit collision, adding, in
+parentheses, that it "varies quite widely from estimated time". The variance is
+noted, in 1997, in a shell session.
+
+Then comes the part that almost nobody quotes, and it is the part this site
+cares about most. The program has a flag called `-d`, and the section explaining
+it is headed **Double spending protection**:
+
+> The database would grow indefinately as the mailer accepted new payments, so
+> the validity period is stored in the database, and at the next use of the
+> database after the validity period expires, the collision will be discarded.
+
+So the 1997 proposal already contains the double spend problem, already contains
+a database of what has been spent, and already contains an expiry rule to stop
+that database growing forever. It solves the problem the way [every design
+before 2009 solved it](/articles/the-double-spend-problem/): one party keeps the
+list. In hashcash the party is the receiving mail server, and the list is local,
+and the whole thing works because the server has no obligation to agree with any
+other server about anything.
+
+That is the join. Bitcoin did not take proof of work and add a ledger. It took
+the shape of the cost function and used it to decide whose local list wins, so
+that a network of mutually suspicious parties could hold one list without
+appointing a keeper. Hashcash's spent database and Bitcoin's chain solve the same
+problem for different numbers of participants, and the number is the difference.
+
+## What Bitcoin reused, and what it left behind
+
+Three things in the 1997 design have no analogue in Bitcoin.
+
+**The service name.** A hashcash token is minted against a string identifying the
+recipient, so a stamp made for one server cannot be spent at another. The 2002
+paper states the reason plainly: tokens are computed relative to a service name
+"to prevent tokens minted for one server being used on another". Bitcoin's work
+is bound to a block, not to a counterparty, which is why the same work secures
+the record for everybody at once instead of buying one delivery.
+
+**The expiry.** Hashcash tokens have a validity period, and the mail server
+discards the record once it lapses. Bitcoin's outputs do not expire, which is why
+its equivalent database only grows.
+
+**The value.** A hashcash token buys one thing and is then worthless. It is a
+receipt for cycles already burnt. Nothing in the document creates a unit that can
+be held, transferred or accumulated, and the author's own classification of his
+scheme, in the 2002 write up, contains no monetary vocabulary at all:
+
+> Hashcash is a non-interactive, publicly auditable, trapdoor-free cost function
+> with unbounded probabilistic cost.
+
+Non-interactive, publicly auditable, trapdoor-free, unbounded probabilistic
+cost. Four properties, none of them about money.
+
+What did carry over is smaller and more specific than "proof of work". The 1997
+scheme searched for a collision against the hash of the service name. The 2002
+paper records a change:
+
+> A subsequent improvement suggested independently by Hal Finney and Thomas
+> Boschloo for hashcash is to find a collision against a fixed output string.
+> Their observation is that a fixed collision target is also fair, simpler and
+> reduces verification cost by a factor of 2.
+
+A fixed target of leading zero bits. That is the form the whitepaper describes,
+and the whitepaper cites hashcash for exactly this and for nothing else, in one
+sentence:
+
+> To implement a distributed timestamp server on a peer-to-peer basis, we will
+> need to use a proof-of-work system similar to Adam Back's Hashcash [6], rather
+> than newspaper or Usenet posts.
+
+Note what the sentence is comparing hashcash against. Newspapers and Usenet
+posts. The citation is about publication, not about minting.
+
+## The anti-spam application never worked
+
+The announcement does the arithmetic itself, and it is confident:
+
+> This would put spammers out of business overnight, as 1,000,000 x 20 = 100 MIP
+> years which is going to be more compute than they've got
+
+Five years later the same author published a paper whose stated purpose was to
+capture "in one place the various applications, improvements suggested and
+related subsequent publications". Its Applications section lists what hashcash
+had actually been used for by 2002: throttling denial of service against
+remailer networks, an extension of syn-cookies, publication flood control in
+Freenet, Publius and Tangler, request throttling in a self-certifying file
+system, flood control at a mail to news gateway, and minting for a 1998
+electronic cash proposal.
+
+Every entry on that list is a research system, a remailer, or a proposal. There
+is no mail client on it, because there was no mail client on it. The scheme that
+was going to put spammers out of business overnight was, five years in, a tool
+for the small number of systems that had no one to ask permission from.
+
+<div class="note">
+  <span class="note__label">Two dates, from the same author</span>
+
+  The announcement above is stamped Friday, 28 March 1997. The 2002 paper's
+  abstract says hashcash "was originally proposed as a mechanism to throttle
+  systematic abuse of un-metered internet resources such as email, and anonymous
+  remailers in May 1997", and its own reference list gives "Adam Back. Hashcash,
+  May 1997."
+
+  March in the archived post, May in the retrospective, both attributed to the
+  same person. I have not found a document that resolves it, and the honest
+  position is that the announcement carries a mail header and the paper carries a
+  recollection, and mail headers are the better evidence of when a mail was sent.
+  I am not treating either as settled.
+</div>
+
+<div class="note">
+  <span class="note__label">The citation does not resolve over HTTPS</span>
+
+  The Bitcoin whitepaper's reference [6] reads
+  "A. Back, 'Hashcash - a denial of service counter-measure,'
+  http://www.hashcash.org/papers/hashcash.pdf, 2002."
+
+  Checked on the day of writing: that host answers on port 80 and returns the
+  paper. It does not complete a TLS handshake at all. Any tool that upgrades
+  http to https before fetching, which is most of them now, cannot retrieve the
+  most cited reference in the most cited document in this subject. The file is
+  fine. The path to it is quietly rotting, and a reference is not a copy.
+</div>
+
+## What was expanding, what was contracting
+
+What expanded is the idea that admission to a service could be priced without an
+account. Before hashcash, throttling abuse meant knowing who was asking:
+a login, a subscription, a payment relationship, a reputation. The 1997 post
+proposes a stamp that carries no identity and can be checked by anyone, and the
+announcement is explicit about why that mattered to the people reading it, since
+it is "in keeping with net culture of free discourse, where the financially
+challenged can duke it out with millionaires". Admission without identity is the
+expansion, and it is the same one the [cypherpunks list](/articles/the-cypherpunks-list/)
+had been working toward from several other directions at once.
+
+What contracted, over the following five years, was the belief that this would
+fix email. It did not, and the author's own list of applications is the record of
+that contraction: from a mechanism aimed at the largest messaging system in the
+world to a mechanism used by a handful of systems whose defining property was
+that they had no administrator to appeal to.
+
+Who could tell at the time is the interesting part. Nobody reading that post in
+March 1997 was looking at a monetary invention, including the person who wrote
+it, and the piece of it that mattered eleven years later is not the part he was
+arguing for. He was arguing that spam could be made expensive. The durable
+contribution was the shape underneath the argument: a thing that is expensive to
+produce, trivial to check, and requires no one's permission to make or to verify.
+The application was wrong and the primitive was right, which is a more common
+outcome in this history than the retellings admit.
+
+A great deal of confused writing about mining energy begins by treating proof of
+work as a monetary design and then asking what the money costs. The document says
+it is a cost function for controlling access. Read it that way and the argument
+changes shape: the question is not what issuance is worth, but what the access it
+gates is worth to the people paying for it.

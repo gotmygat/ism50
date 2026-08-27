@@ -1,0 +1,166 @@
+---
+title: "A Soft Fork Tightens the Rules, and Old Nodes Never Notice"
+seoTitle: "What a Soft Fork Actually Is"
+description: "The distinction that governs every upgrade fight: a rule change that old software still accepts, and why that backwards compatibility is political."
+date: 2026-09-16
+author: "Khaled Hawari"
+era: origins
+kind: explainer
+lede: "The defining property is that software nobody updated still considers the new blocks valid."
+---
+
+There is a definition of this in a primary document, it is one sentence long, and
+it is better than every metaphor written since. BIP 123, "BIP Classification",
+by Eric Lombrozo, status Deployed, defines it like this:
+
+> In a soft fork, some structures that were valid under the old rules are no
+> longer valid under the new rules. Structures that were invalid under the old
+> rules continue to be invalid under the new rules.
+
+That is the whole mechanism. No tightening screws, no narrowing funnels, no
+locks and keys. A rule change is a soft fork when it shrinks the set of things
+the rules accept and never grows it.
+
+## Why shrinking the set is the property that matters
+
+Think of a node as a program that answers one question about each block: is this
+valid or not. Under the old rules it answers yes to some set of blocks. The
+change removes members from that set and adds none.
+
+Now put an old node in front of a block produced under the new rules. That block
+satisfies the new rules, and the new rules are a subset of the old ones, so it
+satisfies the old rules too. The old node answers yes. It cannot tell that
+anything happened, because nothing it can observe has changed. It was never
+asked whether it agreed with the new rule; it was asked whether this specific
+block is acceptable, and it is.
+
+BIP 99, by Jorge Timón, gives a version of the same definition and then adds the
+consequence that makes the mechanism a political object rather than an
+engineering one:
+
+> A consensus fork wherein everything that was previously invalid remains
+> invalid while blocks that would have previously considered valid become
+> invalid. A hashrate majority of miners can impose the new rules. They have
+> some deployment advantages like backward compatibility.
+
+Note the verb. Impose.
+
+## The sense in which non upgraded users are following new rules
+
+This is the part that gets softened in most explanations, so it is worth stating
+flatly.
+
+After a soft fork activates and the blocks being produced conform to the new,
+narrower rules, a user running old software is on a chain whose contents are
+constrained by a rule their software does not contain, cannot check, and would
+not enforce. They are getting the new rule's effects without the new rule's
+protection. If block producers stopped honouring the new rule tomorrow, the old
+node would happily accept the result, because the old node's standard of validity
+is the wide one.
+
+So the honest description is not that old nodes are unaffected. It is that old
+nodes are unaware. They are following the new rules in the sense that the chain
+they see obeys them, and not following them in the sense that they are doing
+nothing to make that true. Every guarantee they appear to be receiving is being
+supplied by other people's software.
+
+That asymmetry is the entire argument, and it has been argued in both directions
+by people who understood it identically.
+
+## The two readings, and neither is stupid
+
+**Compatibility is what makes the method deployable.** Nothing coordinates. There
+is no flag day, no moment where everyone must have upgraded or lose the ability
+to transact, no user who wakes up to a program that has stopped working. A change
+can be developed, released, adopted gradually and enforced by whoever has
+adopted it, while everybody else carries on. For a network with no membership
+list, no way to contact its users and no authority that can require anything of
+anyone, that is not a convenience. It is often the difference between a change
+being possible and a change being impossible.
+
+**Compatibility is also what lets a change ship without the network consenting to
+it.** The same property that spares non upgraded users any disruption also
+removes their vote. They cannot object by doing nothing, because doing nothing is
+acceptance. To register a refusal they have to actively run software that rejects
+the new blocks, which means deliberately following a chain that the enforcing
+majority is not building on. Silence, under a soft fork, counts as yes.
+
+Both of those sentences are true at the same time. The scaling dispute that
+occupies a later stretch of this site was not, at its core, a disagreement about
+which of them was true. It was a disagreement about whether the second one
+disqualifies the method. One side held that a change nobody has to consent to is
+a change that respects users by not disturbing them. The other held that a change
+nobody has to consent to is a change that was not consented to. Those are
+positions about legitimacy, not about mechanism, and the mechanism cannot settle
+them.
+
+<div class="note">
+  <span class="note__label">What this piece deliberately does not tell you</span>
+
+  It does not tell you which historical upgrades were deployed this way. Naming a
+  specific activation without opening its actual deployment mechanism is how
+  wrong claims propagate in this subject, and several well known changes were
+  deployed by mechanisms that are described sloppily almost everywhere. Those
+  belong in pieces where the deployment document is open on the desk.
+
+  It also does not tell you that one fork type is safer than the other. That
+  claim is made constantly in both directions and it is not a property of the
+  mechanisms. It is a property of a particular change, a particular network, and
+  a particular distribution of who is running what. A method that requires no
+  coordination has failure modes a method requiring coordination does not, and
+  the reverse is equally true.
+
+  And it does not tell you anything about software you personally run.
+</div>
+
+## Why the taxonomy stopped being enough
+
+BIP 99 is worth reading for a second reason: it exists because the two word
+taxonomy was already known to be insufficient in 2015. Timón's document is titled
+"Motivation and deployment of consensus rule changes" and it spends its length
+splitting consensus changes into categories that the soft and hard labels cannot
+express. Accidental forks caused by a bug in a reimplementation. Unilateral soft
+forks, which the document describes as being imposed by miners "in some cases,
+even against the will of a super-majority of users", and then calls "practically
+an attack on the network". Schism hard forks. Uncontroversial upgrades, with the
+document openly admitting it cannot define uncontroversial.
+
+BIP 99's status is Closed. It was never adopted as anything. It sits in the
+repository as a piece of thinking that did not become a process, which is exactly
+the outcome [the proposal process](/articles/the-bip-process/) produces routinely
+and which readers keep mistaking for rejection.
+
+There is one more line in it worth carrying forward, made in passing while
+discussing a different problem:
+
+> That's why "the implementation is the specification".
+
+Written about the difficulty of reimplementing consensus rules safely, it is also
+the reason the soft fork argument cannot be resolved on paper. There is no
+document that defines the valid set. The valid set is whatever the software
+people are actually running says it is, which returns the question to
+[who chooses which binary to run](/articles/maintainers-not-owners/) and not to
+who writes which code.
+
+## What was expanding, what was contracting
+
+What expanded was the space of changes that could be made to a live monetary
+network without asking anyone. That is a genuine and underrated capability. Most
+systems of comparable value can be changed only by an owner or not at all, and
+here was a method that let a rule be added to a system with no owner and no
+disruption to anybody who had not been paying attention.
+
+What contracted was the meaning of running your own software. The whole argument
+for validating independently is that you check the rules yourself rather than
+trusting anyone. Under a soft fork, an unmodified node is checking a strictly
+weaker set of rules than the network is actually operating under, and cannot
+know it. The act stayed available and the guarantee it delivered got smaller,
+which is the second time in this era the same shape appears and it will not be
+the last.
+
+Who could tell at the time is the uncomfortable answer:
+[everybody who was reading the proposals](/articles/rough-consensus-and-running-code/),
+and almost nobody else. The mechanism was documented in public, in short and
+unambiguous English, years before the fight it caused. The people who ended up
+on opposite sides of that fight had both read it and both understood it. What
+they disagreed about was never available in the document.

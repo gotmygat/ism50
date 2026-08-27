@@ -1,0 +1,175 @@
+---
+title: "The First Transaction Between Two People, and Why It Is Verifiable"
+seoTitle: "The First Bitcoin Transaction Between Two People"
+description: "One of the very few events in early crypto history that can be checked directly rather than trusted, and what that difference is worth."
+date: 2026-09-22
+author: "Khaled Hawari"
+era: origins
+kind: timeline
+lede: "Most of this history rests on archives and memory, and a small part of it rests on a chain that anyone can read."
+---
+
+Almost everything on this site is written from archives. A forum thread that
+somebody chose to keep hosting. A mailing list post that survived because a
+volunteer mirrored it. A page that is one hosting decision away from being
+gone.
+
+This piece is about the exception, and about what the exception can and cannot
+do.
+
+## The sequence, in order
+
+**3 January 2009.** The genesis block. Its coinbase output cannot be spent by any
+node running the reference software, which is a detail with consequences and
+belongs to [its own piece](/articles/the-genesis-block-message/).
+
+**9 January 2009, 03:54:39 UTC.** Block 9 is mined. Its coinbase transaction
+`0437cd7f8525ceed2324359c2d0ba26006d92d856a9c20fa0241106ee5a597c9` has a single
+output of 5,000,000,000 satoshis, paying directly to a raw public key. There is
+no address in it. Addresses were a later convenience.
+
+**Blocks 1 through 169.** Every one of them holds exactly one transaction, the
+coinbase that pays the miner. Nothing is being sent to anyone. The network is
+running and nobody is using it for its stated purpose.
+
+I did not take that on trust. I asked a public index for the transaction count of
+every block from 0 to 175 and looked for any block with more than one. Exactly
+one came back.
+
+**12 January 2009, 03:30:25 UTC.** Block 170. Two transactions. The second,
+`f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16`, spends the
+block 9 coinbase. Its structure:
+
+```text
+input   1   the block 9 coinbase output       5,000,000,000 sat
+output  1   a different public key            1,000,000,000 sat
+output  2   the same key that funded it       4,000,000,000 sat
+fee                                                       0 sat
+size                                                275 bytes
+```
+
+Both outputs are pay-to-pubkey with `OP_CHECKSIG`. The fee is zero, which is not
+generosity, it is the absence of a fee market. Nine days after the network
+started, someone sent ten coins to someone else and kept forty as change.
+
+That is the first transaction on this chain that moves value between two keys
+rather than creating it. It is nine days late, which is itself the finding: the
+system spent its first week and a half doing nothing but proving it could keep
+running.
+
+## Why this counts as a different kind of source
+
+A forum thread is a claim held by a host. The chain is a claim held by everyone
+who keeps a copy, and it has two properties no archive has.
+
+**It cannot be quietly edited.** Every block commits to the one before it by
+hash, so changing a byte in block 170 changes its hash, which invalidates block
+171, and so on to the tip. There is no version of the edit that leaves the rest
+intact. Compare that with a forum post, where editing is a button and the only
+trace is a line of small text that the software may or may not display, and which
+[the record of these years depends on entirely](/articles/the-forum-as-the-only-record/).
+
+**It does not go offline when a company does.** I fetched the transaction above
+from one public index. Anyone can fetch it from a different one, or from their
+own node, and get identical bytes, because the bytes are what the network agreed
+on rather than what a publisher decided to serve. When a hosting bill goes unpaid
+the archive dies and the chain does not.
+
+Neither property is magic and both are frequently oversold. The chain is not
+tamper proof, it is tamper evident and expensive to rewrite, which is a
+different and weaker and more useful claim.
+
+## What the chain does not record
+
+It records public keys, amounts in satoshis, and an ordering. That is the
+complete list, and every one of the things people most want from it is absent.
+
+**No identities.** The two outputs above are public keys. A public key is not a
+person, an account, a jurisdiction or an intention.
+
+**No prices.** There is no field for one. The chain does not know what a satoshi
+is, has never been told, and has no mechanism for finding out. Every price
+attached to an early transaction was attached from outside, later, by someone
+with a spreadsheet, and [pricing was its own separate invention](/articles/how-a-thing-with-no-price-gets-one/).
+
+**No agreements.** A transaction does not say what it was for. It shows a
+movement and stops. Whether it settled a debt, tested software, paid for
+something or moved value between two wallets belonging to one person is not in
+the data.
+
+**No authoritative time.** Block 170's timestamp is a claim made by whoever mined
+it. The rules only require that it be later than the median of the eleven
+preceding blocks and not too far ahead of a validating node's own clock. That is
+a bound, not a certification. It is good enough to sequence events to within
+hours and it is not a notary's stamp.
+
+## Where the names come from, and it is not the chain
+
+The recipient of that ten coin output is named constantly. The chain does not
+name him. Testimony does, and the testimony is public, voluntary and signed with
+its author's own name.
+
+On 19 March 2013, in a forum thread titled "Bitcoin and me (Hal Finney)", Hal
+Finney wrote:
+
+> When Satoshi announced the first release of the software, I grabbed it right
+> away. I think I was the first person besides Satoshi to run bitcoin. I mined
+> block 70-something, and I was the recipient of the first bitcoin transaction,
+> when Satoshi sent ten coins to me as a test.
+
+The announcement he is describing has
+[its own piece here](/articles/the-first-release-announcement/). The four year
+gap between the event and this account of it is the ordinary condition of the
+subject: the transaction is dated to the second, and the only sentence naming
+who was on the other end of it was written in 2013.
+
+Set that beside the chain. The chain records an output of exactly 1,000,000,000
+satoshis, which is ten coins, in the first non-coinbase transaction ever
+confirmed. The testimony and the record agree on the one thing the record
+contains.
+
+That agreement is worth something and it is worth being precise about what.
+It is not chain evidence of identity, because there is no such thing. It is a
+person saying who he was, four years later, in a way that could have been
+contradicted by anyone who knew better, about a transaction whose amount and
+position anybody can check. The habit worth building is to hold those two
+categories apart in your head and to say which one you are using in any given
+sentence. Chain evidence for the transaction. Testimony for the name. Never one
+wearing the other's clothes.
+
+<div class="note">
+  <span class="note__label">On clustering, since this transaction is the textbook case</span>
+
+  The structure above is one input and two outputs, with one output returning to
+  the key that funded it. That is change, and change is what most address
+  clustering rests on: the assumption that the returning output belongs to the
+  sender, and the related assumption that inputs spent together share an owner.
+
+  Both are heuristics. They are often right and they are guesses, and a guess
+  that is usually right is still a guess about a named human being. This site
+  does not treat clustering output as identification, and it is worth noticing
+  that the very first transaction on the chain is already exhibiting the pattern
+  the technique would later be built on.
+</div>
+
+## What was expanding, what was contracting
+
+What expanded, from nothing, is the set of claims about this history that a
+stranger can check without asking anyone's permission. Before 3 January 2009
+there were no such claims in this subject at all. Every assertion about digital
+cash rested on somebody's server, somebody's memory, or somebody's paper. From
+block 0 there is a growing body of statements that are true in the same way for
+everyone who looks.
+
+What contracted, slowly and not by anyone's decision, is the share of this
+history that lives only in archives. It never reached zero and it never will,
+because the chain does not record why. It fell, and the decline is why a piece
+about 2009 can be written with more confidence than a piece about 1997.
+
+Who could tell at the time is the honest answer to the honest question: nobody,
+and they were not trying to. The nine people, or however many it was, running
+that software in January 2009 were debugging. Finney's own account of the days
+after is "mostly me reporting bugs and him fixing them". Nobody sent that
+transaction in order to create an unforgeable record of having sent it. The
+archival property was a by-product of a mechanism built for a different reason,
+which is the most common way durable infrastructure gets made.

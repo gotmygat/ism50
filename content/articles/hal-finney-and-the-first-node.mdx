@@ -1,0 +1,186 @@
+---
+title: "Hal Finney Ran the Second Node and Wrote Down What He Thought"
+seoTitle: "Hal Finney and the Second Bitcoin Node"
+description: "A cryptographer with a long public record who engaged with the system immediately and left a written trail of his reasoning."
+date: 2026-09-07
+author: "Khaled Hawari"
+era: origins
+kind: profile
+lede: "Finney is unusual in this history because he wrote his reasoning down at the time rather than reconstructing it later."
+---
+
+Almost everything we are told about the first months of this subject is somebody
+remembering. The memories arrive years afterwards, from people who by then know
+how the story turned out, and outcome contaminates recollection more thoroughly
+in this field than in almost any other, because the outcome was so large that
+nobody who lived through the beginning can pretend not to know it.
+
+Hal Finney is the exception, and that is the whole reason he matters to a
+historian. He wrote his reasoning down while it was still reasoning, in public,
+on a mailing list with an archive, before there was anything to be right about.
+
+This piece uses only his published writing.
+
+## November 2008: what he actually said
+
+The whitepaper was announced on the Cryptography mailing list at metzdowd, and
+Finney replied on 7 November 2008. The reverent version of this story quotes the
+first paragraph:
+
+> Bitcoin seems to be a very promising idea. I like the idea of basing security
+> on the assumption that the CPU power of honest participants outweighs that of
+> the attacker. It is a very modern notion that exploits the power of the long
+> tail. When Wikipedia started I never thought it would work, but it has proven
+> to be a great success for some of the same reasons.
+
+The reverent version tends to stop there. The message does not. Four paragraphs
+later:
+
+> Unfortunately I am having trouble fully understanding the system. The paper
+> describes key concepts and some data structures, but does not clearly specify
+> the various rules and verifications that the participants in the system would
+> have to follow.
+
+He then asks a series of specific questions about what a node does when it hears
+a transaction that does not make it into the next block, about what happens when
+a node is holding two candidate chains and a block arrives for one of them that
+conflicts with the other, and about how much history a recipient has to check.
+He closes:
+
+> This kind of data management, and the rules for handling all the packets that
+> are flowing around is largely missing from the paper.
+
+That is the first substantive technical critique of the design on record, and it
+came from its most enthusiastic early reader. Both halves are true at once and
+the second half is the one that usually gets dropped.
+
+Six days later, on 13 November, he answered somebody else's version of the same
+objection by working the mechanism out himself in the open:
+
+> Each node must be prepared to maintain potentially several "candidate" block
+> chains, each of which may eventually turn out to become the longest one, the
+> one which wins. Once a given block chain becomes sufficiently longer than a
+> competitor, the shorter one can be deleted.
+
+He is reconstructing mempool and chain reorganisation handling from a document
+that did not specify them, in November 2008, and getting the shape right. He also
+notes in the same message that the author had suggested releasing source code
+might be the clearest way to settle the question, and adds his own judgement:
+"perhaps writing real code is not a bad way to go."
+
+## What he had already tried
+
+He was not a bystander to the problem. In August 2004 he announced a system of
+his own to the Cypherpunks list:
+
+> I'd like to invite members of this list to try out my new hashcash-based
+> server, rpow.net.
+>
+> This system receives hashcash as a Proof of Work (POW) token, and in exchange
+> creates RSA-signed tokens which I call Reusable Proof of Work (RPOW) tokens.
+
+The interesting part is how he solved the trust problem, because it is the road
+not taken:
+
+> The RPOW server is running on a high-security processor card, the IBM 4758
+> Secure Cryptographic Coprocessor, validated to FIPS-140 level 4. This card has
+> the capability to deliver a signed attestation of the software configuration on
+> the board, which any (sufficiently motivated) user can verify against the
+> published source code of the system. This lets everyone see that the system has
+> no back doors.
+
+RPOW keeps a server, and makes the server prove what it is running. The design he
+met four years later removes the server. A man who had built the first answer was
+the right person to see immediately what the second one was doing, and the record
+shows he did.
+
+## January 2009
+
+He downloaded the first release. On the evening of 10 January 2009, on Twitter,
+he posted two words:
+
+> Running bitcoin
+
+That message is the most reproduced artefact in this entire history and it is
+harder to read today than a 1995 press release. Requested from x.com without a
+browser, the page returns an application shell containing none of the text. The
+copy quoted above comes from an Internet Archive snapshot of the old
+twitter.com permalink taken on 12 December 2019, which also preserves the
+posting time as 7:33 PM on 10 January 2009. The primary source for the most
+famous sentence in crypto is a third party's cache of a deleted web design.
+
+The same evening he replied to the release announcement on the mailing list,
+congratulated the author, and raised the obvious practical difficulty: "there is
+still a difficulty in coming up with a reasonable argument in favor of a
+particular non-zero value for the coins", noting "the practical problem that
+virtually no one will accept it at first". The rest of that message is a
+speculative arithmetic exercise about what the currency would be worth in an
+imagined future, which is the single most quoted passage of his writing and the
+least useful. This site does not deal in that, and I am not relaying it.
+
+On 24 January he answered a correspondent who argued that no government would
+tolerate the system, and his answer is the clearest statement anybody made that
+month about what had actually changed:
+
+> Bitcoin has a couple of things going for it: one is that it is distributed,
+> with no single point of failure, no "mint", no company with officers that can
+> be subpoenaed and arrested and shut down.
+
+Every earlier design in this cluster had officers.
+
+## The second node claim, and how much weight it holds
+
+The title of this piece says he ran the second node. Here is exactly what that
+rests on, because the difference matters.
+
+In March 2013 he posted a retrospective to the main web forum, and wrote:
+
+> When Satoshi announced the first release of the software, I grabbed it right
+> away. I think I was the first person besides Satoshi to run bitcoin. I mined
+> block 70-something, and I was the recipient of the first bitcoin transaction,
+> when Satoshi sent ten coins to me as a test.
+
+Note the hedges, which are his and not mine. "I think." "Block 70-something." He
+is describing events four years old, from memory, in exactly the way this piece
+opened by warning about, and he is more careful about it than most of the people
+who have quoted him since. The claim is his own, it is plausible, it has not been
+contradicted by anyone with a competing account, and it is a recollection rather
+than a record. Treat it as the strongest available evidence and not as
+documentation.
+
+The same post says the software "made my computer run hot, and the fan noise
+bothered me", which is the most human sentence in the early literature and a
+precise description of what
+[running that program actually involved](/articles/running-a-node-when-nobody-did/).
+
+## Two things this piece will not say
+
+He is periodically named as the author of the whitepaper. That claim is not
+established, it has been advanced by others rather than by him, and he did not
+make it in any of the writing quoted here. Naming the claim is necessary because
+a reader will meet it; endorsing it is not available on the evidence.
+
+And his own site is gone. `rpow.net`, the address in his 2004 announcement, still
+resolves, but what it serves today is an unrelated page in Indonesian about
+blockchain history, with no software on it. The 2004 announcement survives
+because it went to a mailing list somebody archived. His own publishing platform
+did not. That is the ordinary condition of sources in this period, and it is why
+[the web forum](/articles/the-forum-as-the-only-record/) carries a load it was
+never built for.
+
+## What was expanding, what was contracting
+
+In November 2008, what was expanding was the written record: a design document,
+then a public argument about it, then a working reconstruction of the missing
+parts by a reader, all of it dated and archived.
+
+What was contracting was the window in which anybody could write about this
+system without knowing the answer. It closed fast. Within a couple of years,
+every account of the beginning was being produced by people who already knew what
+had happened, and by 2013 even the participants were writing from memory.
+
+Who could tell at the time? Finney could tell that the idea was strong and that
+the specification was incomplete, and he said both in the same message, six days
+apart, in public, with his name on it. That is what a contemporaneous source
+looks like, and it is the reason a historian trusts the questions in his November
+letters more than any confident answer written since.

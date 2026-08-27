@@ -1,0 +1,155 @@
+---
+title: "The Double Spend Problem, and Why Every Earlier Attempt Needed a Referee"
+seoTitle: "The Double Spend Problem Explained"
+description: "Why a digital coin is trivially copyable, why every pre-2009 design solved that with a trusted issuer, and what that dependency cost them."
+date: 2026-08-28
+author: "Khaled Hawari"
+era: origins
+kind: explainer
+lede: "A file can be copied perfectly and for free, which is exactly the property you do not want in money."
+---
+
+A digital signature proves who authorised something. It does not prove they
+authorised it once.
+
+That gap is the entire problem, and it is worth being precise about why, because
+the usual framing ("you could just copy the coin") makes it sound like a
+programming oversight. It is not. Copying is what the medium does. Every layer
+underneath a digital coin, the disk, the memory, the network, exists to make
+faithful duplicates of bit patterns at essentially no cost. A design that wants
+a unit which cannot be duplicated is asking the medium to stop doing the one
+thing it is built to do.
+
+So no digital cash system ever prevented copying. What they did instead was
+answer a different question: given that the same signed object can be presented
+twice, who decides which presentation counts?
+
+## The answer everyone gave, for twenty six years
+
+Open the paper that ended the run and read what it says about its predecessors.
+Section 2 of the Bitcoin whitepaper, at
+[bitcoin.org/bitcoin.pdf](https://bitcoin.org/bitcoin.pdf), describes the state
+of the art without naming a single system:
+
+> A common solution is to introduce a trusted central authority, or mint, that
+> checks every transaction for double spending. After each transaction, the coin
+> must be returned to the mint to issue a new coin, and only coins issued
+> directly from the mint are trusted not to be double-spent.
+
+The description is accurate, and you can check it against the primary documents
+rather than taking it on trust. David Chaum's "Blind Signatures for Untraceable
+Payments", presented at CRYPTO '82 and published by Plenum Press in the
+proceedings the following year, sets out a thirteen step payment protocol. The
+cryptography in it is genuinely novel: the bank signs a note it cannot read, so
+it never learns who spent what. Step eleven is not novel at all:
+
+> Bank adds note to comprehensive list of cleared notes and stops if note
+> already on list.
+
+A list. Held by the bank. Consulted on every clearing. Chaum's system solved the
+privacy problem completely and did not attempt the double spend problem at all,
+because it did not need to: there was a bank in the loop by construction, and a
+party who sees every clearing can simply refuse the second one.
+
+That is the shape of every design in the period. The clever part varies. The
+referee does not.
+
+## The referee was a business, not a bug
+
+Here is where most retellings go soft, and it matters for everything that comes
+later on this site. The trusted third party is usually described as a technical
+compromise, a placeholder that better cryptography would eventually remove. Read
+it the other way round and it explains far more.
+
+A party who must see every transaction in order to reject the duplicate is, by
+that fact, a party with a complete transaction log, a chokepoint, and a
+subscription business. The referee role and the revenue model are the same
+position. Nobody was going to build the referee out of altruism, and nobody who
+had built one was going to give it up, because the log and the chokepoint were
+the asset.
+
+The cost of that arrangement is that it puts one company inside the settlement
+path of every payment, which makes the whole system exactly as durable as that
+company's ability to keep operating. Two documented endings show what that meant
+in practice.
+
+DigiCash, the company Chaum founded to commercialise this work, announced on
+4 November 1998 that it was entering Chapter 11 reorganisation. The announcement
+survives in the archive of the cryptography mailing list at MIT, and its own
+wording is that the filing would "allow it to pursue strategic alternatives for
+its electronic cash products and the associated intellectual assets pioneered by
+DigiCash". Sources disagree about whether the company was founded in 1989 or
+1990, which is a small thing and a fair warning about how much of this record is
+second hand.
+
+E-gold ended differently. On 27 April 2007 the United States Department of
+Justice
+[announced an indictment](https://www.justice.gov/archive/opa/pr/2007/April/07_crm_301.html)
+of E-Gold Ltd, Gold & Silver Reserve Inc and three of their directors on charges
+including conspiracy to launder monetary instruments and operating an unlicensed
+money transmitting business. The indictment's own description of the mechanism
+is worth having, because it is the referee model stated plainly by a prosecutor:
+
+> Persons seeking to use the E-Gold payment system were only required to provide
+> a valid email address to open an E-Gold account, no other contact information
+> was verified.
+
+An account, on a server, at a company, in a jurisdiction. On 21 July 2008 the
+companies and all three directors
+[pleaded guilty](https://www.justice.gov/archive/opa/pr/2008/July/08-crm-635.html).
+That is three months and ten days before the Bitcoin whitepaper was announced.
+
+Neither of those endings was cryptographic. One was a funding failure and one
+was a criminal prosecution, and both landed on the same organ: the single party
+that had to be alive and cooperative for the coins to mean anything.
+
+## What actually changed in 2009, stated carefully
+
+The whitepaper does not claim to have made double spending impossible, and it is
+important not to hand it a claim it declined to make. What Section 11 does is
+calculate. It models the race between an attacker's private chain and the public
+one as a binomial random walk, reduces it to a gambler's ruin problem, prints
+eight lines of C, and tabulates results. The tabulation ends with a table headed
+"Solving for P less than 0.1%", which for an attacker holding 10% of the work
+gives 5 blocks and for one holding 45% gives 340.
+
+Read what that table concedes. It is not a proof of impossibility. It is a price
+list. The probability of a successful reversal never reaches zero in the
+document; it becomes small enough, fast enough, that waiting is a rational
+substitute for a referee. The paper's own summary sentence for the whole
+apparatus is conditional: the record "cannot be changed without redoing the
+proof-of-work". Redoing it is permitted. It is merely expensive.
+
+So the honest statement of what changed is narrow. The decision about which
+spend counts stopped being made by a party and started being made by an
+accumulation of work, and the guarantee downgraded from a company's refusal to a
+probability that improves with time. Whether that trade was worth it is a
+question the following fifteen years answer at length, and the [rest of this
+site](/articles/) is largely a record of the answers.
+
+## What was expanding, what was contracting
+
+Through the 1990s the technical capability was expanding steadily and it is easy
+to demonstrate: Chaum's own publication list runs from mix networks in 1981
+through blind signatures in 1982 to untraceable electronic cash with Amos Fiat
+and Moni Naor in 1988, and the academic literature around it kept growing after
+the products stopped. Anyone reading the proceedings in 1995 would have
+concluded that this field was in good health.
+
+What was contracting at the same time, and on a completely different curve, was
+the number of operators still standing. A Chapter 11 filing in 1998. A guilty
+plea in 2008. The capability line went up and the survivor line went down, and
+the two were not measuring the same thing at all: one measured whether the
+mathematics worked, the other measured whether a company could sit in the
+settlement path of a payment network and survive doing it.
+
+Almost nobody read those two curves together at the time, and the reason is
+mundane. The people reading the proceedings were cryptographers, and the people
+watching the operators fail were regulators, prosecutors and creditors, and
+those groups did not share a conference. The first document to treat the two as
+one problem is the one that opens by saying commerce on the internet has come to
+rely almost exclusively on financial institutions serving as trusted third
+parties, and then declines to propose a better institution.
+
+What that reframing was, and what this publication takes from it, is [set out on
+the about page](/about/).

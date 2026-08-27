@@ -1,0 +1,177 @@
+---
+title: "DigiCash: Correct Cryptography, No Distribution"
+seoTitle: "DigiCash: Why the Cryptography Was Not Enough"
+description: "A company with working privacy-preserving digital cash that could not get banks or merchants to carry it, and what that failure actually proves."
+date: 2026-09-05
+author: "Khaled Hawari"
+era: origins
+kind: postmortem
+lede: "DigiCash shipped a working product that almost nobody could spend anywhere, which turns out to be the harder half of the problem."
+---
+
+The product worked. That is the part of this story that gets lost, so it is
+worth establishing first, from the announcement rather than from a retelling.
+
+On 23 October 1995 a joint press release from DigiCash bv of Amsterdam and Mark
+Twain Bank of St. Louis, Missouri went out and was forwarded to David Farber's
+Interesting People list, where it is still archived. It opens:
+
+> Mark Twain Bank of St. Louis Missouri starts accepting applications Monday
+> October 23, 1995 for accounts that can be used to withdraw and deposit ecash
+> over the Internet.
+
+And it is careful about what was new:
+
+> The technology has been tested with a 'monopoly(TM) money' currency called
+> CyberBucks(TM), but this U.S. dollar denominated system is the first time
+> electronic cash is actually being offered using real currency.
+
+The same document then explains the mechanism in plain language, which is
+unusual for a press release and useful to us:
+
+> Behind the user interface, your computer actually chooses the serial numbers
+> of the electronic coins based on a random seed. Then it hides them in special
+> encryption envelopes, provides them to the virtual ATM for signing, and removes
+> the envelopes from what is returned [...] And thus the bank cannot know when or
+> where you shop or what you buy.
+
+That is a
+[blind signature](/articles/david-chaum-and-blind-signatures/) described for a
+newspaper. It worked as advertised, and there is a second sentence in that
+release that matters more than the privacy claim:
+
+> The serial number of each signed coin is unique, allowing the bank to be sure
+> it never accepts the same coin twice.
+
+## The dependency that came with the mechanism
+
+Read that last line as an engineering requirement rather than a feature and the
+whole shape of the failure appears.
+
+Somebody has to hold the list of serial numbers. Somebody has to be asked, at the
+moment of payment, whether this particular coin has been seen before. That
+somebody is a bank, and it has to be the same bank the payer withdrew from,
+which means
+[the answer to double spending](/articles/the-double-spend-problem/) here is an
+institution rather than a network.
+
+That is not a criticism of the design. It is the design, and for a system whose
+goal was to make payment privacy mathematical rather than promised, it is a
+reasonable one: the issuer settles, and the blinding stops the issuer from
+learning what it settled. But it fixes the growth problem in advance. Before
+anyone can hold this money, a licensed bank has to decide to issue it. Before
+anyone can spend it, a merchant has to decide to accept it. Neither party has a
+reason to move before the other one does, and the company in the middle cannot
+move on either party's behalf.
+
+## The sequence, with dates that can be checked
+
+DigiCash's own website, archived in November 1996, dates the company's start:
+"Since the beginning of its operations in April 1990, DigiCash's mission and
+primary activity have been to develop and license payment technology products."
+
+October 1995 brings the Mark Twain Bank launch above, under what the release
+calls a "non-exclusive license". The same document names Sweden Post as another
+licensee that had "not yet announced its launch date". Other institutions ran
+trials later; a page published by the successor company in 2000 names Bank of
+Austria, St. George, Sakura Bank, Credit Suisse and Deutsche Bank among
+participants, and I am reporting that as a claim on a marketing page by an
+interested party rather than as a count I have verified.
+
+In September 1998 the only United States bank offering the scheme dropped it.
+On 4 November 1998, from Palo Alto, the company announced its own filing:
+
+> DigiCash Inc. has announced that it is entering into a Chapter 11
+> reorganization to allow it to pursue strategic alternatives for its electronic
+> cash ("eCash") products and the associated intellectual assets pioneered by
+> DigiCash.
+
+The interim chief executive, Scott Loftesness, was quoted in the announcement
+saying the company was "exploring a range of potential alternatives including
+working with major strategic players to finance the market development of eCash
+or the sale and/or licensing of the Company's intellectual property portfolio."
+
+The following day a CNET report was forwarded to the same mailing lists, and it
+contains the single most useful sentence anybody produced about this failure. The
+reporter wrote that Loftesness was frustrated by potential partners telling him:
+
+> This is absolutely strategic, but unfortunately it's not urgent.
+
+Fourteen words, and they are the postmortem. Nothing in that sentence is about
+cryptography.
+
+## The archive is itself evidence
+
+DigiCash put some of its own press material behind an ecash paywall. When the
+Internet Archive's crawler visited `ec_press.html` in January 1997, it had no
+wallet, so what got preserved for the historical record is this:
+
+> Payment failed. Payment to the DigiCash Cybershop failed. The item you
+> selected requires payment. Our shop accepts payments by ecash, but it failed to
+> get payment from you.
+>
+> Possible reasons for payment failure: No ecash. What? You don't have ecash? Go
+> to the ecash home page to download the software!
+
+The company's press page, in the archive, is a page telling you that you cannot
+read it because you do not have the money it invented. I did not need to
+construct that metaphor. It is what the crawler saved.
+
+## The story everybody tells, and where it comes from
+
+The canonical account of this failure is an article titled "How DigiCash Blew
+Everything", which describes boardroom conflict, a difficult founder, and
+approaches from very large companies that came to nothing. It is quoted
+constantly, usually without provenance, so here is the provenance.
+
+It appeared in the Dutch magazine Next! in January 1999. The version in
+circulation in English is on Cryptome, posted 10 February 1999, and carries this
+editor's note from Ian Grigg:
+
+> Editor's note. This was translated by some Dutch natives, and then edited by
+> myself for style. Tricky job really as translation should be done into one's
+> native language. No promises as to accuracy!
+
+The same header states: "The author is unknown." The original Dutch is cited at
+a nextmagazine.nl address which does not respond today, and I could not find a
+snapshot of it in the Internet Archive.
+
+So the most-cited source on why this company failed is an unsigned magazine
+article, translated by unnamed people who were not working into their first
+language, edited by a third party who explicitly declined to vouch for accuracy,
+with the original unavailable for comparison. That is not nothing, and it is not
+a record of private meetings. This piece therefore does not reconstruct those
+meetings, and where you see them reconstructed elsewhere in confident detail, the
+chain of custody above is what the confidence is resting on.
+
+## What the failure proves and what it does not
+
+It proves that a payment system's binding constraint can sit entirely outside its
+protocol. Every cryptographic claim DigiCash made held up. The thing that ran out
+was the willingness of counterparties to go first.
+
+It does not prove the outcome was inevitable. Hindsight makes a bankruptcy look
+like a verdict on a design, and the record here does not support that reading:
+banks in several countries did run this software, the mechanism did settle real
+money, and the position the company was arguing from was that adoption needed
+more time and a different class of partner. Reasonable people at the time
+disagreed about whether that was true. Presenting the failure as foreordained
+flatters everyone who was not paying attention.
+
+## What was expanding, what was contracting
+
+Cryptographic capability was well above the line and rising. Blind signatures
+were published, implemented, licensed, and running against real dollars at a
+real bank. On that axis the decade was an expansion.
+
+Commercial adoption was below the line and falling. The count of United States
+banks issuing this money went from one to zero in September 1998, and one to zero
+is a complete collapse of a distribution channel however small the numerator.
+
+The two were routinely reported as a single number, which is the error. "The
+technology works" and "you can spend it" were treated as one statement about
+progress by nearly everyone writing about electronic money in the 1990s, and they
+were two different readings pointing in opposite directions.
+
+Who could tell at the time? The people being asked to carry it. They said so, in
+the words Loftesness repeated back: absolutely strategic, and not urgent.

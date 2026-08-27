@@ -1,0 +1,179 @@
+---
+title: "The Founder Left, and the Project Had to Invent a Way to Continue"
+seoTitle: "When Bitcoin's Founder Stopped Posting"
+description: "A pseudonymous author stopped participating, handed over repository access, and left a project with no succession plan to build one."
+date: 2026-08-31
+author: "Khaled Hawari"
+era: origins
+kind: timeline
+lede: "The most consequential governance event in this history is somebody quietly not posting any more."
+---
+
+There was no announcement. That is the first thing to get straight, because
+almost every retelling implies one.
+
+What the archives contain is an ordinary week of software maintenance followed
+by silence, and then, four days into that silence, somebody else editing a
+README file into a proposal about how decisions might work from now on. The
+whole succession crisis and its resolution fit inside eight days in December
+2010, and both halves are dull to read, which is why they get replaced by
+something more dramatic.
+
+Here is the sequence, from documents anyone can open.
+
+## December 2010, in order
+
+**5 December, 09:08:08 UTC.** A post in a thread titled "Wikileaks contact
+info?", asking a specific organisation not to use the software:
+
+> No, don't "bring it on".
+>
+> The project needs to grow gradually so the software can be strengthened along
+> the way.
+>
+> I make this appeal to WikiLeaks not to try to use Bitcoin. Bitcoin is a small
+> beta community in its infancy. You would not stand to get more than pocket
+> change, and the heat you would bring would likely destroy us at this stage.
+
+**11 December, 23:39:16 UTC.** The last post from the account in the mirrored
+forum archive, in a thread about a magazine article:
+
+> It would have been nice to get this attention in any other context. WikiLeaks
+> has kicked the hornet's nest, and the swarm is headed towards us.
+
+**12 December, 18:22:33 UTC.** A release announcement on the forum, "Added some
+DoS limits, removed safe mode (0.3.19)". Its opening line is an engineer's line
+and not a valediction:
+
+> There's more work to do on DoS, but I'm doing a quick build of what I have so
+> far in case it's needed, before venturing into more complex ideas.
+
+**13 December, 16:12:09 UTC.** The same release announced on the bitcoin-list
+mailing list. That is the last message in that archive, and it matches the Last
+Active timestamp of 13 December 2010 shown on the
+[forum profile](https://bitcointalk.org/index.php?action=profile;u=3).
+
+**15 December, 22:43:51 UTC.** A commit lands in the source history, authored
+under the name s_nakamoto, with the message "get external ip from irc".
+
+**19 December, 15:39:36 UTC.** Gavin Andresen commits a change to the README of
+his own tree,
+[cba3a17](https://github.com/bitcoin/bitcoin/commit/cba3a1741a8d7874eeb729bd2e1734b1ba712da9),
+with the message "Straw-man for dev process".
+
+That is it. That is the transition.
+
+## The commit that is actually the governance event
+
+The README before that commit was a list of Gavin Andresen's own patch branches.
+After it, it is a proposal, and the proposal is remarkable mostly for how
+unfinished it admits to being. The added text opens:
+
+> Straw-man plan for Bitcoin development (open source vets, please slap me
+> around and help make this better):
+
+and then sets out a pipeline, with the unresolved parts left in as parenthetical
+questions rather than smoothed over:
+
+> Requests get discussed (where? bitcoin forums?) and if there's broad consensus
+> they're a good thing, well written, match coding style, etc. then they're
+> merged into the 'master' branch.
+>
+> master branch is regularly built and tested (by who? need people willing to be
+> quality assurance testers), and periodically pushed to the subversion repo to
+> become the official, stable, released bitcoin.
+
+Read those two question marks slowly. Four days after the last commit from the
+founder, the person picking up the work does not know where discussion should
+happen or who is supposed to test. He does not pretend to know. He writes the
+gaps into the file and asks to be corrected.
+
+Every subsequent governance fight in this subject, and there are many of them
+still to come on this site, is downstream of a document that was explicitly a
+straw man and was never replaced by anything with more authority than that.
+
+## Did anyone check whether he came back?
+
+This is the sort of claim that gets repeated without anyone testing it, so I
+tested it. Using the public commit history of the bitcoin repository, I listed
+every commit authored between 14 December 2010 and 1 January 2012. There are
+1,261 of them. Exactly one carries an author name containing "nakamoto", and it
+is the 15 December 2010 commit above.
+
+That is a narrow finding and I want to be careful about what it does and does
+not establish. It establishes that no further commit in that window was recorded
+under that author name. It does not establish that no code from that author was
+merged under somebody else's name, and it does not establish anything at all
+about private correspondence.
+
+## The email everyone quotes, and why it is not evidence here
+
+The line most often used to close this story is a sentence from an email dated
+23 April 2011, saying the author had moved on to other things and that the
+project was in good hands with Gavin and everyone.
+
+I am not quoting it as a source, and the reason is a rule this site applies to
+everything: the message was not published by its recipient at the time. It
+surfaced years later, posted to a forum by a third party, and the recipient
+subsequently confirmed he had shared it. There is no cryptographic signature
+attached to it that anyone has verified in public. An unsigned email, published
+by an intermediary, six years after the fact, about the most impersonated
+identity in this subject, is not a document. It is a report of a document.
+
+The same standard applies in both directions and it disqualifies a great deal.
+There have been later messages from accounts associated with the name, on
+various platforms, including at least one widely reported statement in 2014 that
+was itself immediately disputed on the grounds that the account may not have
+been under its original control. None of those is treated as authentic here
+without a signature that can be checked against a key from the period.
+
+So the archived words end on 15 December 2010, and everything after that is
+somebody's account of something.
+
+## What is not in the record
+
+There is no post from the account naming a successor. I looked for one. What
+exists is access changing hands and a second person beginning to act, which is a
+different thing and should be described as a different thing.
+
+That distinction is not pedantry. A designation creates a line of authority; a
+transfer of access creates a person with commit rights and no mandate. Which of
+those you think happened determines your view of every argument about developer
+influence for the next fifteen years, and the archived words support only the
+second.
+
+## What was expanding, what was contracting
+
+The threshold reading here is genuinely unusual, and it is worth stating flatly.
+
+Authority contracted to nothing. Not to a smaller group, not to a foundation, to
+nothing. There was no board to inherit, no equity to transfer, no trademark
+worth enforcing, no employment relationship to end. The one person whose word
+would have settled an argument stopped settling arguments, and no mechanism
+existed to appoint another.
+
+At the same time the number of people who could act expanded. The code was
+public, the repository was mirrored, the forum was open, and the software ran on
+whatever machines chose to run it. Anyone could fork it, anyone could propose a
+change, and crucially anyone could decline to run the result.
+
+A system where authority is zero and agency is widely distributed is neither a
+hierarchy nor a democracy, and fifteen years of commentary has struggled with
+that because the available vocabulary assumes one or the other. What emerged was
+a process for merging code paired with an entirely separate and much stronger
+veto held by whoever chooses which binary to run.
+
+That is the same trade the design made in the first place. [Removing the party
+who decides which spend counts](/articles/the-double-spend-problem/) removed the
+party who decides anything else either, and the project discovered the second
+half of that bargain two years after shipping the first.
+
+Who could tell at the time? Nobody, including the people involved, and the
+proof is the two question marks in the README. The [forum was the only place the
+transition was visible](/articles/the-forum-as-the-only-record/), and what was
+visible there was an absence, which is the hardest thing in the world to notice
+in real time. The subject that would later be described as [a response to a
+banking crisis](/articles/the-banking-crisis-backdrop/) lost its author in a
+week when the busiest thread was about denial of service limits, and the
+handover consisted of one person editing a README and asking to be slapped
+around.

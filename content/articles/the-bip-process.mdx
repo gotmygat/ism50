@@ -1,0 +1,190 @@
+---
+title: "The Improvement Proposal Process, and What It Is Actually For"
+seoTitle: "How the Improvement Proposal Process Works"
+description: "A numbered proposal document is a coordination artefact, not an approval mechanism, and confusing the two explains a decade of arguments."
+date: 2026-09-08
+author: "Khaled Hawari"
+era: origins
+kind: primarySource
+lede: "A proposal number is a filing reference, not a decision, and treating it as a decision has caused a lot of shouting."
+---
+
+The documents that define the improvement proposal process are themselves
+numbered proposals, which means the process can be read at its own address. This
+piece is that reading. Every quotation below comes from the current contents of
+the proposals repository, checked while writing rather than recalled.
+
+Start with the definition, from the second of those documents:
+
+> A Bitcoin Improvement Proposal (BIP) is a design document providing information
+> to the Bitcoin community, or describing a new feature for Bitcoin or its
+> processes or environment.
+
+A design document providing information. Not an approval, not a licence, not a
+ratification. The word "proposal" is doing exactly the work it does in ordinary
+English and almost nobody reads it that way.
+
+## Where the shape came from
+
+The first process document, BIP 1, ends its acknowledgements with a sentence that
+explains more about the culture of the thing than any commentary could:
+
+> This document was derived heavily from Python's PEP-0001. In many places text
+> was simply copied and modified.
+
+That is the lineage. A programming language's enhancement proposal system,
+itself descended from internet standards practice, transplanted onto a network
+that settles money. The inheritance is visible down to the formatting: BIP 1
+specifies that every proposal "must begin with an RFC 822 style header preamble".
+
+It also inherited a decision rule. "Rough consensus" is a term of art from the
+IETF, where an entire informational RFC, number 7282, exists to explain what it
+means and to complain that practice has drifted toward majority voting. The
+version that landed in the revised process document is more mechanical:
+
+> Such a proposal is said to have rough consensus if it has been open to
+> discussion on the development mailing list for at least one month, and no
+> person maintains any unaddressed substantiated objections to it.
+
+One month, and no unaddressed substantiated objections. That is a workable
+standard for a language runtime whose users will simply upgrade. It is a stranger
+standard for a network where a change can move value, where objections may be
+financially motivated, and where nobody has to upgrade at all.
+
+## What the process explicitly declines to be
+
+The revised document is not coy about the limits of its own authority. In its
+rationale, answering an imagined complaint from people who feel their investment
+entitles them to a say:
+
+> This BIP does not aim to address what "should" be the basis of decisions. Such
+> a statement, no matter how perfect in its justification, would be futile without
+> some way to force others to use it. The BIP process does not aim to be a kind of
+> forceful "governance" of Bitcoin, merely to provide a collaborative repository
+> for proposing and providing information on standards, which people may
+> voluntarily adopt or not.
+
+And in the same rationale, on the authors themselves:
+
+> Developers are not included in the economy, since they merely write code, and
+> it is up to others to decide to use that code or not.
+
+A process document, written by a proposal author, stating in its own text that
+the process cannot compel anyone and that the people who write the code do not
+get a vote in whether it is used. This is the same
+[three step separation](/articles/maintainers-not-owners/) between merging,
+releasing and running, expressed from the other end.
+
+## Who assigns the number, and what the number means
+
+The editors are administrative. The revised process says a BIP editor will
+"Assign a BIP number in the pull request", "Merge the pull request when it is
+ready", and list it in the repository index, and describes the role as intended
+"to fulfill administrative and editorial responsibilities". The reasons an editor
+may refuse are formal: duplication of effort, disregard for formatting rules,
+being too unfocused or too broad, being technically unsound, failing to address
+backwards compatibility. Authors "MUST NOT self-assign BIP numbers", which is the
+only genuinely exclusive power in the document, and it is a power over filing.
+
+The same document goes further and says out loud why a number is not an
+endorsement. Arguing for a mechanism that would let reviewers record their
+opinions publicly, it observes that "Some presently regard BIPs as a 'good idea'
+simply by virtue of them being assigned a BIP number." The people running the
+registry know the registry gets misread as a seal of approval, and said so inside
+the registry.
+
+## The status field, which is where the confusion lives
+
+The revised process defined nine statuses: Draft, Proposed, Deferred, Rejected,
+Withdrawn, Final, Replaced, Obsolete, Active. It set out to make them objective,
+because the original document's criteria were "an ambiguous criteria for the
+Status field of BIPs, which is often a source of confusion. As a result, many
+BIPs with significant real-world use have been left as Draft or Proposed status
+longer than appropriate."
+
+Note what "Final" was defined to mean there. Not approved. Adopted. A soft fork
+proposal reached it on evidence of miner signalling; a peer services proposal on
+being "observed to be adopted by at least 1% of public listening nodes for one
+month"; an application layer proposal on being "implemented by at least two
+independent and compatible software applications". And then, unambiguously:
+
+> These criteria are considered objective ways to observe the de facto adoption
+> of the BIP, and are not to be used as reasons to oppose or reject a BIP.
+
+The status field describes the world. It does not instruct it.
+
+## The process has since replaced itself, twice
+
+Here is the part that makes this a primary source piece rather than a summary.
+
+Look up BIP 1 in the repository index today and its status is Closed. Look up
+BIP 2 and its status is also Closed, and its own header carries
+`Proposed-Replacement: 3`. BIP 3, titled "Updated BIP Process", authored by
+Murch, assigned 2025-01-09, has status Deployed.
+
+"Deployed" is not one of the nine statuses BIP 2 defined. That is the point. The
+new document reduces the field "from nine to four", leaving Draft, Complete,
+Deployed and Closed, and explains the reduction in a footnote: the many statuses
+"complicated the process, may have contributed to process fatigue, and may have
+resulted in BIPs' statuses not being maintained well".
+
+It also renames Proposed to Complete on the grounds that "using 'Proposed' as a
+status field value was overloading the term: clearly proposals are proposed at
+all stages", and reserves Deployed for a document that is "in active use", with
+convincing evidence being something like "an established project having deployed
+support for the BIP in mainnet software releases".
+
+So the document that defines how to write a proposal has been superseded twice,
+and the superseding document changed the vocabulary used to describe the state of
+every other proposal. A reader who learned the nine statuses is now reading a
+four status world with old labels in their head. This is the ordinary condition
+of the governance literature of this subject and it is why the plan for this
+piece required checking the repository rather than trusting a memory of it.
+
+## Final and unused, deployed and never finalised
+
+The practical consequence is that the status of a document and the state of the
+world come apart, in both directions, and two examples are checkable today.
+
+BIP 70, the Payment Protocol, is listed in the proposals index with status
+Deployed. Meanwhile Bitcoin Core's own `doc/bips.md` says of it that support "has
+been available in Bitcoin Core GUI since v0.9.0", was disabled by default at
+build time from v0.19.0, and "has been removed as of v0.20.0". The reference
+implementation tore it out. The registry still records it as deployed, which is
+accurate about history and misleading about the present.
+
+BIP 39, the mnemonic phrase scheme behind the word list backups that consumer
+wallets ask people to write down, also carries status Deployed, and does not
+appear anywhere in Bitcoin Core's implemented list. A proposal the reference
+client did not adopt became one of the most widely implemented specifications in
+the field, on the strength of everyone else adopting it.
+
+One document is deployed on paper and removed in practice. The other is deployed
+everywhere except in the implementation people think of as canonical. Neither
+state is a contradiction, because the status field was never a permission slip.
+
+## What was expanding, what was contracting
+
+What expanded was participation in proposing. Anybody may write a BIP, the
+repository is public, the mailing list is public, and the entry cost is a
+correctly formatted document and an argument. The revised process even warns
+editors away from assigning numbers too early precisely because the barrier is so
+low.
+
+What contracted, twice over, is the vocabulary the process uses to describe
+reality: nine statuses down to four, and a set of judgement calls deliberately
+taken away from the editor role. The current document says so directly, listing
+among its aims that it "reduces the judgment calls assigned to the BIP Editor
+role".
+
+And what never existed at any point, in any version, is authority. The process
+that governs changes to a network worth an enormous amount of money is, by its own
+written account, a filing system with a house style. That is the
+same discovery the project made when
+[its founder stopped posting](/articles/the-departure/): there was no office,
+only a repository, and whatever weight the repository carries is lent to it by
+people who can take it back without asking.
+
+Who could tell at the time? The authors of the process documents, who wrote the
+disclaimer into the rationale of every version, where the people arguing about
+governance have consistently declined to read it.

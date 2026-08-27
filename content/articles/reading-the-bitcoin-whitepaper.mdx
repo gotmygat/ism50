@@ -1,0 +1,228 @@
+---
+title: "Reading the Bitcoin Whitepaper Section by Section"
+seoTitle: "Reading the Bitcoin Whitepaper, Section by Section"
+description: "A close read of the twelve numbered sections, what each one claims, and which claims the document supports rather than assumes."
+date: 2026-09-02
+author: "Khaled Hawari"
+era: origins
+kind: primarySource
+lede: "The whitepaper is short, and almost everyone who cites it is citing something they read about it."
+---
+
+The file at [bitcoin.org/bitcoin.pdf](https://bitcoin.org/bitcoin.pdf) is nine
+pages long and has twelve numbered sections. Reading all of them takes about
+twenty minutes.
+
+What follows walks the document in its own order and does one thing per section:
+says what that section is actually doing, and marks whether it **states a
+result** or **assumes a condition**. That distinction is the whole exercise. A
+paper that states results and a paper that assumes conditions are different
+kinds of object, and this one does both, and almost every confident claim made
+on its behalf comes from reading an assumption as a result.
+
+A separate piece on this site covers [the vocabulary the paper does not
+contain](/articles/the-bitcoin-whitepaper-is-not-the-document-you-think/). That
+ground is already taken and this one does not go over it.
+
+## 1. Introduction
+
+States the problem. It is narrower than its reputation and it is worth having
+the actual complaint:
+
+> Completely non-reversible transactions are not really possible, since
+> financial institutions cannot avoid mediating disputes. The cost of mediation
+> increases transaction costs, limiting the minimum practical transaction size
+> and cutting off the possibility for small casual transactions
+
+That is a merchant's grievance about chargebacks and minimum viable payment
+sizes. The section ends by naming the condition the rest of the paper runs on:
+the system "is secure as long as honest nodes collectively control more CPU
+power than any cooperating group of attacker nodes". **Assumes a condition,** on
+the first page, in the last sentence.
+
+## 2. Transactions
+
+Defines the object. "We define an electronic coin as a chain of digital
+signatures." Then it states the gap, which is the reason the paper exists: "the
+payee can't verify that one of the owners did not double-spend the coin." Then
+it describes the standard fix, the mint, and rejects it on a business ground
+rather than a cryptographic one, because "the fate of the entire money system
+depends on the company running the mint". **States a result** about what
+signatures alone cannot do, and it is correct.
+
+The section closes with the requirement everything else has to satisfy:
+transactions must be publicly announced, and participants need "a system for
+participants to agree on a single history of the order in which they were
+received".
+
+## 3. Timestamp Server
+
+Four sentences and a diagram. A hash of a block of items is widely published,
+each timestamp includes the previous one, and the chain forms. **States a
+result,** and a modest one: the timestamp "proves that the data must have
+existed at the time, obviously, in order to get into the hash". The word
+"obviously" is doing real work. This section is not the invention; it is the
+prior art, cited to Haber and Stornetta among others, being wheeled into
+position.
+
+## 4. Proof-of-Work
+
+The load bearing section, and the one most often misread. It does three things.
+
+It describes the mechanism, scanning for a hash with leading zero bits, in a
+form anyone can implement. It then explains what proof of work is for, and the
+answer is not security in the abstract, it is representation: proof of work
+"solves the problem of determining representation in majority decision making",
+because one address per vote can be subverted by anyone able to allocate many
+addresses. Hence the sentence people quote without its neighbours:
+"Proof-of-work is essentially one-CPU-one-vote."
+
+And then, the conditional:
+
+> If a majority of CPU power is controlled by honest nodes, the honest chain
+> will grow the fastest and outpace any competing chains.
+
+**Assumes a condition.** Read the sentence as written. It does not say a
+majority of CPU power will be controlled by honest nodes. It says what follows
+if it is. Nothing anywhere in the document argues that CPU power will remain
+distributed, and the mechanism that would concentrate it, specialised hardware
+run by people who do this for a living, is not discussed at all.
+
+## 5. Network
+
+Six numbered steps, then the tie breaking rule. Nodes take the longest chain,
+work on the first version they receive, keep the other branch, and switch when
+one gets longer. **States a result** about protocol behaviour, and it is the
+plainest writing in the paper. Note the honesty of the last paragraph: broadcasts
+do not need to reach every node, and a node that missed a block "will request it
+when it receives the next block and realizes it missed one". Best effort,
+admitted as such.
+
+## 6. Incentive
+
+The section where the paper is at its most tentative and its readers are at
+their most confident. The mechanism is stated flatly: the first transaction in a
+block starts a new coin owned by the block's creator, fees can supplement it,
+and "once a predetermined number of coins have entered circulation, the incentive
+can transition entirely to transaction fees".
+
+Then the argument that all of this holds together:
+
+> The incentive may help encourage nodes to stay honest.
+
+**May help encourage.** And the follow on, about an attacker with more CPU power
+than everyone else combined, is not a proof either:
+
+> He ought to find it more profitable to play by the rules, such rules that
+> favour him with more new coins than everyone else combined, than to undermine
+> the system and the validity of his own wealth.
+
+"Ought to find it more profitable" is a claim about somebody's judgement of
+their own interest, made without a model, a number or a citation. **Assumes a
+condition,** and a behavioural one at that. This paragraph is the origin of an
+enormous amount of downstream certainty about incentive alignment, and in the
+document it is two sentences of reasoning about what a hypothetical greedy
+person ought to conclude.
+
+## 7. Reclaiming Disk Space
+
+Engineering housekeeping. Merkle trees, pruning, and a storage calculation that
+is explicitly dated to its own moment: "With computer systems typically selling
+with 2GB of RAM as of 2008". **States a result,** with its assumptions on the
+surface where they belong.
+
+## 8. Simplified Payment Verification
+
+Describes verification without a full node, and then, unprompted, states its own
+weakness:
+
+> As such, the verification is reliable as long as honest nodes control the
+> network, but is more vulnerable if the network is overpowered by an attacker.
+
+And ends with a line that reads very differently after fifteen years of custody
+failures: "Businesses that receive frequent payments will probably still want to
+run their own nodes for more independent security and quicker verification."
+**Assumes a condition,** and says so in the same breath.
+
+## 9. Combining and Splitting Value
+
+Inputs and outputs, and the change output. **States a result.** One sentence
+here does a lot of quiet work: "There is never the need to extract a complete
+standalone copy of a transaction's history." It is the sentence that speaks most
+directly to the storage objection raised on the mailing list days later.
+
+## 10. Privacy
+
+The most carefully hedged section in the paper, and the one most often
+overstated by other people. It does not claim anonymity. It claims a
+relocation of the boundary: "privacy can still be maintained by breaking the
+flow of information in another place: by keeping public keys anonymous", which
+it compares to the tape of a stock exchange, where trades are public and the
+parties are not. Then it names the leak: multi input transactions "necessarily
+reveal that their inputs were owned by the same owner", and if one key's owner
+becomes known, the linkage spreads. **States a result** about what is achieved,
+and states the residual risk in the next paragraph. Everything the analytics
+industry later did commercially is described here as a known limitation.
+
+## 11. Calculations
+
+The mathematics. A binomial random walk, a gambler's ruin argument, eight lines
+of C, and three tables. The section opens by bounding the threat honestly: even
+a successful attacker cannot create value from nothing or take coins that were
+never theirs, because "nodes are not going to accept an invalid transaction as
+payment". What an attacker can do is take back a recent payment of his own.
+
+Then the pivot the whole security argument rests on: "Given our assumption that
+p > q, the probability drops exponentially". **Assumes a condition,** named as an
+assumption by the author, in the author's own words. The tables that follow are
+conditional on it and are worthless without it.
+
+## 12. Conclusion
+
+Restates the system and, in its final sentences, gives the clearest statement of
+what the design actually is. Nodes "vote with their CPU power, expressing their
+acceptance of valid blocks by working on extending them and rejecting invalid
+blocks by refusing to work on them." **States a result** about the mechanism and
+carries the same condition it has carried since page one: an attacker fails "if
+honest nodes control a majority of CPU power".
+
+## What the shape of the document tells you
+
+Count them. Seven sections state a result about mechanism. Five turn on an
+assumption about who controls what, and in every one of those five the author
+flags the assumption himself, in the sentence, using words like "as long as", "if
+a majority", "may help", and "given our assumption". Nobody had to dig for these.
+The paper is an engineering note with its uncertainties printed on the
+outside, and it is a good deal more modest than its reputation, particularly on
+incentives, where the argument is two sentences of "may" and "ought to".
+
+Reading it as a manifesto rather than as an engineering note is the source of an
+enormous amount of downstream confusion, and the confusion runs in a predictable
+direction: an assumption gets quoted as a guarantee, and then the guarantee gets
+defended against evidence.
+
+## What was expanding, what was contracting
+
+The threshold reading is in the document itself and it is not subtle once you
+have marked the conditionals.
+
+The paper describes a system whose security **expands with participation**, since
+more independent work makes an attacker's catch up exponentially less likely,
+and **contracts with concentration**, since every one of those guarantees is
+predicated on the majority of work being held by parties that are not
+cooperating to attack. Both halves are on the page. Only the first half made it
+into the popular account.
+
+Who could tell at the time? The author, evidently, since he wrote the condition
+into the abstract, section 1, section 4, section 8, section 11 and the
+conclusion. The [first readers on the mailing
+list](/articles/the-banking-crisis-backdrop/) were arguing about bandwidth
+instead, which was a reasonable thing to argue about in November 2008 and turned
+out to be the wrong curve to watch. The one the paper kept flagging, and which
+nobody in the thread pursued, was the concentration of the work itself, and the
+industry then spent fifteen years running the experiment.
+
+The [problem the whole apparatus exists to
+solve](/articles/the-double-spend-problem/) was never claimed to be solved
+absolutely. Section 11 is a probability table. It has always been a probability
+table.

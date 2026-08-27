@@ -1,0 +1,188 @@
+---
+title: "David Chaum and the Idea That Payment Privacy Could Be Mathematical"
+seoTitle: "David Chaum and the Blind Signature"
+description: "The cryptographer who argued in the early 1980s that electronic payment would either be private by construction or surveilled by default."
+date: 2026-09-01
+author: "Khaled Hawari"
+era: origins
+kind: profile
+lede: "Chaum described the surveillance problem in electronic payments roughly a decade before most people had an electronic payment to make."
+---
+
+The opening paragraph of "Blind Signatures for Untraceable Payments" is dated in
+a way that is easy to miss:
+
+> Automation of the way we pay for goods and services is already underway, as
+> can be seen by the variety and growth of electronic banking services available
+> to consumers. The ultimate structure of the new electronic payments system may
+> have a substantial impact on personal privacy as well as on the nature and
+> extent of criminal use of payments.
+
+"Already underway." The paper was presented at CRYPTO '82 and appeared in the
+proceedings published by Plenum Press the following year. At that point most
+people's electronic payment experience was a card reader in a bank lobby.
+Chaum was not describing a problem anyone had yet. He was describing the shape
+of a problem the infrastructure was going to have once it finished being built,
+and he was doing it early enough that the infrastructure could still have been
+built differently.
+
+That timing is the substance of the profile. Not the algebra.
+
+## What a blind signature actually does
+
+The paper explains itself with an analogy before it gives any mathematics, and
+the analogy is better than most of the explanations written since:
+
+> The paper analog of a blind signature can be implemented with carbon paper
+> lined envelopes. Writing a signature on the outside of such an envelope leaves
+> a carbon copy of the signature on a slip of paper within the envelope.
+
+Sign the outside, and you have signed the contents you never saw. That is the
+whole trick. The paper then states the three functions the cryptosystem needs, a
+signing function known only to the signer, a commuting function known only to
+the provider, and a redundancy checking predicate, and gives a four step
+protocol in which the provider forms a blinded value, the signer signs it, the
+provider strips the blinding, and anyone can verify the result against the
+signer's public key.
+
+The payment system built on top of it is thirteen steps and reads like a bank
+procedure manual, which is the point. The payer forms a note and sends it
+blinded. The bank signs it and debits the payer. The payer strips the blinding
+and later hands the note to a payee. The payee sends it to the bank. And then:
+
+> Bank adds note to comprehensive list of cleared notes and stops if note
+> already on list.
+
+The paper says plainly what that buys:
+
+> Notice that by the blind signature property above, when the bank receives a
+> note to be cleared from the payee in step (9) the bank does not know which
+> payer the note was originally issued to in step (4).
+
+So the bank authorises a payment without learning who made it. It still has to
+be there, it still holds the list, and it still refuses the second presentation.
+The privacy is mathematical. The [prevention of double spending is
+administrative](/articles/the-double-spend-problem/), and Chaum never claimed
+otherwise.
+
+## The contribution was framing
+
+It is tempting to write this up as a story about a mechanism, because the
+mechanism is elegant and it is still in use. That would understate him.
+
+Look at the publication record rather than the products. Chaum's own
+[publications page](https://chaum.com/publications/) runs, in order,
+"Untraceable Electronic Mail, Return Addresses, and Digital Pseudonyms" in
+Communications of the ACM in February 1981, then blind signatures at CRYPTO '82,
+then "A New Paradigm for Individuals in the Information Age" at the 1984 IEEE
+Symposium on Security and Privacy, then the invited Communications of the ACM
+piece in October 1985 whose title is "Security Without Identification:
+Transaction Systems to Make Big Brother Obsolete", then "The Dining
+Cryptographers Problem" in the first issue of the Journal of Cryptology in 1988,
+and "Untraceable Electronic Cash" with Amos Fiat and Moni Naor at CRYPTO '88.
+
+Read those titles as a sequence and the argument is not about signatures at all.
+It is that identification is a default that got chosen rather than a requirement
+that was derived, and that a transaction system can be built which does its job
+without it. The 1982 paper even lists the properties it wants before it proposes
+any cryptography: third parties unable to determine payee, time or amount;
+individuals able to prove payment; the ability to stop payment on media reported
+stolen. That is a requirements document. The mathematics is downstream of it.
+
+Framing outlives implementations, which is a useful thing to notice, because his
+implementations did not last.
+
+## The company, and what the record does and does not say
+
+DigiCash was the vehicle. On 4 November 1998 it announced that it was entering
+Chapter 11 reorganisation, and the announcement survives in the archive of the
+cryptography mailing list at MIT under the subject "DigiCash Inc. to File
+Reorganization, Seeks Partners to Drive eCash Forward". Its own description of
+its purpose is that the filing would allow the company "to pursue strategic
+alternatives for its electronic cash products and the associated intellectual
+assets pioneered by DigiCash".
+
+Sources disagree on when the company was founded, with 1989 and 1990 both in
+wide circulation, and I have not found a filing that settles it. That is a
+one word disagreement about a well known company in a period with good records,
+and it is a fair calibration for how much weight the rest of the secondary
+literature will bear.
+
+I am also not going to give you a tidy explanation of why it failed. The
+accounts in circulation, that merchants would not adopt without users and users
+would not adopt without merchants, that a deal with a large bank came close and
+did not close, are reported at second hand by journalists who were not in the
+room, and they contradict each other on details. What is documented is the
+filing date and the filing's own stated intention. The rest is testimony.
+
+<div class="note">
+  <span class="note__label">The founding document of payment privacy is a scan</span>
+
+  The copy of "Blind Signatures for Untraceable Payments" served from Chaum's own
+  site is a photographic scan of the printed proceedings. It has no text layer at
+  all: run it through a text extractor and you get zero lines out. You cannot
+  search it, you cannot copy a sentence from it, and every quotation in this
+  article was transcribed by reading the images.
+
+  That is worth recording rather than working around. A document that cannot be
+  searched is a document that gets cited from summaries, and citing from
+  summaries is how a field ends up confident about sentences nobody has read. The
+  same failure mode has already been documented on this site for a much more
+  famous nine page PDF.
+</div>
+
+## What the whitepaper's references say, and what they do not
+
+The Bitcoin whitepaper carries eight references. They are b-money, three
+timestamping papers by Massias, Avila and Quisquater and by Haber and Stornetta,
+a secure names paper, Back's Hashcash, Merkle's 1980 protocols paper, and
+Feller's probability textbook. Chaum is not among them.
+
+That is a fact and I am going to leave it as one. It is not evidence that anyone
+was cheated of credit, and this site is not going to run that argument. A
+reference list records what a paper drew on for the specific construction it is
+presenting, and the construction in question is a proof of work chain, which
+owes nothing to blind signatures. The absence tells you the two papers were
+solving different problems, which they were. Chaum solved privacy and left the
+referee in place. The 2009 paper removed the referee and, as its own privacy
+section concedes, offered only pseudonymity in exchange.
+
+I am also not going to tell you what Chaum thinks about any of this. He is
+alive, he publishes under his own name, and anybody who wants his view can read
+it there.
+
+## What was expanding, what was contracting
+
+The academic literature expanded continuously and it is easy to prove: the list
+above shows a paper a year or better through the 1980s, with the electronic cash
+line branching into offline checks, credentials without identification, and
+untraceable cash with two coauthors, and the field kept going long after the
+commercial attempt stopped.
+
+What contracted was commercial appetite for it, and the contraction was not
+gradual. Privacy by construction is expensive to sell, because it removes the
+data that makes payment processing profitable to the processor and because it
+makes the operator less useful to everybody who wants to ask the operator a
+question. A bank that cannot see who paid whom is a bank with a smaller product.
+
+Who could tell at the time? Chaum could, and said so in a title in 1985, which
+is why the framing is the contribution. Almost nobody else was looking at both
+curves, because the people writing the papers were not the people deciding which
+payment rails got built, and the second group had no reason to read the first
+group's proceedings. By the time the two conversations met, in the [autumn of
+2008](/articles/the-banking-crisis-backdrop/), the rails were built and the
+question had changed from how payment privacy should work to whether the
+settlement layer needed an operator at all.
+
+The people who eventually took that question up did so on [a message board with
+no archival mandate](/articles/the-forum-as-the-only-record/), and the man who
+had framed it a quarter of a century earlier had a bankruptcy filing and a
+citation record.
+
+There is a closing symmetry that is worth noticing without making too much of
+it. Chaum's framing outlived every product he shipped and is still doing work in
+systems he had no hand in. The project that finally removed the referee [outlived
+its own author's participation](/articles/the-departure/) inside two years, and
+is still running on the framing rather than on anybody's authority. Ideas travel
+better than institutions. That is not a consoling observation, it is just the
+one the record keeps supporting.
