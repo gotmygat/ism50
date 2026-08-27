@@ -1,0 +1,105 @@
+---
+title: "Half of the Whitepaper's Bibliography Is About Timestamping Documents"
+seoTitle: "The Bitcoin Whitepaper's Citations Are About Timestamps"
+description: "Eight references sit on the last page of the nine page paper. Four are about timestamping documents. Following them changes what the design looks like."
+date: 2026-08-27
+author: "Khaled Hawari"
+era: origins
+kind: primarySource
+lede: "The reference list is the least read page of the most read document in the subject, and it points somewhere other than money."
+---
+
+Every argument about what Bitcoin was meant to be gets conducted without
+reference to the one part of the document that says where its ideas came from.
+The paper at [bitcoin.org/bitcoin.pdf](https://bitcoin.org/bitcoin.pdf) ends
+with eight numbered references. They take up a third of a page. They are
+almost never quoted, almost never followed, and they are the most
+straightforwardly informative thing in the file.
+
+Here is what is actually in the list.
+
+One entry is b-money, Wei Dai's 1998 proposal. One is Adam Back's hashcash
+write-up from 2002. One is Ralph Merkle's 1980 paper on public key protocols,
+which is where the tree structure comes from. One is a 1957 probability
+textbook by William Feller, cited to support the arithmetic in the section on
+attacker success rates.
+
+That is four. The other four are all about timestamping.
+
+Reference two is a 1999 paper by Massias, Avila and Quisquater on designing a
+secure timestamping service with minimal trust requirements. References three,
+four and five are all Haber and Stornetta: "How to time-stamp a digital
+document" from the Journal of Cryptology in 1991, "Improving the efficiency and
+reliability of digital time-stamping" with Dayer Bayer in 1993, and "Secure
+names for bit-strings" in 1997.
+
+So half the bibliography, and three of the eight entries by a single pair of
+authors, is about a problem that has nothing to do with payments. The problem
+Haber and Stornetta were working on was how to prove that a document existed in
+a particular form at a particular moment, without anyone having to trust the
+party doing the proving.
+
+## What those papers actually built
+
+The 1991 paper describes chaining. You hash a document, and you include in that
+hash the hash of the document that came before it. Do that continuously and you
+get a sequence where nothing can be inserted, removed or altered after the fact
+without breaking every link downstream. The value of any single entry comes
+from its position in the chain rather than from the reputation of whoever
+issued it.
+
+The 1993 paper, with Bayer added as an author, improves the efficiency of that
+by batching. Rather than chaining every document to every other document, you
+collect the ones that arrive in a given interval, build a Merkle tree over
+them, and chain only the roots. That is why Merkle is in the reference list at
+all.
+
+Their company published the current root value in a newspaper classified
+section on a weekly basis. The reasoning was that a printed newspaper is
+distributed to a very large number of independent holders at once and cannot be
+retroactively edited, which makes it a usable anchor even though no one
+involved has to trust the newspaper about anything.
+
+Read those three papers in sequence and the architecture of the thing being
+proposed in 2008 is already most of the way assembled. Hash chaining, batching
+into trees, publishing the root somewhere that cannot be quietly rewritten.
+
+## What the paper calls it
+
+Section three of the whitepaper is titled "Timestamp Server". Not ledger, not
+currency, not payment network. The section opens by saying the solution begins
+with a timestamp server, describes it taking a hash of a block of items and
+publishing that hash, and states that each timestamp includes the previous one
+in its hash, forming a chain.
+
+That is Haber and Stornetta, restated in a paragraph, and cited.
+
+The material that people think of as the invention arrives in the section after
+it. Proof of work is introduced as the answer to a question the timestamping
+literature had left open: how to run this without a server. The timestamping
+papers assumed a service that clients submitted to. Section four replaces the
+service with a competition, and section six attaches a reward to winning the
+competition, and the reward is where the coin comes from.
+
+The coin is the incentive that makes a serverless timestamp chain hold
+together. It is downstream of the timestamping problem, not the starting point.
+
+## Why this is worth the ten minutes
+
+There is a durable argument about whether the design was meant to be money,
+infrastructure, a protest, or a store of value, and it is usually conducted by
+quoting the genesis block headline at each other. The bibliography settles less
+than people would like, but it settles something: the author was reading
+document integrity literature closely enough to cite three papers by the same
+two people, and structured the document so that the timestamping section comes
+before the currency.
+
+The reference list is on the last page. It is not behind a paywall, it is not
+disputed, and it takes about a minute to read. It stays unread for the same
+reason most of the record in this subject stays unread, which is that a
+secondary account is quicker and there is no immediate penalty for relying on
+one.
+
+Follow the citations. The paper tells you where it came from, in its own
+handwriting, and the answer is not the one that the last fifteen years of
+commentary would lead you to expect.
