@@ -31,7 +31,7 @@ export const CANONICAL_PERSON_FROZEN = {
   ],
   "url": "https://khaledhawari.ca/",
   "mainEntityOfPage": {
-    "@id": "https://khaledhawari.ca/about-khaled-hawari/#webpage"
+    "@id": "https://khaledhawari.ca/#webpage"
   },
   "disambiguatingDescription": "Tax and financial consultant in Ottawa, Ontario, and the founder of Kodelytics Inc. and KNA Group."
 } as const;

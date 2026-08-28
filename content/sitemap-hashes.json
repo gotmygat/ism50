@@ -2,49 +2,49 @@
   "note": "Written by scripts/sitemap-lastmod.mjs on every build, and committed by scripts/publish-scheduled.sh after every successful deploy. COMMIT IT: it is the only record of what the last deploy actually rendered, and a sitemap lastmod is only honest if something remembers. Do not hand-edit.",
   "routes": {
     "/": {
-      "hash": "8d58d4fdea2c4cf365eb71dcd56f5e7c",
+      "hash": "b4c400a88505779f66fdc389e61356b3",
       "hashDay": "2026-08-28",
       "lastmod": "2026-08-28"
     },
     "/about/": {
-      "hash": "669c67c0bd1ca8b35ccf6beb23388e82",
-      "hashDay": "2026-08-27",
-      "lastmod": "2026-08-27"
+      "hash": "6d1ed0670fbb5454cac847b1c8c35f68",
+      "hashDay": "2026-08-28",
+      "lastmod": "2026-08-28"
     },
     "/articles/": {
-      "hash": "18212602c21ff2aca8835a72c717b426",
+      "hash": "2a7eef9f8b6036f1c683e01ea35131a5",
       "hashDay": "2026-08-28",
       "lastmod": "2026-08-28"
     },
     "/articles/constant-product-is-an-inequality/": {
-      "hash": "af3124a3f29d34ab9023e5bec87ddcc3",
-      "hashDay": "2026-08-27",
-      "lastmod": "2026-08-27"
+      "hash": "0723fece0ef1d043b8a13a6b0a146e89",
+      "hashDay": "2026-08-28",
+      "lastmod": "2026-08-28"
     },
     "/articles/mt-gox-the-coins-were-already-gone/": {
-      "hash": "7607a4377d42b9e24c075227a82275ce",
-      "hashDay": "2026-08-27",
-      "lastmod": "2026-08-27"
+      "hash": "1689999044e825a61dcf5ca406270dbf",
+      "hashDay": "2026-08-28",
+      "lastmod": "2026-08-28"
     },
     "/articles/the-bitcoin-whitepaper-is-not-the-document-you-think/": {
-      "hash": "07f80112b04e01e6b5a499de270393c3",
-      "hashDay": "2026-08-27",
-      "lastmod": "2026-08-27"
+      "hash": "67b230769273d19159810f4fcbed76c7",
+      "hashDay": "2026-08-28",
+      "lastmod": "2026-08-28"
     },
     "/articles/the-double-spend-problem/": {
-      "hash": "3736b5167567a6e081fab65ed867e8d2",
+      "hash": "30b9ec71a65bdcb0e4dd6510f76a76ab",
       "hashDay": "2026-08-28",
       "lastmod": "2026-08-28"
     },
     "/articles/what-the-whitepaper-cites/": {
-      "hash": "be3e8af1ad3095ad7d82242c8a778198",
-      "hashDay": "2026-08-27",
-      "lastmod": "2026-08-27"
+      "hash": "f4cec1f39d9c4ffaf6dd6f904b2b4144",
+      "hashDay": "2026-08-28",
+      "lastmod": "2026-08-28"
     },
     "/disclaimer/": {
-      "hash": "80cf5beda676e564802701318a202426",
-      "hashDay": "2026-08-27",
-      "lastmod": "2026-08-27"
+      "hash": "40e284d8e0d0d5856d9801489dfe5f7b",
+      "hashDay": "2026-08-28",
+      "lastmod": "2026-08-28"
     }
   }
 }

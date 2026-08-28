@@ -11,7 +11,7 @@ STOP and report it rather than changing it locally.
 "name":  "Khaled Hawari"
 "alternateName": ["Kal Hawari", "Khaled (Kal) Hawari", "Khaled Kal Hawari"]
 "url":   "https://khaledhawari.ca/"
-"mainEntityOfPage": {"@id": "https://khaledhawari.ca/about-khaled-hawari/#webpage"}
+"mainEntityOfPage": {"@id": "https://khaledhawari.ca/#webpage"}
 "disambiguatingDescription": "Tax and financial consultant in Ottawa, Ontario, and the founder of Kodelytics Inc. and KNA Group."
 ```
 
@@ -24,7 +24,7 @@ cross-domain agreement in the name of protecting one.
 
 Verified live on four routes across two domains, all four identical:
 
-    kodelytics.ca/                          {"@id": ".../about-khaled-hawari/#webpage"}
+    kodelytics.ca/                          {"@id": ".../#webpage"}
     kodelytics.ca/about/                    same
     khaledhawari.ca/                        same
     khaledhawari.ca/about-khaled-hawari/    same
@@ -191,3 +191,51 @@ standard, it is a regression waiting to be applied by five agents at once.
 
 **If this convention is ever revisited it changes on all five domains in one
 pass, never on one first.**
+
+
+## mainEntityOfPage MOVED TO THE ROOT. 2026-08-28.
+
+Frozen value changed, in one pass across all five domains, which is the only
+way this file permits a frozen value to move.
+
+    was   https://khaledhawari.ca/about-khaled-hawari/#webpage
+    now   https://khaledhawari.ca/#webpage
+
+### The evidence, which did not exist until that morning
+
+Google recrawled khaledhawari.ca before 2026-08-28: the SERP was serving the
+post-2026-08-26 title and H1 rather than the old ones. So the ranking below is
+of the FIXED site, not of a stale copy, and it is the first honest reading
+anyone has had.
+
+    1   khaledhawari.com/                      root, biography, ProfilePage
+    3   CTV News
+    4   kodelytics.ca/about                    ProfilePage
+    25  khaledhawari.ca/                       root, NO ProfilePage
+    45  khaledhawari.ca/about-khaled-hawari/   ProfilePage since 2026-08-19
+
+The ProfilePage declaration on the About page had been live nine days, had been
+crawled, and left that page at 45. Below the root that does not carry it.
+src/components/BaseHead.astro asked for precisely this before deciding: "Decide
+it on the first SERP capture after a confirmed recrawl." This is that capture,
+and it says the role sat on the wrong URL.
+
+### Why the standing objection stopped applying
+
+That file argued .com is not a comparison, because its root has no separate
+biography page to compete with. True when written. It stopped being true earlier
+the same day, when khaledhawari.ca's root gained a biography section of its own.
+The root is now the candidate; /about-khaled-hawari/ becomes the credentials
+page that supports it, which is what its title already says it is.
+
+A second objection, that the .ca root must not be touched because it ranks first
+for "kal hawari", was measured and is false. Unquoted, the root is not on page
+one for that query either. It ranks for NEITHER name variant. Nothing was being
+protected, and the claim had been repeated from a comment rather than checked.
+
+### The rule this followed
+
+`url` is still the website ROOT and `mainEntityOfPage` is still the page ABOUT
+him. Those two properties still answer different questions. What changed is that
+the same URL is now the honest answer to both, because the root is now genuinely
+the page about him.
