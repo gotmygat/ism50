@@ -2,49 +2,54 @@
   "note": "Written by scripts/sitemap-lastmod.mjs on every build, and committed by scripts/publish-scheduled.sh after every successful deploy. COMMIT IT: it is the only record of what the last deploy actually rendered, and a sitemap lastmod is only honest if something remembers. Do not hand-edit.",
   "routes": {
     "/": {
-      "hash": "b4c400a88505779f66fdc389e61356b3",
-      "hashDay": "2026-08-28",
-      "lastmod": "2026-08-28"
+      "hash": "973668aa258240d59f6030cc50d73b88",
+      "hashDay": "2026-08-29",
+      "lastmod": "2026-08-29"
     },
     "/about/": {
-      "hash": "6d1ed0670fbb5454cac847b1c8c35f68",
-      "hashDay": "2026-08-28",
-      "lastmod": "2026-08-28"
+      "hash": "e6967b36845321e76bbcc464fb83986f",
+      "hashDay": "2026-08-29",
+      "lastmod": "2026-08-29"
     },
     "/articles/": {
-      "hash": "2a7eef9f8b6036f1c683e01ea35131a5",
-      "hashDay": "2026-08-28",
-      "lastmod": "2026-08-28"
+      "hash": "2aad3f92cdc416dafb9aa432b994d66b",
+      "hashDay": "2026-08-29",
+      "lastmod": "2026-08-29"
     },
     "/articles/constant-product-is-an-inequality/": {
-      "hash": "0723fece0ef1d043b8a13a6b0a146e89",
-      "hashDay": "2026-08-28",
-      "lastmod": "2026-08-28"
+      "hash": "13d01e726203914cede076b93ff23e9b",
+      "hashDay": "2026-08-29",
+      "lastmod": "2026-08-29"
     },
     "/articles/mt-gox-the-coins-were-already-gone/": {
-      "hash": "1689999044e825a61dcf5ca406270dbf",
-      "hashDay": "2026-08-28",
-      "lastmod": "2026-08-28"
+      "hash": "a4736fe6af8bfa5772b330734ce11e09",
+      "hashDay": "2026-08-29",
+      "lastmod": "2026-08-29"
+    },
+    "/articles/the-banking-crisis-backdrop/": {
+      "hash": "54fb8b33acae999965bb52c01e091ae4",
+      "hashDay": "2026-08-29",
+      "lastmod": "2026-08-29"
     },
     "/articles/the-bitcoin-whitepaper-is-not-the-document-you-think/": {
-      "hash": "67b230769273d19159810f4fcbed76c7",
-      "hashDay": "2026-08-28",
-      "lastmod": "2026-08-28"
+      "hash": "b9f30eed98cd65b51375547035b68691",
+      "hashDay": "2026-08-29",
+      "lastmod": "2026-08-29"
     },
     "/articles/the-double-spend-problem/": {
-      "hash": "30b9ec71a65bdcb0e4dd6510f76a76ab",
-      "hashDay": "2026-08-28",
-      "lastmod": "2026-08-28"
+      "hash": "41d262dd0672c58994e3fe6b577c2d3e",
+      "hashDay": "2026-08-29",
+      "lastmod": "2026-08-29"
     },
     "/articles/what-the-whitepaper-cites/": {
-      "hash": "f4cec1f39d9c4ffaf6dd6f904b2b4144",
-      "hashDay": "2026-08-28",
-      "lastmod": "2026-08-28"
+      "hash": "82c041c65dc911315ed7c49054eeab86",
+      "hashDay": "2026-08-29",
+      "lastmod": "2026-08-29"
     },
     "/disclaimer/": {
-      "hash": "40e284d8e0d0d5856d9801489dfe5f7b",
-      "hashDay": "2026-08-28",
-      "lastmod": "2026-08-28"
+      "hash": "4daf28f1297adc4e2b995c7395533186",
+      "hashDay": "2026-08-29",
+      "lastmod": "2026-08-29"
     }
   }
 }
