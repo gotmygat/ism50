@@ -2,9 +2,9 @@
   "note": "Written by scripts/sitemap-lastmod.mjs on every build, and committed by scripts/publish-scheduled.sh after every successful deploy. COMMIT IT: it is the only record of what the last deploy actually rendered, and a sitemap lastmod is only honest if something remembers. Do not hand-edit.",
   "routes": {
     "/": {
-      "hash": "c975fa78ee8bd9413d8680bc8b39df70",
-      "hashDay": "2026-08-30",
-      "lastmod": "2026-08-30"
+      "hash": "ae9298ef165c00c3fc3991752a46771d",
+      "hashDay": "2026-08-31",
+      "lastmod": "2026-08-31"
     },
     "/about/": {
       "hash": "e6967b36845321e76bbcc464fb83986f",
@@ -12,9 +12,9 @@
       "lastmod": "2026-08-29"
     },
     "/articles/": {
-      "hash": "642bd0768d1259bd28cfdbf74241a856",
-      "hashDay": "2026-08-30",
-      "lastmod": "2026-08-30"
+      "hash": "9b643a0504824fb565ba9011cd5c8452",
+      "hashDay": "2026-08-31",
+      "lastmod": "2026-08-31"
     },
     "/articles/constant-product-is-an-inequality/": {
       "hash": "13d01e726203914cede076b93ff23e9b",
@@ -35,6 +35,11 @@
       "hash": "b9f30eed98cd65b51375547035b68691",
       "hashDay": "2026-08-29",
       "lastmod": "2026-08-29"
+    },
+    "/articles/the-departure/": {
+      "hash": "89860114532c8ddecda5b526b9c5e363",
+      "hashDay": "2026-08-31",
+      "lastmod": "2026-08-31"
     },
     "/articles/the-double-spend-problem/": {
       "hash": "41d262dd0672c58994e3fe6b577c2d3e",
