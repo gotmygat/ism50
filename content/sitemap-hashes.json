@@ -2,9 +2,9 @@
   "note": "Written by scripts/sitemap-lastmod.mjs on every build, and committed by scripts/publish-scheduled.sh after every successful deploy. COMMIT IT: it is the only record of what the last deploy actually rendered, and a sitemap lastmod is only honest if something remembers. Do not hand-edit.",
   "routes": {
     "/": {
-      "hash": "ae9298ef165c00c3fc3991752a46771d",
-      "hashDay": "2026-08-31",
-      "lastmod": "2026-08-31"
+      "hash": "ed40e3655aa42029a16bcf93afc67647",
+      "hashDay": "2026-09-01",
+      "lastmod": "2026-09-01"
     },
     "/about/": {
       "hash": "c93bdf146496b7c501d55e1a69ca04ec",
@@ -12,14 +12,19 @@
       "lastmod": "2026-08-31"
     },
     "/articles/": {
-      "hash": "9b643a0504824fb565ba9011cd5c8452",
-      "hashDay": "2026-08-31",
-      "lastmod": "2026-08-31"
+      "hash": "08ff8352f9a8583d248f65fac49c792e",
+      "hashDay": "2026-09-01",
+      "lastmod": "2026-09-01"
     },
     "/articles/constant-product-is-an-inequality/": {
       "hash": "fae20a56c5eaa14103cb4c24612157d1",
       "hashDay": "2026-08-31",
       "lastmod": "2026-08-31"
+    },
+    "/articles/david-chaum-and-blind-signatures/": {
+      "hash": "b16b538249b6369f74a9113f52bfd840",
+      "hashDay": "2026-09-01",
+      "lastmod": "2026-09-01"
     },
     "/articles/mt-gox-the-coins-were-already-gone/": {
       "hash": "f95698e4acdd202ea447b91e0ab570fd",
