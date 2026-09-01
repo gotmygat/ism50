@@ -57,6 +57,12 @@ const { Content } = await render(article);
 const bylineIsPrincipal = author === site.authorName;
 
 const more = await getRelated(article.id, era, 3);
+
+/* The card this route serves. An article passes no per-piece og:image, so it
+   falls back to the shared default exactly as BaseHead resolves it, and the
+   Article node's `image` is given the same URL so the two never disagree. Null
+   when the site declares no default card, in which case no `image` is emitted. */
+const heroImage = site.defaultOgImage ? absoluteUrl(site.defaultOgImage) : undefined;
 ---
 
 <Base
@@ -77,6 +83,7 @@ const more = await getRelated(article.id, era, 3);
       dateModified: updated,
       section: eraCopy.label,
       keywords: [eraCopy.label, KIND_LABEL[kind], "history of cryptocurrency"],
+      image: heroImage,
     }),
   ]}
 >

@@ -300,6 +300,16 @@ export interface ArticleNodeOptions {
   section: string;
   /** The era's approximate span plus the kind, emitted as `about`. */
   keywords: string[];
+  /**
+   * Absolute URL of the social card this route actually serves, or undefined.
+   *
+   * PASSED IN RATHER THAN READ HERE so the Article's `image` cannot drift from
+   * the `og:image` the same page emits: the caller resolves one value and hands
+   * it to both. It is a stable public/ URL, never a hashed asset, for the same
+   * reason the Person's `image` is, because structured data is read and cached
+   * long after the build that produced it.
+   */
+  image?: string;
 }
 
 /**
@@ -318,12 +328,18 @@ export interface ArticleNodeOptions {
  * place to drift. `isPartOf` carries the page relationship without any such
  * claim.
  *
- * NO `image`. Articles here carry no hero image, so declaring one would be a
- * claim about a file that does not exist. An empty or wrong `image` is a failed
- * rich result rather than a missing one.
+ * `image` IS THE ROUTE'S OWN SOCIAL CARD, AND ONLY WHEN ONE EXISTS. Articles
+ * here carry no per-piece hero, and inventing one would be a claim about a file
+ * that does not exist. But every route already serves a real `og:image`, the
+ * shared default card committed under public/, and Google's Article guidance
+ * lists `image` among the recommended properties. So this node declares the same
+ * URL the page's `og:image` carries, passed in by the caller so the two cannot
+ * disagree, and emits nothing at all when the caller has no card to give. A
+ * present-and-correct `image` is a stronger rich result; an absent one is only a
+ * missing recommendation, and both beat an `image` that points at a 404.
  */
 export function articleNode(options: ArticleNodeOptions): JsonLdNode {
-  const { canonical, headline, description, datePublished, dateModified, section, keywords } =
+  const { canonical, headline, description, datePublished, dateModified, section, keywords, image } =
     options;
 
   return {
@@ -340,6 +356,11 @@ export function articleNode(options: ArticleNodeOptions): JsonLdNode {
     keywords,
     inLanguage: site.locale,
     url: canonical,
+    /* A bare URL string rather than an ImageObject: it matches the value the
+       og:image carries, and a single-key {"@id"} object is the only shape the
+       schema verifier's reference walk follows, so a string adds no dangling
+       edge to resolve. Omitted entirely when the site serves no default card. */
+    ...(image ? { image } : {}),
   };
 }
 
