@@ -125,6 +125,10 @@ const EXPECTED_SAME_AS = [
   "https://www.linkedin.com/in/khaledhawariottawa/",
   "https://www.crunchbase.com/person/khaled-hawari-ottawa",
   "https://muckrack.com/khaled-hawari-ottawa",
+  // Wikidata entity Q138780576, the canonical identity node. Added 2026-09-02
+  // alongside the same URL in PERSON_SAME_AS (src/lib/site.ts); the two must
+  // agree or this check fails, which is the point.
+  "https://www.wikidata.org/wiki/Q138780576",
 ];
 
 /**

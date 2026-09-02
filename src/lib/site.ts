@@ -101,6 +101,12 @@ export const PERSON_SAME_AS = [
   "https://www.linkedin.com/in/khaledhawariottawa/",
   "https://www.crunchbase.com/person/khaled-hawari-ottawa",
   "https://muckrack.com/khaled-hawari-ottawa",
+  /* Wikidata entity Q138780576, the canonical identity node. `sameAs` to it
+     tells Google this domain and the Wikidata item are one entity, which is what
+     feeds the Knowledge Graph. Added 2026-09-02 when the item was built out
+     (occupation, education, degree, languages, and described-at URLs to all five
+     domains). This closes the on-page half of "establish the entity". */
+  "https://www.wikidata.org/wiki/Q138780576",
 ] as const;
 
 /**
