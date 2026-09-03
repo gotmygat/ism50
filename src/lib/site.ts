@@ -252,7 +252,7 @@ export const site: SiteConfig = {
   authorName: "Khaled Hawari",
   authorRole: "Writer and editor",
   authorCardBio:
-    "Khaled Hawari is a tax and financial consultant in Ottawa, Ontario, and the founder of Kodelytics Inc. and KNA Group. He has been reading crypto primary sources since clients started bringing him exchange exports nobody could reconcile.",
+    "Khaled Hawari is a tax and financial consultant and a senior technical project manager in Ottawa, Ontario, and the founder of Kodelytics Inc. and KNA Group. He reads crypto as a ledger, working from the whitepaper, the mailing list archives and the exchange records rather than the received account.",
   authorPagePath: "/about/",
 
   person: {
