@@ -2,9 +2,9 @@
   "note": "Written by scripts/sitemap-lastmod.mjs on every build, and committed by scripts/publish-scheduled.sh after every successful deploy. COMMIT IT: it is the only record of what the last deploy actually rendered, and a sitemap lastmod is only honest if something remembers. Do not hand-edit.",
   "routes": {
     "/": {
-      "hash": "b385fc4adef3c29ac5946389a4cdfbef",
-      "hashDay": "2026-09-02",
-      "lastmod": "2026-09-02"
+      "hash": "b5f7a53678ed1f4bc19d05923d5bca04",
+      "hashDay": "2026-09-03",
+      "lastmod": "2026-09-03"
     },
     "/about/": {
       "hash": "c93bdf146496b7c501d55e1a69ca04ec",
@@ -12,9 +12,9 @@
       "lastmod": "2026-08-31"
     },
     "/articles/": {
-      "hash": "ce052112853a1f085bb8c99e5b42bdc0",
-      "hashDay": "2026-09-02",
-      "lastmod": "2026-09-02"
+      "hash": "fed0336e3693e30c464a96ec59e119aa",
+      "hashDay": "2026-09-03",
+      "lastmod": "2026-09-03"
     },
     "/articles/constant-product-is-an-inequality/": {
       "hash": "fae20a56c5eaa14103cb4c24612157d1",
@@ -35,6 +35,11 @@
       "hash": "5eb7747897852a5fabae823777a5d9b4",
       "hashDay": "2026-09-02",
       "lastmod": "2026-09-02"
+    },
+    "/articles/running-a-node-when-nobody-did/": {
+      "hash": "7ee4b723609ed41aadb79d7ce1eb447a",
+      "hashDay": "2026-09-03",
+      "lastmod": "2026-09-03"
     },
     "/articles/the-banking-crisis-backdrop/": {
       "hash": "e7aaf567dda124acf15fc9ae96dba454",
