@@ -2,9 +2,9 @@
   "note": "Written by scripts/sitemap-lastmod.mjs on every build, and committed by scripts/publish-scheduled.sh after every successful deploy. COMMIT IT: it is the only record of what the last deploy actually rendered, and a sitemap lastmod is only honest if something remembers. Do not hand-edit.",
   "routes": {
     "/": {
-      "hash": "1e4784fe97888cae00aee9278537484d",
-      "hashDay": "2026-09-04",
-      "lastmod": "2026-09-04"
+      "hash": "185c63e59cc092267fc80e35ff3db6bc",
+      "hashDay": "2026-09-05",
+      "lastmod": "2026-09-05"
     },
     "/about/": {
       "hash": "7e96b79b57deea9f32a6d369aa135771",
@@ -12,9 +12,9 @@
       "lastmod": "2026-09-03"
     },
     "/articles/": {
-      "hash": "36a1a96d1f7d73a3b501f6608abfb712",
-      "hashDay": "2026-09-04",
-      "lastmod": "2026-09-04"
+      "hash": "eadcdc5f86297a10c7fcb87cf04ae8f3",
+      "hashDay": "2026-09-05",
+      "lastmod": "2026-09-05"
     },
     "/articles/constant-product-is-an-inequality/": {
       "hash": "3f067ba816d25f1a012234c33ea15703",
@@ -25,6 +25,11 @@
       "hash": "23e19ddc1c58a6a0ae4f59c7e5340e6f",
       "hashDay": "2026-09-03",
       "lastmod": "2026-09-03"
+    },
+    "/articles/digicash-postmortem/": {
+      "hash": "5e91183cee70db2074930592cba88a93",
+      "hashDay": "2026-09-05",
+      "lastmod": "2026-09-05"
     },
     "/articles/maintainers-not-owners/": {
       "hash": "5f7a501de4c3b70f451632f912405ba1",
