@@ -2,9 +2,9 @@
   "note": "Written by scripts/sitemap-lastmod.mjs on every build, and committed by scripts/publish-scheduled.sh after every successful deploy. COMMIT IT: it is the only record of what the last deploy actually rendered, and a sitemap lastmod is only honest if something remembers. Do not hand-edit.",
   "routes": {
     "/": {
-      "hash": "185c63e59cc092267fc80e35ff3db6bc",
-      "hashDay": "2026-09-05",
-      "lastmod": "2026-09-05"
+      "hash": "c277f935a3736e70f71b6af4e43cdbc7",
+      "hashDay": "2026-09-06",
+      "lastmod": "2026-09-06"
     },
     "/about/": {
       "hash": "7e96b79b57deea9f32a6d369aa135771",
@@ -12,9 +12,9 @@
       "lastmod": "2026-09-03"
     },
     "/articles/": {
-      "hash": "eadcdc5f86297a10c7fcb87cf04ae8f3",
-      "hashDay": "2026-09-05",
-      "lastmod": "2026-09-05"
+      "hash": "7c3555cdb7197732b6c990b791f127b7",
+      "hashDay": "2026-09-06",
+      "lastmod": "2026-09-06"
     },
     "/articles/constant-product-is-an-inequality/": {
       "hash": "3f067ba816d25f1a012234c33ea15703",
@@ -30,6 +30,11 @@
       "hash": "5e91183cee70db2074930592cba88a93",
       "hashDay": "2026-09-05",
       "lastmod": "2026-09-05"
+    },
+    "/articles/how-the-network-agrees-what-time-it-is/": {
+      "hash": "2061c30dbde7cbd9bba62dbbb14eb8ba",
+      "hashDay": "2026-09-06",
+      "lastmod": "2026-09-06"
     },
     "/articles/maintainers-not-owners/": {
       "hash": "5f7a501de4c3b70f451632f912405ba1",
