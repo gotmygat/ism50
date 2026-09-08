@@ -133,7 +133,7 @@ const EXPECTED_SAME_AS = [
   "https://muckrack.com/khaled-hawari-ottawa",
   "https://www.behance.net/khaledhawariottawa",
   "https://open.spotify.com/show/6pR09JH4eLIxASF6XZsWTV",
-  "https://500px.com/khaledhawariottawa",
+  "https://500px.com/p/khaledhawariottawa",
   "https://linktr.ee/khaledhawariottawa",
   "https://khaledhawariottawa.blogspot.com/",
   "https://www.pinterest.com/khaledhawariottawa/",
@@ -150,7 +150,7 @@ const EXPECTED_SAME_AS = [
   "https://www.youtube.com/@KhaledHawariOttawa",
   "https://flipboard.com/@kalhawariottawa",
   "https://www.diigo.com/profile/kalhawariottawa",
-  "https://podcasters.spotify.com/pod/show/khaled-hawari-ottawa",
+  "https://creators.spotify.com/pod/profile/khaled-hawari-ottawa",
   "https://www.podbean.com/user-oO6jnqi0purw",
   "https://www.pearltrees.com/khaledhawariottawa",
   "https://vimeo.com/user221915478",
@@ -175,7 +175,27 @@ const EXPECTED_SAME_AS = [
   "https://www.everand.com/user/761556148/Khaled-Hawari-Ottawa",
   "https://www.pinterest.com/khhawari92/",
   "https://padlet.com/khaledhawariottawa",
-  "https://www.pbase.com/khaledhawariottawa",
+  "https://pbase.com/khaledhawariottawa",
+  /* EXPANDED 2026-09-08 from 64 to 73, and three addresses corrected.
+     Kal supplied the authoritative roster of 76 profiles; a diff against it found
+     28 he owns that no site declared. Only the nine below survived verification.
+     Ten of the 28 are dead (edocr's DNS is gone, dronio24's TLS fails, data.world
+     shut its community, stylevore and indorse soft-404 with a 200 status, redpah,
+     snapped.mn.co, imdb and dpreview 404), four are gated (kickstarter is set to
+     private, scoop.it is behind a login wall, buzzbii and anyflip hard-block
+     crawlers), reddit and last.fm could not be reached, and contractortalk renders
+     a handle with no name or bio. A sameAs at a dead URL is a broken identity
+     claim, so those are left out on purpose rather than forgotten.
+     Keep byte-identical across all five sites and both verify-schema.mjs copies. */
+  "https://www.quora.com/profile/Khaled-Hawari-Ottawa",
+  "https://www.tripadvisor.com/Profile/khaledhawariottawa",
+  "https://cara.app/khaledhawariottawa/all",
+  "https://www.skillshare.com/en/profile/Khaled-Hawari-Ottawa/141296361",
+  "https://leetcode.com/u/khaledhawariottawa/",
+  "https://peatix.com/user/23002119/view",
+  "https://www.divephotoguide.com/user/khaledhawari",
+  "https://letterboxd.com/khaledhawariott/",
+  "https://www.instapaper.com/p/khaledhawari",
   "https://khaledhawari.ca/",
   "https://kodelytics.ca/",
   "https://khaledhawari.com/",
