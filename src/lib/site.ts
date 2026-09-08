@@ -93,20 +93,79 @@ export const KNA_GROUP_ID = "https://kna-group.com/#organization";
  * entity. If one genuinely changes, it changes on all five domains in one pass.
  */
 export const PERSON_SAME_AS = [
-  "https://khaledhawari.ca/",
-  "https://khaledhawari.com",
-  "https://kodelytics.ca",
-  "https://kna-group.com",
-  "https://ism50.com",
+  /* NORMALISED 2026-09-08 to the one list all five domains emit.
+     This host previously declared 9 of the 64 identity claims the other three
+     full-list domains publish, and spelled the owned domains without trailing
+     slashes while they used trailing slashes. Five domains asserting different
+     sets, and the same domain under two spellings, is exactly the ambiguity
+     sameAs exists to remove. sameAs renders no anchor, so this carries none of
+     the cross-domain link risk that CROSS-DOMAIN-LINKING.md governs; that policy
+     explicitly encourages it on the Person node. Keep byte-identical across
+     kna-group and ism50 and in both verify-schema.mjs copies. */
   "https://www.linkedin.com/in/khaledhawariottawa/",
-  "https://www.crunchbase.com/person/khaled-hawari-ottawa",
-  "https://muckrack.com/khaled-hawari-ottawa",
-  /* Wikidata entity Q138780576, the canonical identity node. `sameAs` to it
-     tells Google this domain and the Wikidata item are one entity, which is what
-     feeds the Knowledge Graph. Added 2026-09-02 when the item was built out
-     (occupation, education, degree, languages, and described-at URLs to all five
-     domains). This closes the on-page half of "establish the entity". */
+  "https://x.com/khaledkalhawari",
+  "https://www.facebook.com/KalHawari/",
+  "https://www.instagram.com/kalhawari992",
+  "https://www.google.com/search?kgmid=/g/11ysq87cg_",
   "https://www.wikidata.org/wiki/Q138780576",
+  "https://medium.com/@khaledhawariottawa",
+  "https://soundcloud.com/khaled-hawari-ottawa",
+  "https://about.me/khaledhawariottawa",
+  "https://about.me/kalhawari",
+  "https://www.crunchbase.com/person/khaled-hawari-ottawa",
+  "https://issuu.com/khaledhawariottawa",
+  "https://www.slideshare.net/KhaledHawariOttawa",
+  "https://muckrack.com/khaled-hawari-ottawa",
+  "https://www.behance.net/khaledhawariottawa",
+  "https://open.spotify.com/show/6pR09JH4eLIxASF6XZsWTV",
+  "https://500px.com/khaledhawariottawa",
+  "https://linktr.ee/khaledhawariottawa",
+  "https://khaledhawariottawa.blogspot.com/",
+  "https://www.pinterest.com/khaledhawariottawa/",
+  "https://www.dailymotion.com/khaledhawariottawa",
+  "https://www.slideserve.com/khaledhawariottawa",
+  "https://wakelet.com/@khaledhawariottawa",
+  "https://www.deviantart.com/khaledhawariottawa",
+  "https://sketchfab.com/khaledhawariottawa",
+  "https://fileforum.com/profile/Khaled+Hawari+Ottawa",
+  "https://onespotsocial.com/khaledhawariottawa",
+  "https://shareyoursocial.com/khaledhawariottawa",
+  "https://www.sideprojectors.com/user/profile/108615",
+  "https://www.spreaker.com/user/khaled-hawari-ottawa--17765128",
+  "https://www.youtube.com/@KhaledHawariOttawa",
+  "https://flipboard.com/@kalhawariottawa",
+  "https://www.diigo.com/profile/kalhawariottawa",
+  "https://podcasters.spotify.com/pod/show/khaled-hawari-ottawa",
+  "https://www.podbean.com/user-oO6jnqi0purw",
+  "https://www.pearltrees.com/khaledhawariottawa",
+  "https://vimeo.com/user221915478",
+  "https://solo.to/khaledhawariottawa",
+  "https://vocal.media/authors/khaled-hawari-ottawa",
+  "https://www.remotehub.com/khaledhawari.ottawa",
+  "https://www.wattpad.com/user/khaledhawariottawa",
+  "https://www.mixcloud.com/khaledhawariottawa/",
+  "https://www.magcloud.com/user/khaledhawariottawa",
+  "https://devpost.com/khaledhawariottawa",
+  "https://tapas.io/khaledhawariottawa",
+  "https://coub.com/ee6f280a189117de304f",
+  "https://speakerdeck.com/hawari",
+  "https://slides.com/khaledhawariottawa",
+  "https://www.wikidot.com/user:info/khaled-hawari-ottawa",
+  "https://forumweb.hosting/members/khaledhawariottawa.31581/",
+  "https://storymirror.com/profile/h2jk53pb",
+  "https://allmylinks.com/khaledhawariottawa",
+  "https://www.noteflight.com/profile/af95fa931bfaf2248a42067a5522d434fc5ce636",
+  "https://khaledhawariottawa.tumblr.com/",
+  "https://www.scribd.com/user/761556148/Khaled-Hawari-Ottawa",
+  "https://www.everand.com/user/761556148/Khaled-Hawari-Ottawa",
+  "https://www.pinterest.com/khhawari92/",
+  "https://padlet.com/khaledhawariottawa",
+  "https://www.pbase.com/khaledhawariottawa",
+  "https://khaledhawari.ca/",
+  "https://kodelytics.ca/",
+  "https://khaledhawari.com/",
+  "https://ism50.com/",
+  "https://kna-group.com/",
 ] as const;
 
 /**
