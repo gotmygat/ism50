@@ -2,9 +2,9 @@
   "note": "Written by scripts/sitemap-lastmod.mjs on every build, and committed by scripts/publish-scheduled.sh after every successful deploy. COMMIT IT: it is the only record of what the last deploy actually rendered, and a sitemap lastmod is only honest if something remembers. Do not hand-edit.",
   "routes": {
     "/": {
-      "hash": "78006242355cc14aacf8ee33ec72473d",
-      "hashDay": "2026-09-09",
-      "lastmod": "2026-09-09"
+      "hash": "c1fc981d88361c9e17d4d6199ca33e0d",
+      "hashDay": "2026-09-10",
+      "lastmod": "2026-09-10"
     },
     "/about/": {
       "hash": "7e96b79b57deea9f32a6d369aa135771",
@@ -12,9 +12,9 @@
       "lastmod": "2026-09-03"
     },
     "/articles/": {
-      "hash": "e05962f0400b784e581f2d513c091bfe",
-      "hashDay": "2026-09-09",
-      "lastmod": "2026-09-09"
+      "hash": "84172f5ab50eaac312a12f0bf5bc124b",
+      "hashDay": "2026-09-10",
+      "lastmod": "2026-09-10"
     },
     "/articles/constant-product-is-an-inequality/": {
       "hash": "3f067ba816d25f1a012234c33ea15703",
@@ -95,6 +95,11 @@
       "hash": "d11d4d887e1f5c564da26cc147d16744",
       "hashDay": "2026-09-08",
       "lastmod": "2026-09-08"
+    },
+    "/articles/the-genesis-block-message/": {
+      "hash": "5ce4aa2e1a1c3e3a9a27935b5f2d1b07",
+      "hashDay": "2026-09-10",
+      "lastmod": "2026-09-10"
     },
     "/articles/what-the-whitepaper-cites/": {
       "hash": "8c64db2afeb38fda5061757794add859",
