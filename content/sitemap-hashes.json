@@ -2,14 +2,14 @@
   "note": "Written by scripts/sitemap-lastmod.mjs on every build, and committed by scripts/publish-scheduled.sh after every successful deploy. COMMIT IT: it is the only record of what the last deploy actually rendered, and a sitemap lastmod is only honest if something remembers. Do not hand-edit.",
   "routes": {
     "/": {
-      "hash": "3b062b9ab47f4440527a859e4dd63eef",
+      "hash": "7c340e616452623018ccb0d99565259a",
       "hashDay": "2026-09-11",
       "lastmod": "2026-09-11"
     },
     "/about/": {
-      "hash": "7e96b79b57deea9f32a6d369aa135771",
-      "hashDay": "2026-09-03",
-      "lastmod": "2026-09-03"
+      "hash": "6e0157ee01fa3e1c1cf47d7b29bb272f",
+      "hashDay": "2026-09-11",
+      "lastmod": "2026-09-11"
     },
     "/articles/": {
       "hash": "755858e81a0a2d0c098c3e407c66a00a",
@@ -17,99 +17,99 @@
       "lastmod": "2026-09-11"
     },
     "/articles/constant-product-is-an-inequality/": {
-      "hash": "3f067ba816d25f1a012234c33ea15703",
-      "hashDay": "2026-09-03",
-      "lastmod": "2026-09-03"
+      "hash": "94e77e3e24ea54a65c4b57dd7079bd05",
+      "hashDay": "2026-09-11",
+      "lastmod": "2026-09-11"
     },
     "/articles/cpu-mining-as-a-hobby/": {
-      "hash": "ff13e99442a9c088bed0eb71e56a59d8",
+      "hash": "e567842121d7a9592f572fe7c1287dd3",
       "hashDay": "2026-09-11",
       "lastmod": "2026-09-11"
     },
     "/articles/david-chaum-and-blind-signatures/": {
-      "hash": "4b8f0aac81d49ca3c5de960181e371b4",
-      "hashDay": "2026-09-08",
-      "lastmod": "2026-09-08"
+      "hash": "5739ff321df00af31f1b99a3ce9b5232",
+      "hashDay": "2026-09-11",
+      "lastmod": "2026-09-11"
     },
     "/articles/digicash-postmortem/": {
-      "hash": "5e91183cee70db2074930592cba88a93",
-      "hashDay": "2026-09-05",
-      "lastmod": "2026-09-05"
+      "hash": "f4688bb58a4fd3a38461c395145746d5",
+      "hashDay": "2026-09-11",
+      "lastmod": "2026-09-11"
     },
     "/articles/e-gold-and-the-compliance-wall/": {
-      "hash": "b52e8fa29d28084fd054c0c92e7a1e08",
-      "hashDay": "2026-09-09",
-      "lastmod": "2026-09-09"
+      "hash": "258acf0ec00ad6608ac621b9565e0d52",
+      "hashDay": "2026-09-11",
+      "lastmod": "2026-09-11"
     },
     "/articles/hal-finney-and-the-first-node/": {
-      "hash": "8ccf95c0c53c77c55bdff5b104adfdf5",
-      "hashDay": "2026-09-07",
-      "lastmod": "2026-09-07"
+      "hash": "ac5abe117458ec631a1ad755f07ba5f0",
+      "hashDay": "2026-09-11",
+      "lastmod": "2026-09-11"
     },
     "/articles/how-the-network-agrees-what-time-it-is/": {
-      "hash": "2061c30dbde7cbd9bba62dbbb14eb8ba",
-      "hashDay": "2026-09-06",
-      "lastmod": "2026-09-06"
+      "hash": "e3a0dd87ab1fc683720b7df15cdf4d92",
+      "hashDay": "2026-09-11",
+      "lastmod": "2026-09-11"
     },
     "/articles/maintainers-not-owners/": {
-      "hash": "1f3ce59a476a08491d67c97ffb557baa",
-      "hashDay": "2026-09-08",
-      "lastmod": "2026-09-08"
+      "hash": "70baf298d5edcf0449c257bdc4535e12",
+      "hashDay": "2026-09-11",
+      "lastmod": "2026-09-11"
     },
     "/articles/mt-gox-the-coins-were-already-gone/": {
-      "hash": "d9e03b4b6a46cfa355774eed0e946169",
-      "hashDay": "2026-09-08",
-      "lastmod": "2026-09-08"
+      "hash": "adbce89445a9b3ee5f8a76274afb7687",
+      "hashDay": "2026-09-11",
+      "lastmod": "2026-09-11"
     },
     "/articles/reading-the-bitcoin-whitepaper/": {
-      "hash": "2b48a6d42581516132e7bfd806c96e64",
-      "hashDay": "2026-09-08",
-      "lastmod": "2026-09-08"
+      "hash": "e532733e0743ac56cdad0b84afe2b16a",
+      "hashDay": "2026-09-11",
+      "lastmod": "2026-09-11"
     },
     "/articles/running-a-node-when-nobody-did/": {
-      "hash": "e41e02f29aa5074aa0315ba95b8ec4b0",
-      "hashDay": "2026-09-08",
-      "lastmod": "2026-09-08"
+      "hash": "2e47dc3802fbd59c5fc5ab77037ed2ab",
+      "hashDay": "2026-09-11",
+      "lastmod": "2026-09-11"
     },
     "/articles/the-banking-crisis-backdrop/": {
-      "hash": "e5bc1243d7b6ba80f889cb02a0c02011",
-      "hashDay": "2026-09-03",
-      "lastmod": "2026-09-03"
+      "hash": "7b45d4b326a0241fe7d54bc0e21af653",
+      "hashDay": "2026-09-11",
+      "lastmod": "2026-09-11"
     },
     "/articles/the-bip-process/": {
-      "hash": "83c7860a55b2c107c09d768098f9386c",
-      "hashDay": "2026-09-08",
-      "lastmod": "2026-09-08"
+      "hash": "d45a19b0033f151aa84e598d65a0ca31",
+      "hashDay": "2026-09-11",
+      "lastmod": "2026-09-11"
     },
     "/articles/the-bitcoin-whitepaper-is-not-the-document-you-think/": {
-      "hash": "0468548f95e2a3e35a4e3d1c932e90fa",
-      "hashDay": "2026-09-08",
-      "lastmod": "2026-09-08"
+      "hash": "726d4df9d5b0e96acec61af2fbb8beb5",
+      "hashDay": "2026-09-11",
+      "lastmod": "2026-09-11"
     },
     "/articles/the-departure/": {
-      "hash": "7b9673cf1023eb00006fc66fd5d63bd4",
-      "hashDay": "2026-09-03",
-      "lastmod": "2026-09-03"
+      "hash": "ab8279e6dc99a7e836deb290314feaf1",
+      "hashDay": "2026-09-11",
+      "lastmod": "2026-09-11"
     },
     "/articles/the-double-spend-problem/": {
-      "hash": "9ae417a1c8bc3f163c98db2fb4b16692",
-      "hashDay": "2026-09-08",
-      "lastmod": "2026-09-08"
+      "hash": "db9a6818f5795bf36a7c6163be759920",
+      "hashDay": "2026-09-11",
+      "lastmod": "2026-09-11"
     },
     "/articles/the-forum-as-the-only-record/": {
-      "hash": "d11d4d887e1f5c564da26cc147d16744",
-      "hashDay": "2026-09-08",
-      "lastmod": "2026-09-08"
+      "hash": "85907d8612c5d392021be9daed4848e5",
+      "hashDay": "2026-09-11",
+      "lastmod": "2026-09-11"
     },
     "/articles/the-genesis-block-message/": {
-      "hash": "5ce4aa2e1a1c3e3a9a27935b5f2d1b07",
-      "hashDay": "2026-09-10",
-      "lastmod": "2026-09-10"
+      "hash": "be6131af823fbebebe426e27245e5b31",
+      "hashDay": "2026-09-11",
+      "lastmod": "2026-09-11"
     },
     "/articles/what-the-whitepaper-cites/": {
-      "hash": "8c64db2afeb38fda5061757794add859",
-      "hashDay": "2026-09-08",
-      "lastmod": "2026-09-08"
+      "hash": "05f19347ac6db1991c66bc94e8eefe13",
+      "hashDay": "2026-09-11",
+      "lastmod": "2026-09-11"
     },
     "/disclaimer/": {
       "hash": "4daf28f1297adc4e2b995c7395533186",
