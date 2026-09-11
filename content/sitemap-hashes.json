@@ -2,9 +2,9 @@
   "note": "Written by scripts/sitemap-lastmod.mjs on every build, and committed by scripts/publish-scheduled.sh after every successful deploy. COMMIT IT: it is the only record of what the last deploy actually rendered, and a sitemap lastmod is only honest if something remembers. Do not hand-edit.",
   "routes": {
     "/": {
-      "hash": "c1fc981d88361c9e17d4d6199ca33e0d",
-      "hashDay": "2026-09-10",
-      "lastmod": "2026-09-10"
+      "hash": "3b062b9ab47f4440527a859e4dd63eef",
+      "hashDay": "2026-09-11",
+      "lastmod": "2026-09-11"
     },
     "/about/": {
       "hash": "7e96b79b57deea9f32a6d369aa135771",
@@ -12,14 +12,19 @@
       "lastmod": "2026-09-03"
     },
     "/articles/": {
-      "hash": "84172f5ab50eaac312a12f0bf5bc124b",
-      "hashDay": "2026-09-10",
-      "lastmod": "2026-09-10"
+      "hash": "755858e81a0a2d0c098c3e407c66a00a",
+      "hashDay": "2026-09-11",
+      "lastmod": "2026-09-11"
     },
     "/articles/constant-product-is-an-inequality/": {
       "hash": "3f067ba816d25f1a012234c33ea15703",
       "hashDay": "2026-09-03",
       "lastmod": "2026-09-03"
+    },
+    "/articles/cpu-mining-as-a-hobby/": {
+      "hash": "ff13e99442a9c088bed0eb71e56a59d8",
+      "hashDay": "2026-09-11",
+      "lastmod": "2026-09-11"
     },
     "/articles/david-chaum-and-blind-signatures/": {
       "hash": "4b8f0aac81d49ca3c5de960181e371b4",
