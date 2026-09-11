@@ -179,7 +179,31 @@ release_lock() {
     rm -rf "$LOCK_DIR"
   fi
 }
-trap 'release_lock' EXIT
+# A FAILURE HERE USED TO BE COMPLETELY SILENT. Every `FAIL:` path below exits
+# non-zero into a log file, and the launchd plist sends stdout and stderr to
+# another log file, and nobody reads either. So this job could stop publishing
+# for weeks and the first symptom would be noticing the site had gone stale.
+#
+# That stopped being theoretical on 2026-09-11, when a `verify:csp` gate was
+# added that recomputes the inline-script hashes from `dist` and fails the build
+# if they drift. The gate is right: shipping a stale hash means the browser
+# refuses to run the script and the live site breaks, which is worse than not
+# publishing that day. But a correct gate that fails invisibly is a gate that
+# silently turns the publisher off.
+#
+# osascript because it needs no dependency and no network, and because this runs
+# on Kal's own Mac. Guarded so a missing osascript cannot itself fail the run,
+# and it fires on EVERY non-zero exit, not just the CSP one, so the preflight,
+# build, deploy and fingerprint failures below are all covered too.
+notify_failure() {
+  status=$?
+  if [ "$status" -ne 0 ]; then
+    /usr/bin/osascript -e 'display notification "ism50 did not publish. See ~/Library/Logs/ism50-publish.log" with title "Scheduled publish FAILED" sound name "Basso"' >/dev/null 2>&1 || true
+  fi
+  return "$status"
+}
+
+trap 'notify_failure; release_lock' EXIT
 trap 'release_lock; exit 130' INT
 trap 'release_lock; exit 143' TERM
 echo "lock acquired"
