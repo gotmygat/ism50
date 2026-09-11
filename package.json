@@ -24,6 +24,7 @@
     "verify:subject": "node scripts/verify-subject.mjs",
     "verify:schema": "node scripts/verify-schema.mjs",
     "verify:csp": "node scripts/verify-csp.mjs",
+    "verify:external": "node scripts/verify-external.mjs",
     "fix:sitemap-xsl": "node scripts/fix-sitemap-stylesheet.mjs",
     "fix:sitemap-lastmod": "node scripts/sitemap-lastmod.mjs",
     "indexnow": "node scripts/indexnow.mjs",

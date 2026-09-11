@@ -1,0 +1,335 @@
+{
+  "note": "Written by scripts/verify-external.mjs. COMMIT IT. Every entry carries checkedAt and entries older than 14 days are re-fetched: a cache entry with no timestamp is a permanent verdict, which would turn the tool that detects link rot into the reason nobody notices it. A 'blocked' verdict means the host refuses automation (403, 429, 451, 999) and is NOT evidence the page is gone. Do not hand-edit.",
+  "urls": {
+    "http://www.hashcash.org/papers/hashcash.pdf": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:41.803Z"
+    },
+    "http://www.weidai.com/bmoney.txt": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:41.313Z"
+    },
+    "https://app.uniswap.org/whitepaper.pdf": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:41.324Z"
+    },
+    "https://archive.fdic.gov/view/fdic/3396": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:41.636Z"
+    },
+    "https://arxiv.org/abs/1403.6676": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:41.654Z"
+    },
+    "https://bitcoin.org/bitcoin.pdf": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:41.900Z"
+    },
+    "https://bitcoinmagazine.com/business/avalon-ships-bitcoins-first-consumer-asics-1358905223": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:42.240Z"
+    },
+    "https://bitcointalk.org/index.php?action=profile;u=3": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:42.261Z"
+    },
+    "https://bitcointalk.org/index.php?topic=137.0": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:42.381Z"
+    },
+    "https://bitcointalk.org/index.php?topic=155054.0": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:42.440Z"
+    },
+    "https://blog.wizsec.jp/2015/04/the-missing-mtgox-bitcoins.html": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:42.676Z"
+    },
+    "https://blog.wizsec.jp/2017/07/breaking-open-mtgox-1.html": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:42.672Z"
+    },
+    "https://chaum.com/publications/": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:42.953Z"
+    },
+    "https://ethresear.ch/t/improving-front-running-resistance-of-x-y-k-market-makers/1281": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:43.298Z"
+    },
+    "https://github.com/bitcoin/bips": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:43.743Z"
+    },
+    "https://github.com/bitcoin/bips/blob/master/bip-0001.mediawiki": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:43.343Z"
+    },
+    "https://github.com/bitcoin/bips/blob/master/bip-0002.mediawiki": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:43.785Z"
+    },
+    "https://github.com/bitcoin/bips/blob/master/bip-0003.md": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:43.931Z"
+    },
+    "https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:43.882Z"
+    },
+    "https://github.com/bitcoin/bips/blob/master/bip-0070.mediawiki": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:44.394Z"
+    },
+    "https://github.com/bitcoin/bips/blob/master/bip-0113.mediawiki": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:44.459Z"
+    },
+    "https://github.com/bitcoin/bitcoin/blob/4405b78d6059e536c36974088a8ed4d9f0f29898/main.h": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:44.847Z"
+    },
+    "https://github.com/bitcoin/bitcoin/blob/4405b78d6059e536c36974088a8ed4d9f0f29898/readme.txt": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:44.503Z"
+    },
+    "https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:44.976Z"
+    },
+    "https://github.com/bitcoin/bitcoin/blob/master/contrib/guix/README.md": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:45.313Z"
+    },
+    "https://github.com/bitcoin/bitcoin/blob/master/doc/bips.md": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:46.453Z"
+    },
+    "https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.13.0.md": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:45.560Z"
+    },
+    "https://github.com/bitcoin/bitcoin/blob/master/src/chain.h": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:45.954Z"
+    },
+    "https://github.com/bitcoin/bitcoin/blob/master/src/consensus/consensus.h": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:45.995Z"
+    },
+    "https://github.com/bitcoin/bitcoin/blob/master/src/consensus/validation.h": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:47.458Z"
+    },
+    "https://github.com/bitcoin/bitcoin/blob/master/src/kernel/chainparams.cpp": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:47.077Z"
+    },
+    "https://github.com/bitcoin/bitcoin/blob/master/src/node/timeoffsets.h": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:46.971Z"
+    },
+    "https://github.com/bitcoin/bitcoin/blob/master/src/pow.cpp": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:47.072Z"
+    },
+    "https://github.com/bitcoin/bitcoin/blob/master/src/validation.cpp": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:48.028Z"
+    },
+    "https://github.com/bitcoin/bitcoin/commit/629e37dde1fa93f6ce31544d1ebb5ee5c19052cb": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:47.794Z"
+    },
+    "https://github.com/bitcoin/bitcoin/commit/cba3a1741a8d7874eeb729bd2e1734b1ba712da9": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:47.771Z"
+    },
+    "https://github.com/bitcoin/bitcoin/tree/4405b78d6059e536c36974088a8ed4d9f0f29898": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:48.098Z"
+    },
+    "https://khaledhawari.ca/about-khaled-hawari/": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:47.997Z"
+    },
+    "https://khaledhawari.com/about/": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:48.000Z"
+    },
+    "https://kna-group.com/team/khaled-hawari/": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:48.140Z"
+    },
+    "https://kodelytics.ca/about": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:48.148Z"
+    },
+    "https://raw.githubusercontent.com/Uniswap/v2-core/master/contracts/UniswapV2Pair.sol": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:48.192Z"
+    },
+    "https://satoshi.nakamotoinstitute.org/emails/cryptography/1/": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:49.118Z"
+    },
+    "https://satoshi.nakamotoinstitute.org/posts/bitcointalk/": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:49.149Z"
+    },
+    "https://satoshi.nakamotoinstitute.org/posts/bitcointalk/20/": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:49.254Z"
+    },
+    "https://satoshi.nakamotoinstitute.org/posts/bitcointalk/523/": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:50.659Z"
+    },
+    "https://satoshi.nakamotoinstitute.org/posts/bitcointalk/542/": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:50.609Z"
+    },
+    "https://satoshi.nakamotoinstitute.org/posts/bitcointalk/543/": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:49.476Z"
+    },
+    "https://vitalik.eth.limo/general/2017/06/22/marketmakers.html": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:49.785Z"
+    },
+    "https://web.archive.org/web/20061004032950/http://e-gold.com/": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:50.297Z"
+    },
+    "https://web.archive.org/web/20061007080332/http://www.e-gold.com/unsecure/aboutusdetail.html": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:50.524Z"
+    },
+    "https://www.federalreserve.gov/newsevents/pressreleases/other20080916a.htm": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:50.718Z"
+    },
+    "https://www.fhfa.gov/conservatorship/history": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:51.057Z"
+    },
+    "https://www.govinfo.gov/app/details/PLAW-110publ343": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:50.867Z"
+    },
+    "https://www.justice.gov/archive/opa/pr/2007/April/07_crm_301.html": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:51.048Z"
+    },
+    "https://www.justice.gov/archive/opa/pr/2008/July/08-crm-635.html": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:51.053Z"
+    },
+    "https://www.linkedin.com/in/khaledhawariottawa/": {
+      "status": 999,
+      "verdict": "blocked",
+      "checkedAt": "2026-09-11T16:27:51.254Z"
+    },
+    "https://www.metzdowd.com/pipermail/cryptography/2008-November/014814.html": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:51.265Z"
+    },
+    "https://www.metzdowd.com/pipermail/cryptography/2008-November/014827.html": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:51.267Z"
+    },
+    "https://www.metzdowd.com/pipermail/cryptography/2008-November/014848.html": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:51.266Z"
+    },
+    "https://www.metzdowd.com/pipermail/cryptography/2008-October/014810.html": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:51.622Z"
+    },
+    "https://www.metzdowd.com/pipermail/cryptography/2009-January/014994.html": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:51.615Z"
+    },
+    "https://www.metzdowd.com/pipermail/cryptography/2009-January/015004.html": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:51.619Z"
+    },
+    "https://www.metzdowd.com/pipermail/cryptography/2009-January/015036.html": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:51.622Z"
+    },
+    "https://www.mtgox.com/img/pdf/20140228-announcement_eng.pdf": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:53.325Z"
+    },
+    "https://www.rfc-editor.org/rfc/rfc7282.html": {
+      "status": 200,
+      "verdict": "ok",
+      "checkedAt": "2026-09-11T16:27:52.097Z"
+    }
+  }
+}
