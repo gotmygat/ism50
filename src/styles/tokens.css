@@ -94,15 +94,28 @@
   --font-body: var(--font-body-family), Charter, Georgia, serif;
   --font-mono: var(--font-mono-family), Menlo, Consolas, monospace;
 
-  --step--1: clamp(0.82rem, 0.8rem + 0.1vw, 0.87rem);
+  /* RAISED 2026-09-11 FROM A 0.82rem FLOOR, WHICH WAS 13.1px ON A PHONE.
+     An estate-wide typography sweep found this site putting 57 text nodes under
+     14px on a 375px viewport, the worst of the five, and this token and
+     --step-label below were between them responsible for all of it. A history
+     site is read, at length, on a phone, by somebody who did not come here for
+     the layout. 14px is the floor now and the clamp keeps the fluid behaviour. */
+  --step--1: clamp(0.875rem, 0.85rem + 0.1vw, 0.92rem);
   --step-0: clamp(1rem, 0.97rem + 0.15vw, 1.08rem);
   --step-1: clamp(1.18rem, 1.1rem + 0.4vw, 1.35rem);
   --step-2: clamp(1.42rem, 1.28rem + 0.7vw, 1.75rem);
   --step-3: clamp(1.72rem, 1.45rem + 1.35vw, 2.4rem);
   --step-4: clamp(2.05rem, 1.55rem + 2.5vw, 3.4rem);
 
-  /* The label size. Mono, uppercase, wide. Used for every chip and eyebrow. */
-  --step-label: 0.7rem;
+  /* The label size. Mono, uppercase, wide. Used for every chip and eyebrow.
+
+     0.75rem RATHER THAN THE 0.7rem IT WAS, which computed to 11px and put 33
+     nodes per page below the 12px line a legible-font-size audit measures
+     against. Uppercase mono at 0.16em tracking reads larger than its nominal
+     size, which is why it got away with 11px for as long as it did, and is not
+     a reason to ship text a browser's own accessibility check calls too small.
+     Nothing on this site now renders below 12px. */
+  --step-label: 0.75rem;
 
   /* -- space ------------------------------------------------------------- */
   /* A 4px base, because a ruled layout lives or dies on rules landing on the

@@ -810,3 +810,34 @@
   font-size: var(--step--1);
   color: var(--ink-faint);
 }
+
+/* ------------------------------------------------- visually hidden -- */
+
+/* A HEADING FOR A BLOCK THAT ALREADY LOOKS LIKE ONE.
+
+   The datum rule that opens a block is `aria-hidden` and `role="separator"`,
+   which is correct: it is iconography, and a screen reader announcing "50 read
+   next" as a heading would be worse than silence. The consequence is that a
+   block introduced only by a datum has a visible label and no programmatic one,
+   so assistive technology meets a run of article titles with nothing above them
+   saying what the run is.
+
+   This class supplies the missing half. Not `display: none` and not
+   `visibility: hidden`, because both remove the element from the accessibility
+   tree, which is the one thing it exists to be in. The clip-path and the 1px box
+   are the standard technique and they keep the element rendered, focusable and
+   announced while occupying no visible space.
+
+   `white-space: nowrap` stops a long label wrapping inside the 1px box on
+   browsers that would otherwise lay it out first. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}

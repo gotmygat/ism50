@@ -83,10 +83,18 @@ const DIRECTION_LABEL = {
     <div class="container">
       <Datum label="Six crossings" />
 
-      <p class="eyebrow">
+      {/* A REAL <h2>, NOT A STYLED <p>, AND THE CLASS IS UNCHANGED.
+          The eyebrow above the H1 is a kicker and stays a paragraph, but the
+          three section labels below it are the page's only section headings.
+          Rendered as paragraphs, this page went <h1> straight to the <h3> inside
+          an article row, which is a skipped level for a screen reader and a
+          document outline with no middle in it for anything reading the page
+          for structure. The reset zeroes every margin and `.eyebrow` beats the
+          bare element selectors on specificity, so nothing moves by a pixel. */}
+      <h2 class="eyebrow">
         <span class="eyebrow__num">01</span>
         <span>The eras, and what defines each one</span>
-      </p>
+      </h2>
 
       <p style="max-width: 60ch; margin-bottom: var(--space-6); color: var(--ink-soft);">
         The spans below are approximate and say so. Era boundaries in crypto are
@@ -141,10 +149,10 @@ const DIRECTION_LABEL = {
       <section class="section" data-lastmod-rail>
         <div class="container">
           <Datum label="Most recent" />
-          <p class="eyebrow">
+          <h2 class="eyebrow">
             <span class="eyebrow__num">02</span>
             <span>Recently published</span>
-          </p>
+          </h2>
           <div class="rows">
             {recent.map((article) => (
               <ArticleRow article={article} />
@@ -162,10 +170,10 @@ const DIRECTION_LABEL = {
     <div class="container">
       <Datum label="Standing rules" />
 
-      <p class="eyebrow">
+      <h2 class="eyebrow">
         <span class="eyebrow__num">03</span>
         <span>What this site does not do</span>
-      </p>
+      </h2>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: var(--space-6); max-width: 68rem;">
         <div>

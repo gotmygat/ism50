@@ -150,6 +150,10 @@ const heroImage = site.defaultOgImage ? absoluteUrl(site.defaultOgImage) : undef
       <section class="section--tight" data-lastmod-rail>
         <div class="container">
           <Datum label="Read next" />
+          {/* The datum above is aria-hidden iconography, so without this the
+              rail is a run of headings with nothing naming the run. Visible
+              text is unchanged. */}
+          <h2 class="visually-hidden">Read next</h2>
           <div class="rows">
             {more.map((entry) => (
               <ArticleRow article={entry} />

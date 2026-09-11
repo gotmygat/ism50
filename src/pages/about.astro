@@ -193,11 +193,19 @@ const linkedin = PERSON_SAME_AS.find((url) => url.includes("linkedin.com"))!;
         <h2>Why a tax and financial consultant writes this</h2>
 
         <p style="margin-bottom: var(--space-5);">
+          {/* 96 INTRINSIC TO MATCH THE 96px THE STYLE ATTRIBUTE PAINTS IT AT,
+              plus 2x and 3x. It declared 160 and rendered at 96, which is a
+              layout-shift hazard on a slow connection and a wasted 60% of the
+              bytes on every other screen. The alt text names him and says what
+              the page is, because on the one route on this domain that carries
+              his name into a search result the image's alt is another place the
+              string appears attached to the subject. */}
           <Image
             src={portrait}
-            alt="Khaled Hawari"
-            width={160}
-            height={160}
+            alt="Khaled Hawari, the tax and financial consultant who writes ISM50"
+            width={96}
+            height={96}
+            densities={[2, 3]}
             style="width: 96px; height: 96px; object-fit: cover; filter: grayscale(1) contrast(1.05);"
             loading="lazy"
           />

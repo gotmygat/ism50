@@ -125,7 +125,12 @@ code,
 kbd,
 samp {
   font-family: var(--font-mono);
-  font-size: 0.88em;
+  /* 0.92em, RAISED FROM 0.88em. Mono sets optically larger than the serif at the
+     same nominal size, which is what the reduction is for, but `em` compounds:
+     inside a --step--1 block the old value landed at about 11.5px. At 0.92 the
+     smallest inline code on the site clears 12px and the optical correction is
+     still doing its job. */
+  font-size: 0.92em;
 }
 
 hr {

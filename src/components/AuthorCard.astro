@@ -15,11 +15,20 @@ import { site } from "../lib/site";
 ---
 
 <aside class="author-card">
+  {/* 64 INTRINSIC, 2x AND 3x IN THE SRCSET, AND THOSE NUMBERS MATCH THE CSS.
+      `.author-card__portrait` paints this at 64px square, so 64 is the honest
+      intrinsic size and the two extra densities are what a retina screen picks
+      up. It previously declared 128 with no srcset, which sent every visitor the
+      same one file at twice the layout size and told the browser a box that was
+      not the box it would lay out. `densities` makes Astro emit the variants and
+      the `srcset` attribute; the aspect ratio is square on both, so nothing
+      reflows. */}
   <Image
     src={portrait}
-    alt="Khaled Hawari"
-    width={128}
-    height={128}
+    alt="Khaled Hawari, who writes ISM50"
+    width={64}
+    height={64}
+    densities={[2, 3]}
     class="author-card__portrait"
     loading="lazy"
   />
