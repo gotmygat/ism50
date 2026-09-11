@@ -23,7 +23,19 @@ const { href = "/" } = Astro.props;
 const Tag = href ? "a" : "span";
 ---
 
-<Tag class="wordmark" {...(href ? { href } : {})} aria-label="ISM50">
+<!-- `role="img"` is REQUIRED here, it is not decoration. When `href` is null this
+     renders a bare <span>, and `aria-label` is PROHIBITED on a span with no role,
+     so the label was being discarded and the wordmark had no accessible name at
+     all. Dropping the label instead, which is the usual fix, would be worse here:
+     every child below is `aria-hidden`, so there is no text left to fall back on.
+     `role="img"` makes the label legal and keeps it. A link carries an implicit
+     role that already permits `aria-label`, so the role is only added for the
+     span. Found by Lighthouse aria-prohibited-attr, 2026-09-11. -->
+<Tag
+  class="wordmark"
+  {...(href ? { href } : { role: "img" })}
+  aria-label="ISM50"
+>
   <span aria-hidden="true">ISM</span>
   <span class="wordmark__scale" aria-hidden="true"></span>
   <span class="wordmark__reading" aria-hidden="true">50</span>
