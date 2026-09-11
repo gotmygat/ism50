@@ -61,21 +61,57 @@
  * it had. Do not "make them consistent".
  *
  * ===========================================================================
- * WHY SOME REFERENCES RESOLVE OFF-PAGE
+ * WHY THE ORGANIZATION NODE IS ON EVERY PAGE, REVERSED 2026-09-11
  * ===========================================================================
  *
- * The full Organization node is emitted on `/` and nowhere else, because a
- * publication has one description and restating it on several hundred routes
- * makes the graph noisier without making it truer. Other routes still REFERENCE
- * the id as a bare pointer, because a JSON-LD `@id` is a global URI rather than
- * a page-local variable: a consumer that has read the home page already knows
- * what that id denotes.
+ * THIS SECTION USED TO ARGUE THE OPPOSITE AND THE ARGUMENT LOST. It is kept
+ * rather than deleted because the reasoning was good and somebody will
+ * rediscover it, and rediscovering it without the counterargument would undo
+ * this change.
  *
- * Exactly FIVE ids may resolve off-page: this site's organization, the person,
- * Kodelytics Inc., KNA Group, and khaledhawari.ca's WebPage node for the hub
- * page. The first is defined on `/`; the other four are defined on other domains
- * and are never defined here at all. verify-schema.mjs whitelists those five and
- * only those five, and any other dangling reference is a bug.
+ * WHAT IT SAID. The full Organization node belonged on `/` and nowhere else,
+ * because a publication has one description and restating it on several hundred
+ * routes makes the graph noisier without making it truer. Other routes would
+ * still REFERENCE the id as a bare pointer, because a JSON-LD `@id` is a global
+ * URI rather than a page-local variable, so a consumer that had read the home
+ * page already knew what that id denoted.
+ *
+ * WHY IT LOST. That is correct linked-data theory and it describes a consumer
+ * that does not exist. Google's structured data parser resolves `@id` strictly
+ * within the graph of the single document it is looking at and carries no state
+ * from one fetch to another. Under the old arrangement the id
+ * `https://ism50.com/#organization` was referenced by 22 of 23 indexable pages
+ * and defined on exactly one, so every Article on this domain shipped a
+ * `publisher` edge that resolved to nothing at the only place it was ever going
+ * to be read. An Article with no resolvable publisher is an Article missing a
+ * property Google's own Article guidance asks for, on nineteen pages, to save a
+ * few hundred bytes each.
+ *
+ * The estate evidence points the same way. kodelytics.ca emits its Organization
+ * node on every route and is the sibling ranking top two for the owner's name.
+ *
+ * The cost is real and it is small: the node is about three hundred bytes, it is
+ * byte-identical on every page, and it compresses to almost nothing beside the
+ * Person node that has always been emitted everywhere for exactly this reason.
+ * The Person node's own comment below makes the argument in full, and it applies
+ * to a publisher as much as to an author: a node described in one place and
+ * merely pointed at in another is a node a consumer has to reconcile, and
+ * reconciliation is where entities get split.
+ *
+ * WHAT THIS DOES NOT CHANGE. Nothing is minted that was not minted before. The
+ * id, its value and its `founder` edge are unchanged; the node is simply present
+ * where it is referenced.
+ *
+ * ===========================================================================
+ * WHAT STILL RESOLVES OFF-PAGE
+ * ===========================================================================
+ *
+ * Exactly FOUR ids, all of them defined on other domains and none of them ever
+ * defined here: the person, Kodelytics Inc., KNA Group, and khaledhawari.ca's
+ * WebPage node for the hub page. verify-schema.mjs whitelists those four and
+ * only those four, and any other dangling reference is a bug. This site's own
+ * organization id came off that list in the same change, because it no longer
+ * dangles anywhere.
  */
 
 import {
@@ -382,11 +418,14 @@ export interface GraphOptions extends WebPageOptions {
  */
 export function buildGraph(options: GraphOptions): JsonLdNode {
   const { crumbs = [], extraNodes = [], ...pageOptions } = options;
-  const isHome = pageOptions.route === "/";
 
   const nodes: JsonLdNode[] = [
     websiteNode(),
-    ...(isHome ? [organizationNode()] : []),
+    /* EVERY PAGE, not just the home page. Both the WebSite node above and every
+       Article node below carry a `publisher` edge at this id, and Google
+       resolves an `@id` only inside the document it is reading. See the reversal
+       note in the header. */
+    organizationNode(),
     personNode(),
     webPageNode(pageOptions),
   ];

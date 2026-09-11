@@ -233,10 +233,17 @@ if (!EXPECTED_SAME_AS.includes(LINKEDIN)) {
 /**
  * The only ids allowed to resolve off the page they are referenced on.
  *
- * A JSON-LD `@id` is a global URI, so a consumer that has read the home page
- * already knows what the organization id denotes, and a consumer that has read
- * kodelytics.ca knows what that company's id denotes. Anything ELSE that dangles
- * is a bug, which is why this list is short and closed.
+ * ALL FOUR ARE DEFINED ON OTHER DOMAINS. A consumer that has read kodelytics.ca
+ * knows what that company's id denotes, and nothing this build can do would
+ * define it here. Anything ELSE that dangles is a bug, which is why this list is
+ * short and closed.
+ *
+ * THIS SITE'S OWN ORGANIZATION ID CAME OFF THIS LIST ON 2026-09-11. It used to
+ * be here because the node was emitted on the home page only, which meant the
+ * `publisher` edge on nineteen Articles resolved to nothing on the page it was
+ * read from. src/lib/schema.ts now emits the node on every route and records why
+ * at length. If it is ever put back on this list, that is a regression and the
+ * `organizationRoutes` check below is the thing that will say so.
  *
  * PERSON_MAIN_ENTITY_OF_PAGE_ID IS ON IT BECAUSE THE VALUE IS AN OBJECT. The
  * sheet records what happened when it was a bare string on a sibling domain: a
@@ -246,9 +253,7 @@ if (!EXPECTED_SAME_AS.includes(LINKEDIN)) {
  * whitelisting it is the point rather than a nuisance. It is checked now.
  */
 const GLOBAL_IDS = new Set(
-  [ORGANIZATION_ID, PERSON_ID, KODELYTICS_ID, KNA_GROUP_ID, PERSON_MAIN_ENTITY_OF_PAGE_ID].filter(
-    Boolean
-  )
+  [PERSON_ID, KODELYTICS_ID, KNA_GROUP_ID, PERSON_MAIN_ENTITY_OF_PAGE_ID].filter(Boolean)
 );
 
 const typesOf = (node) => [node?.["@type"] ?? []].flat();
@@ -369,7 +374,7 @@ for (const page of pages) {
     }
   }
 
-  /* -- Organization, home page only --------------------------------------- */
+  /* -- Organization, on EVERY indexable route ------------------------------ */
   const orgs = graph.filter((node) => hasType(node, "Organization"));
   if (orgs.length > 1) {
     report.error(where, `${orgs.length} Organization nodes, expected at most one`);
@@ -678,14 +683,33 @@ if (profileRoutes.length === 0) {
   report.error("(build)", `ProfilePage is on ${profileRoutes[0]}, expected ${PROFILE_ROUTE}`);
 }
 
+/**
+ * THE ORGANIZATION NODE IS REQUIRED ON EVERY INDEXABLE ROUTE, REVERSED
+ * 2026-09-11. This check used to assert the exact opposite, that the node
+ * appeared on the home page and nowhere else.
+ *
+ * The reason it flipped is in src/lib/schema.ts and it is worth one sentence
+ * here so nobody reverses it back from this file alone: `publisher` on the
+ * WebSite node and on every Article node points at this id, Google resolves an
+ * `@id` only inside the single document it is reading, so a node defined on one
+ * route and referenced on twenty-two left nineteen Articles with a publisher
+ * edge that resolved to nothing wherever it was actually read.
+ *
+ * Asserted against the whole build rather than per page, because the failure
+ * that matters is "one route is missing it", which no single-page check sees.
+ */
+const missingOrganization = pages
+  .map((page) => page.route)
+  .filter((route) => !organizationRoutes.includes(route));
+
 if (organizationRoutes.length === 0) {
-  report.error("(build)", "no route emits the Organization node, expected the home page");
-} else if (organizationRoutes.length > 1 || organizationRoutes[0] !== HOME_ROUTE) {
+  report.error("(build)", "no route emits the Organization node, expected every route");
+} else if (missingOrganization.length) {
   report.error(
     "(build)",
-    `the Organization node is emitted on ${organizationRoutes.join(
+    `${missingOrganization.length} indexable route(s) reference the organization id without defining it: ${missingOrganization.join(
       ", "
-    )}. It belongs on the home page and nowhere else; other routes reference the id instead.`
+    )}. Every route carries a publisher edge at that id and Google resolves an @id only within one document, so the node belongs on all of them.`
   );
 }
 
