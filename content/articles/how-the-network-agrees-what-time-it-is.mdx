@@ -3,6 +3,7 @@ title: "How a Network With No Clock Agrees What Time It Is"
 seoTitle: "How the Network Agrees What Time It Is"
 description: "Every block carries a timestamp asserted by whoever produced it, and the rules that keep those assertions roughly honest are a quiet piece of the design."
 date: 2026-09-06
+updated: 2026-09-11
 author: "Khaled Hawari"
 era: origins
 kind: explainer
@@ -21,13 +22,15 @@ participants will tolerate, which is a much weaker and much more interesting
 property than accuracy.
 
 Everything below is read out of the Bitcoin Core source at the current state of
-its main branch, and the constant names are given so you can check me. Other
-implementations exist and other constants apply to other networks; nothing here
-should be read as "the rule" in the abstract.
+its main branch, and every file is linked and every constant named so you can
+check me. Other implementations exist and other constants apply to other
+networks; nothing here should be read as "the rule" in the abstract.
 
 ## The floor: you cannot claim to be in the past
 
-In `src/validation.cpp`, the contextual check on a new header does this:
+In
+[`src/validation.cpp`](https://github.com/bitcoin/bitcoin/blob/master/src/validation.cpp),
+the contextual check on a new header does this:
 
 ```cpp
 // Check timestamp against prev
@@ -36,9 +39,10 @@ if (block.GetBlockTime() <= pindexPrev->GetMedianTimePast())
                          "time-too-old", "block's timestamp is too early");
 ```
 
-`GetMedianTimePast` is defined in `src/chain.h`. It walks back at most
-`nMedianTimeSpan` blocks, where `nMedianTimeSpan = 11`, collects their
-timestamps, sorts them, and returns the middle one.
+`GetMedianTimePast` is defined in
+[`src/chain.h`](https://github.com/bitcoin/bitcoin/blob/master/src/chain.h).
+It walks back at most `nMedianTimeSpan` blocks, where `nMedianTimeSpan = 11`,
+collects their timestamps, sorts them, and returns the middle one.
 
 So the lower bound on your claim is the median of the last eleven claims. Not the
 previous block's time, which would be trivially gamed by one participant, and not
@@ -58,7 +62,7 @@ if (block.Time() > NodeClock::now() + std::chrono::seconds{MAX_FUTURE_BLOCK_TIME
 }
 ```
 
-`MAX_FUTURE_BLOCK_TIME` is declared in `src/chain.h` as `2 * 60 * 60`, two hours,
+`MAX_FUTURE_BLOCK_TIME` is declared in the same header as `2 * 60 * 60`, two hours,
 with the comment "Maximum amount of time that a block timestamp is allowed to
 exceed the current time before the block will be accepted."
 
@@ -68,8 +72,9 @@ forever. The ceiling is evaluated against `NodeClock::now()`, which is the
 receiving machine's own clock. Two nodes can disagree about it. The same node can
 disagree with itself an hour later.
 
-The codebase says so out loud. In `src/consensus/validation.h`, the enumeration
-entry for this failure is annotated:
+The codebase says so out loud. In
+[`src/consensus/validation.h`](https://github.com/bitcoin/bitcoin/blob/master/src/consensus/validation.h),
+the enumeration entry for this failure is annotated:
 
 ```cpp
 BLOCK_TIME_FUTURE,  //!< block timestamp was > 2 hours in the future (or our clock is bad)
@@ -89,8 +94,9 @@ that maintained a median filter over time samples collected from peers.
 That is gone. `src/timedata.h` does not exist on the current main branch, and
 `GetAdjustedTime` does not appear in `validation.cpp` at all.
 
-What replaced it is `src/node/timeoffsets.h`, which keeps the same samples and
-uses them for nothing except a warning. Its constants say what it is for: a
+What replaced it is
+[`src/node/timeoffsets.h`](https://github.com/bitcoin/bitcoin/blob/master/src/node/timeoffsets.h),
+which keeps the same samples and uses them for nothing except a warning. Its constants say what it is for: a
 maximum of fifty stored offsets, and a `WARN_THRESHOLD` of ten minutes, described
 as the "Minimum difference between system and network time for a warning to be
 raised."
@@ -104,10 +110,12 @@ and what you do about that is your business.
 If timestamps were decorative, none of the above would need rules. They are not
 decorative, because the difficulty adjustment is computed from them.
 
-In `src/pow.cpp`, difficulty only changes when the next height is a multiple of
+In [`src/pow.cpp`](https://github.com/bitcoin/bitcoin/blob/master/src/pow.cpp),
+difficulty only changes when the next height is a multiple of
 `DifficultyAdjustmentInterval()`, which is `nPowTargetTimespan / nPowTargetSpacing`.
-On mainnet `src/kernel/chainparams.cpp` sets those to fourteen days and ten
-minutes, giving an interval of 2016 blocks. The adjustment itself:
+On mainnet
+[`src/kernel/chainparams.cpp`](https://github.com/bitcoin/bitcoin/blob/master/src/kernel/chainparams.cpp)
+sets those to fourteen days and ten minutes, giving an interval of 2016 blocks. The adjustment itself:
 
 ```cpp
 int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
@@ -140,8 +148,8 @@ consensus rules age.
 
 There is exactly one moment in the chain where an external, checkable time
 reference appears, and it is a piece of text rather than a mechanism. In
-`src/kernel/chainparams.cpp` the genesis block is built by a function whose first
-parameter is literally called `pszTimestamp`, and on mainnet it is passed:
+the same chain parameters file the genesis block is built by a function whose
+first parameter is literally called `pszTimestamp`, and on mainnet it is passed:
 
 ```cpp
 const char* pszTimestamp = "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks";
@@ -157,7 +165,9 @@ structure. What can and cannot be inferred from that single line is
 
 Timestamp rules read as fussy until you notice that a block producer has reasons
 to lie. The improvement proposal that moved lock time evaluation onto the median
-of the last eleven blocks states the motivation without decoration:
+of the last eleven blocks,
+[BIP 113](https://github.com/bitcoin/bips/blob/master/bip-0113.mediawiki),
+states the motivation without decoration:
 
 > Since the consensus rules do not mandate strict ordering of block timestamps,
 > this has the unfortunate outcome of creating a perverse incentive for miners to
@@ -168,10 +178,16 @@ The fix was to stop asking the block what time it is and start asking the median
 of its recent ancestors, a value the same producer cannot move on their own.
 
 Related mitigations exist for the difficulty side. The current code carries a
-constant `MAX_TIMEWARP = 600` in `src/consensus/consensus.h`, but the check that
-uses it is guarded by `enforce_BIP94`, and in the chain parameters that flag is
-true for testnet4 and regtest and false for mainnet, testnet3 and signet. The
-comment above the check in `validation.cpp` says "Testnet4 and regtest only". I
+constant `MAX_TIMEWARP = 600` in
+[`src/consensus/consensus.h`](https://github.com/bitcoin/bitcoin/blob/master/src/consensus/consensus.h),
+but the check that uses it is guarded by `enforce_BIP94`, and in the chain
+parameters that flag is set true for testnet4, false for mainnet, testnet3 and
+signet, and on regtest is a build option whose declared default in
+`RegTestOptions` is also false. So on the chain that carries value it is off.
+The comment above the check in `validation.cpp` says "Testnet4 and regtest only",
+naming the two networks the rule was written for rather than the two it is
+switched on for, which is a distinction worth making because the second list is
+shorter. I
 am not going to walk through how the corresponding manipulation is performed;
 what matters here is that the network's own developers treat block time as an
 adversarial input and write the rules accordingly.

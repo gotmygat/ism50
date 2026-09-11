@@ -19,8 +19,9 @@ and has no standing at all at the third. The third is the one that matters.
 
 ## Step one, and what the project says about it
 
-Bitcoin Core's own contributor guide is unusually direct about the shape of the
-arrangement. Its opening paragraph:
+Bitcoin Core's own
+[contributor guide](https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md)
+is unusually direct about the shape of the arrangement. Its opening paragraph:
 
 > First, in terms of structure, there is no particular concept of "Bitcoin Core
 > developers" in the sense of privileged people. Open source often naturally
@@ -52,8 +53,10 @@ Merging is not releasing, and the release procedure has been built specifically
 so that no single party can put a binary in front of users and have it trusted
 on their word.
 
-Releases are produced with Guix, a build system whose point is that the same
-source produces byte-identical output on unrelated machines. Independent
+Releases are produced with
+[Guix](https://github.com/bitcoin/bitcoin/blob/master/contrib/guix/README.md),
+a build system whose point is that the same source produces byte-identical
+output on unrelated machines. Independent
 builders then run the build themselves and publish signed attestations of the
 hashes they got, which are collected in a separate public repository of
 signatures. The release document instructs a builder to verify their own output

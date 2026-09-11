@@ -3,6 +3,7 @@ title: "What Running a Node Actually Meant Before Anyone Called It That"
 seoTitle: "What Running an Early Node Actually Meant"
 description: "A single program did wallet, miner, node and interface, and understanding that bundle explains most early advice that now reads as strange."
 date: 2026-09-03
+updated: 2026-09-11
 author: "Khaled Hawari"
 era: origins
 kind: profile
@@ -10,8 +11,9 @@ lede: "The first software did four jobs at once, which is why early instructions
 ---
 
 Here are the instructions, in full, as they were actually published. This is
-from the release announcement posted to the Cryptography mailing list, archived
-at metzdowd with a timestamp of Thu Jan 8 14:27:40 EST 2009:
+from the release announcement posted to the Cryptography mailing list,
+[archived at metzdowd](https://www.metzdowd.com/pipermail/cryptography/2009-January/014994.html)
+with a timestamp of Thu Jan 8 14:27:40 EST 2009:
 
 > - Unpack the files into a directory
 > - Run BITCOIN.EXE
@@ -30,15 +32,17 @@ program on the other end of the conversation actually was.
 
 ## The bundle, from the file list
 
-The earliest commit in the Bitcoin repository contains thirty-odd files. Not
-thirty directories: thirty files, in one flat folder. `main.cpp` is the largest
+[The earliest commit in the Bitcoin repository](https://github.com/bitcoin/bitcoin/tree/4405b78d6059e536c36974088a8ed4d9f0f29898)
+contains thirty-five files. Not thirty-five directories: thirty-five files, in
+one flat folder. `main.cpp` is the largest
 piece of logic at roughly eighty-four thousand bytes. `ui.cpp` and `uibase.cpp`
 are larger still, because the graphical interface was compiled into the same
 binary as the consensus code.
 
-You do not have to take the layout on trust. The declarations in `main.h` at
-that commit sit in a single list, in this order and without a boundary between
-them:
+You do not have to take the layout on trust. The declarations in
+[`main.h`](https://github.com/bitcoin/bitcoin/blob/4405b78d6059e536c36974088a8ed4d9f0f29898/main.h)
+at that commit sit in a single list, in this order and without a boundary
+between them:
 
 ```
 bool AddKey(const CKey& key);
@@ -57,9 +61,11 @@ and payment construction, declared in one header, backed by a global called
 by joining an IRC channel. There was also `market.cpp`, whose header declares
 classes named `CUser`, `CReview` and `CProduct`, which is to say that a
 marketplace with product listings and reviews was sitting in the tree of the
-first release alongside the ledger. The readme names the dependencies: wxWidgets
-for the interface, Berkeley DB for storage, OpenSSL for signatures, and it says
-plainly that "Bitcoin does not use any encryption."
+first release alongside the ledger. The
+[readme](https://github.com/bitcoin/bitcoin/blob/4405b78d6059e536c36974088a8ed4d9f0f29898/readme.txt)
+names four dependencies: wxWidgets for the interface, Berkeley DB for storage,
+OpenSSL for signatures, and Boost. It also says plainly that "Bitcoin does not
+use any encryption."
 
 So the honest count is not four jobs. It is at least six, and one of them never
 went anywhere.
@@ -95,8 +101,11 @@ about.
 Every job in that binary later became somebody else's business, and the
 sequence is the actual history of the user experience of this subject.
 
-Mining left first, in practice long before it left the code. It left the code
-formally in Bitcoin Core 0.13.0, whose release notes are blunt about why: "As
+[Mining left first](/articles/cpu-mining-as-a-hobby/), in practice long before
+it left the code. It left the code
+formally in Bitcoin Core 0.13.0, whose
+[release notes](https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.13.0.md)
+are blunt about why: "As
 CPU mining has been useless for a long time, the internal miner has been removed
 in this release." The `setgenerate` call, the direct descendant of that
 Options menu item, was removed with it.

@@ -12,9 +12,11 @@ lede: "A proposal number is a filing reference, not a decision, and treating it 
 The documents that define the improvement proposal process are themselves
 numbered proposals, which means the process can be read at its own address. This
 piece is that reading. Every quotation below comes from the current contents of
-the proposals repository, checked while writing rather than recalled.
+[the proposals repository](https://github.com/bitcoin/bips), checked while
+writing rather than recalled.
 
-Start with the definition, from the second of those documents:
+Start with the definition, from the second of those documents,
+[BIP 2](https://github.com/bitcoin/bips/blob/master/bip-0002.mediawiki):
 
 > A Bitcoin Improvement Proposal (BIP) is a design document providing information
 > to the Bitcoin community, or describing a new feature for Bitcoin or its
@@ -26,8 +28,10 @@ English and almost nobody reads it that way.
 
 ## Where the shape came from
 
-The first process document, BIP 1, ends its acknowledgements with a sentence that
-explains more about the culture of the thing than any commentary could:
+The first process document,
+[BIP 1](https://github.com/bitcoin/bips/blob/master/bip-0001.mediawiki), ends its
+acknowledgements with a sentence that explains more about the culture of the
+thing than any commentary could:
 
 > This document was derived heavily from Python's PEP-0001. In many places text
 > was simply copied and modified.
@@ -38,8 +42,9 @@ that settles money. The inheritance is visible down to the formatting: BIP 1
 specifies that every proposal "must begin with an RFC 822 style header preamble".
 
 It also inherited a decision rule. "Rough consensus" is a term of art from the
-IETF, where an entire informational RFC, number 7282, exists to explain what it
-means and to complain that practice has drifted toward majority voting. The
+IETF, where an entire informational RFC,
+[number 7282](https://www.rfc-editor.org/rfc/rfc7282.html), exists to explain
+what it means and to complain that practice has drifted toward majority voting. The
 version that landed in the revised process document is more mechanical:
 
 > Such a proposal is said to have rough consensus if it has been open to
@@ -119,8 +124,10 @@ Here is the part that makes this a primary source piece rather than a summary.
 
 Look up BIP 1 in the repository index today and its status is Closed. Look up
 BIP 2 and its status is also Closed, and its own header carries
-`Proposed-Replacement: 3`. BIP 3, titled "Updated BIP Process", authored by
-Murch, assigned 2025-01-09, has status Deployed.
+`Proposed-Replacement: 3`.
+[BIP 3](https://github.com/bitcoin/bips/blob/master/bip-0003.md), titled
+"Updated BIP Process", authored by Murch, assigned 2025-01-09, has status
+Deployed.
 
 "Deployed" is not one of the nine statuses BIP 2 defined. That is the point. The
 new document reduces the field "from nine to four", leaving Draft, Complete,
@@ -146,15 +153,19 @@ piece required checking the repository rather than trusting a memory of it.
 The practical consequence is that the status of a document and the state of the
 world come apart, in both directions, and two examples are checkable today.
 
-BIP 70, the Payment Protocol, is listed in the proposals index with status
-Deployed. Meanwhile Bitcoin Core's own `doc/bips.md` says of it that support "has
+[BIP 70](https://github.com/bitcoin/bips/blob/master/bip-0070.mediawiki), the
+Payment Protocol, is listed in the proposals index with status Deployed.
+Meanwhile Bitcoin Core's own
+[`doc/bips.md`](https://github.com/bitcoin/bitcoin/blob/master/doc/bips.md)
+says of it that support "has
 been available in Bitcoin Core GUI since v0.9.0", was disabled by default at
 build time from v0.19.0, and "has been removed as of v0.20.0". The reference
 implementation tore it out. The registry still records it as deployed, which is
 accurate about history and misleading about the present.
 
-BIP 39, the mnemonic phrase scheme behind the word list backups that consumer
-wallets ask people to write down, also carries status Deployed, and does not
+[BIP 39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki), the
+mnemonic phrase scheme behind the word list backups that consumer wallets ask
+people to write down, also carries status Deployed, and does not
 appear anywhere in Bitcoin Core's implemented list. A proposal the reference
 client did not adopt became one of the most widely implemented specifications in
 the field, on the strength of everyone else adopting it.

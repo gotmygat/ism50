@@ -3,14 +3,15 @@ title: "The constant product formula is not an equation, and k does not stay con
 seoTitle: "Constant Product: The Formula Is an Inequality"
 description: "Every explainer writes x times y equals k. The contract requires greater than or equal, on fee-adjusted balances, so k rises with every trade."
 date: 2026-08-26
+updated: 2026-09-11
 author: "Khaled Hawari"
 era: defiSummer
 kind: explainer
 lede: "The invariant everybody quotes is an equality. The one the code enforces is not, and the difference is where the money comes from."
 ---
 
-Here is the line, from the second paragraph of the Uniswap v2 whitepaper,
-describing v1:
+Here is the line, from the second paragraph of the
+[Uniswap v2 whitepaper](https://app.uniswap.org/whitepaper.pdf), describing v1:
 
 > maintaining the invariant that the product of the reserves cannot decrease
 
@@ -60,9 +61,25 @@ Two things follow that most explanations skip.
 
 **The fee is charged on the way in, so it is not 0.3% of what you get.** The
 whitepaper's own footnote does the arithmetic: relative to the amount withdrawn,
-the effective fee is `1/(1−0.003) − 1`, which is 3/997, or about 0.3009203%. A
-small difference, and a real one, and the sort of thing that separates a
-description written from the contract from one written from another description.
+the effective fee is `1/(1−0.003) − 1`, which is 3/997. A small difference, and
+a real one, and the sort of thing that separates a description written from the
+contract from one written from another description.
+
+<div class="note">
+  <span class="note__label">Check the footnote's last four digits</span>
+
+  That footnote prints the value as approximately 0.3009203%. Divide it out and
+  3/997 is 0.30090270812...%, which rounds to 0.3009027%. The printed figure has
+  two digits transposed: 0.30092 where the arithmetic gives 0.30090.
+
+  This is a typo in a footnote and it changes nothing about the mechanism. It is
+  recorded here for one reason, which is that this piece is an argument about
+  reading the source rather than the summary, and the source is a document
+  written by careful people that contains a wrong number in the one place it
+  shows its working. Every explainer that reproduces 0.3009203% is reproducing
+  it because nobody did the division. So did I, on the first pass. The correct
+  figure, to seven places, is 0.3009027%.
+</div>
 
 **The invariant is a floor, not a target.** Anyone may hand the pool more than
 the check requires. The contract does not object, and the surplus becomes part of
@@ -76,10 +93,13 @@ The received version is that Vitalik Buterin proposed constant product market
 makers in 2016 and Uniswap implemented them. Neither half survives the documents,
 and the person best placed to correct it corrected it twice.
 
-In "On Path Independence", June 2017, Buterin gives the formula
+In
+["On Path Independence"](https://vitalik.eth.limo/general/2017/06/22/marketmakers.html),
+dated 22 June 2017, Buterin gives the formula
 `tokenA_balance(p) · tokenB_balance(p) = k` and appends, in parentheses, "credit
-to Martin Koppelmann". In March 2018, on ethresear.ch, in a post whose title is
-"Improving front running resistance of x*y=k market makers", he writes:
+to Martin Koppelmann". On 2 March 2018, on ethresear.ch, in a post whose title is
+["Improving front running resistance of x*y=k market makers"](https://ethresear.ch/t/improving-front-running-resistance-of-x-y-k-market-makers/1281),
+he writes:
 
 > Martin Köppelmann from Gnosis suggested a simple approach for doing so, that I
 > call the "x*y=k market maker"
@@ -186,8 +206,10 @@ realises it; not withdrawing does not undo it.
 
 What expanded, and it is genuinely one of the most interesting expansions in the
 period, is the number of assets that could have a market at all. An order book
-needs somebody to sit on both sides of it, so an asset with no professional
-market maker has no market. A constant product pool needs nobody to sit on
+needs somebody to sit on both sides of it and, in every venue this site has
+covered so far,
+[a company holding the balances that is the only party able to count them](/articles/mt-gox-the-coins-were-already-gone/),
+so an asset with no professional market maker has no market. A constant product pool needs nobody to sit on
 anything. Three lines of arithmetic and two piles of tokens make a price, and the
 price is continuous, and it is available at three in the morning for a token
 nobody has heard of.

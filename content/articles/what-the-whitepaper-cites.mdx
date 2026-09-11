@@ -3,6 +3,7 @@ title: "Half of the Whitepaper's Bibliography Is About Timestamping Documents"
 seoTitle: "The Bitcoin Whitepaper's Citations Are About Timestamps"
 description: "Eight references sit on the last page of the nine page paper. Four are about timestamping documents. Following them changes what the design looks like."
 date: 2026-08-27
+updated: 2026-09-11
 author: "Khaled Hawari"
 era: origins
 kind: primarySource
@@ -28,13 +29,13 @@ That is four. The other four are all about timestamping.
 
 Reference two is a 1999 paper by Massias, Avila and Quisquater on designing a
 secure timestamping service with minimal trust requirements. References three,
-four and five are all Haber and Stornetta: "How to time-stamp a digital
+four and five all carry Haber and Stornetta: "How to time-stamp a digital
 document" from the Journal of Cryptology in 1991, "Improving the efficiency and
-reliability of digital time-stamping" with Dayer Bayer in 1993, and "Secure
-names for bit-strings" in 1997.
+reliability of digital time-stamping" with Dave Bayer added as first author in
+1993, and "Secure names for bit-strings" in 1997.
 
-So half the bibliography, and three of the eight entries by a single pair of
-authors, is about a problem that has nothing to do with payments. The problem
+So half the bibliography, and three of the eight entries carrying the same two
+names, is about a problem that has nothing to do with payments. The problem
 Haber and Stornetta were working on was how to prove that a document existed in
 a particular form at a particular moment, without anyone having to trust the
 party doing the proving.
@@ -87,15 +88,70 @@ competition, and the reward is where the coin comes from.
 The coin is the incentive that makes a serverless timestamp chain hold
 together. It is downstream of the timestamping problem, not the starting point.
 
+## Two of the eight are URLs, and both of them still answer
+
+Six of the references are ordinary academic citations: a journal, a conference,
+a proceedings volume, a textbook. Two are bare web addresses, typed into the
+bibliography of a paper by somebody who evidently expected them to keep working.
+
+Reference one is `http://www.weidai.com/bmoney.txt`. Reference six is
+`http://www.hashcash.org/papers/hashcash.pdf`. I fetched both while writing this
+piece, in September 2026, using nothing but a plain HTTP client.
+
+Both return 200. Not a redirect to a rehosted copy, not an archive substitute:
+the same two files, at the same two addresses the paper printed, twenty-eight
+and twenty-four years after they were written. On a subject where
+[a press release from 2014 is already gone](/articles/mt-gox-the-coins-were-already-gone/),
+that is a remarkable result and it belongs on the record.
+
+There is a catch, and it is the interesting half.
+
+Neither address will load over an encrypted connection. `weidai.com` has nothing
+listening on port 443 at all, so a browser that has been told to prefer HTTPS
+gets a refused connection rather than a warning. `hashcash.org` does answer on
+443 and then fails the handshake with a TLS alert. In both cases the document is
+reachable, and reachable only the way it was reachable in 2008, which is
+increasingly not the way a modern browser wants to reach anything.
+
+The hashcash file carries its own provenance in its metadata, which is worth
+checking because it is the kind of detail nobody bothers to. Its PDF header
+gives a creation date of 1 August 2002 and names GNU Ghostscript 5.50 as the
+producer. The citation says 2002. The file says 2002. Those two facts were
+established independently and they agree, which is not something you can say
+about most of the dates in this subject.
+
+<div class="note">
+  <span class="note__label">Why this piece links those two over plain HTTP</span>
+
+  Every other outbound link on this site is HTTPS. These two are not, because
+  these two cannot be. Rewriting `http://www.weidai.com/bmoney.txt` to `https://`
+  to make a link checker happy would produce a dead link to a document that is
+  alive, which is the precise inversion of what this site is for. They are linked
+  as the paper printed them:
+  [b-money](http://www.weidai.com/bmoney.txt) and
+  [hashcash](http://www.hashcash.org/papers/hashcash.pdf).
+  If either stops answering, the sentence above stops being true, and a reader
+  should be able to discover that by clicking rather than by trusting me.
+</div>
+
+The third URL in the document is the one on its own title page,
+`www.bitcoin.org`, and that one has been upgraded: a request for
+`http://www.bitcoin.org/bitcoin.pdf` today lands on
+[`https://bitcoin.org/bitcoin.pdf`](https://bitcoin.org/bitcoin.pdf) after a
+redirect. The paper's own home got maintained. The two documents it was standing
+on did not, and are still there anyway, which says something about the relative
+durability of a maintained property and a file nobody has had a reason to touch.
+
 ## Why this is worth the ten minutes
 
 There is a durable argument about whether the design was meant to be money,
 infrastructure, a protest, or a store of value, and it is usually conducted by
-quoting the genesis block headline at each other. The bibliography settles less
+quoting [the genesis block headline](/articles/the-genesis-block-message/) at
+each other. The bibliography settles less
 than people would like, but it settles something: the author was reading
-document integrity literature closely enough to cite three papers by the same
-two people, and structured the document so that the timestamping section comes
-before the currency.
+document integrity literature closely enough to cite three papers carrying the
+same two names, and structured the document so that the timestamping section
+comes before the currency.
 
 The reference list is on the last page. It is not behind a paywall, it is not
 disputed, and it takes about a minute to read. It stays unread for the same
@@ -106,3 +162,29 @@ one.
 Follow the citations. The paper tells you where it came from, in its own
 handwriting, and the answer is not the one that the last fifteen years of
 commentary would lead you to expect.
+
+## What was expanding, what was contracting
+
+Run the dates in the list forward and one line is unmistakable. Merkle in 1980,
+Haber and Stornetta in 1991, the three of them with Bayer in 1993, Haber and
+Stornetta again in 1997, Massias and his coauthors in 1999. Two decades of
+continuous work on a single question, which was how to establish that a document
+existed in a particular form at a particular moment without trusting whoever
+says so. That line was expanding steadily, in journals and proceedings, and it
+was not about money at any point.
+
+What was contracting, over exactly the same period and invisibly, was the
+addressability of the record it was all written into. The convention in that
+literature is a volume, a page range and a year, and a volume with a page range
+is findable in a century. The two entries in this list that broke the
+convention and gave a web address are the two that had no business surviving to
+be checked, and the sole reason the paragraphs above could check them is that
+two people, unpaid and unasked, left a text file and a PDF sitting where they
+put them. That is not a system. It is a coincidence repeated twice.
+
+Who could tell at the time? Nobody had to. A reference list is not a prediction,
+it is a receipt, and this one was itemised. The author wrote down where the
+ideas came from, in the document, on the last page, for anyone who wanted to
+follow them, and what happened instead is that the field spent fifteen years
+arguing about the author's motives while the page that answered the narrower and
+more answerable question sat unread underneath the argument.

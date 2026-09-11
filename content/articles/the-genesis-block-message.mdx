@@ -61,7 +61,10 @@ prove.
 ## The rest of the block, which nobody quotes
 
 The block header records a timestamp of 1231006505, which is 3 January 2009 at
-18:15:05 UTC. The single transaction pays 5,000,000,000 satoshis to a
+18:15:05 UTC. That figure is an assertion by whoever produced the block rather
+than an observation, and
+[the rules that keep such an assertion inside a tolerable range](/articles/how-the-network-agrees-what-time-it-is/)
+are a separate piece. The single transaction pays 5,000,000,000 satoshis to a
 pay-to-public-key script, and explorers render the corresponding address as
 `1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa`. Because there is only one transaction, the
 block's merkle root is that transaction's own identifier,
@@ -70,8 +73,9 @@ block's merkle root is that transaction's own identifier,
 And then there is the thing that genuinely is odd, which almost nobody mentions
 in the same breath as the headline: that fifty coin output cannot be spent. Not
 by convention, and not because a key was lost. Because the software refuses to
-process the block's transactions at all. From `src/validation.cpp` in Bitcoin
-Core, in the function that connects a block to the chain state:
+process the block's transactions at all. From
+[`src/validation.cpp`](https://github.com/bitcoin/bitcoin/blob/master/src/validation.cpp)
+in Bitcoin Core, in the function that connects a block to the chain state:
 
 ```cpp
 // Special case for the genesis block, skipping connection of its transactions
@@ -127,8 +131,9 @@ onto the bytes from things said years later by other people.
 
 The same discipline applies to the paper. [The whitepaper](/articles/reading-the-bitcoin-whitepaper/)
 is an engineering document that argues about double spending, incentives and
-network assumptions. It does not contain a monetary manifesto, and a headline in a
-coinbase field does not supply one on its behalf. Treating the two together as a
+network assumptions.
+[It does not contain a monetary manifesto](/articles/the-bitcoin-whitepaper-is-not-the-document-you-think/),
+and a headline in a coinbase field does not supply one on its behalf. Treating the two together as a
 declaration of intent is the single most common move in writing about this period
 and it is not supported by either document.
 

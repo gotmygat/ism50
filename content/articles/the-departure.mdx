@@ -3,6 +3,7 @@ title: "The Founder Left, and the Project Had to Invent a Way to Continue"
 seoTitle: "When Bitcoin's Founder Stopped Posting"
 description: "A pseudonymous author stopped participating, handed over repository access, and left a project with no succession plan to build one."
 date: 2026-08-31
+updated: 2026-09-11
 author: "Khaled Hawari"
 era: origins
 kind: timeline
@@ -23,8 +24,10 @@ Here is the sequence, from documents anyone can open.
 
 ## December 2010, in order
 
-**5 December, 09:08:08 UTC.** A post in a thread titled "Wikileaks contact
-info?", asking a specific organisation not to use the software:
+**5 December, 09:08:08 UTC.**
+[A post](https://satoshi.nakamotoinstitute.org/posts/bitcointalk/523/) in a
+thread titled "Wikileaks contact info?", asking a specific organisation not to
+use the software:
 
 > No, don't "bring it on".
 >
@@ -35,15 +38,19 @@ info?", asking a specific organisation not to use the software:
 > beta community in its infancy. You would not stand to get more than pocket
 > change, and the heat you would bring would likely destroy us at this stage.
 
-**11 December, 23:39:16 UTC.** The last post from the account in the mirrored
-forum archive, in a thread about a magazine article:
+**11 December, 23:39:16 UTC.** The
+[second to last post](https://satoshi.nakamotoinstitute.org/posts/bitcointalk/542/)
+from the account in the mirrored forum archive, in a thread about a magazine
+article:
 
 > It would have been nice to get this attention in any other context. WikiLeaks
 > has kicked the hornet's nest, and the swarm is headed towards us.
 
-**12 December, 18:22:33 UTC.** A release announcement on the forum, "Added some
-DoS limits, removed safe mode (0.3.19)". Its opening line is an engineer's line
-and not a valediction:
+**12 December, 18:22:33 UTC.**
+[A release announcement](https://satoshi.nakamotoinstitute.org/posts/bitcointalk/543/)
+on the forum, "Added some DoS limits, removed safe mode (0.3.19)". It is the
+last post the mirror holds, and its opening line is an engineer's line rather
+than a valediction:
 
 > There's more work to do on DoS, but I'm doing a quick build of what I have so
 > far in case it's needed, before venturing into more complex ideas.
@@ -53,8 +60,10 @@ mailing list. That is the last message in that archive, and it matches the Last
 Active timestamp of 13 December 2010 shown on the
 [forum profile](https://bitcointalk.org/index.php?action=profile;u=3).
 
-**15 December, 22:43:51 UTC.** A commit lands in the source history, authored
-under the name s_nakamoto, with the message "get external ip from irc".
+**15 December, 22:43:51 UTC.**
+[A commit](https://github.com/bitcoin/bitcoin/commit/629e37dde1fa93f6ce31544d1ebb5ee5c19052cb)
+lands in the source history, authored under the name s_nakamoto, with the
+message "get external ip from irc".
 
 **19 December, 15:39:36 UTC.** Gavin Andresen commits a change to the README of
 his own tree,
@@ -95,10 +104,12 @@ straw man and was never replaced by anything with more authority than that.
 ## Did anyone check whether he came back?
 
 This is the sort of claim that gets repeated without anyone testing it, so I
-tested it. Using the public commit history of the bitcoin repository, I listed
-every commit authored between 14 December 2010 and 1 January 2012. There are
-1,261 of them. Exactly one carries an author name containing "nakamoto", and it
-is the 15 December 2010 commit above.
+tested it. Using the public commit history of the bitcoin repository, on the
+master branch, I listed every commit authored between 14 December 2010 and
+1 January 2012. There are 1,261 of them. Exactly one carries an author name
+containing "nakamoto", and it is the 15 December 2010 commit above. The command
+is `git log master --since=2010-12-14 --until=2012-01-01 --format='%an'` against
+a clone of the repository, and anybody can re-run it.
 
 That is a narrow finding and I want to be careful about what it does and does
 not establish. It establishes that no further commit in that window was recorded
@@ -160,8 +171,8 @@ change, and crucially anyone could decline to run the result.
 A system where authority is zero and agency is widely distributed is neither a
 hierarchy nor a democracy, and fifteen years of commentary has struggled with
 that because the available vocabulary assumes one or the other. What emerged was
-a process for merging code paired with an entirely separate and much stronger
-veto held by whoever chooses which binary to run.
+a process for merging code paired with
+[an entirely separate and much stronger veto held by whoever chooses which binary to run](/articles/maintainers-not-owners/).
 
 That is the same trade the design made in the first place. [Removing the party
 who decides which spend counts](/articles/the-double-spend-problem/) removed the
