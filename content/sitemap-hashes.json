@@ -2,9 +2,9 @@
   "note": "Written by scripts/sitemap-lastmod.mjs on every build, and committed by scripts/publish-scheduled.sh after every successful deploy. COMMIT IT: it is the only record of what the last deploy actually rendered, and a sitemap lastmod is only honest if something remembers. Do not hand-edit.",
   "routes": {
     "/": {
-      "hash": "7c340e616452623018ccb0d99565259a",
-      "hashDay": "2026-09-11",
-      "lastmod": "2026-09-11"
+      "hash": "423ec265d74fad56fa7215ad56717caa",
+      "hashDay": "2026-09-12",
+      "lastmod": "2026-09-12"
     },
     "/about/": {
       "hash": "6e0157ee01fa3e1c1cf47d7b29bb272f",
@@ -12,9 +12,9 @@
       "lastmod": "2026-09-11"
     },
     "/articles/": {
-      "hash": "755858e81a0a2d0c098c3e407c66a00a",
-      "hashDay": "2026-09-11",
-      "lastmod": "2026-09-11"
+      "hash": "3c95dc238adab606dedcfd00541a4e5c",
+      "hashDay": "2026-09-12",
+      "lastmod": "2026-09-12"
     },
     "/articles/constant-product-is-an-inequality/": {
       "hash": "94e77e3e24ea54a65c4b57dd7079bd05",
@@ -65,6 +65,11 @@
       "hash": "e532733e0743ac56cdad0b84afe2b16a",
       "hashDay": "2026-09-11",
       "lastmod": "2026-09-11"
+    },
+    "/articles/rough-consensus-and-running-code/": {
+      "hash": "7fcaf489034314fe7425ddd47116761b",
+      "hashDay": "2026-09-12",
+      "lastmod": "2026-09-12"
     },
     "/articles/running-a-node-when-nobody-did/": {
       "hash": "2e47dc3802fbd59c5fc5ab77037ed2ab",
