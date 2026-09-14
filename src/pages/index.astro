@@ -202,8 +202,35 @@ const DIRECTION_LABEL = {
         </div>
       </div>
 
+      {/* AUTHORSHIP, AND WHY IT IS ON THE HOME PAGE.
+
+          Until 2026-09-14 this page linked to "Why a tax and financial
+          consultant writes this" without ever naming the consultant. The home
+          page, /articles/ and /disclaimer/ carried ZERO visible occurrences of
+          "Khaled Hawari" or "Kal Hawari". The Person node was in the JSON-LD,
+          so a parser could resolve the entity, but a reader could not and
+          neither could a generative engine assembling an answer from prose.
+
+          That mattered here more than it would elsewhere. A CTV News article
+          about a different Ottawa man of the same name competes for this name,
+          and ism50 was the one property in the estate offering no visible
+          anchor at all.
+
+          BOTH FORMS APPEAR UNBROKEN, which is the whole point: "Khaled Hawari"
+          and "Kal" are each a contiguous string here. The parenthesised form
+          "Khaled (Kal) Hawari" contains neither and is banned in prose estate
+          wide. Both current roles lead, per the standing bio rule.
+
+          Deliberately NOT in the title or an h1. Leading with the name here
+          would collide with kodelytics.ca/about and khaledhawari.com, which is
+          the self-cannibalisation that has cost this estate a page-one slot
+          three times. Body prose carries the entity without contesting the
+          query. */}
       <p style="margin-top: var(--space-6);">
-        <a href="/about/">Why a tax and financial consultant writes this</a>
+        ISM50 is written by Khaled Hawari, who goes by Kal. He is a tax and
+        financial consultant and a senior technical project manager, working
+        from Ottawa. <a href="/about/">Why a practitioner keeps this record</a>
+        is set out on the about page.
       </p>
     </div>
   </section>

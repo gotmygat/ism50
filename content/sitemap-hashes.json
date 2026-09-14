@@ -2,7 +2,7 @@
   "note": "Written by scripts/sitemap-lastmod.mjs on every build, and committed by scripts/publish-scheduled.sh after every successful deploy. COMMIT IT: it is the only record of what the last deploy actually rendered, and a sitemap lastmod is only honest if something remembers. Do not hand-edit.",
   "routes": {
     "/": {
-      "hash": "dff31ca097e891269c72cf2cd86aa7e0",
+      "hash": "2fdfca54027dab3d21997278766f26cd",
       "hashDay": "2026-09-14",
       "lastmod": "2026-09-14"
     },

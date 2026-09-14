@@ -841,3 +841,52 @@
   white-space: nowrap;
   border: 0;
 }
+
+/* ============================================================================
+   Mobile tap targets, below 768px only. PORTED from
+   khaledhawari-site/src/styles/components.css on 2026-09-14.
+
+   Measured at 375px before this block: 16 of 17 interactive elements were under
+   the 44px minimum. `.theme-toggle` 29.84px, `.site-nav a` 25.68px,
+   `.breadcrumbs a` 22.68px, `.site-footer a` 25.92px. This repo contained the
+   string "44px" exactly zero times.
+
+   Lighthouse 13 REMOVED the tap-targets audit, so this site scored 100 on every
+   category while failing it. A score is not a measurement.
+
+   NOTHING VISIBLE CHANGES. Text links get their hit area enlarged by an
+   invisible ::after overlay centred on the link box, so the footer and nav
+   rhythm is untouched and the 12px type floor documented in tokens.css is not
+   disturbed. Only the hit area grows, and only below 768px.
+   ========================================================================= */
+@media (max-width: 767px) {
+  .theme-toggle,
+  .skip-link {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .site-nav a,
+  .site-footer a,
+  .breadcrumbs a,
+  .chip {
+    position: relative;
+  }
+
+  .site-nav a::after,
+  .site-footer a::after,
+  .breadcrumbs a::after,
+  .chip::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    min-height: 44px;
+    height: 100%;
+  }
+}
