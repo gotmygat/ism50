@@ -2,9 +2,9 @@
   "note": "Written by scripts/sitemap-lastmod.mjs on every build, and committed by scripts/publish-scheduled.sh after every successful deploy. COMMIT IT: it is the only record of what the last deploy actually rendered, and a sitemap lastmod is only honest if something remembers. Do not hand-edit.",
   "routes": {
     "/": {
-      "hash": "2fdfca54027dab3d21997278766f26cd",
-      "hashDay": "2026-09-14",
-      "lastmod": "2026-09-14"
+      "hash": "9cea8d9ff2a89b8409c337ba36d56ec0",
+      "hashDay": "2026-09-15",
+      "lastmod": "2026-09-15"
     },
     "/about/": {
       "hash": "6e0157ee01fa3e1c1cf47d7b29bb272f",
@@ -12,9 +12,9 @@
       "lastmod": "2026-09-11"
     },
     "/articles/": {
-      "hash": "c1ddca724f809621f5429acbfbef7972",
-      "hashDay": "2026-09-14",
-      "lastmod": "2026-09-14"
+      "hash": "465daebc250ac6b23eb9c2c3724bcac9",
+      "hashDay": "2026-09-15",
+      "lastmod": "2026-09-15"
     },
     "/articles/constant-product-is-an-inequality/": {
       "hash": "94e77e3e24ea54a65c4b57dd7079bd05",
@@ -40,6 +40,11 @@
       "hash": "258acf0ec00ad6608ac621b9565e0d52",
       "hashDay": "2026-09-11",
       "lastmod": "2026-09-11"
+    },
+    "/articles/faucets-and-the-distribution-problem/": {
+      "hash": "064a3a07d1ce82969f9dadfa9cdf8d02",
+      "hashDay": "2026-09-15",
+      "lastmod": "2026-09-15"
     },
     "/articles/hal-finney-and-the-first-node/": {
       "hash": "ac5abe117458ec631a1ad755f07ba5f0",
