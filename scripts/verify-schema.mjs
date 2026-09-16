@@ -120,7 +120,7 @@ const EXPECTED_SAME_AS = [
   "https://www.linkedin.com/in/khaledhawariottawa/",
   "https://x.com/khaledkalhawari",
   "https://www.facebook.com/KalHawari/",
-  "https://www.instagram.com/kalhawari992",
+  "https://www.instagram.com/kalhawari",
   "https://www.google.com/search?kgmid=/g/11ysq87cg_",
   "https://www.wikidata.org/wiki/Q138780576",
   "https://medium.com/@khaledhawariottawa",
