@@ -2,9 +2,9 @@
   "note": "Written by scripts/sitemap-lastmod.mjs on every build, and committed by scripts/publish-scheduled.sh after every successful deploy. COMMIT IT: it is the only record of what the last deploy actually rendered, and a sitemap lastmod is only honest if something remembers. Do not hand-edit.",
   "routes": {
     "/": {
-      "hash": "9cea8d9ff2a89b8409c337ba36d56ec0",
-      "hashDay": "2026-09-15",
-      "lastmod": "2026-09-15"
+      "hash": "74816f1b74e652fba53e291f29e275c4",
+      "hashDay": "2026-09-16",
+      "lastmod": "2026-09-16"
     },
     "/about/": {
       "hash": "6e0157ee01fa3e1c1cf47d7b29bb272f",
@@ -12,9 +12,9 @@
       "lastmod": "2026-09-11"
     },
     "/articles/": {
-      "hash": "465daebc250ac6b23eb9c2c3724bcac9",
-      "hashDay": "2026-09-15",
-      "lastmod": "2026-09-15"
+      "hash": "bd4d0ee39c4dcba9bca4bd8269d08b2d",
+      "hashDay": "2026-09-16",
+      "lastmod": "2026-09-16"
     },
     "/articles/constant-product-is-an-inequality/": {
       "hash": "94e77e3e24ea54a65c4b57dd7079bd05",
@@ -125,6 +125,11 @@
       "hash": "be6131af823fbebebe426e27245e5b31",
       "hashDay": "2026-09-11",
       "lastmod": "2026-09-11"
+    },
+    "/articles/what-a-soft-fork-actually-is/": {
+      "hash": "5c5303f40b4377f13b440ce1339be4ff",
+      "hashDay": "2026-09-16",
+      "lastmod": "2026-09-16"
     },
     "/articles/what-the-whitepaper-cites/": {
       "hash": "05f19347ac6db1991c66bc94e8eefe13",
