@@ -2,9 +2,9 @@
   "note": "Written by scripts/sitemap-lastmod.mjs on every build, and committed by scripts/publish-scheduled.sh after every successful deploy. COMMIT IT: it is the only record of what the last deploy actually rendered, and a sitemap lastmod is only honest if something remembers. Do not hand-edit.",
   "routes": {
     "/": {
-      "hash": "74816f1b74e652fba53e291f29e275c4",
-      "hashDay": "2026-09-16",
-      "lastmod": "2026-09-16"
+      "hash": "b8caf1aa90c19a88801911d55e5335c6",
+      "hashDay": "2026-09-17",
+      "lastmod": "2026-09-17"
     },
     "/about/": {
       "hash": "6e0157ee01fa3e1c1cf47d7b29bb272f",
@@ -12,9 +12,9 @@
       "lastmod": "2026-09-11"
     },
     "/articles/": {
-      "hash": "bd4d0ee39c4dcba9bca4bd8269d08b2d",
-      "hashDay": "2026-09-16",
-      "lastmod": "2026-09-16"
+      "hash": "f10454be8769657f62555ac9d66eae20",
+      "hashDay": "2026-09-17",
+      "lastmod": "2026-09-17"
     },
     "/articles/constant-product-is-an-inequality/": {
       "hash": "94e77e3e24ea54a65c4b57dd7079bd05",
@@ -95,6 +95,11 @@
       "hash": "726d4df9d5b0e96acec61af2fbb8beb5",
       "hashDay": "2026-09-11",
       "lastmod": "2026-09-11"
+    },
+    "/articles/the-crypto-wars/": {
+      "hash": "6f4bd1a0013e79a25f2ed0ad55dda80a",
+      "hashDay": "2026-09-17",
+      "lastmod": "2026-09-17"
     },
     "/articles/the-cypherpunks-list/": {
       "hash": "fc5211725a7c43f9dc8a7b786ae1ee5d",
