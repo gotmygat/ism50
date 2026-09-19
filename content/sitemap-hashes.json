@@ -2,9 +2,9 @@
   "note": "Written by scripts/sitemap-lastmod.mjs on every build, and committed by scripts/publish-scheduled.sh after every successful deploy. COMMIT IT: it is the only record of what the last deploy actually rendered, and a sitemap lastmod is only honest if something remembers. Do not hand-edit.",
   "routes": {
     "/": {
-      "hash": "45fc4dbcf2123a9bcaa29d98761f5c2d",
-      "hashDay": "2026-09-18",
-      "lastmod": "2026-09-18"
+      "hash": "e39b8e6f1718d074a9b505e5a294ba24",
+      "hashDay": "2026-09-19",
+      "lastmod": "2026-09-19"
     },
     "/about/": {
       "hash": "6e0157ee01fa3e1c1cf47d7b29bb272f",
@@ -12,9 +12,9 @@
       "lastmod": "2026-09-11"
     },
     "/articles/": {
-      "hash": "7f050fbb65b5b4e8dda4bf000ee5f086",
-      "hashDay": "2026-09-18",
-      "lastmod": "2026-09-18"
+      "hash": "ae3031e0222b3f03239a18030d6fb33b",
+      "hashDay": "2026-09-19",
+      "lastmod": "2026-09-19"
     },
     "/articles/constant-product-is-an-inequality/": {
       "hash": "94e77e3e24ea54a65c4b57dd7079bd05",
@@ -50,6 +50,11 @@
       "hash": "ac5abe117458ec631a1ad755f07ba5f0",
       "hashDay": "2026-09-11",
       "lastmod": "2026-09-11"
+    },
+    "/articles/how-a-thing-with-no-price-gets-one/": {
+      "hash": "b78a611c60fc5bf77939ab1f619e237d",
+      "hashDay": "2026-09-19",
+      "lastmod": "2026-09-19"
     },
     "/articles/how-the-network-agrees-what-time-it-is/": {
       "hash": "e3a0dd87ab1fc683720b7df15cdf4d92",
