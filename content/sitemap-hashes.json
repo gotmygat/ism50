@@ -2,9 +2,9 @@
   "note": "Written by scripts/sitemap-lastmod.mjs on every build, and committed by scripts/publish-scheduled.sh after every successful deploy. COMMIT IT: it is the only record of what the last deploy actually rendered, and a sitemap lastmod is only honest if something remembers. Do not hand-edit.",
   "routes": {
     "/": {
-      "hash": "e39b8e6f1718d074a9b505e5a294ba24",
-      "hashDay": "2026-09-19",
-      "lastmod": "2026-09-19"
+      "hash": "bfa2af37104749346fe6a2790f757ea9",
+      "hashDay": "2026-09-20",
+      "lastmod": "2026-09-20"
     },
     "/about/": {
       "hash": "6e0157ee01fa3e1c1cf47d7b29bb272f",
@@ -12,9 +12,9 @@
       "lastmod": "2026-09-11"
     },
     "/articles/": {
-      "hash": "ae3031e0222b3f03239a18030d6fb33b",
-      "hashDay": "2026-09-19",
-      "lastmod": "2026-09-19"
+      "hash": "ae276859e76fb5544ef75ba1c66f218f",
+      "hashDay": "2026-09-20",
+      "lastmod": "2026-09-20"
     },
     "/articles/constant-product-is-an-inequality/": {
       "hash": "94e77e3e24ea54a65c4b57dd7079bd05",
@@ -135,6 +135,11 @@
       "hash": "be6131af823fbebebe426e27245e5b31",
       "hashDay": "2026-09-11",
       "lastmod": "2026-09-11"
+    },
+    "/articles/what-a-hard-fork-actually-is/": {
+      "hash": "1db710d575f7f04176d83064080cacc9",
+      "hashDay": "2026-09-20",
+      "lastmod": "2026-09-20"
     },
     "/articles/what-a-soft-fork-actually-is/": {
       "hash": "5c5303f40b4377f13b440ce1339be4ff",
