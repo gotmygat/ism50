@@ -2,9 +2,9 @@
   "note": "Written by scripts/sitemap-lastmod.mjs on every build, and committed by scripts/publish-scheduled.sh after every successful deploy. COMMIT IT: it is the only record of what the last deploy actually rendered, and a sitemap lastmod is only honest if something remembers. Do not hand-edit.",
   "routes": {
     "/": {
-      "hash": "fbdfa40e81eff77ac6b268aeafdd2809",
-      "hashDay": "2026-09-21",
-      "lastmod": "2026-09-21"
+      "hash": "8c03f681bffc7c262544d726a00d66cd",
+      "hashDay": "2026-09-22",
+      "lastmod": "2026-09-22"
     },
     "/about/": {
       "hash": "6e0157ee01fa3e1c1cf47d7b29bb272f",
@@ -12,9 +12,9 @@
       "lastmod": "2026-09-11"
     },
     "/articles/": {
-      "hash": "269ab495836e8440f41d29f4b2185a62",
-      "hashDay": "2026-09-21",
-      "lastmod": "2026-09-21"
+      "hash": "00b6c566e93c90804d85ab2eb2f0804d",
+      "hashDay": "2026-09-22",
+      "lastmod": "2026-09-22"
     },
     "/articles/constant-product-is-an-inequality/": {
       "hash": "94e77e3e24ea54a65c4b57dd7079bd05",
@@ -130,6 +130,11 @@
       "hash": "30785e21ad64418b74d4e796def50ad7",
       "hashDay": "2026-09-14",
       "lastmod": "2026-09-14"
+    },
+    "/articles/the-first-transaction-on-chain/": {
+      "hash": "118fc7a058b766844b291a1129fb820b",
+      "hashDay": "2026-09-22",
+      "lastmod": "2026-09-22"
     },
     "/articles/the-forum-as-the-only-record/": {
       "hash": "85907d8612c5d392021be9daed4848e5",
