@@ -2,9 +2,9 @@
   "note": "Written by scripts/sitemap-lastmod.mjs on every build, and committed by scripts/publish-scheduled.sh after every successful deploy. COMMIT IT: it is the only record of what the last deploy actually rendered, and a sitemap lastmod is only honest if something remembers. Do not hand-edit.",
   "routes": {
     "/": {
-      "hash": "8c03f681bffc7c262544d726a00d66cd",
-      "hashDay": "2026-09-22",
-      "lastmod": "2026-09-22"
+      "hash": "ebe1611e443ed9b580b0bfafd6666643",
+      "hashDay": "2026-09-23",
+      "lastmod": "2026-09-23"
     },
     "/about/": {
       "hash": "6e0157ee01fa3e1c1cf47d7b29bb272f",
@@ -12,9 +12,9 @@
       "lastmod": "2026-09-11"
     },
     "/articles/": {
-      "hash": "00b6c566e93c90804d85ab2eb2f0804d",
-      "hashDay": "2026-09-22",
-      "lastmod": "2026-09-22"
+      "hash": "8e91f640c90573309e8c6607ece1db3a",
+      "hashDay": "2026-09-23",
+      "lastmod": "2026-09-23"
     },
     "/articles/constant-product-is-an-inequality/": {
       "hash": "94e77e3e24ea54a65c4b57dd7079bd05",
@@ -145,6 +145,11 @@
       "hash": "be6131af823fbebebe426e27245e5b31",
       "hashDay": "2026-09-11",
       "lastmod": "2026-09-11"
+    },
+    "/articles/the-pizza-transaction-as-folklore/": {
+      "hash": "127f269c441bd3d60609ebd6126255e9",
+      "hashDay": "2026-09-23",
+      "lastmod": "2026-09-23"
     },
     "/articles/what-a-hard-fork-actually-is/": {
       "hash": "1db710d575f7f04176d83064080cacc9",
