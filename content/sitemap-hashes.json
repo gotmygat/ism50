@@ -2,9 +2,9 @@
   "note": "Written by scripts/sitemap-lastmod.mjs on every build, and committed by scripts/publish-scheduled.sh after every successful deploy. COMMIT IT: it is the only record of what the last deploy actually rendered, and a sitemap lastmod is only honest if something remembers. Do not hand-edit.",
   "routes": {
     "/": {
-      "hash": "1ec68c26b328be00e6ab9a5346f6cb77",
-      "hashDay": "2026-09-24",
-      "lastmod": "2026-09-24"
+      "hash": "38833f2a3b9e9b48d19bf8a2ad95dbfc",
+      "hashDay": "2026-09-25",
+      "lastmod": "2026-09-25"
     },
     "/about/": {
       "hash": "6e0157ee01fa3e1c1cf47d7b29bb272f",
@@ -12,9 +12,14 @@
       "lastmod": "2026-09-11"
     },
     "/articles/": {
-      "hash": "b3828b0e296bd1461892fa0c10cfa89d",
-      "hashDay": "2026-09-24",
-      "lastmod": "2026-09-24"
+      "hash": "b886dcf58f9006cd122d68a1a457645d",
+      "hashDay": "2026-09-25",
+      "lastmod": "2026-09-25"
+    },
+    "/articles/b-money-the-proposal/": {
+      "hash": "cf6d367f712062e2044ec941372a5e05",
+      "hashDay": "2026-09-25",
+      "lastmod": "2026-09-25"
     },
     "/articles/constant-product-is-an-inequality/": {
       "hash": "94e77e3e24ea54a65c4b57dd7079bd05",
