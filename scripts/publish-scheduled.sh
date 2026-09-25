@@ -113,6 +113,8 @@ while [ "$waited" -le "$LOCK_WAIT_SECONDS" ]; do
   stale=0
   stale_reason=""
 
+  holder_confirmed_live=0
+
   if [ -z "$stale_pid" ]; then
     # No pid recorded. Age alone decides; see the ceiling check below.
     :
@@ -123,15 +125,35 @@ while [ "$waited" -le "$LOCK_WAIT_SECONDS" ]; do
     # Alive, but it is not one of ours: the pid was recycled.
     stale=1
     stale_reason="pid $stale_pid is not a publisher (recycled pid)"
+  else
+    # Alive, and genuinely one of ours. It is working, not stuck.
+    holder_confirmed_live=1
   fi
 
   # The catch-all, and the only check that works with no pid file at all.
-  lock_mtime=$(stat -f %m "$LOCK_DIR" 2>/dev/null || echo "")
-  if [ -n "$lock_mtime" ]; then
-    lock_age=$(( $(date +%s) - lock_mtime ))
-    if [ "$lock_age" -gt "$LOCK_STALE_SECONDS" ]; then
-      stale=1
-      stale_reason="held ${lock_age}s, past the ${LOCK_STALE_SECONDS}s ceiling"
+  #
+  # It is GATED on not having confirmed a live publisher above, and that gate is
+  # the whole point. It used to run unconditionally, which meant the age ceiling
+  # overrode the liveness check it sits below: a publisher we had just proven was
+  # alive and genuinely ours still had its lock taken away the moment it passed
+  # 7200s. That is not a hypothetical. On 2026-09-25 this machine was under a load
+  # average of 118 from a CI job, publish runs that normally take 20 to 45 seconds
+  # took 23 to 180 minutes, and the ceiling was breached and force-cleared three
+  # times (8460s and 8093s on kna-group, 22008s on khaledhawari). The result was
+  # FOUR publishers running against Firebase Hosting concurrently, roughly 08:52
+  # to 10:15, which is exactly the concurrency this lock exists to prevent and
+  # which this script elsewhere documents as the cause of a five-site outage.
+  #
+  # A slow publisher is not a stale one. Only take the lock from a holder we
+  # cannot confirm is alive and ours.
+  if [ "$holder_confirmed_live" -eq 0 ]; then
+    lock_mtime=$(stat -f %m "$LOCK_DIR" 2>/dev/null || echo "")
+    if [ -n "$lock_mtime" ]; then
+      lock_age=$(( $(date +%s) - lock_mtime ))
+      if [ "$lock_age" -gt "$LOCK_STALE_SECONDS" ]; then
+        stale=1
+        stale_reason="held ${lock_age}s past the ${LOCK_STALE_SECONDS}s ceiling, holder not confirmable"
+      fi
     fi
   fi
 
