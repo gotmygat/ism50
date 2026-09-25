@@ -112,6 +112,7 @@ export const PERSON_SAME_AS = [
   "https://soundcloud.com/khaled-hawari-ottawa",
   "https://about.me/khaledhawariottawa",
   "https://about.me/kalhawari",
+  "https://about.me/khaledhawari",
   "https://www.crunchbase.com/person/khaled-hawari-ottawa",
   "https://issuu.com/khaledhawariottawa",
   "https://www.slideshare.net/KhaledHawariOttawa",
